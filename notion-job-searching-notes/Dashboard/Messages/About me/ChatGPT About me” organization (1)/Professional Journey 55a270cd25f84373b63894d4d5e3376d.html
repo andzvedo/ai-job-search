@@ -1,0 +1,772 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Professional Journey</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="55a270cd-25f8-4373-b638-94d4d5e3376d" class="page sans"><header><h1 class="page-title" dir="auto">Professional Journey</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><ul id="8bba3d47-173f-40a5-93d6-f596d99c1a92" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Always working in the Design Field<p id="ac6e6ea9-d067-419e-8ba3-e10958b1a7f3" class="" dir="auto">I have 12 years of experience in the design field, working with graphic design, web design, service design, and UX/Product design.</p><p id="e89fc210-c6fe-4bbf-852c-68697ddab94a" class="" dir="auto">Variety of Design sectors</p><ul id="74ee5e9c-65d4-42af-aa3c-d788e78d7d60" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Print, Brand, and Web Design</li></ul></li></ul><ul id="f256d3c9-0e5c-445d-ba4c-40518ab48315" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Graduated as a Graphic Designer, and I&#x27;ve always been working in Design since 2012<ul id="57a8c0c5-c981-4b43-8614-cfa9b8e0a813" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Started with Printing, Branding, and Web Design</li></ul><ul id="6a55f1a0-08f4-4f42-acd3-e93cb002dc0c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Web Design led me to the world of UX</li></ul></li></ul><ul id="ea52bec8-ab16-458e-9f11-eb33b9513137" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience as an entrepreneur -Co-founded a gym called Treee Wellness<ul id="999bafc9-b5f5-4ce6-b150-9ac3c1d2da26" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Experience as entrepreneur</li></ul><ul id="45d07aa2-851d-43b2-b926-24da52f9e02a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Got me into the Business side of things and how to apply my knowledge as a Designer for a Service.</li></ul><ul id="258b8115-01c0-46f6-a0ff-4b92c23e9fe8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Led me to do a Specialization in User-Centered Design</li></ul></li></ul><ul id="0bb8a756-eccb-4e5b-989c-9c4e40651b01" class="bulleted-list" dir="auto"><li style="list-style-type:disc">In 2018 starts my focus on the world of Design for Digital Products and Software<ul id="ae7cf415-a8f0-436d-900d-f344883d23d9" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Innovation, Research, and Service Design - ONOVOLAB</li></ul><ul id="2dff6382-86cd-4973-b97e-972f82511147" class="bulleted-list" dir="auto"><li style="list-style-type:circle">UX/UI - More User interface Design - Luizalabs</li></ul><ul id="20aece8a-c899-4de0-ac8a-51fc2e725687" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Product Design - Arquivei</li></ul><ul id="8441a9d6-8116-4a8c-94af-03ba2e08c68b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Product Design with a SaaS - Arquivei</li></ul><ul id="d85fe277-6d9f-40c2-9b17-a1c782b87ae6" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I started my international career as a freelancer UX/UI Designer for Emerald Works/ Mindtools;</li></ul><ul id="602269a3-7ebf-4464-8481-d32d2ddebf36" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Joined Bitso as Product Designer - Crypto industry</li></ul><ul id="4b80c9ae-891d-438b-b61a-33577633ffbd" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Joined Bitso;</li></ul><ul id="45cb8b2d-684f-46ae-b86d-e29c1cc02fdb" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Joined SIA (Ed tech)- Affected by a layoff;</li></ul><ul id="4611df61-51e3-41f6-a147-1298477a2698" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Joined Blackbird part-time.</li></ul></li></ul><p id="db2359c9-8937-4ab6-81af-e78d6b1f7a7b" class="" dir="auto">As a designer, I believe understanding people is fundamental to any design solution. My father, who is a merchant, taught me that to be able to serve them well, you need to listen to and treat them with care and respect. Using strategic thinking and a human-centered design approach, I&#x27;ve been helping tech teams to deliver meaningful lean solutions in a collaborative fashion.</p><p id="ff301bf6-4399-4ccf-97fb-f4e9646ef4e5" class="" dir="auto">I am experienced in various design disciplines, including graphic design, web design, service design, UX/UI design, and product design.</p><p id="29ccb6e7-d813-42ca-8211-109ba8895733" class="" dir="auto">For the past 6 years, I have worked as a Designer in tech, collaborating with cross-functional teams in more than six industry sectors, including consultancy, retail, fintech, edtech, and artificial intelligence, from companies in Brazil, Mexico, and the United States. I am also experienced with the open-source design community.</p><p id="f3163d5b-eacd-4a22-be59-f0ad58fafc09" class="" dir="auto">I&#x27;m seeking new opportunities to challenge myself as a designer, make connections, and transform abstract ideas into something tangible. If you would like to know more about myself or my design process, please let me know. I&#x27;d be glad to explain it.</p><p id="4501b3ca-53c5-45f6-972f-d075387e1bfe" class="" dir="auto">
+</p><p id="87b705e9-6fa4-4a67-969a-793069620b1e" class="" dir="auto">I am an experienced Human-Centered Product Designer who applies Strategic Thinking to help cross-functional teams collaboratively deliver meaningful solutions. With over 12 years of experience in various design disciplines, including graphic design, web design, UX/UI, and product design, I have collaborated with teams across different industry sectors, from fintech to artificial intelligence. By leveraging a deep understanding of people and their needs, I am able to navigate through ambiguity and translate complexity into easy-to-use, evidence-based designs that address real-world problems.</p><p id="7c91c886-c1c1-4902-bcb8-ac6eb485aa40" class="" dir="auto">
+</p><p id="3dc57086-aec1-41cb-acd0-c234b0e208a7" class="" dir="auto">The most important and challenging part of the design process is to understand people. Without understand then, there isn&#x27;t possible to create value at any kind for them, and to me, this is the secret sauce for innovation.</p><p id="5cdc1f2e-47b0-4116-8ba6-aa9fc785918a" class="" dir="auto">
+</p><p id="a6e8a974-8733-4fb9-801a-be83567c38e8" class="" dir="auto">My focus today are UX/UI works and how to create meaningful solutions for people, that help organizations bring value to their users and customers and as a Designer I used human-centred design approach and agile methods.</p><p id="1367d709-6075-40de-bfaa-e8d1d5ab89e6" class="" dir="auto">Would you like to know more about my design process? Please, Let me know, I would be glad to explain the way I work.</p><p id="febdd024-30da-434c-b2b7-5e7e8305bcd3" class="" dir="auto">
+</p><div dir="auto"><p id="8ac384c3-1a03-4def-ac0f-dcd0c54ce1d6" class="" dir="auto">12 years of experience in the Design field. Working with Graphic Design, Printing, Packaging, Service Design, and UX Design.</p><ul id="bdca7dc9-d015-4b13-8a99-3b4af551fc28" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Always working with Design<ul id="3ef865c4-65fc-4078-ace9-d4044269acb8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Print, Brand, and Web Design</li></ul></li></ul><p id="f9372ab6-feca-4f75-9ce6-826dd40cdba3" class="" dir="auto">6 years working as a Designer in Tech, together with cross-functional teams.</p><p id="7853ca7c-371c-4095-862e-e308cc2e30c7" class="" dir="auto">Experience in more than 6 industry sectors (Consultancy, Retail, Fintech, Edtech, and Artificial Intelligence), from big companies to early-stage startups.</p><p id="a5488d5e-62e2-428f-9426-90902e8eecf4" class="" dir="auto">Companies from Brazil, Mexico, and the United States.</p><p id="d20ed682-d708-4aaf-83ca-d5ba1142aeb4" class="" dir="auto">Experience with the Open source Design Community.</p></div><p id="12985ff4-4c61-4256-8e33-bc65ee7ea764" class="" dir="auto">
+</p><ul id="e5706312-06e7-4cc8-ba8c-12a499ef8086" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience as an entrepreneur - Co-founded a gym.</li></ul><ul id="dff9b627-2113-4743-8a9d-3d5818da6423" class="bulleted-list" dir="auto"><li style="list-style-type:disc">In 2018 starts my focus on the world of Design for Digital Products and Software<ul id="0be35c6a-175c-4f28-b9e3-32b4c2aca1ca" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Innovation, Research, and Service Design - ONOVOLAB</li></ul><ul id="bfa20d63-0dce-4770-8838-7f6c350633b0" class="bulleted-list" dir="auto"><li style="list-style-type:circle">UX/UI - More User interface Design - Luizalabs</li></ul><ul id="f0c59d0c-32c7-41e4-a882-b1e529d47336" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Product Design - Arquivei</li></ul><ul id="5690695b-0986-40f7-ad5e-e435ded2c81d" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I started my international career as a freelancer UX/UI Designer for Emerald Works/ Mindtools;</li></ul><ul id="cb6ebb8c-6dab-48c0-aa5e-5423a133823d" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Joined Bitso;</li></ul><ul id="e9e5d63a-dfeb-4e47-a9f4-d07cb5c86747" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Joined SIA - Affected by a layoff;</li></ul><ul id="55794293-8f83-40c5-b9c7-4ff1079d26dc" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Joined Blackbird part-time.</li></ul></li></ul><h3 id="a6f4a450-490c-41e3-9177-644b1956e658" class="" dir="auto">Leadership initiatives - Product Design Guild in Bitso</h3><p id="b0b172ad-b568-41a9-aa2a-7c7fdcea5bc6" class="" dir="auto">I coordenated the Product Design Guild initiative in Bitso. </p><p id="cd8d3a39-a87b-4a11-a389-ade65a53ec31" class="" dir="auto">A guild is a side project where I had the challenge to define the discipline inside the company together with a group of 16 product designers. </p><p id="43fef4ca-ded0-4d98-96db-cf9ee5087e88" class="" dir="auto">The first idea was to have a space to discuss the Product Design discipline, but we didn&#x27;t have any objectives or goals set. </p><p id="56cfafd1-f153-4589-aa1b-6a34266e6c31" class="" dir="auto">So I thought in transform these meetings into a workshops session, to start exploring in a more collaborative way, what are the current situation for the PD perspectives and, based on that, what we should focus on. With the attempt to give a voice to everyone and the desire to create a safe space as well.</p><p id="c0e63a1e-4e2c-4a14-be19-7a540034444b" class="" dir="auto">Everything was very organic and passing the time I was iterating the ideas based on the feedback/ suggestions of other Product designers.</p><p id="cf9224a9-c71c-40cc-ad47-e39afcdd0fbe" class="" dir="auto">Currently, we divided the team into four small groups trying to work on some specifics topics that the product designers mapped and voted as the most complex pains they were facing at the moment and creating some experiments that could improve the current situation in any way.</p><p id="618a9b00-3d76-4b66-9a96-7e8d4eb651ad" class="" dir="auto">And the desired outcome that we want to achieve by the end of the year is to have the learnings of this journey transformed into some basic guidelines of how the Product Designers could face these topics to avoid having the same pain again in the future.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

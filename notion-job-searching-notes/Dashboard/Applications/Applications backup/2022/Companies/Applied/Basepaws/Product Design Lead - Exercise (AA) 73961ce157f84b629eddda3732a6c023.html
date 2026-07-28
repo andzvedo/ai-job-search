@@ -1,0 +1,776 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Product Design Lead - Exercise (AA)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="73961ce1-57f8-4b62-9edd-da3732a6c023" class="page sans"><header><h1 class="page-title" dir="auto">Product Design Lead - Exercise (AA)</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="f5737a5b-2cb8-4ab1-b936-493dc33db6f0" class="" dir="auto">Task</h1><ul id="b48495a8-6698-4a9c-84d1-562619d8cb81" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-on" disabled="" checked=""/> <span class="to-do-children-checked">Take a look at the Job description and my interview notes</span><div class="indented"><ul id="9ba6ede8-1899-48c8-808e-937a24412ec6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Understand d what the company is looking for in the Lead PD position</li></ul></div></li></ul><ul id="cdf6f58e-3d45-4294-bf0a-45eb1d842cd1" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">Look at PD books to find inspiration in the process</span><div class="indented"></div></li></ul><p id="fe5c831f-3082-4cc1-ae80-1a285f77134d" class="" dir="auto">
+</p><ul id="544a48cb-bf69-4586-a06b-d44ba9287a92" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Research: Explore<ul id="00e64550-3752-46e9-aac0-9a8c14043006" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Insights &gt; Opportunities</li></ul><ul id="fcca8845-3d84-42df-baa6-0b9b4d24c802" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Exploratory</li></ul><ul id="9c1d93cb-189b-45e5-b263-26e425f22544" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Attitudes - How users <span style="border-bottom:0.05em solid">FEEL</span> or what they <span style="border-bottom:0.05em solid">SAY</span> about your product</li></ul></li></ul><ul id="efc9d4ba-a4b6-48b3-beee-8d3cd7f4a499" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Test: Evaluate<ul id="158ac278-6d9c-41aa-8dbf-a7e9e8ae8b44" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Learn the user&#x27;s behavior interacting with the product<ul id="6a2b4a25-88f2-44c9-8f3b-d9b3ccde8293" class="bulleted-list" dir="auto"><li style="list-style-type:square">Behavior - What users <span style="border-bottom:0.05em solid">DO</span> or how they <span style="border-bottom:0.05em solid">INTERACT</span> with the product</li></ul></li></ul></li></ul><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="e17658e1-9fc7-42a7-9768-858eb0991a21" style="display:inline-block">Exercise details</h1></summary><div class="indented"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="f1b95a18-d95d-4142-9691-23e264120349" style="display:inline-block"><strong>Email Description</strong></h3></summary><div class="indented"><p id="fe763348-d983-4dd3-a30a-f29e011e566d" class="" dir="auto">Thanks for your question and my apologies for the delay. Ahead of our conversation, we&#x27;d love for you to review the linked document <a href="https://docs.google.com/document/d/1zXL5Pfjf2wPZ8jO92O9HsH_foLsjAf6CueY86otTf4s/edit?usp=sharing">here</a> and <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">prepare to discuss as follows (instructions below in italics</mark>). I will share the document as well to ensure the link works, but please let me know if you have any trouble accessing it.</p><p id="fcb6565d-7bcc-4f14-ab79-8629206ec45b" class="" dir="auto">
+</p><p id="1dfbad60-e04b-4a3a-aac8-cfcab9ba02d4" class="" dir="auto">I am also aware that I am sending this with a small amount of notice, so please let me know if you need a bit more time to review ahead of our conversation. </p><p id="47acfe48-b930-4030-9ae5-99058211cbd4" class="" dir="auto">
+</p><p id="4bf08c5e-79db-48f9-aa82-cb75b7208b67" class="" dir="auto">Let me know if you have any questions as well upon reviewing the exercise. Thanks again and looking forward to chatting again!</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="3572be7a-547a-481a-b5ce-31b270c46139" style="display:inline-block">Instructions<mark class="highlight-gray" data-notion-highlight="gray"><del> below (and in the linked document):</del></mark></h3></summary><div class="indented"><details id="e099455a-9e37-46bf-8670-d3ffd75bb33c" open="" class="toggle" dir="auto"><summary><strong>Summary</strong></summary><div class="indented"><p id="cdfd085d-2257-4048-ad79-a42e6f4f5677" class="" dir="auto">Discuss Questions I have, and Answers if they have them,</p><p id="b71e7508-e1ab-4492-a871-7c2af8aa35bb" class="" dir="auto">How we would think about <span style="border-bottom:0.05em solid"><strong>planning</strong></span> to <strong>learn that information</strong></p><p id="65e99cfc-5dc8-4d2c-9546-33cf2aa3f849" class="" dir="auto">How you would move forward in the design process. </p><ul id="ed9cf7b7-a8b9-4117-a003-0643e8650fce" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Designing the smallest possible thing <ul id="8ad4a951-986b-4f2a-9b25-993544bcd8f8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">That can <span style="border-bottom:0.05em solid"><strong>deliver value to our users</strong></span> and also help us to answer the questions raised</li></ul></li></ul><p id="d6f6c9b7-5336-4554-acad-129c419f461d" class="" dir="auto">You do not need to send over anything in advance; </p><p id="37c1f4f7-3822-4282-b115-6908226ef519" class="" dir="auto">
+</p></div></details><ul id="8a1b6479-b9ab-4ac2-946e-f70db3f09848" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">Review the <a href="https://docs.google.com/document/d/1zXL5Pfjf2wPZ8jO92O9HsH_foLsjAf6CueY86otTf4s/edit?usp=sharing">linked product documentation</a></span><div class="indented"></div></li></ul><ul id="6b31e2d8-29d1-4d9f-808c-6805aa57d0e1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><mark class="highlight-yellow_background" data-notion-highlight="yellow_background"><strong>outline key areas</strong></mark> you would want to better understand <strong>before</strong> moving forward with the <strong>design process</strong>. <ul id="962f56fe-3f0d-4601-85c8-2ebdd67af56d" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Please note, the <strong>goal of this exercise </strong>is to <aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="19ea3272-7c5a-416c-a8ce-27c78122809d" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%"><strong>Understand how you would approach the design process </strong>based on an early-stage, high-level document such as this, not produce <strong>wireframes</strong> or <strong>designs</strong>.</div></aside></li></ul></li></ul><ul id="82317fa4-7610-4009-9627-fd27b631cba4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">You should aim to spend <span style="border-bottom:0.05em solid"><strong>30-45 minutes</strong></span> on this exercise in total, </li></ul><ul id="f56bd26a-6f72-4b59-9725-8ce7a020f35b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">And there is <strong>no expectation that you produce anything</strong>, rather just <strong>come prepared to discuss the document and how you move forward in the design process</strong>. <ul id="8c5fd768-4bf5-461e-82d0-631eb2942bad" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If helpful, feel free to add comments directly into the document to <mark class="highlight-yellow_background" data-notion-highlight="yellow_background"><strong>structure our discussion</strong></mark>. <mark class="highlight-red" data-notion-highlight="red">Make to sure to only add comments if it is helpful for you to structure the conversation.</mark></li></ul></li></ul><ul id="401c7fa9-cee1-47bb-95c0-67551a51fe87" class="bulleted-list" dir="auto"><li style="list-style-type:disc">To be clear on <strong><mark class="highlight-yellow_background" data-notion-highlight="yellow_background">expectations</mark></strong>, here are some key things to think through for our discussion:<ul id="a5992473-fa3b-4820-a1c4-dabaa41da22a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What <mark class="highlight-yellow_background" data-notion-highlight="yellow_background"><strong>additional information</strong></mark> would you want to know to inform <strong><mark class="highlight-yellow_background" data-notion-highlight="yellow_background">key design decisions</mark></strong> for the home screen?</li></ul><ul id="97c6f980-b43c-4fde-b6e2-48e72725de58" class="bulleted-list" dir="auto"><li style="list-style-type:circle">When thinking about the importance of <mark class="highlight-yellow_background" data-notion-highlight="yellow_background"><strong>actionability and personalization to the pet parent</strong></mark>, what are some <mark class="highlight-yellow_background" data-notion-highlight="yellow_background"><strong>key questions</strong></mark> you have that would influence your design process?</li></ul><ul id="da7b93fa-f3ab-4aa4-9223-93561027ab2e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What <mark class="highlight-yellow_background" data-notion-highlight="yellow_background"><strong>research</strong></mark> or <mark class="highlight-yellow_background" data-notion-highlight="yellow_background"><strong>testing</strong></mark> methods would you use?</li></ul></li></ul><p id="7dcbc8ba-63fc-460e-b71f-aa952cf59f2a" class="" dir="auto">
+</p></div></details><figure id="6355828d-c4c1-4e4a-8339-101e38cdb322" dir="ltr"><div class="source"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Basepaws_-_Product_Design_Lead_Exercise.pdf" data-notion-file="Product%20Design%20Lead%20-%20Exercise%20(AA)/Basepaws_-_Product_Design_Lead_Exercise.pdf" data-notion-file-alias="Basepaws - Product Design Lead Exercise.pdf">Basepaws - Product Design Lead Exercise.pdf</a></div></figure></div></details><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="56b7b79a-9d9b-4327-b467-442573c238ab" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%"><strong>Understand how you would approach the design process </strong>based on an early-stage, high-level document such as this, not produce <strong>wireframes</strong> or <strong>designs</strong>.</div></aside><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="52f15b57-49fa-491c-8af0-fb437d085bf7" style="display:inline-block">Dynamic Breed + Health Report Consumer MVP - Report Home Screen</h1></summary><div class="indented"><p id="36c9f8cb-1b58-4055-9da9-b164d3c12728" class="" dir="auto">Key launches in Q1</p><div id="49fa3acb-dab3-4c3a-b8f7-6b8bc2a8e538" class="column-list" data-notion-column-list="" dir="auto"><div id="e6a27e4f-8c60-4989-8fd4-a51846775238" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><p id="faf1598a-02d1-43fb-9e90-086030faa431" class="" dir="auto">The report is the digital asset that a user views their pet&#x27;s genetic results through<div class="indented"><p id="de756eae-65ec-41de-9b87-70006425bdd2" class="" dir="auto">I.e of the <a href="https://cdn.shopify.com/s/files/1/0087/3798/0475/files/Basepaws_Breed_Health_and_Dental_Cat_DNA_Test_Report.pdf?v=1643947630">current cat report</a> [69 pages]</p><p id="8ccf445d-74b4-4595-83ea-4a9e08718139" class="" dir="auto">
+</p></div></p></div><div id="55a91334-b481-4e82-82b8-4e726d5e41d1" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="d81eda58-85c9-406b-8ccb-d8ff8ac65e8c" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled.png"><img style="width:240px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled.png"/></a><figcaption><a href="https://cdn.shopify.com/s/files/1/0087/3798/0475/files/Basepaws_Breed_Health_and_Dental_Cat_DNA_Test_Report.pdf?v=1643947630">Link to the report</a></figcaption></figure></div></div></div></details><h3 id="91adab61-85e7-4a22-80a5-bb88ca7b9384" class="" dir="auto">Summary page</h3><div id="c9341e8a-68ac-4a97-bc70-f832580eede9" class="column-list" data-notion-column-list="" dir="auto"><div id="8cfca1bb-7f21-4781-8610-da607faff9ec" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="f318f598-9c25-4c5f-a4a8-4e8a73650d91" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Basepaws_Breed_Health_and_Dental_Cat_DNA_Test_Report.jpg" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Basepaws_Breed_Health_and_Dental_Cat_DNA_Test_Report.jpg"><img style="width:2550px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Basepaws_Breed_Health_and_Dental_Cat_DNA_Test_Report.jpg"/></a></figure></div><div id="35d9e278-c578-458d-b387-9e09a0ba9a1e" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="f857faef-1eb4-44ff-9d19-38dc87fc14e6" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled%201.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled%201.png"><img style="width:1359px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled%201.png"/></a></figure></div></div><h1 id="fc22617a-a28a-448e-8277-a73594cf955f" class="" dir="auto">Background - Context</h1><h3 id="dc3b8b0f-1c5e-4bf3-975f-17ba69a47fc3" class="" dir="auto"><strong>Product Evolution</strong></h3><p id="cdc70e3f-45e1-44e8-a361-9337fe6f80ee" class="" dir="auto">2017: Launched the First <strong>scientific, physical kit with a Breed + Health Cat DNA test;</strong></p><p id="8f6f11bf-ad86-42a8-9534-6ca279437343" class="" dir="auto">2021: After capturing additional env. data from pet parents, Basepaws R&amp;D launched a proprietary <strong>Cat Oral Health test;</strong></p><p id="c1ef9ccc-7196-450f-b608-53a972013a6c" class="" dir="auto">Fall 2022: Launched <strong>Dog DNA test</strong> through our veterinary channel</p><h3 id="e3cbfccf-5b8c-43aa-b168-0ea49eb04836" class="" dir="auto"><strong>Brand Refresh </strong>(Post-Zoetis)</h3><p id="8744d9a9-992f-4202-b412-3ca5b118906d" class="" dir="auto">Following the acquisition by Zoetis and the Dog launch, refreshing the consumer brand to a <strong>Pet precision healthcare brand.</strong><div class="indented"><p id="a04b5c20-26ea-43a6-b466-246d38b165fb" class="" dir="auto">Target customer: <strong>high-end customers with high purchase power</strong></p><p id="743394d4-c0b4-475e-993b-4cb081a84d1d" class="" dir="auto">Re-branding from Cat-only to <strong>Comprehensive companion pet brand</strong></p></div></p><h3 id="f3df062b-b45d-4e40-89cc-d75c8d6deb69" class="" dir="auto"><strong>Zoetis Market Research: The Veterinarian / Consumer Relationship</strong></h3><p id="2ea392ce-fa4d-4f08-8ea5-6e0bfc1f3651" class="" dir="auto">2019 - Market research - Insights into the Consumer Dog genetic testing</p><ul id="908a5bb3-3ab2-470a-8ef4-366021b9e2c6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What were the key insights?</li></ul><p id="be0aacd3-dbc0-4396-bb6f-b0d48279d5f8" class="" dir="auto">Key to success: Relationship between Veterinarian + Consumer + Genetic Test</p><p id="fd0837dc-08ce-4286-bcfa-7cb394bd4e91" class="" dir="auto">Actionable, personalized information is important for how a Veterinary Healthcare plan should change [veterinarian], and then the pet parent could adhered.</p><p id="3c92a36a-4bd2-4bb4-aa1d-81f50d3efa1f" class="" dir="auto">Learning specific genetic risks is important but is tied closely to the Veterinarian endorsement</p><p id="901d8ec8-4aae-4431-8c2e-d0e6508f5d9b" class="" dir="auto">There is an overlap with Veterinarians&#x27; biggest frustrations, primarily around the compliance of pet parents for doing what is best for their pet<div class="indented"><ul id="5ab6ff4f-ab80-49ff-949f-895f24c09765" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Help Pet Parents make decisions about what is best for their pets.</li></ul></div></p><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="0e2d334d-aa41-44c3-a346-de1434c509dd" style="display:inline-block">Design Process</h1></summary><div class="indented"><h2 id="d8841094-cfae-4051-9dce-570a07c1e2d8" class="" dir="auto">Assumptions → Hypotheses &gt; Value</h2><p id="841d3b27-6ece-41e9-9aec-e763dabda36a" class="" dir="auto">My main focus as a Designer is to translate <span style="border-bottom:0.05em solid">Assumptions/Hypotheses</span> into <span style="border-bottom:0.05em solid">Value</span> for Users and Businesses informed by real <span style="border-bottom:0.05em solid">Evidence.</span></p><h2 id="780093f0-f04f-404d-a3e8-1e7cc131daee" class="" dir="auto">Learn to make good decisions</h2><p id="be66f01e-4a82-4d7d-b117-65dade5e8a97" class="" dir="auto">Learn and have evidence to inform the design decisions</p><details id="7ebafb6d-a5ef-46ac-8a71-f0b52ec4d103" open="" class="toggle" dir="auto"><summary><strong>E.g: Lean UX canvas</strong></summary><div class="indented"><figure id="d1dc517e-0ec6-448a-9769-814d8e1ca926" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled%202.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled%202.png"><img style="width:940px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Untitled%202.png"/></a></figure></div></details><h3 id="1efd616c-c479-4732-a54a-5c9ee49be170" class="" dir="auto">Why  ← →  What  ← →  How</h3><div id="e5324b89-675a-4e43-9095-2a41d6e92ceb" class="column-list" data-notion-column-list="" dir="auto"><div id="47dde373-9c59-48cb-ab53-51c57c0ed3c9" style="width:33.333333333333336%" class="column" data-notion-column-ratio="0.33333333333333337" dir="auto"><ul id="38a615b9-7557-40b2-aff7-34a50dc88d70" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Why</strong></li></ul></div><div id="ae74acd9-b6e7-46b1-918d-b8e510cf0f2f" style="width:33.333333333333336%" class="column" data-notion-column-ratio="0.33333333333333337" dir="auto"><ul id="34306f22-b0c4-441d-8a76-269bb418d42c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>What</strong><ul id="e17a4a1d-ea42-45a8-8def-369926e5a0e9" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)%2073961ce157f84b629eddda3732a6c023.html">What do we need to achieve?</a></li></ul></li></ul></div><div id="79d7e43b-87a7-4844-b9e1-0eb472e045b6" style="width:33.33333333333333%" class="column" data-notion-column-ratio="0.3333333333333333" dir="auto"><ul id="091baa0a-2c69-45b1-a994-9b088d6d0a6e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>How</strong></li></ul><p id="80402da7-c492-4a9e-b0a8-16a2b5d7ea13" class="" dir="auto">
+</p></div></div></div></details><h1 id="d62ac9df-604d-4ff6-9a5f-0c5bf3ab25cf" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Problem space</mark></h1><h1 id="fd6a6bb3-b3e8-4e15-aee0-d946657981ae" class="" dir="auto">Current scenario</h1><ul id="00e31b79-fdca-4b29-b478-c3fbe3cf0589" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What is the main <span style="border-bottom:0.05em solid">Value</span> Basepaws can deliver to the consumers?</li></ul><ul id="b931fe60-fd85-42cc-b92f-31b75ed1dee6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How is the Basepaws scientific technology and how it works?</li></ul><ul id="b2625bb8-9650-4c57-9bc9-d3ce4fa828a7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the existing customer data of the DNA test reports?<ul id="138125e1-d6ff-4267-88ce-9e5823680960" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What it&#x27;s possible to know?<figure id="0c6ace0d-8499-48b8-853c-555b3d5fadef" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_11.54.00.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_11.54.00.png"><img style="width:1358px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_11.54.00.png"/></a></figure><ul id="bfec471d-52df-4407-936a-4dfa22d7c308" class="bulleted-list" dir="auto"><li style="list-style-type:square">Is possible to know about the consumers?<ul id="b7a0babf-9b28-4e6b-8ec0-4d19731af428" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What information could help us understand the consumers better?</li></ul><ul id="6c1132b7-b446-494b-875f-4f01b31ca6b7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What patterns are possible to identify?<ul id="5ee1e916-0ffb-4499-886e-80b9d2d9aec9" class="bulleted-list" dir="auto"><li style="list-style-type:circle">E.g: The most common breed in a specific region?</li></ul></li></ul></li></ul></li></ul></li></ul><h1 id="0cecdbc4-40ae-40af-a8ed-01ca1329b878" class="" dir="auto">What do we want to achieve?</h1><h2 id="59a3d755-25c9-4c99-8017-c2b6bd0ccbb4" class="" dir="auto">1. Future LTV Expansion</h2><blockquote id="c08a9471-b431-41c8-8ce9-903954b1aae7" class="block-color-yellow_background quote-large" data-notion-highlight="yellow_background" dir="auto">We are unable to track how users engage with the cat report and ultimately, unable to learn from those actions for future digital engagement</blockquote><ul id="a7b85098-6e21-4133-8774-d90dfef852eb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Unable to track how users engage with the report - Unable to Learn</li></ul><h2 id="5af43a4e-0bd1-4b69-b964-d15079fc5e05" class="" dir="auto">2. Product Market Fit</h2><blockquote id="0488fbf3-78a2-43e6-ad58-5f597355d9de" class="block-color-yellow_background quote-large" data-notion-highlight="yellow_background" dir="auto">Our users express frustration with the current digital cat report and how to understand the information.<ul id="5e853b14-6f4b-4870-bdb6-102bc47a6f45" class="bulleted-list" dir="auto"><li style="list-style-type:disc">34% of NPS detractors reference the lack of personalization, confusing information, and an inability to understand the report.</li></ul></blockquote><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="ea22e829-5920-4826-ae66-03416c8810be" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%"><strong>Opportunity: </strong>Map the Report information<br/><br/>Evaluate the Report, map the information to have a holistic view of the information presented.</div></aside><h2 id="77d4be72-7073-4bbd-9d2f-ccfd61f0893f" class="" dir="auto">3. Revenue</h2><blockquote id="d1826071-41ec-4eff-b9ca-5af115f672ef" class="block-color-yellow_background quote-large" data-notion-highlight="yellow_background" dir="auto"><strong>In 2023, a pet parent must view their genetic report digitally in order to recognize that as realized revenue.</strong></blockquote><ul id="96130476-bdb4-4560-acca-d67f5e1ce5a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Realized revenue</strong> is the revenue that the company hasn&#x27;t received yet, but expects to receive in the future.</li></ul><hr id="27afd99a-6506-4bee-8c77-3b84cc0d7d3b" dir="auto"/><h3 id="72e30008-9031-4aa8-be5f-f0fa8af89e59" class="" dir="auto">Target customer</h3><p id="3cab6fad-e853-4d54-a1f8-1fae870a4ab7" class="" dir="auto">High-end customers with high purchase power</p><ul id="74dfbcc5-44ad-4172-9193-0fc8fb9dff00" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What is the type of this consumer?<ul id="aef44d01-fa8f-4fa0-aa3a-793234c13f70" class="bulleted-list" dir="auto"><li style="list-style-type:circle">E.g: Pet parents that want to prevent diseases for their pets live longer</li></ul></li></ul><h3 id="53bbf596-a0b0-4941-b75d-8a11266f66fd" class="" dir="auto">User Pain points with the Report</h3><figure id="05ca4bd0-2148-4b1c-8061-eeb7df3ad5b5" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-27_at_23.30.02.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-27_at_23.30.02.png"><img style="width:1344px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-27_at_23.30.02.png"/></a></figure><ul id="f5ec6dd1-8bf5-4ca1-bdb1-fe573823f16c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Lack of personalization</strong><ul id="7e7f80ea-7be6-4674-9961-81ce1440e488" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Why is Personalization important?</li></ul><ul id="dbb96ec7-64fa-4d63-91a8-e70ae6042574" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What is the perceived value of consumers in having a personalized report?</li></ul><ul id="3e3b9617-9ce7-43b7-aead-5e7d4723199b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What are the Personalization users expect to have?</li></ul><ul id="6f08de9c-2bc2-4566-91e6-a1f338f81a9d" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What are the issues related to personalization?<ul id="8813e38c-f433-40cf-90f6-6ed8b97945a0" class="bulleted-list" dir="auto"><li style="list-style-type:square">Consumers need to find their pet information manually by reading the full report<ul id="90c9a500-f9f7-434a-a0c7-bb88a955bcc2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A lot of work for users to do by themselves</li></ul><ul id="337b10b8-b653-4d83-97d9-233c988e17a6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Risk of getting users confused in the middle of all the information</li></ul><ul id="237da410-1ed5-47ef-8abf-6f8ab65299ed" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The high risk of users not finding everything related to their pet reduces the perceived value of the product.</li></ul></li></ul></li></ul></li></ul><ul id="d8c5d40d-69da-4eff-8559-9e5dce8c1fc6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Confusing information </strong><ul id="bd669cae-cf1b-4e5b-a279-b2cd563de5de" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What information is confusing and why?<ul id="d434b5a6-7141-4bc9-b218-70742d87b968" class="bulleted-list" dir="auto"><li style="list-style-type:square">Is the information in the report too technical?</li></ul></li></ul></li></ul><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="cf5d56d5-d1b4-43f4-925e-f77a32fb44a8" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%"><strong>Learn about Customer Needs and Expectations</strong><br/><p id="80bd48ef-9dde-42c2-9353-792f49876a6e" class="" dir="auto"><a href="https://www.thisisservicedesigndoing.com/methods/contextual-interview"><strong>Remote</strong></a><a href="https://www.thisisservicedesigndoing.com/methods/contextual-interview"> </a><a href="https://www.thisisservicedesigndoing.com/methods/contextual-interview"><strong>Contextual inquiry-interview</strong></a><br/>To learn how users engage with the current Report (pains and gains), we could run a<strong> Remote Contextual Inquiry:</strong></p><ul id="a4ab3efc-4af6-44b5-b90c-b1d184e0f6dd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The best technique to discover something that goes beyond the screen<strong><br/></strong>Participant Observation</li></ul><p id="87049bc3-356f-4e90-be88-f999d6861d37" class="" dir="auto"><strong>Results<br/></strong>Translate users’ needs and expectations into the <strong>Jobs-To-Be-Done</strong>, summarizing the bigger picture of what customers want to achieve when they engage with the Basepaws genetic report.<br/></p><details id="82daa9c0-5acb-4884-a863-c040112f913a" open="" class="toggle" dir="auto"><summary>Other possible research methods</summary><div class="indented"><p id="f5a0af4c-2abf-4f1d-ac2c-09b73ca665c5" class="" dir="auto">- <a href="https://www.thisisservicedesigndoing.com/methods/autoethnography"><strong>Autoethnography</strong></a> [Study done by ourselves using the Report as Customers]<br/>- <strong>Diary study </strong>[Consumers participants can take notes when they are using the report following a script]<br/>- <strong>Customers Interview</strong></p></div></details></div></aside><h1 id="ce252db4-7d45-45af-af05-8e20804f9c80" class="" dir="auto">Solution space</h1><h3 id="0a3b558e-3f60-4c47-b53c-77af51772364" class="" dir="auto">Hypothesis</h3><figure id="a44bd94a-33d3-4ed5-b908-6694fe4a683d" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_16.04.35.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_16.04.35.png"><img style="width:1284px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_16.04.35.png"/></a></figure><ul id="3b0d3e38-132c-4865-8de2-510561474b2a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The current User feedback is collected via the <span style="border-bottom:0.05em solid">NPS survey?</span></li></ul><h3 id="6fcd1bf9-0915-4547-b3ce-17a96ca18d7b" class="" dir="auto">What do we need to learn?</h3><ul id="2fde0846-20a2-400b-bb45-bbbbb9d65b2e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What&#x27;s the most important thing we need to learn first?<ul id="558e44f9-bba1-4840-8840-c6e85fcf10e3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What are the user&#x27;s needs and expectations?<ul id="dd3ecbf3-68b8-41fd-946a-56a99e99da4c" class="bulleted-list" dir="auto"><li style="list-style-type:square">How do we know if we are meeting that?</li></ul></li></ul><details id="be5548aa-162b-41e3-a8af-7653e6a0f63e" open="" class="toggle" dir="auto"><summary>What are the Value and Risk levels of the hypothesis? <strong>Value “X“ Risk</strong></summary><div class="indented"><p id="6cf93853-1087-4af9-be77-366852b9513f" class="" dir="auto"><strong>Hypothesis confidence level</strong></p><p id="38b2ae50-f2f9-43d7-b80e-486044bca3aa" class="" dir="auto">High level of confidence = Low Risk</p><p id="45c07a47-6918-4fdf-ac03-e848ad1f9850" class="" dir="auto">Low level of confidence = High Risk</p><figure id="6f49d450-156e-4d7a-973c-7a4e779b7c30" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-27_at_23.53.40.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-27_at_23.53.40.png"><img style="width:1736px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-27_at_23.53.40.png"/></a></figure></div></details></li></ul><ul id="9c18b169-8f87-482c-900f-f535e999b426" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What&#x27;s the least amount of work to learn what is needed?<ul id="9d4f17fa-bcdf-4a62-b846-fc3069112d36" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Do research with end-users</li></ul></li></ul><h2 id="89045030-f6f1-4936-8432-250507482fa7" class="" dir="auto">Product Requirements: Summarized view of their report</h2><h3 id="c0646ee7-fbfe-4d87-b7cf-6b2f3af77b46" class="" dir="auto">Report Hierarchy</h3><details id="7a4a1440-d50c-41f1-ad8a-bc55b01baa71" open="" class="toggle" dir="auto"><summary>Predisposition Health Insights</summary><div class="indented"><figure id="beb3993b-b344-40af-86cf-af2ff594940e" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_15.07.51.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_15.07.51.png"><img style="width:2466px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_15.07.51.png"/></a></figure></div></details><details id="e0c6408b-86ef-4539-aabc-e4264f62ce67" open="" class="toggle" dir="auto"><summary>Informational Health Traits</summary><div class="indented"><figure id="27ead797-7c09-4fc3-9792-fe8d966499d0" class="image" data-notion-image="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_15.36.15.png" dir="ltr"><a href="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_15.36.15.png"><img style="width:2464px" src="Product%20Design%20Lead%20-%20Exercise%20(AA)/Screen_Shot_2022-09-28_at_15.36.15.png"/></a></figure></div></details><details id="0d7c3f3d-d77c-4c30-84b4-1b6dd04f4078" open="" class="toggle" dir="auto"><summary>Breed composition</summary><div class="indented"><p id="0817bef7-709e-4489-9fa5-2f16bcba3a6c" class="" dir="auto">
+</p></div></details><details id="9c286a98-fe2d-4a68-a467-7c7e960b64d9" open="" class="toggle" dir="auto"><summary>New scientific Advances Potential Insights</summary><div class="indented"><p id="465caa17-3257-46df-8c38-4f7a217dd358" class="" dir="auto"> </p></div></details><h3 id="aacb9323-67d7-44c5-afdb-637eea0895ef" class="" dir="auto">Report Home screen</h3><ul id="d5ec369a-88f3-4b75-baed-4a020ae5991c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What is important for the Pet Parent knows about their Pet?</li></ul><ul id="af55a401-34bf-410a-9fed-b178a773dd8b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the possible actions they could take using the Report?</li></ul><p id="4306788a-0588-4d90-bf5e-1fe137e3c54c" class="" dir="auto">
+</p><h3 id="87444cfb-f2ba-4de8-ae10-35e797098baa" class="" dir="auto"> - Evaluate the Requirements</h3><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="69c468c0-427b-42da-a9f7-373a0da685cd" style="display:inline-block">Ideation</h3></summary><div class="indented"><p id="482f0111-e722-4394-84f0-0715793bda2e" class="" dir="auto">Co-creative workshop [Backup option if the Research with users won&#x27;t be possible to do it]</p><ul id="8b278142-8910-4611-bf32-d6f1d98e663f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Explore internal consumer knowledge<ul id="eff3f595-1251-403f-b9fc-aec727543594" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Together with <span style="border-bottom:0.05em solid">key stakeholders </span>(E.g: scientists, customer success managers, and people from the marketing team) to ideate possible ways to </li></ul></li></ul></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="bf4f2cb2-69d5-4c1c-9b6f-2a14ecec94dd" style="display:inline-block">Use Cases and User Flows</h3></summary><div class="indented"><p id="42e7c5f8-ceb4-4d7b-babc-9ee8c3be048c" class="" dir="auto">Use cases<div class="indented"><p id="76042a87-cb0a-4805-9c7e-167b302eed8f" class="" dir="auto">What are the scenarios of usage of the Report?</p></div></p><p id="d0396141-369e-4be7-8d92-2ae57b1fddcd" class="" dir="auto">User flows<div class="indented"><p id="885c9785-f8d1-4477-b6bb-12142e75a71a" class="" dir="auto">What are the steps needed to accomplish a goal?<div class="indented"><p id="efef58d9-17b1-4b5b-abd8-d72418cb9e99" class="" dir="auto">E.g:<div class="indented"><ul id="86134b68-6219-454f-8231-207696eb6062" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Visualize the testing report summary</li></ul><ul id="cc9e52cd-4fb5-46c3-af23-f0e491dbafd8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Take action </li></ul></div></p></div></p></div></p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="06759961-c73a-4b12-a66e-c63ae1119997" style="display:inline-block">Testing</h3></summary><div class="indented"><p id="de73f00f-eb1e-44b8-9aef-f05364fdc6f1" class="" dir="auto">User testing <div class="indented"><p id="5b619bff-9f45-4c14-8376-f63c87af320c" class="" dir="auto"><a href="https://app.notion.com/p/2787edab32f64162bb181d380f0b0f66?pvs=21"><strong>UX Evaluation</strong></a></p><ul id="964e97e8-729b-4956-80b5-6fb136cc07a6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Concept testing</li></ul></div></p><p id="e54e0da4-e895-4267-a73a-1143e715897b" class="" dir="auto">Experiments <div class="indented"><ul id="e6ce68d8-4acb-4957-ba95-549398c9d206" class="bulleted-list" dir="auto"><li style="list-style-type:disc">If we have the chance to ship and iterate quickly, could be an opportunity<ul id="cd3d648d-fd7d-4845-bada-fcf39b483a8c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">How much time would it take to ship a solution to the consumer&#x27;s hands?</li></ul><ul id="0aa563bb-0db6-43b7-9e81-629e09a1776c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Development<ul id="98899413-ff88-4471-a97b-3f7751182a9e" class="bulleted-list" dir="auto"><li style="list-style-type:square">How development usually works?<ul id="92e6bdc7-7c1d-49c1-bc87-408bca703268" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Do we have an internal team of engineers or has it been done by an external agency?</li></ul></li></ul></li></ul></li></ul><p id="6026d72d-9c3c-4842-b1c4-7eef8d38f2f8" class="" dir="auto">Measure of success<div class="indented"><p id="018740f7-39a4-4d69-8b4e-f90f4b204ce8" class="" dir="auto"><strong>UX Metrics</strong></p><ul id="bd691e87-e019-4aca-a7a7-78a9a1c66a03" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A mix of <span style="border-bottom:0.05em solid">Attitudinal</span> and <span style="border-bottom:0.05em solid">Behavioral</span> Data</li></ul></div></p></div></p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

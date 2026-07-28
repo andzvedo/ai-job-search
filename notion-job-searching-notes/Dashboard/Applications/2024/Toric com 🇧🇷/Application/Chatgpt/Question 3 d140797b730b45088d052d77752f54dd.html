@@ -1,0 +1,782 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Question 3</title><meta name="data-notion-page-icon" content="✅"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%9C%85%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="d140797b-730b-4508-8d05-2d77752f54dd" class="page sans" data-notion-page-icon="✅"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="✅"></span></div><h1 class="page-title" dir="auto">Question 3</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="8fb0c9e9-7ed2-48c0-9ee7-a12b39f27adc" class="" dir="auto">I&#x27;m applying to UX Design Lead position at <a href="http://toric.com/">Toric.com</a>. This is the job description:</p><p id="5cd0a10c-d462-4aa2-a9b0-ba58575dfdd2" class="" dir="auto">
+</p><p id="3f4bb663-e8ce-41c6-aad9-e84b782de798" class="" dir="auto">Brazilian UX Design Lead JD<br/>UX Design Lead<br/>We believe that everyone deserves their own personal army of AI helpers for every task or job. Thatʼs why weʼre taking our data movement software loved by the built-world industry, and augmenting it with an AI native agent system that is powered by the user data. Weʼve already welcomed our first users to Datagrid, and are looking for talented and driven individuals to build towards our long-term vision.<br/>We are a well funded tech startup headquartered in San Francisco, CA, but operate as a distributed company. We offer competitive salaries and benefits packages, along with equity and respect for work/life balance.<br/>Join our tight-knit team to own exciting projects that push the boundaries of AI, and deliver upgrades to users in weeks rather than months.<br/>Responsibilities<br/>As UX Design Lead you will be responsible for developing innovative, user- centric design solutions on one or more large-scale product areas, as well as mentoring your fellow designers in user-centered design principles and best practices to enhance the overall design capabilities of the team.<br/>Conduct usability research and translate your findings into user journey maps, wireframes, and prototypes. You must be able to clearly explain your reasoning to Product Managers and Executives.<br/>Actively participate in regular design critiques, promoting a culture of constructive feedback and continuous improvement within the design team.<br/>Promote a UX strategy that aligns with the companyʼs overall business goals and objectives and help implement processes to enforce the strategy.<br/>Develop and maintain design systems and style guides to ensure consistency across the product.<br/>Brazilian UX Design Lead JD 1</p><p id="c0bf191b-7191-4a71-917c-bb0e382462e0" class="" dir="auto">Be available for most meetings between 9am-5pm PST; however, your working hours can be flexible when no meetings are scheduled.<br/>This is an individual contributor role with the potential to evolve into a player- coach management position.<br/>Desired Experience<br/>1015 years of experience in digital product design with a strong portfolio showcasing leadership in design projects.<br/>Extensive knowledge of user-centered design practices and methodologies, with the ability to promote their usage among UX designers and stakeholders in a fast-moving startup environment.<br/>Strong prototyping skills in Figma and Figjam.<br/>Experience with B2B and Product-Led Growth SaaS products, preferably wtih chat-centric applications, omnichannel communication platforms, automations, or data management/enrichment.<br/>Ability to create and iterate on designs that align with our design system and brand voice, while also contributing to its evolution and improvement.<br/>All our customers are native English speakers, and all meetings are conducted in English. Strong written and spoken English is required to succeed in this role.<br/>Brazilian UX Design Lead JD </p><p id="01ec2b29-e23e-4ee7-aee5-cd27c2fa41b2" class="" dir="auto">
+</p><p id="3ada9bb4-780b-4c9c-8bfb-7ebb855c4742" class="" dir="auto">Taking into account the job description presented above, and the following points the recruiters and Designers hiring managers normally evaluate, like: <br/>•	<strong>Advocacy and Persuasion:</strong> They want to see if you can confidently advocate for your design decisions and vision, even when facing opposition.</p><p id="f4c9c2f8-a5c3-4bda-94c8-987559eead69" class="" dir="auto">•	<strong>Stakeholder Management:</strong> They are assessing your ability to manage relationships with stakeholders and navigate complex dynamics to align them with your vision.</p><p id="bcdf1260-01cf-4a19-b697-2fc250af1f7f" class="" dir="auto">•	<strong>Strategic Thinking:</strong> They want to know how you balance design integrity with business goals and how you strategically present your ideas to gain support.<br/><br/><br/>create a compelling answer to the question </p><p id="36aaf43d-b409-4560-9428-1eb1607288e0" class="" dir="auto"><span style="border-bottom:0.05em solid">“Tell me about a time when you had to advocate for a design vision/recommendation to stakeholders or leadership with dissenting opinions. How did you navigate the situation? What was the outcome?”, </span></p><p id="e57560dd-d5c4-45c3-93a8-816f2fa4bf43" class="" dir="auto">
+</p><p id="2b58dec9-b6a4-42ff-8725-b49ec912015d" class="" dir="auto">Using the following situation and notes:</p><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="7cbf15bb-89c7-4aea-9468-321233e36566" style="display:inline-block">Design Challenge</h3></summary><div class="indented"><p id="76ee5b08-6db1-4b28-94c7-44eac88c508c" class="" dir="auto">The Maas Console has two views, one is <strong>Public</strong> and the other is <strong>Registered.</strong></p><p id="a4e4552d-9460-4b37-be0c-2081ce83b7f8" class="" dir="auto">At the <strong>Public view,</strong> the main challenge was to show the services available to hire and authenticate users integrating with the MaaS Account application because without authentication it wasn&#x27;t possible to hire any service, just browse the relevant information, like details about the service, images, technical documentation of how to integrate, and plans offered.</p><p id="828ce85a-0210-409c-947f-61e9209d7568" class="" dir="auto">At the <strong>Registered view, </strong>and with an organization associated, the main challenge was to transform a complex and extensive service registration process into a clear and descriptive experience for the users and organizations wanting to sell their services in the MaaS Console and hire services from others as well.</p><h3 id="4b33b9ea-374f-4944-8986-f2b4df121d44" class="" dir="auto">Constrains</h3><ul id="c693258e-b8b7-454e-8f3a-2ebe573032f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Because of time constrains, we use Material UI as the front-end framework, and I relied on Material design without almost no customization for us to move fast.</li></ul><p id="6fb36999-f2c4-419b-a61c-c1f9d674fe3c" class="" dir="auto">
+</p><ul id="3d9aa036-7ca5-4820-98be-28c713704b22" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Most of the requirements were related with user inputing data into the platform,</li></ul><ul id="536549c0-885d-4b85-a53d-946a37d5a6e3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Register new services to sell<ul id="571d0de5-f564-4697-a767-456d02754e0a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">5 phases</li></ul></li></ul><ul id="27e7bd11-fab4-45b3-ac0a-83a7a9f9750c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">It had the following registration forms for the users:<ul id="ff136c40-cf60-4227-bfae-956eaf39227b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Services registration with several steps:</li></ul></li></ul><p id="4d11f5f2-5c98-410e-8ab3-b714d780ea7e" class="" dir="auto">
+</p><ul id="f771bbdb-f580-42d2-8137-26bdada24b06" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I was giving my best to reduce the complexity behind those registrations and long forms,</li></ul><ul id="4cc714b9-c364-4e3e-b1fa-f72c996b7223" class="bulleted-list" dir="auto"><li style="list-style-type:disc">It was used the WSYWIG approach in the registration forms, <ul id="efe7622e-1f3b-48e9-baec-a0a5861c664e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">With the intention of help users visualize what they were registering, in a similar way that would displayed for the end-user.</li></ul><ul id="f1710284-4fed-4494-95df-5a5693f890ed" class="bulleted-list" dir="auto"><li style="list-style-type:circle">This approach reduce the need of a preview feature;</li></ul><ul id="bb025122-1937-47ca-aa93-c7f05161aa15" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I focus on show the status/state of each input needed in the registration<ul id="3b3d3393-9cc7-47df-91ca-fac9cf2ecc78" class="bulleted-list" dir="auto"><li style="list-style-type:square">Showing page level errors, and also contextual errors</li></ul></li></ul><ul id="55d5a65a-6458-4fae-bf10-f982abb800ee" class="bulleted-list" dir="auto"><li style="list-style-type:circle">First screen explaining the step<ul id="3f768133-0bfa-4a92-a9bb-89d797fde819" class="bulleted-list" dir="auto"><li style="list-style-type:square">Tooltips for give users contextual explanations</li></ul></li></ul><ul id="29d4cd98-cefa-41ff-8741-461ea9e034f2" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Confirmation dialogs before saving - Modal<ul id="4f66eb99-f396-4a65-ab2f-86f8ebb6b5e2" class="bulleted-list" dir="auto"><li style="list-style-type:square">In some cases, it wouldn&#x27;t be possible to change after saving, so I displayed a confirmation dialog, interrupting the user flow, to inform it the action wouln&#x27;d be possible to undo. </li></ul></li></ul></li></ul></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="dec1376e-8e07-46b7-8e64-7ea4721c58bb" style="display:inline-block">MaaS ecosystem</h3></summary><div class="indented"><ul id="af346117-c6fb-4d41-a9e6-9b5f73655d3f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Magazine Luiza (<a href="https://en.wikipedia.org/wiki/Magazine_Luiza">One of the biggest retailer companies in Brazil</a>) was changing from a retailer to a tech company</li></ul><ul id="cbf3065b-3230-4289-a67e-f3efbb425ef0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">My challenge there was to Design from scratch a developer focused ecosystem called MaaS - Magalu as a Service, composed by two applications: the <strong><a href="https://app.notion.com/p/MaaS-Console-84622944c3824bfcb7f0f971de9fed99?pvs=21">MaaS Console</a></strong> and the <strong><a href="https://app.notion.com/p/MaaS-Account-fd5ec0bd630442afb1b6af51affbf861?pvs=21">Maas Account</a></strong><strong>.</strong><ul id="5e017d40-f50b-4c02-aef0-8a2b8ecc02b8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">The MaaS Console was a marketplace for retail services that will allow Magazine Luiza and other retail stores to sell digital or physical services online (free services too) to small retailers integrated on their own e-commerce, paying based on the demand used, like Firebase do it for cloud services. <ul id="f4e146dd-f6f5-444e-b007-bba59b445703" class="bulleted-list" dir="auto"><li style="list-style-type:square">Inspired on how Firebase provided backend as a service;</li></ul><ul id="f6afa941-63f0-4ae3-a671-94e0908bbe1d" class="bulleted-list" dir="auto"><li style="list-style-type:square">MaaS Platform was the most important project at the time <ul id="fbbb7ff6-725f-41f7-afdc-f51d53ba0c7e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Big pressure on the team to get that right as fast as possible;</li></ul></li></ul></li></ul><ul id="c462c671-8e81-430c-b2c8-ea09bfd1ed43" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I lead the design of the MaaS ecosystem alongside a squad composed by the Teach Lead, Product owner, four front-end developers, two Back-end developers, and one QA engineer.<ul id="85c25676-f67d-4caa-ba35-8e87f0e330f0" class="bulleted-list" dir="auto"><li style="list-style-type:square">Challenge for me <ul id="abef478f-ab8d-488e-9232-335c3f790e40" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I was the only person without a technical background on the team;<ul id="d1ca1015-2873-47df-9b07-dba8316d8743" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I didn&#x27;t had a technical knowledge previously, to understand concepts like User management, Connections and APIs, Endpoints, and how everything could be connected at that time;</li></ul></li></ul></li></ul><ul id="4e52a3ec-e2c1-42d7-a026-ed11583509c0" class="bulleted-list" dir="auto"><li style="list-style-type:square">Lack of communication and collaboration between the Product owner and the Teach lead </li></ul><ul id="6ad6a41f-f1d0-48ed-a6f3-574e6848e98e" class="bulleted-list" dir="auto"><li style="list-style-type:square">Lack of product vision and human leadership<ul id="b9c49e9c-eede-455d-ae15-fa66921a74d0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Product owner not present in the project;<ul id="65b2dd41-2f4c-4d2d-b572-5d0bf05bcbb7" class="bulleted-list" dir="auto"><li style="list-style-type:circle">The Product Owner provided high-level epics on what would be needed to build;<ul id="ee0c0b4d-5f1f-4da7-86f3-28eb532ac46b" class="bulleted-list" dir="auto"><li style="list-style-type:square">Didn&#x27;t give enough business context, or clear objectives that the team would need to achieve;</li></ul></li></ul><ul id="297da2d9-5d84-494e-b707-2eb949188254" class="bulleted-list" dir="auto"><li style="list-style-type:circle">The Tech lead was the responsible to break the epic down into tasks for the team;<ul id="3347e5c2-d50e-4efc-a61d-b03d8ed802d9" class="bulleted-list" dir="auto"><li style="list-style-type:square">It was good to give a certain amount of freedom for the team to decide how to build it, </li></ul><p id="2a67218e-c695-465a-bfa0-741e60a9a21a" class="" dir="auto">
+</p><ul id="913e7c77-237c-4d60-87dc-83fe494db541" class="bulleted-list" dir="auto"><li style="list-style-type:square">But the Product owner wasn&#x27;t alignment with the Tech lead, they didn&#x27;t work together to discuss the opportunities, share understand, or set the expectations,</li></ul><ul id="56065233-b01c-4554-b23d-41b2590182b1" class="bulleted-list" dir="auto"><li style="list-style-type:square">They just got aligned when was the end of a sprint, and the Tech lead presented to the Product owner what they build,</li></ul><ul id="6b8ac44f-c0c4-4d4d-8831-a8641285bf6c" class="bulleted-list" dir="auto"><li style="list-style-type:square">Most of the time it had misalignement, and they weren&#x27;t shipping was were expected,</li></ul></li></ul><ul id="81a735c9-827c-4d00-9b70-2d655a942e6c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Those bad situations, pressured even more the team, impacting productivity and happiness<ul id="a4b44cd7-3a67-4d9c-b5d9-c8924825d92c" class="bulleted-list" dir="auto"><li style="list-style-type:square">The team was stressed and frustrated</li></ul></li></ul></li></ul><p id="a23e150e-0c0f-46d4-997a-9e1b9916f0d9" class="" dir="auto">
+</p><ul id="7766c74b-1c79-4d93-8c29-3e657cf3dfc9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Until that time, I was just designing what they was saying for me to do,</li></ul><ul id="955567c2-a0a8-4944-83cb-45a8c85d952b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">So I took this as an opportunity, and stepped in to get alignment between Product Owner and the Tech lead using my design work.</li></ul><p id="965b52e1-3ff2-4dda-b919-0fd73a27818b" class="" dir="auto">
+</p><ul id="a3bc9de3-48e2-4cdc-8024-9066c85c1b02" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Got closer with the product owner to help him translate the business objectives into a user centered requirements,<ul id="59710fc9-54eb-4236-a813-8ec6d1377bc7" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Getting the product vision and key objectives into something less technical and more user-centered</li></ul><ul id="6412aa43-afa5-48a6-add4-76bd0204ba9e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Translate that into a clear VISION using the design work, to share with the team</li></ul><ul id="048fcea7-b577-46ac-9a5a-5b70d669b9c2" class="bulleted-list" dir="auto"><li style="list-style-type:circle">The Product owner was physically in another city</li></ul></li></ul><p id="f8ac6053-feeb-460f-acae-b962aa80c21f" class="" dir="auto">
+</p><ul id="7e8166e2-033d-46fb-a32e-b415dcd7e8b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Partnered with the Tech lead <em><span style="border-bottom:0.05em solid">to break the tasks down into tangible and user-friendly tasks,</span></em><ul id="7f27405a-d792-49b8-b754-5490159706e5" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I worked very close with the engineers </li></ul><ul id="b0654c22-d132-4327-bdb6-b0c2b1272e9c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Relying on their expertise, to understand the technical concepts;</li></ul><ul id="52172716-b051-4b9b-8b66-404ff2b6de7e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Create bond - Increase my friendship with them;</li></ul><ul id="cbc05b72-fcfd-4f16-94f6-9b6351bdfc24" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I involved them into the process, not only the tech lead, but the other engineers too;</li></ul><ul id="19f88e86-025c-4331-8031-642699ac34ca" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Ask their feedback earlier on the design work</li></ul></li></ul></li></ul><p id="38f362f1-5021-4529-a22a-88d6218b8398" class="" dir="auto">
+</p><ul id="0b1a0693-7c28-4e95-a8cb-0583e5a695f7" class="bulleted-list" dir="auto"><li style="list-style-type:square">I remember one episode where we forgot to build a deletion flow of one feature<ul id="943376b1-8ed7-44ed-bb53-876c1b7f7302" class="bulleted-list" dir="auto"><li style="list-style-type:disc">This cause a big issue between the Product owner and the Tech lead, that were trying to prove to each other, who was the responsible for being forgetful of such an important piece.</li></ul><ul id="3f03ec9f-a0bb-453e-842d-4eee1ef90b99" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I stepped in and assumed that it was my fault, because I didn&#x27;t have design it, so the team didn&#x27;t have the visibility about it.<ul id="4a086ea9-18ff-4173-8b60-4cf26558fa9e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">This movement makes them to stop complain with each other, and they don&#x27;t even pointed fingers on me too, because they knew that this wasn&#x27;t only my fault, but everyones responsibility</li></ul><ul id="6667b896-767d-4046-9912-2468fcaf6b71" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Assuming that I could be wrong, was one of the most important things I did in that team,</li></ul><ul id="76d491cd-f3ca-432c-a8cd-446cf409f593" class="bulleted-list" dir="auto"><li style="list-style-type:circle">At first the Product owner and the Tech lead was just pointing fingers at each other, after that, they became a bit more flexible.</li></ul></li></ul></li></ul></li></ul></li></ul><p id="f7f0705c-fa1b-48af-b439-72e8065a20ca" class="" dir="auto">
+</p><h3 id="88f49b9c-779f-4420-a92f-2d052a64941b" class="" dir="auto">Outcome</h3><ul id="88d878da-c6e5-467d-8089-0a1ae05822d2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The team trusted in me more than in the Product owner - Influence</li></ul><ul id="30b5c523-40b4-4d80-8bfe-a0be43151a2b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Help to share understanding, team building, and trust</li></ul><p id="f3c712d8-5ba9-4706-a379-3444f750c7ac" class="" dir="auto">
+</p><p id="d62256b9-4943-4865-bbcf-66df10d4784d" class="" dir="auto">I&#x27;m proud of this project because it was the project in which I had the most learnings in my career, and I could understand that the role of a Designer goes beyond the craft.</p><p id="f3859a8b-fc4e-450f-8c4a-0460eb5d05ff" class="" dir="auto">The lessons I learned were:</p><ul id="2b706ba4-2726-44d5-919f-7206bf749f37" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Never work in isolation. If your team is working in a silo, something it&#x27;s wrong, and you need to help change that.</li></ul><ul id="4b3a7e54-b63d-4be6-b166-c5346ca4f190" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Challenging assumptions using Design. Assumptions are a great way to help the team and business move forward, but making decisions just based on it, it&#x27;s an enormous risk that can be avoided with the help of Design methods.</li></ul><ul id="b2e2dbca-229e-4436-a57d-8e7bc5a9fbe4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Design to have a feedback loop. Gathering feedback from people often - Stakeholders, peers, and users - are key to designing something valuable.</li></ul><p id="20e22db5-a52e-4b13-a44f-50325dd29bb1" class="" dir="auto">
+</p><p id="07fd2e4e-d428-4f62-840d-e334ef75c3df" class="" dir="auto">It&#x27;s possible to check the case study of this project in my portfolio here: <a href="https://www.notion.so/peopleand/MaaS-Console-84622944c3824bfcb7f0f971de9fed99">https://www.notion.so/peopleand/MaaS-Console-84622944c3824bfcb7f0f971de9fed99</a></p><p id="a9e2a2d8-529d-48dd-b4e3-7a4152715df9" class="" dir="auto">
+</p></div></details><h3 id="e41818de-398a-448a-8d62-a2c2d068f1dd" class="" dir="auto">MaaS Ecosystem</h3><p id="5ca0d8d0-03dc-4cd1-8d75-f1a890d8ca42" class="" dir="auto">The MaaS ecosystem, or Magalu as a Service, was the result of Magazine Luiza&#x27;s shift from a retail to a tech company. Magazine Luiza is one of the largest retail companies in Brazil. The MaaS ecosystem was a developer-focused platform consisting of two applications: the MaaS Console and the Maas Account.</p><p id="1617a6dc-b348-45ec-8870-81c1837e87eb" class="" dir="auto">The MaaS Console functioned as an online marketplace for retail services. It allowed Magazine Luiza and other retail stores to sell both digital and physical services to small retailers who integrated these services into their own e-commerce platforms. This was modeled after the way Firebase provides backend services, allowing users to pay based on demand.</p><p id="9f473953-1605-4df8-a05f-7bbb077ffc1e" class="" dir="auto">During the development of this project, I faced several challenges. I was the only team member without a technical background in a team composed of a Tech Lead, Product Owner, four front-end developers, two back-end developers, and a QA engineer. I had to quickly understand technical concepts such as User Management, Connections and APIs, and Endpoints.</p><p id="4a220227-2b5e-400e-9ffb-3335365d249a" class="" dir="auto">We faced difficulties due to lack of communication and collaboration between the Product Owner and Tech Lead. The Product Owner was not always present and provided high-level epics for the team to build, without giving enough business context or clear objectives. The Tech Lead was tasked with breaking down these epics into tasks for the team. This misalignment often caused stress and frustration within the team.</p><p id="35e74e5c-1b58-44b9-b1ef-72060b6c5ee7" class="" dir="auto">I took the initiative to bridge this gap using my design work. I worked closely with the Product Owner to translate business objectives into user-centered requirements and a clear vision for the team. I also partnered with the Tech Lead to break down tasks into tangible, user-friendly tasks. Through this process, I built a strong bond with the engineers and involved them in the design process.</p><p id="f25138c3-db30-4376-a8a7-c59966e18fff" class="" dir="auto">I&#x27;m proud of this project as it was a significant learning experience in my career. It taught me that the role of a Designer goes beyond the craft - it involves fostering team building, trust, and understanding. The lessons I learned were to never work in isolation, challenge assumptions using Design, and design to have a feedback loop.</p><p id="53fa2498-a998-42d0-8c2a-eb04a6d6fef4" class="" dir="auto">You can check the case study of this project in my portfolio <a href="https://www.notion.so/84622944c3824bfcb7f0f971de9fed99?pvs=21">here</a>.</p><p id="6956556e-2a2b-4a4c-be15-8233ee85d6d4" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

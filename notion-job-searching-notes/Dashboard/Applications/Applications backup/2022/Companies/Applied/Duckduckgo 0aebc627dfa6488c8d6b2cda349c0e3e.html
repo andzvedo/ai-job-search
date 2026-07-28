@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Duckduckgo</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="0aebc627-dfa6-488c-8d6b-2cda349c0e3e" class="page sans"><header><h1 class="page-title" dir="auto">Duckduckgo</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="053f3a68-9695-4dd1-a653-5b7e84befba0" class="" dir="auto">Open positions</h1><details id="863e9d5a-cf77-4836-a2c6-2aae1abd527d" open="" class="toggle" dir="auto"><summary><strong>Senior Product Designer (Worldwide Remote)Type: </strong>Full Time</summary><div class="indented"><p id="21f27b7f-964a-40f3-98c8-cd377a638857" class="" dir="auto">Hi, we’re DuckDuckGo, the Internet privacy company for everyone who wants to take back their privacy now. For over a decade, we&#x27;ve been building our product, including new privacy technology, and working with policymakers to make online privacy simple and accessible for all.</p><p id="d7535d8d-abe2-4914-a32b-6339bae15727" class="" dir="auto">Our app is now downloaded more than 75M times a year, and our private search engine packaged with it has become the #2 search engine on mobile in over 21 countries, including the United States, United Kingdom, Canada, Australia, Germany, and the Netherlands. Oh, and we&#x27;ve been profitable since 2014 with revenue currently exceeding $100 million a year! Now, we’re rolling out a suite of new privacy solutions, including <a href="https://www.spreadprivacy.com/introducing-email-protection-beta/"><span style="border-bottom:0.05em solid">Email Protection</span></a>, <a href="https://spreadprivacy.com/introducing-app-tracking-protection/"><span style="border-bottom:0.05em solid">App Tracking Protection</span></a> and our first-ever Desktop Apps for <a href="https://spreadprivacy.com/introducing-duckduckgo-for-mac/"><span style="border-bottom:0.05em solid">Mac</span></a><a href="https://spreadprivacy.com/introducing-duckduckgo-for-mac/"> </a>and Windows.</p><p id="57caaed4-7465-4be9-b7cd-f82956a40eb4" class="" dir="auto">We’re looking for Product Designers (Senior, Lead or Principal) to help shape our all-in-one privacy solution and join our mission to show the world that protecting your privacy online can be simple.</p><p id="2edab9b6-290f-41de-97c3-2843b14a07b4" class="" dir="auto"><strong>The Opportunity</strong></p><p id="7e3f0863-ad31-48ed-92d2-87b95a12e7b6" class="" dir="auto">As part of our growing team, you will collaborate with team members at all levels to identify and solve problems across our current product offering, as well as helping to pioneer new solutions as we build out the privacy layer for the Internet. You will be involved in the entire design process, from ideation to execution, and have a voice in all product decisions, big and small.</p><p id="6a7c9104-5017-4cde-a076-7d7843adbe4b" class="" dir="auto">You will autonomously lead highly impactful projects that scale across millions of users from proposal through to postmortem assessing vague problems, proposing high impact solutions, and executing them against a set of success criteria. You will also:</p><ul id="ea9ecd5d-5f6e-4aea-9f1e-5ede79afd3de" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Practice hands-on leadership, by creating pixel perfect mockups, flows, and prototypes.</li></ul><ul id="f4d1c623-22bf-4435-ba73-049fd273498b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Champion the future of our products by keeping the team informed of the latest industry trends.</li></ul><ul id="4182dbcb-2f6e-4219-a1e5-a0ce32e353cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Solve challenging design problems in a creative and visually impactful way.</li></ul><ul id="543d4648-dee4-4bfe-834a-3098cb9ed844" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborate with engineers to ship exceptional user experiences.</li></ul><ul id="3b080274-c36f-4dcc-aa56-0d3fc85f5062" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborate with cross-functional teams to create impactful work informed by data and user feedback.</li></ul><ul id="6d452a2a-b045-4769-8d5c-2c592f32dead" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Actively participate in maintaining a strong design culture with an openness to educate others.</li></ul><p id="7590fdb2-eafe-41f9-8ea6-63c12458a870" class="" dir="auto">We empower our team to be self-directed and self-motivated in their work. If you&#x27;d thrive in that environment, and our core values resonate with you -- build trust, question assumptions, and validate direction -- you&#x27;ll fit right in!</p><p id="3e1ed4c8-5726-4781-869c-3cfe9e3f3974" class="" dir="auto"><strong>What You Will Bring to DuckDuckGo</strong></p><ul id="14defd1d-0645-47cc-ae1d-ac3f3148420d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ability to lead and collaborate on high-impact and complex projects from proposal through post-mortem.</li></ul><ul id="c48793cf-0261-4013-833b-0b967522497d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Skills to wrangle vague problems, propose innovative solutions, and execute them with a strong focus on metrics.</li></ul><ul id="6750c3e4-44da-4517-8bc5-22b7efad2e6e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">6+ years of product design experience with a minimum of 2+ years designing consumer-facing products.</li></ul><ul id="e8288246-d995-4889-9346-521a18759aa2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A proven track record designing customer facing products like websites and apps, as demonstrated in your portfolio.</li></ul><ul id="14c29464-c49c-4147-9f70-3dfe9912557c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Strong attention to craft and and ability to communicate visual and interaction recommendations with high quality mockups and prototypes that will end up directly in the hands of users.</li></ul><ul id="d49e517b-f4f9-4fd7-9775-8d6f2e55b050" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Strong aesthetic sensibility with acute attention to detail.</li></ul><ul id="25de8ef7-1e65-4271-8185-5b5a655ce95a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Prior experience participating in multiple areas of the product process, e.g. user testing, producing mockups.</li></ul><ul id="16e13b68-5129-4083-b0e8-829854c732df" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ability to carry ideas forward with confidence and discretion while working proactively, independently and transparently.</li></ul><ul id="cf61b72b-f712-48db-8863-3a07ae515eb7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Expertise working with and evolving design systems across products.</li></ul><ul id="2db30be6-84f8-490e-8e94-698e3c87301c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Proficiency with leveraging both qualitative and quantitative data in making design decisions.</li></ul><p id="b11a8d35-6b33-4cdb-bda3-beb6129a22aa" class="" dir="auto"><strong>How We Will Support You </strong></p><p id="a8441cb7-decd-4e76-a591-ba23468943e5" class="" dir="auto">Our core values -- build trust, question assumptions, and validate direction -- underpin how we work day-to-day and the support we give our team members. We strive to empower our team members to be self-directed and self-motivated in their work.</p><ul id="1aa11023-1043-4035-800b-13b3b63dfa5c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Remote First, Always</strong>: We&#x27;ve always been a fully distributed company with team members all over the world. We trust you to get your work done wherever, whenever.</li></ul><ul id="f0194fae-9b58-4759-9732-64b231a55f56" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Commitment to Personal Growth:</strong> Every team member has an annual budget of $1,250 USD to invest in their professional development. Every team member also has a dedicated Career Advisor, who serves as a guide to help you develop your strengths, identify your motivations, and understand your opportunities for growth.</li></ul><ul id="6bf71cde-949d-4de2-8dbd-e8dea24e2135" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Leadership:</strong> We have many different types of leaders and possible combinations of leadership roles, so you can grow your career in a way that aligns best with your personal goals. You can seek additional leadership roles by being directly responsible for projects, taking ownership of areas of the company, developing and maintaining internal processes, or pursuing advisory roles.</li></ul><ul id="55c2e626-a127-4e26-bf48-7460cce6c462" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Work/Life Balance: </strong>Team members have the freedom and flexibility to organize their own work schedules. We want you to thrive both in and out of the office. We trust you to use good judgment and take the time off that you need to bring your best self to work.</li></ul><p id="128e8017-cae9-4761-974f-162b7c4d19d3" class="" dir="auto">We also offer <strong>paid parental leave, a co-working stipend, office setup reimbursement, </strong>and<strong> a wellness stipend.</strong> More support resources can be found in our, <a href="https://duckduckgo.com/assets/hiring/team_support_guide.pdf"><span style="border-bottom:0.05em solid">Team Member Support Guide</span></a>, which explains how we make your well-being a priority.</p><p id="000858ec-4e8b-49f6-98fe-e6bf1d517af7" class="" dir="auto"><a href="https://duckduckgo.com/assets/hiring/team_support_guide.pdf"><span style="border-bottom:0.05em solid">Team Member Support Guide</span></a></p><p id="065ab148-bba1-4960-8b20-9de456a8687a" class="" dir="auto">For more information on how we collaborate worldwide, from <strong>leadership in our relatively flat organization </strong>to <strong>start-to-finish ownership,</strong> check out <a href="https://duckduckgo.com/assets/hiring/how_we_work.pdf"><span style="border-bottom:0.05em solid">DuckDuckGo Culture: How We Work.</span></a></p><p id="2eb770c1-e9ad-45c6-9291-2bf42483bd4d" class="" dir="auto"><a href="https://duckduckgo.com/assets/hiring/how_we_work.pdf"><span style="border-bottom:0.05em solid">DuckDuckGo Culture: How We Work.</span></a></p><p id="b8f3e461-0dec-41ad-a706-adf8c84ed428" class="" dir="auto"><strong>Compensation</strong></p><p id="95c3d4c3-6542-4c7c-8ef1-aa1c770a2f1c" class="" dir="auto">Annual compensation: $170,000 USD and stock options. Compensation is the same within a professional level, regardless of geographic location or functional area, and the compensation for each professional level is transparent across the organization.</p><p id="5f9a4f44-be61-4d3c-bd90-9b685bbfb8f2" class="" dir="auto"><strong>Hiring Process</strong></p><p id="1598f939-cfcb-4dcc-98f6-1946cd62fcd7" class="" dir="auto">Hiring works best when it&#x27;s a two-way street. Learn how we help you get to know DuckDuckGo and envision your future role here. Find out more about <a href="https://duckduckgo.com/assets/hiring/how_we_hire.pdf"><span style="border-bottom:0.05em solid">how we hire</span></a>.</p><p id="1d53b5f9-c909-4555-a530-7a447b2a9573" class="" dir="auto"><a href="https://duckduckgo.com/assets/hiring/how_we_hire.pdf"><span style="border-bottom:0.05em solid">how we hire</span></a></p><p id="18aaa812-0af4-4c8f-b6dc-e4255e18cc33" class="" dir="auto"><strong>Diversity, Equity, and Inclusion</strong></p><p id="cc371caa-14db-4362-ab7d-f26c3db40336" class="" dir="auto">DuckDuckGo provides equal work opportunities to all team members and applicants and prohibits discrimination and harassment of any type</p><p id="43869cf1-fb9c-4b88-bf24-bdf1d55398fb" class="" dir="auto">on the basis of race, color, ethnicity, caste, religion, age, sex (including pregnancy), national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by our policies or federal, state, or local laws.</p><p id="a2392831-1580-4dd8-ad92-184c9962779d" class="" dir="auto">We want to ensure that our hiring process is accessible. If you need reasonable accommodation for any part of the application process because of a medical condition or disability, please send an email to <span style="border-bottom:0.05em solid">careers@duckduckgo.com</span> to let us know the nature of your request.</p><p id="647dc042-9e14-43a8-8cd7-5864f802cd39" class="" dir="auto">If you think you might thrive in this environment, we would love to hear from you.</p><p id="c28d9234-c27a-4818-9d74-63cc8570ff72" class="" dir="auto"><strong>Please note that:</strong></p><ul id="c81611bf-2195-4cd5-9b68-56061ba046bf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sometimes we meet up! Expect to travel at least two times a year: once for our all-hands meetup and again for a team retreat (each around 4-5 days). While extenuating circumstances may impact attendance, everyone is strongly encouraged to attend.</li></ul><ul id="84e37f28-f2e6-4d35-b2e0-45e48220d284" class="bulleted-list" dir="auto"><li style="list-style-type:disc">While we offer a flexible work arrangement with no core hours, expect an average full-time commitment of 40 hours per week.</li></ul><ul id="aee33023-864c-4f23-9634-ff4ee69439a2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A successful candidate will be subject to a background check and must receive satisfactory results of the same, as a condition of joining the team.</li></ul><ul id="e9299134-5a9e-4237-9488-71eff7f3e9fd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">By applying for this role, you confirm that all information submitted is accurate and complete. You further acknowledge that providing false or fraudulent information during the application process is cause for denial of an offer, revocation of any existing offer, or other adverse action, up to and including termination after the start of your commencement of work.</li></ul><h3 id="3aa82710-7a91-424d-bcce-a0cd3acd22d4" class="" dir="auto"><strong>Please see above.</strong></h3><p id="bed2803d-c520-43c6-b822-bb3b0fdbf44c" class="" dir="auto"><a href="https://duckduckgo.recruitee.com/o/senior-product-designer-worldwide-remote-paoli/c/new"><strong>Apply Now</strong></a><a href="https://duckduckgo.recruitee.com/o/senior-product-designer-worldwide-remote-paoli">Share Job</a></p></div></details><p id="959cb14f-3d2d-4e6b-b1b1-a215fa737b47" class="" dir="auto"><a href="https://duckduckgo.com/hiring">https://duckduckgo.com/hiring</a></p><ul id="de47ee55-7ea3-4c85-969a-89e9a16d3c4e" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-on" disabled="" checked=""/> <span class="to-do-children-checked"><a href="https://duckduckgo.recruitee.com/o/senior-product-designer-worldwide-remote-paoli/c/new">https://duckduckgo.recruitee.com/o/senior-product-designer-worldwide-remote-paoli/c/new</a></span><div class="indented"></div></li></ul><p id="96e8e06b-be82-42e2-a1a5-5427d991a281" class="" dir="auto"><a href="https://duckduckgo.com/assets/hiring/how_we_hire.pdf">https://duckduckgo.com/assets/hiring/how_we_hire.pdf</a></p><p id="01a0951e-cb5a-404f-a963-6839b68e92bf" class="" dir="auto"><a href="https://duckduckgo.com/assets/hiring/how_we_work.pdf">https://duckduckgo.com/assets/hiring/how_we_work.pdf</a></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

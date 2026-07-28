@@ -1,0 +1,775 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Methods and Artifacts</title><meta name="data-notion-page-icon" content="⚗"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%9A%97%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="c3474085-5d2b-4904-838b-f17978d61c37" class="page sans" data-notion-page-icon="⚗"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="⚗"></span></div><h1 class="page-title" dir="auto">Methods and Artifacts</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><figure id="7678667e-c8c6-4cfb-9abf-4e17151d05ed" class="link-to-page"><a href="Methods%20and%20Artifacts/ORGANIZE%20HERE%207678667ec8c64cfb9abf4e17151d05ed.html" data-notion-page-id="7678667e-c8c6-4cfb-9abf-4e17151d05ed" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6"><span class="icon" data-emoji="📦"></span>ORGANIZE HERE</a></figure><nav id="b352091a-5eec-439b-a78d-ccea988c55b5" class="block-color-gray table_of_contents" data-notion-highlight="gray" data-notion-toc="" dir="ltr"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#35feed9a-5571-4cd7-8a12-30d3a20643b9">Areas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25b83e1a-a03a-4c31-bcd6-e7f08c62efa4">Business</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#eebb055e-ba0f-40d5-b9ac-e4d627ff81a9">People</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3104f9f5-e525-441b-bed5-8e801077abb0">Product</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#50d0e6ca-4421-4fe8-b21e-3340ac67f25b">Strategy</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#10f05aa5-e47e-49c3-bba3-c839f7b4ef39">| Plan</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6ac15768-bc4c-4bb2-bcea-41d18d9c79fe">| Measure</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8409918c-1fb1-45eb-888a-0ebe3b8e7715">Research </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fa258f58-5f94-40a7-8322-41faefd8073e">| Ethnography</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#253af431-7b46-4b08-adc0-575f73a78294">| Benchmarking</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#515b7893-71b2-4fd1-ad90-034153ac7307">| Analysis</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bc7b7e2d-0374-444d-89ac-893ae2aa2024">| Testing</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f6d3934b-1781-4192-9bdb-02dabdb2507c">Design</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d60a9bde-51e8-4e55-b32b-beec3bfb868d">| Workshops and Facilitation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ad607920-fb80-4b73-b410-bf5426daa6ae">| Mapping</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ef7256bf-51da-439b-8821-62c33d91a918">| Sketching and Design Exploration</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7aad00ab-9571-4333-a2bd-c7a585090df8">| Information Architecture</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1632a3a6-0b8e-4bf4-b92e-80cab084431f">| Wireframe</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dde03390-8499-4c69-8294-aacedea60f87">| Prototyping</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#33051be8-08eb-46e8-8219-1eb6ec71adf1">| Style Guide</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b15a9471-fa8f-421c-8141-45bba7d3c660">| Design System and Guidelines</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7d5c62ae-c3fd-4be2-a0a0-3510240f7960">| Accessibility</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#60c7400d-052f-4ccf-be99-b69287622619">| Design OPS</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#088a3492-e0ac-4ef0-83e9-8eb1457b84ce">| Design Quality Assurance</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#06bdaf4f-f21c-4a8f-a41c-eeef6860dc82">| Hand-Off</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#18556e36-8bee-4469-9a41-be5f538f0e89">Development</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f0d87dfa-6ebf-48ea-b2fe-7ad6db46da6b">| Front-End</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fd75e414-7df9-4fcb-841f-45c2c17c41e1">using all of the content of this chat, help me answer these questions for a Designer position at <a href="http://automattic.com/">Automattic.com</a>:</a></div></nav><figure id="9b5d3afd-bc6c-40ab-81a7-499ece990a9c" class="link-to-page"><a href="Methods%20and%20Artifacts/Resources%20and%20References%209b5d3afdbc6c40ab81a7499ece990a9c.html" data-notion-page-id="9b5d3afd-bc6c-40ab-81a7-499ece990a9c" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Resources and References</a></figure><h1 id="35feed9a-5571-4cd7-8a12-30d3a20643b9" class="" dir="auto">Areas</h1><h2 id="25b83e1a-a03a-4c31-bcd6-e7f08c62efa4" class="" dir="auto">Business</h2><p id="21ceed39-16fd-48f0-98aa-f5c6940084d1" class="" dir="auto">Testing Business Ideas</p><p id="3a62d207-c395-43e9-956e-3fca40723d6c" class="" dir="auto">Lean Startup</p><p id="7ca62323-de78-4d83-967c-0ab3a0c1df9a" class="" dir="auto">Vision</p><p id="ab7142ae-3d59-4c1c-87ab-384a9d4bb607" class="" dir="auto">Objective, Goals and Outcomes<div class="indented"><p id="2eb5d403-0065-48d5-a187-b0c0b10fcbfe" class="" dir="auto">Outcomes vem de Business Strategy and Results</p><p id="a46e35c6-4b75-4902-8b43-7a6a8d1a02c4" class="" dir="auto">Outcomes &gt; Problemas, Dores e Hipóteses</p><p id="d08a98d3-b34c-4183-a805-263df55d10f3" class="" dir="auto">Opportunities &gt; Soluções, Experimentos</p><p id="a12f3a59-6a7f-4ada-99cf-6eb55bdeaed9" class="" dir="auto">Features&gt; Framing, Requisitos e Funcionalidades</p></div></p><ul id="b35ba0c0-c9d4-4255-9df1-af75f356f012" class="bulleted-list" dir="auto"><li style="list-style-type:disc">| Business Model</li></ul><ul id="7d428fcb-632f-4d54-bbde-d2bf97bc4107" class="bulleted-list" dir="auto"><li style="list-style-type:disc">| Value Proposition</li></ul><p id="2d381305-1527-43c4-addd-3357f4e2ef29" class="" dir="auto">Align expectations/ shipping with other Areas<div class="indented"><p id="eaffc9df-81d6-4038-9248-37b4131f65ae" class="" dir="auto">Sales</p><p id="7afa9380-2f43-4081-9c7f-fb3956e4d009" class="" dir="auto">Customer Success</p><p id="b6157bbf-79e8-4c72-945f-a02d3530b27e" class="" dir="auto">Technology</p></div></p><h2 id="eebb055e-ba0f-40d5-b9ac-e4d627ff81a9" class="" dir="auto">People</h2><p id="f464394b-6c81-487b-9a03-0d5e3f1d72b7" class="" dir="auto">Objectives</p><p id="d6ed2572-955a-4567-a34e-63eb09f3bb65" class="" dir="auto">Needs</p><p id="abff69f5-201c-428b-a20c-6573aaba3290" class="" dir="auto">Motivations</p><p id="00b1d75e-7107-4937-a078-7ed394ab8fda" class="" dir="auto">Pain Points</p><p id="7d042c50-91e8-4e48-807b-d4ba41824e51" class="" dir="auto">Behavior</p><p id="6c3c4624-5e16-4e8d-86a5-3347d13324a0" class="" dir="auto">Expectations</p><p id="b6b88ef0-71f4-4845-96b6-5ad6c7a4476f" class="" dir="auto">Insights</p><p id="2d6ead07-2f56-4f65-9c1c-089dfb3e113e" class="" dir="auto">Opportunities</p><p id="743e034d-c9b8-441e-b4c4-4c017f6aad73" class="" dir="auto">
+</p><figure id="347bbdf4-bf55-4468-bccc-78553b69a799" class="link-to-page"><a href="Methods%20and%20Artifacts/Type%20347bbdf4bf554468bccc78553b69a799.html" data-notion-page-id="347bbdf4-bf55-4468-bccc-78553b69a799" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Type</a></figure><h2 id="3104f9f5-e525-441b-bed5-8e801077abb0" class="" dir="auto">Product</h2><p id="41e25d0e-7d27-47fd-9e4f-ca19ac3c0221" class="" dir="auto">Hypothesis</p><p id="b2b2fd39-3023-453a-8e1a-d36bfe568465" class="" dir="auto">Experiments</p><p id="5dac62f5-27ef-4d9c-9927-8a8845d64e6f" class="" dir="auto">Solutions</p><p id="310b7cd6-79e5-49f7-be3a-1547236d0375" class="" dir="auto">Services</p><p id="d4583d71-01a1-41b8-8532-45a63121a1f9" class="" dir="auto">
+</p><h1 id="50d0e6ca-4421-4fe8-b21e-3340ac67f25b" class="" dir="auto">Strategy</h1><p id="9cbfa6f1-05bd-4ab9-a021-11c2084f6c28" class="" dir="auto">Thinking</p><figure id="62debd87-f783-4de7-872b-bfb979189be2" class="link-to-page"><a href="Methods%20and%20Artifacts/Agile%20Methods%2062debd87f7834de7872bbfb979189be2.html" data-notion-page-id="62debd87-f783-4de7-872b-bfb979189be2" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Agile Methods</a></figure><figure id="46289a55-7a40-47e1-b34c-2fd0dec98e67" class="link-to-page"><a href="Methods%20and%20Artifacts/Roadmap%2046289a557a4047e1b34c2fd0dec98e67.html" data-notion-page-id="46289a55-7a40-47e1-b34c-2fd0dec98e67" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Roadmap</a></figure><h3 id="10f05aa5-e47e-49c3-bba3-c839f7b4ef39" class="" dir="auto">| Plan</h3><p id="26f48a15-83e1-41ac-97eb-8651aa169262" class="" dir="auto">Fixed Budget - Variable Scope</p><h3 id="6ac15768-bc4c-4bb2-bcea-41d18d9c79fe" class="" dir="auto">| Measure</h3><p id="c0f3f544-0235-462c-b102-f79755e00feb" class="" dir="auto">Set up Metrics and Data to back up the decisions</p><h1 id="8409918c-1fb1-45eb-888a-0ebe3b8e7715" class="" dir="auto">Research </h1><h3 id="fa258f58-5f94-40a7-8322-41faefd8073e" class="" dir="auto">| Ethnography</h3><figure id="b87bf68b-94d7-4590-9d79-b36ee8406ddd" class="link-to-page"><a href="Methods%20and%20Artifacts/Como%20fizemos%20pesquisa%20pelo%20WhatsApp%20by%20Elisa%20Volpa%20b87bf68b94d745909d79b36ee8406ddd.html" data-notion-page-id="b87bf68b-94d7-4590-9d79-b36ee8406ddd" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Como fizemos pesquisa pelo WhatsApp | by Elisa Volpato | Magnetis Design | Jun, 2020 | Medium</a></figure><figure id="f70d15ef-428d-4189-a6f9-ea2a0f7c9a51" class="link-to-page"><a href="Methods%20and%20Artifacts/User%20Interview%20Example%20Questions%20Usability%20&amp;%20Web%20A%20f70d15ef428d4189a6f9ea2a0f7c9a51.html" data-notion-page-id="f70d15ef-428d-4189-a6f9-ea2a0f7c9a51" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">User Interview Example Questions | Usability &amp; Web Accessibility</a></figure><h3 id="253af431-7b46-4b08-adc0-575f73a78294" class="" dir="auto">| Benchmarking</h3><figure id="c6b541f9-65e3-4ffb-972c-e4b1a05d9b1d" class="link-to-page"><a href="Methods%20and%20Artifacts/Competitive%20Analysis%20c6b541f965e34ffb972ce4b1a05d9b1d.html" data-notion-page-id="c6b541f9-65e3-4ffb-972c-e4b1a05d9b1d" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Competitive Analysis</a></figure><h3 id="515b7893-71b2-4fd1-ad90-034153ac7307" class="" dir="auto">| Analysis</h3><ul id="5b016ad4-1683-44eb-90ee-7af339d5755b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Insights and Opportunities<figure id="8369a6ad-5425-4f63-923f-e08a30ab14e8" class="link-to-page"><a href="Methods%20and%20Artifacts/Customer%20Insights%208369a6ad54254f63923fe08a30ab14e8.html" data-notion-page-id="8369a6ad-5425-4f63-923f-e08a30ab14e8" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Customer Insights</a></figure><figure id="4041d09b-7737-45c3-a650-7cd92715f175" class="link-to-page"><a href="Methods%20and%20Artifacts/Extracting%20Research%20Insights%20How%20to%20Analyze%20Qualit%204041d09b773745c3a6507cd92715f175.html" data-notion-page-id="4041d09b-7737-45c3-a650-7cd92715f175" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Extracting Research Insights: How to Analyze Qualitative Data with Timothy Moore of The Design Gym</a></figure></li></ul><ul id="0b44850e-a4ff-4abb-91be-ba6ef23922ea" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Data Analysis<ul id="8a7b6110-ae01-4194-af57-d96e1f70d0fd" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Hotjar Analysis</li></ul></li></ul><ul id="39002bf8-b18f-4675-b61e-7d2d06531b42" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Design Review<figure id="cff5a367-3072-48c6-ab65-6f4a763e31c5" class="link-to-page"><a href="Methods%20and%20Artifacts/Design%20Critique%20cff5a367307248c6ab656f4a763e31c5.html" data-notion-page-id="cff5a367-3072-48c6-ab65-6f4a763e31c5" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Design Critique</a></figure></li></ul><ul id="189ffdc6-86a7-48f6-abe6-22cd19d83754" class="bulleted-list" dir="auto"><li style="list-style-type:disc">UX and Heuristics Analysis</li></ul><h3 id="bc7b7e2d-0374-444d-89ac-893ae2aa2024" class="" dir="auto">| Testing</h3><ul id="1ea8ea4e-9214-48f1-87a7-ad7374442a4f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Concept Testing</li></ul><ul id="9b24e4d3-5bdb-4430-b046-363739125052" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Usability Testing</li></ul><h1 id="f6d3934b-1781-4192-9bdb-02dabdb2507c" class="" dir="auto">Design</h1><p id="7363325e-6922-41e0-9e1e-5f71319394ac" class="" dir="auto">Crafting</p><h3 id="d60a9bde-51e8-4e55-b32b-beec3bfb868d" class="" dir="auto">| Workshops and Facilitation</h3><ul id="9ef9231f-b05d-4e8f-91ec-17f4ae9714d5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ideation and Brainstorm sections</li></ul><ul id="90cd2254-5cd8-4919-a239-ae6634098258" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Design Sprint</li></ul><ul id="cd89f82a-5fd8-4f23-a0fb-93b15b3acf48" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Design Thinking</li></ul><h3 id="ad607920-fb80-4b73-b410-bf5426daa6ae" class="" dir="auto">| Mapping</h3><ul id="9e0bd794-791f-4fa6-9fed-7e9bc1afe7a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Personas</li></ul><ul id="a2c20d9f-afb0-415b-9a0b-c1e28cb81f68" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Stakeholders Mapping</li></ul><ul id="b1f0bc2d-5650-451e-98c0-8c46e857ffa4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Journey Mapping</li></ul><ul id="99bf1b9f-eaf4-42a3-852c-5580c0ccea19" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Service Blueprint</li></ul><ul id="bf43f4ac-8108-4087-8e66-1f2d4ca42d37" class="bulleted-list" dir="auto"><li style="list-style-type:disc">User Flow, Task Flow or Wireflows</li></ul><h3 id="ef7256bf-51da-439b-8821-62c33d91a918" class="" dir="auto">| Sketching and Design Exploration</h3><h3 id="7aad00ab-9571-4333-a2bd-c7a585090df8" class="" dir="auto">| Information Architecture</h3><figure id="8c140502-7357-48d1-b6cc-4722bd38ce0d" class="link-to-page"><a href="Methods%20and%20Artifacts/Organizing%208c140502735748d1b6cc4722bd38ce0d.html" data-notion-page-id="8c140502-7357-48d1-b6cc-4722bd38ce0d" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Organizing</a></figure><figure id="f22d6e23-259c-435c-862c-5c70ff95440b" class="link-to-page"><a href="Methods%20and%20Artifacts/Labeling%20f22d6e23259c435c862c5c70ff95440b.html" data-notion-page-id="f22d6e23-259c-435c-862c-5c70ff95440b" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Labeling</a></figure><figure id="af8aafcd-6912-4388-93ae-35c24fab9683" class="link-to-page"><a href="Methods%20and%20Artifacts/Design%20for%20Content%20af8aafcd6912438893ae35c24fab9683.html" data-notion-page-id="af8aafcd-6912-4388-93ae-35c24fab9683" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Design for Content</a></figure><ul id="69fcb112-010e-4131-a7fd-824f63a7ac19" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Structuring</li></ul><ul id="3c8b04da-0451-4a92-897e-0021db168cfa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Mapping Flows [User scenarios and Task flows ] and Navigation, Searching</li></ul><ul id="db30edf7-3b96-4086-ba32-8ba1e2ab224a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Wireframes and Testing<ul id="173a991e-816d-4665-897f-240ea7eeb698" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Low fidelity Pages to validate the Idea and the Structures created.</li></ul></li></ul><figure id="d9b8b2cc-ffe6-41a6-8538-f2f065cdd26a" dir="ltr"><a href="https://www.nngroup.com/courses/information-architecture/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Information Architecture | Full Day UX Training by NN/g</div><div class="bookmark-description">Organize and structure information to improve findability and discoverability How to explain why information architecture (IA) is important for your website or application Why a good IA can save your company time and money during and after development Return on investment (ROI) of information architecture Essential logic and concepts you need to build a useful, usable, and extensible information architecture Five components of information architecture Structure types: Hierarchy, linear, and web Organization schemes: Topic, task, format, audience, alphabet, time, geographical, attributes, tags, and popularity Label names: Being specific vs.</div></div><div class="bookmark-href"><img src="https://media.nngroup.com/static/img/favicon.ico" class="icon bookmark-icon"/>https://www.nngroup.com/courses/information-architecture/</div></div><img src="https://media.nngroup.com/media/files/images/20181001_Raleigh-003_2000x1500.jpg" class="bookmark-image"/></a></figure><h3 id="1632a3a6-0b8e-4bf4-b92e-80cab084431f" class="" dir="auto">| Wireframe</h3><figure id="70d648b2-fbf5-4587-b869-2791c316ac76" class="link-to-page"><a href="Methods%20and%20Artifacts/References%2070d648b2fbf54587b8692791c316ac76.html" data-notion-page-id="70d648b2-fbf5-4587-b869-2791c316ac76" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">References</a></figure><h3 id="dde03390-8499-4c69-8294-aacedea60f87" class="" dir="auto">| Prototyping</h3><h3 id="33051be8-08eb-46e8-8219-1eb6ec71adf1" class="" dir="auto">| Style Guide</h3><figure id="ca6a0ce8-93e3-4929-9394-e18298080616" class="link-to-page"><a href="Methods%20and%20Artifacts/References%20ca6a0ce893e349299394e18298080616.html" data-notion-page-id="ca6a0ce8-93e3-4929-9394-e18298080616" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">References</a></figure><ul id="5a329af4-86a9-4d7b-ab25-f00d74dd3a17" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Typography</li></ul><h3 id="b15a9471-fa8f-421c-8141-45bba7d3c660" class="" dir="auto">| Design System and Guidelines</h3><ul id="6cb6966e-5dcf-4341-8729-61eb07ffb1c6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Atomic Design</li></ul><ul id="a4e2f16a-b972-4a45-8b5b-295e7e9e3c05" class="bulleted-list" dir="auto"><li style="list-style-type:disc">UI Framework</li></ul><ul id="b1288bc5-ba1e-49e8-b100-7ed89f0d5986" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Components</li></ul><p id="f7686027-5b90-4118-a531-fa655ae96e29" class="" dir="auto">
+</p><ul id="8584530f-0af2-44c0-88c5-3691b4d91531" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Material Design</li></ul><ul id="bddd58ac-73b0-4a41-a73d-1b0c5890ffa9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Apple Human Interface Guidelines</li></ul><ul id="17169020-7401-4373-b16d-2af4d54f1fb6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Fluent Design</li></ul><h3 id="7d5c62ae-c3fd-4be2-a0a0-3510240f7960" class="" dir="auto">| Accessibility</h3><figure id="5fa945b3-24bc-40ab-b7d7-089c3c227918" class="link-to-page"><a href="Methods%20and%20Artifacts/References%205fa945b324bc40abb7d7089c3c227918.html" data-notion-page-id="5fa945b3-24bc-40ab-b7d7-089c3c227918" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">References</a></figure><p id="fbecafa5-8fba-4d0e-b144-b02cd9e8dbd2" class="" dir="auto">
+</p><h3 id="60c7400d-052f-4ccf-be99-b69287622619" class="" dir="auto">| Design OPS</h3><figure id="9f05802c-fab7-4eab-bdd0-43a2e69c6de3" dir="ltr"><a href="https://www.toolboxtoolbox.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">https://www.toolboxtoolbox.com/</div></div><div class="bookmark-href">https://www.toolboxtoolbox.com/</div></div></a></figure><h3 id="088a3492-e0ac-4ef0-83e9-8eb1457b84ce" class="" dir="auto">| Design Quality Assurance</h3><ul id="3257b93c-ff38-4ba5-b2a2-b9469f24d0ae" class="bulleted-list" dir="auto"><li style="list-style-type:disc">UI Testing</li></ul><ul id="95d3a762-3a64-49d6-85bf-759372e2f3af" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Visual Testing</li></ul><ul id="e3eae8c2-6113-46b7-a6b2-5a3742ecf35e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Accessibility Testing</li></ul><figure id="bab874b8-263a-4d05-8073-e665705841d0" dir="ltr"><a href="https://emeraldworks.atlassian.net/wiki/spaces/NP/pages/1791623324/Quality+Assurance" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Atlassian</div><div class="bookmark-description">Log in to Jira, Confluence, and all other Atlassian Cloud products here. Not an Atlassian user? Sign up for free.</div></div><div class="bookmark-href"><img src="https://cpfs-cdn.atlassian.com/assets/shared/id-summit/id-summit-aa-favicon.ico" class="icon bookmark-icon"/>https://emeraldworks.atlassian.net/wiki/spaces/NP/pages/1791623324/Quality+Assurance</div></div></a></figure><h3 id="06bdaf4f-f21c-4a8f-a41c-eeef6860dc82" class="" dir="auto">| Hand-Off</h3><p id="79a7d747-716a-4e0a-a323-79cc628a97ab" class="" dir="auto">Shipping</p><p id="6d9a3305-e935-4095-af2d-c9f1cd8e1566" class="" dir="auto">Alinhamento com outras áreas da Empresa.</p><h1 id="18556e36-8bee-4469-9a41-be5f538f0e89" class="" dir="auto">Development</h1><h3 id="f0d87dfa-6ebf-48ea-b2fe-7ad6db46da6b" class="" dir="auto">| Front-End</h3><ul id="839fb9a5-318a-4492-a619-06ef6dcfc66e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">HTML, CSS e JS</li></ul><figure id="5ad6e821-7194-4cfa-8a1c-a537e1de7d6c" class="link-to-page"><a href="Methods%20and%20Artifacts/Front-End%20Design%205ad6e82171944cfa8a1ca537e1de7d6c.html" data-notion-page-id="5ad6e821-7194-4cfa-8a1c-a537e1de7d6c" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Front-End Design</a></figure><figure id="f77c714c-4f7c-4916-b41d-bdeff571086e" class="link-to-page"><a href="Methods%20and%20Artifacts/React%20for%20Designers%20f77c714c4f7c4916b41dbdeff571086e.html" data-notion-page-id="f77c714c-4f7c-4916-b41d-bdeff571086e" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">React for Designers</a></figure><p id="3fe6adb5-b2d2-4536-ae5a-80d1b4121c7a" class="" dir="auto">
+</p><p id="6cc80a29-9cc5-452d-8ecb-dfbc87a93a77" class="" dir="auto">
+</p><p id="8bebd7af-bf0e-4cd4-a58e-20712552f9db" class="" dir="auto">
+</p><p id="86c52356-b56d-4bc3-8dc1-4fba33c8c098" class="" dir="auto">
+</p><h2 id="fd75e414-7df9-4fcb-841f-45c2c17c41e1" class="" dir="auto">using all of the content of this chat, help me answer these questions for a Designer position at <a href="http://automattic.com/">Automattic.com</a>:</h2><ul id="c8b332e7-36f7-449d-a9e2-61dde3c3e8c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What&#x27;s important to you in your next career opportunity? *</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

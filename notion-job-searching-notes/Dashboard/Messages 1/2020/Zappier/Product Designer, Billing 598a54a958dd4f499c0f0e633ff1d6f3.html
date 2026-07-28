@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Product Designer, Billing</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="598a54a9-58dd-4f49-9c0f-0e633ff1d6f3" class="page sans"><header><h1 class="page-title" dir="auto"><strong>Product Designer, Billing</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="ec2bdbe0-4cd6-461c-8f7c-944decb77fa1" class="" dir="auto">Hi there!</p><p id="9eaefbcd-b154-42ae-8fee-1670efb7be10" class="" dir="auto">We&#x27;re looking for a Product Designer to join our Revenue Growth and Billing team. This team is responsible for the customer journey from sign up, choosing the right plan for their needs, to paying for Zapier. This is a critical role for expanding and retaining Zapier’s user base. This designer will play a part in rapid experimentation, and building out complex systems for our payment structure. Are you excited to work on challenging problems with a team of designers, product managers, and engineers? Then keep reading!</p><p id="d5402597-d094-4722-a943-36ba1e1b39f2" class="" dir="auto"><em>We know applying for and taking on a new job at any company requires a leap of faith. We want you to feel comfortable and excited to apply at Zapier. To help share a bit more about life at Zapier, here are a few resources in addition to the job description that can give you an inside look at what life is like at Zapier. We hope you&#x27;ll take the leap of faith and apply.</em></p><ul id="6aa87950-9828-4060-97f0-570402d434ee" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/our-commitment-to-applicants/">Our Commitment to Applicants</a></li></ul><ul id="66a17f10-4fd5-4990-93fe-156d9321d3ca" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/culture-and-values-at-zapier/">Culture and Values at Zapier</a></li></ul><ul id="0399f93b-1862-4d6b-93fa-edbad0fd1263" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/learn/remote-work/">Zapier Guide to Remote Work</a></li></ul><ul id="8d34e6b5-bd50-4fe0-9fa0-1017e34499dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/zapier-code-of-conduct/">Zapier Code of Conduct</a></li></ul><ul id="10ed4b9a-9901-44fd-9abd-7828650fa22d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/working-on-diversity-and-inclusivity/">Diversity and Inclusivity at Zapier</a></li></ul><p id="89c1bf68-5a7e-4220-888c-d9da804f2811" class="" dir="auto"><em>Zapier is proud to be an equal opportunity workplace dedicated to pursuing and hiring a diverse workforce.</em></p><p id="183e3039-91a8-40be-8a9f-bfd3fd001862" class="" dir="auto"><strong>About you</strong></p><p id="99ca9cf9-391a-4612-8321-6589922edec5" class="" dir="auto"><strong>You’re a skilled designer and are continually growing. . </strong>You have at least 5 years experience designing and building software product experiences for end-users and have shipped design for a product used by a significant user base.You have a have a strong understanding of user-centered design and product thinking when making design decisions, and you back that understanding with compelling design solutions. You are able to quickly build up an understanding of all experiences and touch points that go into delivering value to our customers.</p><p id="c21c6981-a1e3-4f1b-8478-1e0c51dca866" class="" dir="auto"><strong>You are a skilled interaction designer.</strong> You craft high quality, end to end experiences. You build straightforward user flows, information architecture, and utilize the tenants of strong interaction design in your work. You leverage design systems for consistency and pay attention to the details of each screen. You work with engineers to ship experiences that are usable and aesthetically pleasing.</p><p id="ba246c09-a1a4-4621-a299-6fb7314d020a" class="" dir="auto"><strong>You leverage research and data.</strong> You enjoy learning from customers and team members, and you’re comfortable participating in research regularly to clarify or validate assumptions. You communicate what you learn with your team, and work with them to prioritize and iterate on solutions. You know how to measure the results of your work, test it with real users, and understand its downstream effects.</p><p id="b6f5e7b8-c824-4ee6-8fbd-d66c3d776c98" class="" dir="auto"><strong>You&#x27;re a skilled written communicator.</strong> Zapier is a 100% remote team and writing is our primary means of communication. You&#x27;ll use written summaries and reports to communicate design thinking, rationale, findings, and next steps to other designers, product managers, engineers, and the full Zapier team. You know how to tell a compelling story in a concise way.</p><p id="a91e84e2-23a0-4d5e-9011-f058e41e51ea" class="" dir="auto"><strong>You are self-directed and process driven. </strong>At Zapier, we believe in systems and processes that let us scale our impact to be larger than ourselves.</p><p id="6ff458c9-96f6-4b8f-b0de-252296751bb1" class="" dir="auto"><strong>A Product Designer’s Role at Zapier</strong></p><p id="d3e1275e-49dc-4ca5-9185-babadb0d697d" class="" dir="auto">Zapier is a small, fast-paced company, so you&#x27;ll get experience with a little bit of everything. That said, here are some things you&#x27;ll probably do:</p><ul id="945bab7f-0ecf-4e0a-97d1-aaef3f7fea48" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Lead the creation of delightful user-centered experiences leveraging a solid design process.</li></ul><ul id="c6cfede0-5461-4c94-a2ac-c5762ec20293" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conduct user research and communicate findings to your product teams.</li></ul><ul id="20d21b1f-10cf-46e4-aa3e-aeca04ee2eff" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Champion UX best practices to ensure we’re all making informed design decisions together.</li></ul><ul id="7e7f33de-dda7-4124-aa02-53c085d7a944" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Work with product teams to craft design solutions that move forward team’s goals and impact company metrics.</li></ul><ul id="5be6dca7-ee4a-45bc-bce7-7a4378786f5a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Lead discussions on UX/UI problems, and present alternative solutions to problems based on your understanding of user needs and business needs.</li></ul><ul id="47d77493-1599-4a06-8eec-64bb479df7c4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Request feedback from Design Team members, and other teammates around Zapier through asynchronous or synchronous communication.</li></ul><ul id="13b1f3c1-525b-47b5-882e-ae7779438876" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborate and share work early and often. Create clickable prototypes or provide links to assets with your teams for feedback and to conduct usability testing.</li></ul><ul id="6a9bf633-5837-4ad0-bbea-c12053b38891" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Deliver high quality, complete designs, and specifications for projects alongside PMs and engineers.</li></ul><ul id="46dfea76-068b-4627-aa60-4284a8792779" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Adhere to established design patterns, or help to build upon and deliver improvements to existing patterns.</li></ul><p id="c3df77c2-21c8-41d4-8255-017aeb8d2176" class="" dir="auto"><strong>About Zapier</strong></p><p id="9a3e6d96-4182-4051-b42b-33bb1917a68d" class="" dir="auto">For the past nine years, Zapier has been helping people across the world automate the boring and tedious parts of their job. We do that by helping everyone connect the web applications they already use and love.</p><p id="e8ce3d24-5341-4128-b6c7-dc36998998bb" class="" dir="auto">We believe that there are jobs a computer is best at doing and that there are jobs a human is best at doing. We want to empower businesses to create processes and systems that let computers do what they are best at doing and let humans do what they are best at doing.</p><p id="f712423f-291a-45d6-a17e-9e7977e38e8b" class="" dir="auto">We believe that with the right tools, you can have a big impact with less hassle.</p><p id="4d4a40bf-6543-4403-a603-e94a455d903d" class="" dir="auto">We believe in small teams. Small teams are fast and nimble. Small teams mean less bureaucracy and less management and more getting things done.</p><p id="bc9d6755-3a86-4a80-b6b2-bcc078909921" class="" dir="auto">We believe in a safe, welcoming, and inclusive environment. All teammates at Zapier agree to a<a href="https://zapier.com/jobs/zapier-code-of-conduct/"> code of conduct</a>.</p><p id="d9996787-6d2b-4efb-b105-290cff0f4c15" class="" dir="auto"><strong>The Whole Package</strong></p><p id="0d2fbc0a-0902-4377-8e9b-97ff0bcb9042" class="" dir="auto">Location: United States or Canada</p><p id="da2eee1f-7574-48ee-a107-df20d9e3493e" class="" dir="auto">Our team of 350+ is distributed (remote) because it lets us work with the best people. We have team members that live in the United Kingdom, Thailand, India, Nigeria, Taiwan, Guatemala, New Zealand, Australia, and more! While we can hire many roles in locations anywhere in the world, some require specific timezone fits.</p><p id="7c2e5ba2-820c-4d2f-9a3d-b25e2a29ee31" class="" dir="auto">Compensation:</p><ul id="065ea3e4-4c87-424c-aa65-cca8cf5968bc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Competitive salary (we don&#x27;t use remote as an excuse to pay less)</li></ul><ul id="bb276dd1-85ed-41df-9865-aaa2f96f7bdb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Great healthcare + dental + vision coverage*</li></ul><ul id="32c99dca-a0fd-4eee-acfd-b3ea9a17b9a8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Retirement plan with 4% company match*</li></ul><ul id="4d5ceeca-5568-4aab-8168-691eac8da54b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Profit-sharing</li></ul><ul id="6aca773a-41f2-4189-9823-07db346d816a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">2 annual company retreats to awesome places</li></ul><ul id="265f339d-67b5-4701-807b-81db309c33dd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">14 weeks paid leave for new parents of biological or adopted children</li></ul><ul id="3e503371-0d7e-4a2c-8fb9-0b4bb5568a89" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Pick your own equipment. We&#x27;ll set you up with whatever Apple laptop + monitor combo you want plus any software you need.</li></ul><ul id="0840e10e-84d2-4fd0-82f7-0551f29d8df7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Unlimited vacation policy. Plus we require you to take at least 2 weeks off each year. We see most employees take 4-5 weeks off per year. This isn&#x27;t a vague policy where unlimited vacation means no vacation.</li></ul><ul id="13974d0d-4add-4217-870c-dd98c8b83399" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Work with awesome companies around the world. We partner with great software companies all over the world and you&#x27;ll constantly get to<a href="https://zapier.com/apps"> interact with people from these great companies</a></li></ul><ul id="9f33522e-900b-4ae0-a4b2-605c121f8f81" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><em>While we take care of our international folks as best we can, currently, healthcare and retirement plans are only available to UK, Canada, and US-based employees.</em></li></ul><p id="bf916458-533c-43b8-b6e3-7f8740722dbc" class="" dir="auto"><strong>How To Apply</strong></p><p id="d5c08fbf-0d3e-4e59-95a3-98e3d46aa80e" class="" dir="auto">We have a non-standard application process. To jump-start the process we ask a few questions we normally would ask at the start of an interview. This helps speed up the process and lets us get to know you a bit better right out of the gate.</p><p id="7eb984a5-6ab2-4531-999e-4c645ad6d5c3" class="" dir="auto">After you apply, you are going to hear back from us, even if we don&#x27;t seem like a good fit. In fact, throughout the process, we strive to make sure you never go more than seven days without hearing from us.</p><p id="aa4d4202-6df6-4cd8-9616-ee545ba7d547" class="" dir="auto"><em>Zapier is an equal opportunity employer. We&#x27;re excited to work with talented and empathetic people no matter their race, color, gender, sexual orientation, religion, national origin, physical or mental disability, or age. Our</em><a href="https://zapier.com/jobs/zapier-code-of-conduct/"> </a><a href="https://zapier.com/jobs/zapier-code-of-conduct/"><em>code of conduct</em></a><em> provides a beacon for the kind of company we strive to be, and we celebrate our differences because those differences are what allow us to make a product that serves a global user base.</em></p><figure id="2d96ed92-9da4-48a2-9b1b-a726d0e52412" class="image" data-notion-image="Product%20Designer,%20Billing/screencapture-zapier-jobs-4795292002-product-designer-billing-2020-09-01-00_22_21.png" dir="ltr"><a href="Product%20Designer,%20Billing/screencapture-zapier-jobs-4795292002-product-designer-billing-2020-09-01-00_22_21.png"><img style="width:1567px" src="Product%20Designer,%20Billing/screencapture-zapier-jobs-4795292002-product-designer-billing-2020-09-01-00_22_21.png"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Description</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="91be1a33-156a-4fc0-b269-1dece5693332" class="page sans"><header><h1 class="page-title" dir="auto">Description</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="544ce7c3-a717-4a22-a1fa-f5c2afac8e84" class="" dir="auto">
+</p><figure id="247e1f5b-51f4-4673-9f46-81b73c8d869d" class="image" data-notion-image="https://images.gupy.io/unsafe/85x85/https://s3.amazonaws.com/gupy5/production/companies/254/images/logo.png" dir="ltr"><a href="https://images.gupy.io/unsafe/85x85/https://s3.amazonaws.com/gupy5/production/companies/254/images/logo.png"><img style="width:96px" src="https://images.gupy.io/unsafe/85x85/https://s3.amazonaws.com/gupy5/production/companies/254/images/logo.png"/></a></figure><p id="e60c5bb3-7109-46bc-8c77-3fe531a70cf7" class="" dir="auto"><strong>UI Designer Mobile Sênior| Remoto (Qualquer lugar do Brasil)</strong><a href="https://contabilizei.gupy.io/candidates/jobs/549767/apply?jobBoardSource=gupy_public_page"><strong>Apply!</strong></a></p><ul id="659308f2-ce08-499e-96dd-e418a8cbc611" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Contabilizei</li></ul><ul id="6312cde8-04e9-4328-8df1-a6b6adec19e7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Full Time Remoto</li></ul><ul id="8f14d253-2cfd-43df-a55a-3d257fc76834" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Full-time employee</li></ul><ul id="1a56a942-cb58-42cd-8a09-e1a920c9d283" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Opportunity also for persons with disabilities</li></ul><figure id="b9c806ab-b9bf-4b4f-8a5d-4be98b19461a" class="image" data-notion-image="https://s3.amazonaws.com/gupy5/production/companies/254/images/jobs/499595/20200928024416334_picture.jpg" dir="ltr"><a href="https://s3.amazonaws.com/gupy5/production/companies/254/images/jobs/499595/20200928024416334_picture.jpg"><img src="https://s3.amazonaws.com/gupy5/production/companies/254/images/jobs/499595/20200928024416334_picture.jpg"/></a></figure><p id="f38da30c-b972-41d0-9e76-309a09cda90c" class="" dir="auto"><strong>Share</strong></p><h2 id="44d74ca0-291f-4874-bfb1-8efe30e688c4" class="" dir="auto">JOB DESCRIPTION</h2><p id="0e9fc5c7-3ff6-410c-ac74-e2dea34d39e7" class="" dir="auto">Com mais de 20 mil clientes, atuando em mais de 50 cidades do Brasil, a Contabilizei está mudando a maneira como o micro e pequeno empreendedor gerencia o seu negócio em nosso país. Continuamos a crescer rapidamente, criando novos produtos e proporcionando que o empreendedor seja o contador de sua própria história.</p><p id="0204a6eb-036d-4aef-9679-c36f5ad567f2" class="" dir="auto">Nosso time de Design de Produto Digital é focado na experiência do nosso cliente, porque entendemos que o sucesso dele é o nosso sucesso. Contamos com um time experiente e apaixonado, que atua de ponta a ponta em squads para o entendimento de novas funcionalidades e produtos.</p><p id="ad7936c6-8bf8-4f34-8ca3-fa5dad1fc321" class="" dir="auto">Como <strong>UI Designer</strong>, você será responsável por criar interfaces e fluxos de navegação, pensando na usabilidade do cliente dentro da plataforma, encontrando soluções diferentes e únicas para o empresário gerir sua empresa.</p><p id="16e7465a-4776-40c2-99e1-31c0b3f8da8c" class="" dir="auto">Acreditamos que a diversidade promove o crescimento sustentável. Na Contabilizei queremos que você seja a melhor versão de si, e as oportunidades são para todos. Valorizamos as diferenças, e estamos abertos a receber pessoas com quaisquer deficiências, gênero, etnia, orientação sexual e diferentes mindsets. Juntos, construímos a Contabilizei do nosso jeito.</p><p id="b20c3243-8eaf-4792-b188-c099df93effc" class="" dir="auto"><strong>Ahhh e essa oportunidade permite trabalho remoto e você poderá trabalhar de onde você quiser, além disso, todas as nossas vagas são regime CLT.</strong></p><h2 id="ea764ec7-33ac-407f-be52-c3a13085572a" class="" dir="auto">MAIN RESPONSIBILITIES</h2><p id="05338adb-44cf-47f8-bfef-be8b70ccaaa2" class="" dir="auto"><strong>Um dia típico inclui:</strong></p><ul id="e37b8196-75b8-448a-a134-cc998d03c22a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conhecer o negócio e os objetivos do squad no qual atua;</li></ul><ul id="56f06600-f10c-471a-bae5-49e418035868" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conhecer o produto como um todo;</li></ul><ul id="9bdb71f6-07e0-4674-a3a7-04a88a5c2cf8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ter amplo domínio das funcionalidades do produto sob responsabilidade do squad no qual atua;</li></ul><ul id="4c7f3378-1de0-43b4-8f7e-e737b646e57b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Busque continuamente oportunidades de melhoria do design do produto, identificando problemas e propondo soluções de design bem consideradas;</li></ul><ul id="13aeb17f-a9ab-4178-9fb9-07bfe7696d0d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Criar interfaces atraentes, intuitivas, simples e satisfatórias para a jornada do cliente, que reflitam o posicionamento do produto e impulsionem os negócios desejados e resultados estratégicos;</li></ul><ul id="b5fda7ef-d42e-479e-a185-55529a19fdbc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Acompanhar a execução de projetos e funcionalidades junto com equipes de engenharia de software e produto;</li></ul><ul id="54dfe877-7da3-44f7-849e-4480010fdeeb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Participar ativamente das estratégias de lançamento de novas funcionalidades e produtos.</li></ul><ul id="f74122a4-c81c-4933-9a3e-3132c233142d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Realizar análise extensiva de concorrentes e outros exemplos, testes A / B, testes de usabilidade e etc;</li></ul><h2 id="6071c1dd-b383-45d4-b54c-85ac58ac9435" class="" dir="auto">REQUIREMENTS AND SKILLS</h2><p id="ab9dc46a-f8d5-4715-a20d-09589bf702c3" class="" dir="auto"><strong>Você precisa de:</strong></p><ul id="2a8b97e8-c771-4557-be76-e421e67526ac" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Graduação em Tecnologia em Design Gráfico, Bacharelado em Design, Design Visual, ou áreas similares;</li></ul><ul id="43e0d3cc-db3d-485e-92da-79982ae9d456" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Apresentar um sólido portfólio com seus projetos de UI <strong>mobile</strong>;</li></ul><ul id="a5b762b3-d80e-4546-a74b-6b4a20c7ea67" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Imprescindível experiência comprovada desenvolvendo e mantendo aplicativos mobile;</li></ul><ul id="4113af79-7753-40bf-a773-77e9ae74da69" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experiência com criação de interfaces para aplicação mobile;</li></ul><ul id="c05f187f-21fb-4735-bcc5-24e7aea45287" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experiência com ferramentas de design;</li></ul><ul id="26046d96-0699-4d17-887b-6ce3b0f5d933" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experiência interagindo com equipes de engenharia de software e produtos digitais;</li></ul><ul id="4f2086ea-283f-4cb2-b102-269f8bd2933f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Criatividade e forte senso estético;</li></ul><ul id="8b15350b-15c9-40ab-b6b6-6326199f33e0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conhecimento profundo dos princípios de design em geral e design digital, principalmente em UX/UI mobile e as habilidades técnicas para aplicá-los;</li></ul><ul id="1bd37679-0158-434e-aa52-0b5b68ea324d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Saber interpretar resultados de pesquisa para propor soluções;</li></ul><ul id="3842802c-c742-4086-afd6-285f6116ac21" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conhecimentos em usabilidade e fluxos de navegação.</li></ul><h2 id="a9fc7ad6-c124-4a54-85f6-6a21cf305c02" class="" dir="auto">ADDITIONAL INFORMATION</h2><p id="9341a778-0cf2-49d0-82e3-ef3fed62a90a" class="" dir="auto"><strong>O que esperar da Contabilizei</strong></p><p id="153e68ee-2ba7-40e7-800a-83abed097b92" class="" dir="auto">Nossas Guardiãs e Guardiões acreditam e perseguem nosso propósito: Entendem que o sucesso do empresário é o nosso sucesso. Oferecemos um ambiente descontraído, completamente colaborativo, com ritmo acelerado e desafiador, a fim de atingir resultados e promover a melhor experiência aos nossos clientes, construindo uma jornada de sucesso. Acreditamos no protagonismo, aqui você constrói sua carreira da sua forma e cresce junto com a Contabilizei.</p><p id="14a3ee11-71b5-4ec4-99f7-6b09a4db4fea" class="" dir="auto">Aqui, você terá a oportunidade de gerar um grande impacto positivo, construindo o futuro de como os empresários brasileiros gerenciam seus negócios com sucesso.</p><h2 id="85e64d2b-602e-4889-a9e7-3be20b1f68c2" class="" dir="auto">CONSTRUINDO HISTÓRIAS DE SUCESSOS ATRAVÉS DE TECNOLOGIA</h2><p id="56098d19-dd94-451d-b148-d7236e3843e9" class="" dir="auto">Por aqui, somos mais de 400 pessoas, todas selecionadas a dedo, e que levam muito a sério o nosso propósito de resolver o problema real brasileiro, trabalhando em busca de soluções inovadoras para facilitar a vida dos nossos clientes.</p><p id="75eb343e-67c9-4f59-ba73-d5fc6bc4258e" class="" dir="auto">Quer saber mais sobre a Contabilizei e nossos Guardiões? Visite nossa página <a href="https://www.contabilizei.com.br/trabalhe-na-contabilizei/">aqui</a>.</p><h2 id="3129379b-56b0-459f-8ae2-39d14c8ec956" class="" dir="auto">SAIBA MAIS</h2><ul id="e2782032-623b-4877-997b-c0694996fd18" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="http://www.contabilizei.com.br/">Website</a></li></ul><ul id="d9de6a63-b660-45e8-b274-0869480efcb6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.linkedin.com/company/contabilizei/">LinkedIn</a></li></ul><ul id="8cae9679-747f-4a25-877b-efab46c825df" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.facebook.com/Contabilizei/">Facebook</a></li></ul><ul id="879a0f70-a0a4-41b0-808e-100cd27c58f3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.instagram.com/contabilizei/">Instagram</a></li></ul><p id="26aaa4df-7ad8-474d-8396-8b66bbfe5965" class="" dir="auto"><a href="https://contabilizei.gupy.io/candidates/jobs/549767/apply?jobBoardSource=gupy_public_page"><strong>Apply!</strong></a></p><p id="f3c4c124-5dbf-40fe-9b6f-d609b20a44d0" class="" dir="auto"><strong>Powered by Gupy 2020. All rights reserved</strong></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

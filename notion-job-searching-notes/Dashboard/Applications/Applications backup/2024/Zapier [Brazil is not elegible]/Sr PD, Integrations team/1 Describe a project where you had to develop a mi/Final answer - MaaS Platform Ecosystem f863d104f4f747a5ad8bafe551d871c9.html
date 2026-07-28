@@ -1,0 +1,785 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Final answer - MaaS Platform/Ecosystem</title><meta name="data-notion-page-icon" content="✅"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%9C%85%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="f863d104-f4f7-47a5-ad8b-afe551d871c9" class="page sans" data-notion-page-icon="✅"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="✅"></span></div><h1 class="page-title" dir="auto">Final answer - MaaS Platform/Ecosystem</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="f4c9caaf-1ee0-4445-9012-9fb252979c79" class="" dir="auto">For the project in which I developed a mid-to-long-term vision for a complex tool, I was involved in creating the MaaS (Magalu as a Service) ecosystem for Magazine Luiza. This platform, that included the MaaS Console and the MaaS Account, was a developer-focused solution that transitioned Magazine Luiza from a retail to a tech company.</p><p id="cc69e060-057f-4536-96be-6012d29ed47c" class="" dir="auto">The MaaS Console, modeled after Firebase&#x27;s backend services, served as an online marketplace for retail services. It enabled Magazine Luiza and other retailers to offer digital and physical services to small retailers for integration into their e-commerce platforms.</p><p id="18ecb7b0-620f-4164-b5ef-c731ec3790c6" class="" dir="auto">As the sole team member with a non-technical background, I had to quickly familiarize myself with technical concepts such as User Management, Connections and APIs, and Endpoints.</p><p id="c189e2c7-40a0-4487-ab90-a3453c5f84f9" class="" dir="auto">The team, which included a Tech Lead, Product Owner, four front-end developers, two back-end developers, and a QA engineer, faced communication and collaboration challenges.</p><p id="53d16c3d-e728-4d22-85f4-745fec8df772" class="" dir="auto">These issues were primarily due to the Product Owner&#x27;s absence and the provision of high-level epics without sufficient business context or clear objectives.</p><p id="e65821ee-ae78-42f9-93e0-806afaac9124" class="" dir="auto">To counter this lack of long-term vision, I leveraged my design skills to bridge the gap. I collaborated closely with the Product Owner, bringing him closer to the team and translating high-level business goals into a compelling product vision and actionable design steps.</p><p id="9b2245f1-989e-4218-80f6-c93ed29ae272" class="" dir="auto">Simultaneously, partnering with the engineering team was crucial for our iterative delivery. My collaboration was hands-on; I involved engineers early in the design process, seeking their input to ensure feasibility and alignment with technical constraints. Together, we adopted an agile approach, breaking down the project into small tasks, which allowed us to design, test, and refine features incrementally.</p><p id="72555769-c2ef-40cb-a847-b95efbd5afab" class="" dir="auto">This method fostered a rhythm of continuous improvement and adaptation, which became particularly valuable when addressing unexpected issues along the road, like when we forgot to include a key feature. But instead of pointing fingers, I took some responsibility and we focused on fixing it together. This made the team trust each other more and work better together.</p><p id="c37e0fe4-34cb-4a2e-9393-22ced726ad10" class="" dir="auto">This project was a significant milestone in my career, teaching me the broader role of a Designer beyond crafting - it involves promoting team building, trust, and understanding. It reinforced the importance of not working in isolation, challenging assumptions through Design, and designing for a feedback loop.</p><p id="4774869a-64b0-49a3-83fe-8d10eaaf9eae" class="" dir="auto">
+</p><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="5f60fbb1-a28b-476b-a84d-4054ff5819a5" style="display:inline-block">Notes</h1></summary><div class="indented"><hr id="1648b79a-a234-4243-b656-dd03e770f219" dir="auto"/><p id="10cb6272-bf1e-4c6a-ade8-8782483df06b" class="" dir="auto">
+</p><p id="d4dc8108-195e-4684-b779-9ccd05fa5f19" class="" dir="auto">For the project where I developed a mid-to-long term vision for a complex tool, I was involved in creating the MaaS (Magalu as a Service) ecosystem for Magazine Luiza. This platform, comprising the MaaS Console and the MaaS Account, was a developer-focused solution that transitioned Magazine Luiza from a retail to a tech company.</p><p id="5e16c27f-8235-468a-bc33-e32b43577155" class="" dir="auto">The MaaS Console, modeled after Firebase&#x27;s backend services, served as an online marketplace for retail services, enabling Magazine Luiza and other retailers to offer digital and physical services to small retailers for integration into their e-commerce platforms.</p><p id="7803de11-2ea5-4b21-b45d-0978b2405f14" class="" dir="auto">As the sole team member with a non-technical background, I had to quickly familiarize myself with technical concepts such as User Management, Connections and APIs, and Endpoints. </p><p id="6ca1c2e7-2978-4170-96f8-99b603b6be8f" class="" dir="auto">The team, which included a Tech Lead, Product Owner, four front-end developers, two back-end developers, and a QA engineer, faced communication and collaboration challenges. </p><p id="e7bc3797-d51a-406b-bb4b-d5a868468552" class="" dir="auto">These issues were primarily due to the Product Owner&#x27;s absence and the provision of high-level epics without sufficient business context or clear objectives.</p><p id="d4f58243-04b6-4e88-815b-f6318fb97cdb" class="" dir="auto">To counter this lack of long term vision, I leveraged my design skills to bridge the gap. I collaborated closely with the Product Owner translating high-level business goals into a compelling product vision and actionable design steps.</p><p id="08b985ae-515a-4e3d-a8da-f941a254d0e3" class="" dir="auto">Simultaneously, I partner with the engineering team was crucial for our iterative delivery. My collaboration was hands-on; I involved engineers early in the design process, seeking their input to ensure feasibility and alignment with technical constraints. Together, we adopted an agile approach, breaking down the project into small tasks, which allowed us to design, test, and refine features incrementally. </p><p id="377b67a2-05b3-46cb-9191-87351d60239d" class="" dir="auto">This method fostered a rhythm of continuous improvement and adaptation, which became particularly valuable when addressing unexpected issues along the road, like when we forgot to include a key feature. But instead of pointing fingers, I took some responsibility and we focused on fixing it together. This made the team trust each other more and work better together.</p><p id="6316710c-a040-4fc5-895f-f1ac64d7a3b1" class="" dir="auto">This project was a significant milestone in my career, teaching me the broader role of a Designer beyond crafting - it involves promoting team building, trust, and understanding. It reinforced the importance of not working in isolation, challenging assumptions through Design, and designing for a feedback loop.</p><p id="dc0579e6-4858-4e53-a28e-3cbc27e0183f" class="" dir="auto">
+</p><p id="c0a49c77-19b8-4e49-bc2d-7aa4d6cf4568" class="" dir="auto">
+</p><hr id="6af6eaa9-cff5-4b11-ab04-44f9cfff2951" dir="auto"/><p id="a8812013-b533-4031-a8c9-c8c307fe804c" class="" dir="auto">
+</p><p id="581e6a1e-bbe2-465d-858d-c3c877b98f08" class="" dir="auto">
+</p><p id="6630ad52-99b2-4e05-b22e-f049b474aee2" class="" dir="auto">At Magazine Luiza, a Brazilian retailer, I led the MaaS ecosystem design, My challenge there was to Design from scratch a developer focused ecosystem called MaaS - Magalu as a Service, composed by two applications: the <a href="https://app.notion.com/p/MaaS-Console-84622944c3824bfcb7f0f971de9fed99?pvs=21"><strong>MaaS Console</strong></a> and the <strong><a href="https://app.notion.com/p/MaaS-Account-fd5ec0bd630442afb1b6af51affbf861?pvs=21">Maas Account</a></strong><strong>.</strong></p><p id="74f03839-880b-4d8a-89fd-3fedbcbe526f" class="" dir="auto">
+</p><p id="8f2705fe-4faf-454d-8875-44cffc7e81d0" class="" dir="auto">
+</p><p id="40c12003-c1c2-4602-8c4b-910b6b473ec9" class="" dir="auto">
+</p><p id="e246f722-5ec9-4dc2-a036-6e79cf523f66" class="" dir="auto">a platform for selling digital services. This was a big change for the company, as they were moving into the tech space.</p><p id="655f208e-0ec8-4b72-bb1c-756b98775820" class="" dir="auto">It was challenging because I was the only designer on a very technical team. The product owner and tech lead weren&#x27;t always on the same page, which caused confusion.</p><p id="643ec7b1-1f2c-4cab-9b4e-841c88bcb712" class="" dir="auto">To solve this, I used design to explain complex business goals in a simple way. I also worked closely with the engineers to turn those ideas into reality. This meant learning some technical stuff myself and getting them involved in the design process early on.</p><p id="f6584d5e-e7c2-4052-b4b9-7184185494be" class="" dir="auto">There were some bumps along the road, like when we forgot to include a key feature. But instead of pointing fingers, I took some responsibility and we focused on fixing it together. This made the team trust each other more and work better together.</p><p id="fb4773e7-5298-4db7-bd5c-c909d738f7b0" class="" dir="auto">This project<strong> </strong>taught me the real importance of working together, communicating clearly, and how design can bridge gaps and bring people together to solve problems.</p><p id="b8676308-011f-42de-8190-d9b64f985726" class="" dir="auto">
+</p><p id="936346f7-7335-4e7b-a333-9021dfdbb58c" class="" dir="auto">
+</p><h1 id="585f0f49-80f3-49b4-93a3-58b7941c152f" class="" dir="auto">Notes</h1><p id="6b14dcc1-838d-4eb3-96f7-621a7927f0b7" class="" dir="auto">In my previous role at Magazine Luiza, a leading Brazilian retailer, I spearheaded the design of the MaaS Console, a new developer-centric marketplace. It was a significant shift for the company, and my task was to deliver a user-friendly platform from scratch.</p><p id="6a6858c6-ff2d-4ee1-9567-b31fae1e7a81" class="" dir="auto">I found myself as the only non-tech member in a highly technical team, lacking a shared understanding and clear direction due to poor communication between the Product Owner and the Tech Lead. Recognizing the need for alignment, I leaned into my design skills to bridge the gap, translating high-level business goals into a compelling product vision and actionable design steps.</p><p id="d6e8b9f5-7dfc-4f71-bc1f-d22d5eff7fa1" class="" dir="auto">My approach involved partnering closely with the engineering team in an agile, iterative manner. I dove deep into the technical aspects with the engineers&#x27; help, which was critical for the intuitive design solutions I was crafting. This collaboration led to regular feedback loops and a shared sense of ownership, which was crucial when we faced setbacks like forgetting a key feature. </p><p id="3c851ec9-268a-4d59-ae48-a1b7c0dbd9ec" class="" dir="auto">By taking responsibility and promoting open dialogue, I helped to shift the focus from finger-pointing to finding solutions together.</p><p id="975f9cd8-7aa7-4762-85de-a86133c74420" class="" dir="auto">
+</p><p id="7f1d761c-829b-447a-8799-4e5206c611a7" class="" dir="auto">I emerged with invaluable lessons: the power of collaboration, the importance of breaking silos, and the need for continuous feedback. This experience shaped my design philosophy profoundly, and I believe it aligns well with the ethos of Zapier.</p><p id="cc096f48-8f3a-4ec3-a031-49dadbdf8421" class="" dir="auto">
+</p><hr id="f6d9d454-1728-47af-b0a8-c150a52df262" dir="auto"/><p id="7d9507c6-67ad-405b-bb66-734b786197c1" class="" dir="auto">
+</p><p id="25293bd5-abee-4d1b-a456-e82113054b5c" class="" dir="auto">At Magazine Luiza, as we transitioned into a tech-focused retailer, I took on the role of designing the MaaS Console, a marketplace for digital and physical retail services. </p><p id="88ed31d9-cad2-46bd-ac24-302b8037dd1a" class="" dir="auto">The challenge was substantial: to develop an intuitive, technically sound platform from the ground up, within a technical team where I was the sole designer.</p><p id="268aa665-0b53-41f0-9503-fda1abf3c220" class="" dir="auto">The gap between technical jargon and user-centered design was wide, particularly with the Product Owner and Tech Lead operating in silos. My strategy was to demystify technical concepts using design as a common language, thus aligning the entire team around a user-centric product vision.</p><p id="74395e27-bec8-4896-93bb-4dbd603a8ca2" class="" dir="auto">Partnering with the engineering team was crucial for our iterative delivery. My collaboration was hands-on; I involved engineers early in the design process, seeking their input to ensure feasibility and alignment with technical constraints. Together, we adopted an agile approach, breaking down the project into sprints, which allowed us to design, test, and refine features incrementally. This method fostered a rhythm of continuous improvement and adaptation, which became particularly valuable when addressing unexpected issues like the overlooked deletion feature. By openly taking responsibility for this miss and encouraging a collaborative problem-solving approach, we moved past hurdles more effectively.</p><p id="2be847c4-5336-48e5-82e4-7dc0b46cb620" class="" dir="auto">This experience taught me the essence of iterative design in action: it&#x27;s about shared goals, mutual learning, and a commitment to refining our work based on regular feedback. It was these iterative partnerships that not only advanced the project but also cemented my role as a facilitator and advocate for user needs within a technically complex environment. The successful launch of the MaaS Console was a testament to our team&#x27;s ability to deliver iteratively, balancing intuitive design with technical excellence.</p><p id="e83da1f0-4c3e-4034-9973-d57cf5c75f54" class="" dir="auto">
+</p><hr id="92d0ef6a-b575-4831-9db5-a4d5b6dcc555" dir="auto"/><p id="074bcfa4-714d-4407-afcf-b70dbcfca5ae" class="" dir="auto">
+</p><p id="cd100dbb-af86-4b7b-ab85-940d3b8ebee2" class="" dir="auto">At Magazine Luiza, I was responsible for creating the MaaS Console, a platform for selling digital services. This was a significant shift for the company, moving from retail to tech. My role extended beyond design; it involved bringing together the Product Owner and the Tech Lead, who were often not on the same page.</p><p id="bc6855fb-aba3-4ed5-bc09-ff01e39d517f" class="" dir="auto">I used design to simplify and communicate complex business goals in a user-friendly way, and I worked hand-in-hand with the engineers to make these ideas a reality. My approach was all about collaboration, learning technical concepts, and including the team in the design process from the start.</p><p id="919f8366-0d45-4552-8bcd-450777e09095" class="" dir="auto">When an issue arose due to a forgotten feature, I stepped up to share the responsibility. This helped shift the team’s focus from placing blame to finding solutions, strengthening our collaboration and trust. </p><p id="fdd2cef4-a136-4b66-9ab3-1d0947ffe9f5" class="" dir="auto">In the end, the project was not only about building a platform but also about building a strong, unified team. This experience taught me the true value of teamwork, communication, and the role of design in bringing people together to solve problems.</p><p id="74e45a0f-d0fa-4da5-becb-bc309d49a6fb" class="" dir="auto">Question:</p><p id="2f78fc6e-62e5-4a83-bee1-2c13f825d163" class="" dir="auto">1. Describe a project where you had to develop a mid-to-long term vision for a complex tool, emphasizing your approach to balancing intuitive design with technical functionality? How did you partner with the engineering team to deliver iteratively?</p><p id="e39d352d-e7f1-4f44-b6a0-5c342af8269d" class="" dir="auto">Answer:</p><p id="d2af157b-2ee1-4d79-83f9-28d73d3ccddc" class="" dir="auto">The MaaS ecosystem, or Magalu as a Service, was the result of Magazine Luiza&#x27;s shift from a retail to a tech company. Magazine Luiza is one of the largest retail companies in Brazil. The MaaS ecosystem was a developer-focused platform consisting of two applications: the MaaS Console and the Maas Account.</p><p id="95feed11-2076-4a7e-b602-36621b97f491" class="" dir="auto">The MaaS Console functioned as an online marketplace for retail services. It allowed Magazine Luiza and other retail stores to sell both digital and physical services to small retailers who integrated these services into their own e-commerce platforms. This was modeled after the way Firebase provides backend services, allowing users to pay based on demand.</p><p id="46fee812-e3d6-456e-9842-449ed8f4e9a0" class="" dir="auto">During the development of this project, I faced several challenges. I was the only team member without a technical background in a team composed of a Tech Lead, Product Owner, four front-end developers, two back-end developers, and a QA engineer. I had to quickly understand technical concepts such as User Management, Connections and APIs, and Endpoints.</p><p id="d68188ee-169e-40c1-bc24-83507bc3b916" class="" dir="auto">We faced difficulties due to lack of communication and collaboration between the Product Owner and Tech Lead. The Product Owner was not always present and provided high-level epics for the team to build, without giving enough business context or clear objectives. The Tech Lead was tasked with breaking down these epics into tasks for the team. This misalignment often caused stress and frustration within the team.</p><p id="df70743c-6823-4684-86e2-5db234cc0c10" class="" dir="auto">I took the initiative to bridge this gap using my design work. I worked closely with the Product Owner to translate business objectives into user-centered requirements and a clear vision for the team. I also partnered with the Tech Lead to break down tasks into tangible, user-friendly tasks. Through this process, I built a strong bond with the engineers and involved them in the design process.</p><p id="a4263be5-c4b7-492c-8d75-dec156106b93" class="" dir="auto">I&#x27;m proud of this project as it was a significant learning experience in my career. It taught me that the role of a Designer goes beyond the craft - it involves fostering team building, trust, and understanding. The lessons I learned were to never work in isolation, challenge assumptions using Design, and design to have a feedback loop.</p><p id="9581134a-a59f-4b5d-b0af-b7ced4825a3a" class="" dir="auto">You can check the case study of this project in my portfolio <a href="https://www.notion.so/84622944c3824bfcb7f0f971de9fed99?pvs=21">here</a>.</p><hr id="a7871de6-cb45-4a9b-a7fb-377bb23c9870" dir="auto"/><p id="11764b40-d30e-4c2a-88bd-26d30bf9a814" class="" dir="auto">
+</p><p id="248a26e2-f393-4082-912e-d67de6b07989" class="" dir="auto">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

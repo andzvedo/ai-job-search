@@ -1,0 +1,782 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Challenges</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="bc4d7dd2-bb72-436f-a5e0-0ea6e9f3924c" class="page sans"><header><h1 class="page-title" dir="auto">Challenges</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h3 id="4a0d9a6d-7044-4569-8b11-b1e81c3bb5ee" class="" dir="auto">Multi-organization user profile management</h3><p id="1a983e1d-e98e-44a3-a3a1-771de1f8b2d8" class="" dir="auto">To understand the relationship of the user&#x27;s profiles, I drew the tasks flow, with all permissions that each one had, dividing the flows based on the stage the user is in, with what they are allowed to do inside the platform.</p><p id="e1aa471d-0593-4dbe-933c-3e49897a0478" class="" dir="auto">
+</p><p id="748407e1-5c51-4682-900d-be5fa31d9492" class="" dir="auto">User profiles</p><p id="28740e12-38ec-41a7-b66a-74291f95607b" class="" dir="auto"><strong>Owner</strong></p><p id="1d3a477d-3975-43fb-9b24-41f9840a0442" class="" dir="auto">The owner is the one that has super admin privileges at the platform</p><p id="62a5cbec-c306-4059-969d-c913498e08db" class="" dir="auto"><strong>Associated</strong></p><p id="eb13d242-67f0-434f-bc94-6671a9c1a2a3" class="" dir="auto">Associated is the user that has permissions set by the Owner at the Platform</p><p id="e96df586-d3d9-4f10-aa26-0ab7e3976531" class="" dir="auto">
+</p><details id="9fdbee39-7194-4c0b-8005-d7f5f7e82acb" open="" class="toggle" dir="auto"><summary>Backup</summary><div class="indented"><p id="251849a1-3d25-4a09-91eb-7745d60aea4e" class="" dir="auto">I Drew high-level Tasks to understand the Organization&#x27;s tasks and organize the workflow and the relationship between the various scenarios for the two main user profiles of the MaaS Platform, the <strong>Owner</strong>, and the <strong>Associated</strong> User.</p><ul id="0d19439d-faa3-48a3-98d3-389a79201abc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The owner is the one that has super admin privileges at the platform</li></ul><ul id="1462e754-3535-452b-b760-cc3e5cc680bf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Associated is the user that has permissions set by the Owner at the Platform</li></ul><p id="609d773b-ede5-4810-b89b-dffec3dcb028" class="" dir="auto">
+</p><p id="82072ecc-03e0-4c8d-9982-b67c8a6a1b92" class="" dir="auto">After understanding the Tasks relationship, it was time to get into the details of each one and design the user flow for the possible scenarios. To do that I create two proto-personas: Owner and Associated.</p><ul id="5f29719f-1c7b-4313-b8af-8178c9a44d0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The user called &quot;owner&quot; is the one that has super admin privileges at the platform.</li></ul><ul id="633a7aff-f90e-4e24-bb55-8d0149d02395" class="bulleted-list" dir="auto"><li style="list-style-type:disc">&quot;Associated&quot; user, has permissions set by the Owner at the Platform.</li></ul></div></details><h3 id="03af13f5-7137-473b-aac9-60e04285ecf9" class="" dir="auto">My services: Register a new service </h3><p id="16ab94ee-b5eb-4621-b417-87adfa2d6fd0" class="" dir="auto">
+</p><p id="1553135f-aa30-400d-8a84-5637f74851b6" class="" dir="auto">
+</p><p id="c4d35585-859d-4556-bc8e-7854567a4de9" class="" dir="auto">
+</p><p id="bd6cbf86-5417-43f1-9cf9-06ba7a5cc10d" class="" dir="auto">
+</p><p id="a7a1936f-2fc8-41f3-a494-1ea440699ba9" class="" dir="auto">
+</p><p id="a9ef1ad2-f598-4b25-9501-954caed58c9e" class="" dir="auto">
+</p><p id="e2336fff-fee3-47d1-a358-8524d75ed30a" class="" dir="auto">
+</p><p id="a36b4f8c-5c65-4328-aeb4-605f53ffaf4c" class="" dir="auto">
+</p><p id="db4adec2-9fb0-4c46-ae66-8d9011ed9dc9" class="" dir="auto">
+</p><p id="fecb8f89-11db-41d3-a029-a8efd623fbdd" class="" dir="auto">
+</p><p id="d5e4f739-d066-4a58-96c8-ab8cdea46235" class="" dir="auto">
+</p><h3 id="4e4f09fb-5326-4ad3-9ad2-a7e28129eb77" class="" dir="auto">Solution</h3><p id="fb191b1e-475c-406f-8fad-a40f1e7a1460" class="" dir="auto">The business team defined with the engineering team that the MaaS platform needed two main applications:</p><ul id="50ee3621-72ef-4a9f-b2a3-03fc52fa74f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">MaaS Console <p id="417b3d47-232d-4966-b946-29cd51c3b7b2" class="" dir="auto">Marketplace for physical services where retail stores could hire, and manage the usage and pay on-demand, similar to what Firebase did it for cloud services.</p></li></ul><ul id="e938d9fc-b745-4b0b-b83f-2735bfbfcd73" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.notion.com/p/MaaS-Account-fd5ec0bd630442afb1b6af51affbf861?pvs=21">Maas Account</a>. <p id="8da8cd39-657c-43a4-a703-bd9b1864acbb" class="" dir="auto">An account manager for managing multiple organization profiles, and users&#x27; profiles, their roles, and permissions to access in the MaaS Console. </p></li></ul><p id="cc3b7439-f146-4b74-af37-f44af653745b" class="" dir="auto">The Maas Console has two views, one is <strong>Public</strong> and the other is <strong>Registered.</strong></p><p id="8ce19cf8-8ec7-4b92-8988-f1b1b5b7b566" class="" dir="auto">At the <strong>Public view,</strong> the main challenge was to show the services available to hire and authenticate users integrating with the MaaS Account application because without authentication it wasn&#x27;t possible to hire any service, just browse the relevant information, like details about the service, images, technical documentation of how to integrate, and plans offered.</p><p id="3c29434f-1921-452a-a099-59dd29efe072" class="" dir="auto">At the <strong>Registered view, </strong>and with an organization associated, the main challenge was to transform a very complex and extensive service registration process into a clear and descriptive experience for the users and organizations that wanted to sell their own services in the MaaS Console and hire services from others as well.</p><p id="827c6118-c5dc-4989-8448-07593bfdda91" class="" dir="auto">
+</p><p id="33ed83e9-b8d5-4b32-87e6-42ae63c13d2a" class="" dir="auto">Based on that, the company visualized the need to create a platform, called MaaS (Magalu as a Service), which was formed by two main applications: <strong>MaaS Console</strong> and <strong>Maas Account</strong>.</p><p id="5e653f67-f38f-4739-95d2-705ef28d2045" class="" dir="auto"><strong>MaaS Console</strong> was a marketplace for services, where was possible to hire, sell, and manage services, and <strong>MaaS Account</strong> was for managing multiple accounts for one company, or multiple companies, user profiles, and their permissions within MaaS.</p><p id="80880b62-1798-47ae-b304-0ef1db77c852" class="" dir="auto">The <strong>Maas Console</strong> has two views, one is <strong>Public</strong> and the other is <strong>Registered. Fro the public view some of the challenges were:</strong></p><ul id="b10b21d2-05d9-4b8d-be61-cdb428e58ab6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Show the services available to hire in the marketplace, and authenticate users in a seamless flow, integrating with the MaaS Account application.<ul id="658365f3-d134-4719-bf89-3f761f8287ef" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Without authentication it wasn&#x27;t possible to hire any service, just browse the relevant information, like details about the service, images, technical documentation of how to integrate, and plans offered in the marketplace.</li></ul></li></ul><details id="35b51fe8-7d93-475e-aa9c-c21702f2f77f" open="" class="toggle" dir="auto"><summary>Description</summary><div class="indented"><p id="21532561-6225-4ba3-8c2e-52c5fb59b708" class="" dir="auto">In this project, I faced some intriguing challenges, working with a lot of technical specifications, such as:</p><ul id="db52538e-9d0d-4806-a566-c194fb1b6eaf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How to register a set of endpoints that compose an API, that later could be hired and integrated into another service, </li></ul><ul id="e6cd379b-64b2-42e3-b42a-8c3252c5a4ef" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Manage versions </li></ul><ul id="eeb3fd91-d1cc-4a7e-8999-c81deefb6391" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How to manage roles, and permissions, multiple organizations of the users?</li></ul><ul id="351be771-a226-4b8b-a2d1-dba9ed970aca" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How to create an interface that is simple to use, even when the subject is complex?</li></ul></div></details><details id="720985a0-fa6a-4b60-b762-af5438dfcdad" open="" class="toggle" dir="auto"><summary>Phases</summary><div class="indented"><h2 id="8861f419-1872-482c-8537-f04d8b04d5c7" class="" dir="auto">Solution space</h2><p id="c9f058f1-3461-416f-a54b-da72fa29a65b" class="" dir="auto">My design process was more focused on the Solution space, where the mains deliverables were the tasks flows, visual interface, and interective prototypes</p><p id="5fc3d80b-ba6a-45c6-afaa-29c98d39279c" class="" dir="auto">Going from business requirements [abstract] to an interface [concrete] that follow Magalu visual identity and  concrete</p><p id="99c9c144-e3b5-4077-b37a-0ff3d32b524c" class="" dir="auto">The Product owner provided the high-level Epics with the business requirements, and together with the Tech Team, we broke the epics into user stories, requirements and generated the acceptance criteria for each one.</p><h2 id="dc562f94-7682-4653-acb2-154f21434bac" class="" dir="auto">Tasks and User Flow</h2><details id="f48322e5-1a0b-413a-90f2-5e657f5bc00e" open="" class="toggle" dir="auto"><summary>Details</summary><div class="indented"><aside class="callout" data-notion-callout="" data-notion-callout-icon="💡" style="white-space:pre-wrap;display:flex" id="00fc12f7-6c78-43fb-8754-d3e196b5be20" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%">I drew a lot of flow by hand! Make sense to take pictures and add them to the presentation?</div></aside><p id="cebe8947-fc26-4dca-9b91-1b51dab4e7dc" class="" dir="auto">Based on the user stories I started the design process by drawing the Task Flow to have a high-level view of the main tasks that the users could do at the platforms<del> MaaS Console</del>, considering either Public and Registered views and how they related to each other.</p></div></details><h2 id="32ef7988-7e6c-4763-828e-e91a6303f3e8" class="" dir="auto">Proto-personas</h2><details id="d2c5210a-008a-4d19-9e96-413289ac4264" open="" class="toggle" dir="auto"><summary>Details</summary><div class="indented"><p id="05ddff15-8967-4366-927a-f8431b2cbc63" class="" dir="auto">After understanding the Tasks relationship, it was time to get into the details of each one and design the user flow for the possible scenarios. To do that I create two proto-personas: Owner and Associated.</p><ul id="bf272f75-e98e-4b6d-99de-63b363ab7e87" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The user called &quot;owner&quot; is the one that has super admin privileges at the platform.</li></ul><ul id="59853fca-b294-4990-9530-3e079388ce9f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">&quot;Associated&quot; user, has permissions set by the Owner at the Platform.</li></ul><details id="e5a31619-cb05-4b76-9c53-19361b767b89" open="" class="toggle" dir="auto"><summary>Image</summary><div class="indented"><figure id="cbc2f52f-8947-4a69-8700-a6a7e40ce3c8" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/02.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/02.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/02.png"/></a></figure></div></details></div></details><h2 id="639aba63-f325-4040-8790-573475056de4" class="" dir="auto">User Interface </h2><details id="d06849a2-5341-4307-b430-28ac40edb18d" open="" class="toggle" dir="auto"><summary>Details</summary><div class="indented"><p id="4610637a-c43a-4fbc-8246-60be0fb6521a" class="" dir="auto">To design the user interface we followed the Material Design Guidelines, doing some small customizations to the visual of the components to adapt to the platform&#x27;s needs and the Magazine Luiza visual identity, as one of the Front-End development requirements to speed up the process was to use the <a href="https://material-ui.com/">Material UI react framework.</a></p><h3 id="cf619f6c-2ee2-403a-8342-4b2767c005dd" class="" dir="auto"><strong>Layout, Grid, and Spacing</strong></h3><p id="a7bfdf9c-278f-49b6-a3c2-9c67c41efe7e" class="" dir="auto">Was used the 4 pt baseline grid to position the typography, and for most of the elements on the pages was used multiples of 4, like 12, 16, 20, 24, 32, 64px, and so on.</p><p id="801d4699-66b0-4ea8-a98c-b626f63b1060" class="" dir="auto">The grid had 12 columns with a 24px gutter for displaying the content. The platform is responsive but the main focus was desktop.</p><details id="8ff1ee6f-3c1a-4d38-bbcc-e7361f440ea8" open="" class="toggle" dir="auto"><summary>Image</summary><div class="indented"><figure id="6b2c80c3-6cd8-4714-b572-e238d5f31ed9" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/04.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/04.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/04.png"/></a></figure></div></details><h3 id="b5a7860f-2082-4a2c-b363-8fb7b917410b" class="" dir="auto"><strong>Figma Design Library</strong></h3><p id="7a061350-111c-4928-8c31-623ddae4fd56" class="" dir="auto">Figma was my main Design Tool, where I created a Design Library with components and instances used to design the interfaces and prototypes, to give more speed to the process and generate more consistency between the MaaS Console and MaaS Account design work.</p><ul id="4668c067-326f-4ddb-809e-6a17e45da5ce" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.figma.com/file/k59q8OPVEJTsJilbcn62gc/Magalu-%2F-MaaS-%2F-Console-%2F-V-2.0-%5BPrototype%5D?node-id=0%3A4080">Link to the library</a></li></ul><details id="d64fe0b6-5f76-476f-b058-75760636dce4" open="" class="toggle" dir="auto"><summary>Images</summary><div class="indented"><figure id="42c71c35-fc15-494e-8f08-5295ba25bd59" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/03.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/03.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/03.png"/></a></figure><figure id="43550ed7-70aa-4f54-a8cf-f599470db6fb" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/06.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/06.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/06.png"/></a></figure><figure id="8fed68a0-544d-4626-afaf-fdd122144eea" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/07.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/07.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/07.png"/></a></figure><figure id="4d25472f-52f7-4959-9f63-dc55717fbc64" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/08.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/08.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/08.png"/></a></figure><figure id="26916f39-6525-4255-8035-60e04227eb1a" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/09.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/09.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/09.png"/></a></figure><figure id="9c4f00a5-eebf-4a14-a862-6ef1815958a2" class="image" data-notion-image="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/10.png" dir="ltr"><a href="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/10.png"><img style="width:2601px" src="../../../../../../../../2026/Nubank/Portfolio%20Review/Microsoft%20Interaction%20Designer%20position%20Presentati/Work%20%5B45%20mins%5D/Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges/10.png"/></a></figure></div></details></div></details><h2 id="7e582ace-167f-4130-917b-bb78f5fed3ce" class="" dir="auto">Interactive Prototypes </h2><details id="8a72e71b-a6c4-46c1-ba6c-188c80c3368a" open="" class="toggle" dir="auto"><summary>Details</summary><div class="indented"><p id="c0278f5b-5d63-4b3a-9063-0d94fe6007b4" class="" dir="auto">I created interactive prototypes to show the behavior of the interface for the development team and other stakeholders.</p><p id="f8f68e20-9883-45ff-b1c7-2987d5c7b104" class="" dir="auto">Check out the Interactive Prototypes</p><ul id="1da2b291-d19f-45e1-9b5b-8f45832a1782" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.figma.com/proto/k59q8OPVEJTsJilbcn62gc/Magalu-%2F-MaaS-%2F-Console-%2F-V-2.0-%5BPrototype%5D?node-id=0%3A5570&amp;viewport=359%2C150%2C0.016264300793409348&amp;scaling=min-zoom">Registered view</a></li></ul><ul id="f8d438cd-b4ce-447d-99a8-242f371e284d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.figma.com/proto/k59q8OPVEJTsJilbcn62gc/Magalu-%2F-MaaS-%2F-Console-%2F-V-2.0-%5BPrototype%5D?node-id=15%3A6&amp;viewport=2428%2C1018%2C0.40627261996269226&amp;scaling=min-zoom">Public view</a></li></ul></div></details><h2 id="dfddc704-c082-4cc9-876d-b0652c7af1c5" class="" dir="auto">Live Product [Beta]</h2><details id="0a00387b-c522-4366-beb9-3afadf1860d4" open="" class="toggle" dir="auto"><summary>Details</summary><div class="indented"><p id="4bb3ee0d-b2e2-46bf-b6ff-79386a521b7e" class="" dir="auto">It&#x27;s possible to access the live product at:</p><p id="a9fad011-8588-42d0-9f3f-2d33f04e3777" class="" dir="auto"><a href="https://dev.magalu.com/">https://dev.magalu.com/</a></p></div></details></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

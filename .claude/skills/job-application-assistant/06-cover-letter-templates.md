@@ -125,10 +125,15 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 
 ## Tailoring Guidelines
 
+### Dual search tracks (André)
+- **Primary (USD remote international):** English CV; English cover letter unless posting is in another language. Early in the letter, if eligibility is not obvious, state Brazil-based remote collaboration experience and contractor/EOR readiness.
+- **Secondary (Brazil remote):** Portuguese CV and cover letter; section headings in Portuguese.
+
 ### Salutation
 - If you know the hiring manager's name: "Dear [First Last],"
 - If you know the team: "Dear [Company] hiring team,"
 - Generic: "Dear [Company]," (avoid "To whom it may concern")
+- André's informal Notion drafts often used "Hello everyone" — acceptable for startup/email culture; prefer named salutation for formal LaTeX letters.
 
 ### Length - Hard 1-Page Limit
 - Target: 1 page including signature block
@@ -168,6 +173,22 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 - [ ] Language matches the job posting language
 - [ ] Salutation is appropriate (named person if possible)
 - [ ] Headline is engaging and specific, not generic
+
+## Patterns Observed in Past Applications
+*[From Notion cover letters — use as structure hints, rewrite fresh per role]*
+
+**Opening formulas that recur:** name + Product Designer from Brazil + sectors (consultancy, fintech, edtech, AI) + geographies (BR/MX/USA). Prefer tightening years and leading with the role-specific hook.
+
+**Proof blocks to rotate (pick 1–2):**
+- Blackbird: AI viz / research / design system / −39% tickets
+- Bitso: Cryptoback discovery + B2B onboarding + Guild of 16
+- Arquivei: +56% lead-to-trial onboarding
+- SIA: service blueprint for e-learning cohesion
+- Founding: The Social EMU / early-stage ownership when relevant
+
+**Closing:** portfolio andreazevedo.design + call invitation + Best regards / Kind regards + André Azevedo
+
+**EOR note:** For international roles that are not explicitly global-remote, a short contractor/EOR sentence has been used historically — keep factual and brief.
 
 ## Submission Guidelines (Best Practice)
 - Submit only the documents the employer requests

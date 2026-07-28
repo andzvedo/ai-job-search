@@ -12,7 +12,9 @@
 
 [![CI](https://github.com/MadsLorentzen/ai-job-search/actions/workflows/ci.yml/badge.svg)](https://github.com/MadsLorentzen/ai-job-search/actions/workflows/ci.yml)
 
-An AI-powered job application framework built on [Claude Code](https://claude.com/claude-code). Fork it, fill in your profile, and let Claude evaluate job postings, tailor your CV, write cover letters, and prepare you for interviews.
+An AI-powered job application framework. Fork it, fill in your profile, and let your AI coding agent evaluate job postings, tailor your CV, write cover letters, and prepare you for interviews.
+
+Built on [Claude Code](https://claude.com/claude-code) — also works with [OpenCode](https://opencode.ai). See [Using with OpenCode](#using-with-opencode) below.
 
 > Note: This is an independent open-source project and is not affiliated with, endorsed by, sponsored by, or maintained by Anthropic. Anthropic and Claude Code are referenced only to describe the toolchain this workflow uses.
 >
@@ -58,6 +60,25 @@ files ready    with fit ratings     (LaTeX, tailored)
 ```
 
 The framework encodes career guidance best practices, including structured evaluation criteria, forward-looking cover letter framing, and optional salary benchmarking.
+
+## Using with OpenCode
+
+This repo works with [OpenCode](https://opencode.ai). The `.opencode/` directory provides the compatibility layer — commands, subagents, and permissions — while `.claude/` remains the canonical source of workflows. See [`docs/opencode-setup.md`](docs/opencode-setup.md) for the full guide.
+
+**Quick start with OpenCode:**
+
+```bash
+opencode
+# Then inside OpenCode:
+/setup
+```
+
+All commands (`/scrape`, `/apply`, `/rank`, `/interview`, `/outcome`, `/upskill`, etc.) are discovered automatically from `.opencode/commands/`.
+
+**Key differences from Claude Code:**
+- Permissions live in `opencode.json`, not `.claude/settings.json`
+- Subagents use the `task` tool with `general` type, not the Agent tool
+- Tool names have lowercase equivalents (see `AGENTS.md` for the full mapping)
 
 ## Prerequisites
 

@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Os 3 papéis que designers podem desempenhar | by Érico Fileno | Jun, 2020 | UX Collective 🇧🇷</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="0cceb79a-8a4d-430d-9321-c9f876db7a90" class="page sans"><header><h1 class="page-title" dir="auto">Os 3 papéis que designers podem desempenhar | by Érico Fileno | Jun, 2020 | UX Collective 🇧🇷</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="74d4560c-e6ea-4b2b-8b42-76e5139c1929" class="block-color-gray" data-notion-highlight="gray" dir="auto"><a href="https://brasil.uxdesign.cc/3-pap%C3%A9is-que-designers-podem-desempenhar-b875755d3c99">https://brasil.uxdesign.cc/3-pap%C3%A9is-que-designers-podem-desempenhar-b875755d3c99</a></p><p id="a2224e40-0ec4-4d1a-9ad3-6c90047e5d0f" class="" dir="auto">
+</p><figure id="94faeff4-a5a8-4f10-a756-751dfa9d6ba5" class="image" data-notion-image="Os%203%20pap%C3%A9is%20que%20designers%20podem%20desempenhar%20by%20%C3%89ri/1I8PEX5pJ_KEd-KKjk30N6Q.jpeg" dir="ltr"><a href="Os%203%20pap%C3%A9is%20que%20designers%20podem%20desempenhar%20by%20%C3%89ri/1I8PEX5pJ_KEd-KKjk30N6Q.jpeg"><img style="width:700px" src="Os%203%20pap%C3%A9is%20que%20designers%20podem%20desempenhar%20by%20%C3%89ri/1I8PEX5pJ_KEd-KKjk30N6Q.jpeg"/></a></figure><p id="0943f321-0236-4856-82dc-493d30fe2a53" class="" dir="auto">Photo: <a href="https://unsplash.com/@karaeads">@karaeads</a> (<a href="https://unsplash.com/">https://unsplash.com/</a>)</p><p id="9289f50e-663e-42eb-83cb-4aae941d098c" class="" dir="auto">Em 2020, completo 25 anos de carreira profissional e tenho muita coisa escrita nos meus cadernos de anotações. São pensamentos, ideias para textos e questionamentos sobre o que é esse &quot;novo Design&quot; para a contemporaneidade.</p><p id="267d1f3c-48c2-46f4-adf5-ccf3a8378994" class="" dir="auto">Pretendo escrever textos sobre essas anotações. Esse é o primeiro sobre os 3 papéis que os designers podem desenvolver para estar conectado com o momento atual da nossa profissão. Eu gostaria de colocar para discussão e crítica — podem utilizar a área de comentários. Em outro texto pretendo apresentar a minha visão dessa linha histórica do Design. Mas por hora, quero focar nesse 3 papéis: <strong>Designer como Pesquisador(a), Designer como Estrategista e Designer como Facilitador(a).</strong></p><p id="8cfa4b7f-21d7-483d-b48a-7c98c7762ced" class="" dir="auto">Gostaria de iniciar por esse primeiro papel:</p><h1 id="8456f424-f752-4d23-b7f1-713ae59f5ddd" class="" dir="auto">1. Designer como Pesquisador(a)</h1><p id="3a00aa6e-e686-4b63-a68c-847d36a3982a" class="" dir="auto">Photo: <a href="https://unsplash.com/@joszczepanska">@joszczepanska</a> (<a href="https://unsplash.com/">https://unsplash.com/</a>)</p><p id="203b4c27-4983-4181-b94a-c75ee6811465" class="" dir="auto">Ano passado, comemoramos 100 anos de um ensino formal de Design. Em 1919 surgia a <a href="https://brasil.elpais.com/brasil/2019/04/12/politica/1555071908_291521.html">Bauhaus</a> na Alemanha e com ela todo um ferramental prático para se trabalhar com Design. A escola era organizada em oficinas práticas, tematizadas e com uma relação professor-aluno no modelo de tutor-aprendiz. Mas uma prática que teve em seu embrião na Bauhaus, mas precisou dialogar com outras escolas foi a prática de pesquisar para além dos muros da escola. E aqui podemos fazer uma conexão rápida com o surgimento da disciplina de Ergonomia, dentro das escolas de Engenharia. Com o objetivo de trazer o contexto humano e físico para dentro do desenho industrial de mobiliários e equipamentos industriais, foi introduzido a prática de pesquisar a dimensão humana nos projetos de Design. Nesse primeiro momento, a dimensão humana era física mesmo: medidas do corpo humano e comportamento de uso!</p><p id="f337cf33-718e-48ad-8ad6-9423550babf2" class="" dir="auto">Dando um salto mais adiante, a prática de Design como Pesquisador(a) ganhou forma de fato com os designers do anos 70. Se por um lado os ergonomistas ganhavam força dentro dos cursos de Design (filhos da <a href="http://enciclopedia.itaucultural.org.br/instituicao372976/hochschule-fur-gestaltung-ulm-alemanha">Escola de Ulm</a> — outra importante escola alemã de Design), por outro lado surgia uma discussão mais humanista para o Design. <a href="https://papanek.org/about/">Victor Papanek</a> e o designers que questionavam a simples dicotomia de Forma e Função, trouxeram a dimensão humana para a conversa através do desenvolvimento da teoria e prática do Design Centrado no Ser Humano (ou Usuário, como quiser). Do inglês, o Human-Centered Design, tem o objetivo de entender os problemas das pessoas, suas necessidades, seus desejos e suas dificuldades no dia a dia.</p><blockquote id="10b851ce-6bf3-4fd0-bff6-86ed905b118a" class="" dir="auto">&quot;Os anos 70 se configuram, dentro da história do Design, como o momento da ruptura do paradigma do Design Tecnicista e surgimento do Design Humanista.&quot;</blockquote><p id="831ef115-e35b-4c8b-843a-7e2ebcd28191" class="" dir="auto">E cruzando a fronteira dos anos 2000, a coisa torna-se mais organizada e séria dentro da aplicação do Design no mercado, pois passamos pelo uso do Human-Centered Design na indústria de tecnologia dos anos 80 e 90, onde muitas disciplinas surgiram, como Usabilidade, uma atualização da Ergonomia na roupagem de ErgoDesign e a própria discussão sobre a Experiência do Usuário (do inglês, User Experience — UX). Além disso, incorporamos uma série de pontos de vista e práticas das Ciências Sociais, principalmente da Antropologia e começamos a aplicar nos projetos de Design. Assim surgia de forma estruturada o Design Research e começamos a ter muitos projetos e grandes empresas aplicando o Design Research como primeira etapa do processo de Human-Centered Design. Em 2005, o mundo ouvia em todos os cantos o termo Design Thinking, um processo de resolução de problemas complexos, que tem o Human-Centered Design na sua base e a coisa se propagou pelo mundo todo.</p><p id="548b024c-6d96-49d4-874b-c018406f3edc" class="" dir="auto">O papel &quot;Designer como Pesquisador(a)&quot; é exatamente do(a) profissional que antes do início de qualquer projeto precisa entender o contexto de uso e para quem irá projetar algo. É responsável por levantar as dúvidas e entrar fundo na busca do problema que irá nortear o projeto. Essa atividade de projetar pode acontecer em uma ação colaborativa ou não, mas o importante é compreender o contexto e levantar as perguntas, que fazem parte da ferramenta 5W2H, com origem na Ética e na Retórica de Aristóteles:</p><ul id="8b1dffd2-5ef0-412e-9d33-bf9a4db17a2c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Who? (Quem)</li></ul><ul id="7b266647-01aa-48b1-a691-d038f74db451" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><em>What?</em> (O quê?)</li></ul><ul id="d4b795a8-ad18-4487-b3b2-5a6234b4ddc8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><em>Where?</em> (Onde?)</li></ul><ul id="dd9c1048-81be-4494-9785-038bb4daea05" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><em>When?</em> (Quando?)</li></ul><ul id="42e06b1e-d208-4cca-88e0-2797536e7ea4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><em>Why?</em> (Por que?)</li></ul><ul id="33ba657d-e010-46e4-97f1-a499fc8016c8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><em>How?</em> (Como?)</li></ul><ul id="87f8b134-48af-41d4-9348-e4866717644c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><em>How Much?</em> (Quanto?)</li></ul><p id="f7f0f73e-6d54-4a06-9b86-6c18aa23208c" class="" dir="auto">Para se aprofundar mais no tema, indico procurar profissionais das Ciências Sociais para trocar informações. Procurem estudar e fazer cursos com profissionais dessas áreas: Antropologia e Sociologia, que irão lhe ajudar muito na construção dessa prática profissional.</p><h1 id="049054d2-458d-435e-a777-cfaaff302c79" class="" dir="auto">2. Designer como Estrategista</h1><p id="2e1180b3-4b89-410c-9685-243de05275d4" class="" dir="auto">Photo: <a href="https://unsplash.com/@youxventures">@youxventures</a> (<a href="https://unsplash.com/">https://unsplash.com/</a>)</p><p id="cdae10ee-0cda-4feb-b074-44a428c5bf7e" class="" dir="auto">Como já escrevi acima, os anos 70 do século passado, foram um divisor de águas dentro da história do Design. E o outro papel que gostaria de discutir também surge nessa mesma esteira histórica. Na passagem dos anos 60 para os 70, surgia uma grande discussão da utilização da metodologia do Design em outras áreas como Economia e Negócios. Nessa mesma esteira surgia a discussão na mudança de direção de um(a) designer puramente &quot;fazedor(a)&quot; para um(a) designer &quot;pensador(a)&quot;, que é a voz do cliente e que traduz essa voz para dentro das empresas. Essa semente, da saída do puramente Craft/Maker para o Thinker, veio florecer na virada do presente século na roupagem do já citado Design Thinking.</p><p id="2b93ebad-8080-43e5-aeab-9c27fe3e5c97" class="" dir="auto">Mas um ponto que gostaria de destacar nesse período dos anos 70 é o surgimento da disciplina de Design (como <a href="https://en.wikipedia.org/wiki/Design_management">Design Management</a>), dentro da London Business School, através de <a href="https://web.archive.org/web/20110304122600/http://www.designthinkers.com/pdf/pgorb.pdf">Peter Gorb</a>. No meu ponto de vista, um marco para a conexão da metodologia de Design junto ao mundo dos negócios. O que vem a seguir é a adoção crescente do Design como processo para tomada de decisão dentro das empresas. Com profissionais tomando assentos dentro das diretorias das empresas e chegando ao nível executivo das empresas. É o entendimento que o pensamento do Design, através do <a href="https://brasil.uxdesign.cc/raz%C3%A3o-emo%C3%A7%C3%A3o-inova%C3%A7%C3%A3o-d388cfb5ec42">equilíbrio entre razão e emoção</a> pode ser um ponto diferencial dentro dos negócios, frente a resolução de problemas complexos — tão característicos dos tempos atuais.</p><p id="a72dbfc7-5975-4bd1-9af1-c082f5aaf341" class="" dir="auto">O papel do(a) Designer como Estrategista é exatamente do(a) profissional responsável por desenvolver a estratégia de negócio da solução, conectando o entregável do processo de Design a um mercado e um público definidos — entendendo a proposta de valor, alinhando expectativas de quem produz ou oferece o serviço e entregando a uma demanda de mercado. É responsável também por desenhar a estratégia da solução dentro da companhia, conectando a alta gestão, com marketing, finanças, jurídico e as áreas de suporte que auxiliam na produção e entrega da solução. Faz parte ainda do escopo desse(a) profissional ser o líder da transformação dentro das companhias e ser o gestor dos times de Inovação e Design.</p><p id="0898cd63-f137-4ab2-8972-97bffee43b7a" class="" dir="auto">Para se aprofundar mais no tema, indico procurar profissionais das Ciências Sociais Aplicadas para trocar informações. Procurem estudar e fazer cursos com profissionais dessas áreas: Administração, Negócio, Estratégia, Planejamento e Economia, que irão lhe ajudar muito na construção dessa prática profissional.</p><h1 id="9149abdb-6ec9-49ac-9c64-47b910320349" class="" dir="auto">3.Designer como Facilitador(a)</h1><p id="115f9fe4-f4a2-44dc-8385-bb1169fa0b4d" class="" dir="auto">Photo: <a href="https://unsplash.com/@zainulyasni6118">@zainulyasni6118</a> (<a href="https://unsplash.com/">https://unsplash.com/</a>)</p><p id="71ba6596-a860-407b-af0c-28d243254ff1" class="" dir="auto">O papel mais recente, em que os profissionais de Design estão desempenhando, também é o que teve um desdobramento mais atual dentro da história do Design. É algo que vem ocorrendo nos últimos 20 a 30 anos. Ainda na esteira dessa conexão do Design com áreas de pesquisas e área de negócios, ficou evidente a função de conector que o Design exerce junto a outros campos profissionais. Exatamente essa &quot;certa liberdade&quot; de transitar entre os mundos das ciências exatas e ciências humanas, entre as tecnologias e as artes, que o Design consegue ser o elo de conexão entre esses vários campos e entre essas várias profissões.</p><p id="56be536d-ea81-4790-bf31-7465aff77a90" class="" dir="auto">Uma atividade característica do processo de Design é o workshop — que é desenvolvido dentro de um período de tempo determinado com exercícios práticos, através de muita colaboração. O workshop é a própria síntese do processo de Design. Dentro do processo utilizamos o workshop para desenhar o briefing, configurar uma pesquisa, para criar novas ideias, para prototipar e testar soluções. A figura de facilitador(a) surge exatamente para moderar e liderar as sessões de workshop. Com o advento do Design Thinking explodiu a demanda por facilitadorxs desse processo e nada melhor para moderar uma sessão de workshop do que o(a) próprio(a) profissional de Design.</p><p id="3c4d61e6-869f-4045-928e-a1902fe0f3d3" class="" dir="auto">Designer como Facilitador(a) é um(a) profissional responsável por ajudar grupos diversos a encontrarem uma solução para determinado problema. Ele(a) é o(a) líder da jornada e será responsável por desenhar o processo e seus exercícios, cujo qual o grupo vai seguir na jornada do workshop, garantindo os três pontos básicos da facilitação:</p><ol type="1" id="e1130c89-7c2b-4e64-a166-4ad8a3d76272" class="numbered-list" start="1" dir="auto"><li><em>Buscar o melhor desempenho do grupo;</em></li></ol><ol type="1" id="5bebc775-f074-4009-9cb6-a89cff645dc5" class="numbered-list" start="2" dir="auto"><li><em>Manter as relações interpessoais equilibradas;</em></li></ol><ol type="1" id="e6939fcf-b443-41c4-b10b-fea56f542758" class="numbered-list" start="3" dir="auto"><li><em>Proporcionar o bem-estar individual das pessoas durante o workshop.</em></li></ol><p id="5d588acf-9b5f-4c04-8c11-6c512af733e2" class="" dir="auto">Para se aprofundar mais no tema, indico procurar profissionais das Artes Cênicas e da Educação para trocar informações. Procurem estudar e fazer cursos com profissionais dessas áreas: Improviso, Criatividade, Teatro, Andragogia (educação para adultos), que irão lhe ajudar muito na construção dessa prática profissional.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

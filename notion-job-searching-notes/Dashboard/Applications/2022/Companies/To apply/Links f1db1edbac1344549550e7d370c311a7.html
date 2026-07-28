@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Links</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="f1db1edb-ac13-4454-9550-e7d370c311a7" class="page sans"><header><h1 class="page-title" dir="auto">Links</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><ul id="11234b4e-53b9-4452-a1d9-cd0b28956893" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://produto.mercadolivre.com.br/MLB-2786396462-kit-3000-pinos-12mm-para-grampeador-pinador-manual-vonder-_JM#position=2&amp;search_layout=stack&amp;type=item&amp;tracking_id=b7b2a99c-2cca-4b24-bc08-ec2900658510">Kit 3000 Pinos 12mm Para Grampeador Pinador Manual Vonder | MercadoLivre</a></li></ul><ul id="d0f73457-18ed-4607-8b84-9fb100271762" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/jobs?skills=5e208885eaac73005d63b86d">Find remote jobs in Design &amp; Creative from all over the world | RemoteHub</a></li></ul><ul id="ab8507aa-10d9-44a2-8a5e-aea03bab113b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/jobs/details/ux-designer-63388e75edae3a232e11b155">RemoteHub</a></li></ul><ul id="29a4a59a-9688-4c7b-ab0e-d670659114f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://hired.com/calendar">Calendar - Hired</a></li></ul><ul id="02cca302-52d7-4f22-ab6c-fde3ac2976cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://justremote.co/a/sign-in">justremote.co</a></li></ul><ul id="1c9da231-8170-4b33-9519-183b3ba11c61" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobs.lever.co/AmbassadorLabs">Ambassador Labs</a></li></ul><ul id="09a7b30d-b2e1-43a4-b734-58356626f56c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remoteok.com/remote-jobs/remote-product-designer-superfluid-129898">Remote Design Jobs with great benefits and pay</a></li></ul><ul id="a4ecbe12-c14f-466d-88ca-88b42b5fb557" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.crypto-careers.com/jobs/155533973-product-designer-at-superfluid?utm_source=remoteok.com&amp;rid=RMTg5LjYwLjE4Ny4xMDE=&amp;ref=remoteok.com">Product Designer Job at Superfluid | Crypto Careers</a></li></ul><ul id="e5b417b4-5377-455a-b100-4c95a08efa4c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.crypto-careers.com/jobs/search/ux-ui-design?d=&amp;l=&amp;lat=&amp;long=&amp;q=">UX, UI and Design jobs in blockchain companies | Crypto Careers</a></li></ul><ul id="3e3058c9-5697-4653-a9ee-f15df2754874" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.crypto-careers.com/jobs/search/ux-ui-design?l=Anywhere&amp;page=2&amp;q=&amp;remote=full">UX / UI Design Remote Jobs | Crypto Careers</a></li></ul><ul id="612acb4e-3cd2-41b5-bbc8-846a19564965" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.crypto-careers.com/jobs/152419986-user-experience-design-lead-at-giant-protocol">User Experience Design Lead Job at GIANT Protocol | Crypto Careers</a></li></ul><ul id="c96de7f2-7861-4861-8b9d-2c015c356120" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.upwork.com/ab/account-security/login">Log In - Upwork</a></li></ul><ul id="0802d4b3-f202-438a-ba78-4d9acc980482" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobspresso.co/job/senior-product-designer-7/">Senior Product Designer | Jobspresso</a></li></ul><ul id="3ff876fc-2790-42b4-9b2e-5a4134ca71f8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://duckduckgo.recruitee.com/o/senior-product-designer-worldwide-remote-paoli/c/new">Senior Product Designer (Worldwide Remote) - DuckDuckGo</a></li></ul><ul id="c016250a-ae21-42cf-869c-d45e02490f9b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/truelogic/jobs/6364758002">Job Application for Sr. UI/UX Designer - Artificial Intelligence (ID:1213) at Truelogic Software</a></li></ul><ul id="9a920c43-521d-4e79-a842-486614610278" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/quora/jobs/4437577002?ref=designremotely.co">Job Application for Senior Product Designer (Remote) at Quora</a></li></ul><ul id="23fd190f-4dbe-4a4c-8477-c9346c4d5fee" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://unsplash.com/hiring/job-posts/1/design%3A-senior-product-designer?ref=designremotely.co">Design: Senior Product Designer</a></li></ul><ul id="ea7c3cf9-eb80-416a-98f7-b29ecaa55f03" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/sourcegraph91/jobs/4671499004?ref=designremotely.co">Job Application for Product Designer - Growth at Sourcegraph</a></li></ul><ul id="1e5977fb-4b51-40c9-96c8-cc1aa700f5a6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/quora/jobs/6369179002?ref=designremotely.co">Job Application for Product Designer (Remote) at Quora</a></li></ul><ul id="18e96f2b-0044-4af0-aa56-b2c8c8b8deb5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/jobs/2022-09-06/ux-ui-designer-at-camber-creative/">UX/UI Designer at Camber Creative - DesignRemotely</a></li></ul><ul id="abbd2170-2bfa-4e25-9f16-078ac03749e0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/senior-product-designer-contract-greenpark-sports-3747690">Startup Jobs – Developer, designer, marketing, sales jobs, and more</a></li></ul><ul id="8b3baf98-de24-4a35-a4f0-b75d1c4a3bc4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.credly.com/users/sign_in?&amp;oauthAppId=54">Sign In - Credly</a></li></ul><ul id="64dc8c25-4c4f-4159-9067-16da1f20ca2f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://info.credly.com/">Digital Credentials</a></li></ul><ul id="8672f18d-39ce-4a7d-9f32-d6ba872c02da" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/senior-product-designer-presence-3750305">Presence Jobs (October 2022)</a></li></ul><ul id="5b236dd0-b49a-4a42-8722-fe15611f1ab5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://blog.powertofly.com/disability-pride">ADHD Burnout — What Is It and What Can You Do About It?</a></li></ul><ul id="b974c4d4-4fdb-4d7a-bc3e-ed8a44f84837" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://gauchazh.clicrbs.com.br/cultura-e-lazer/tv/amp/2022/10/comportamento-macabro-de-jeffrey-dahmer-o-levou-a-morte-na-prisao-cl91q8teb0030018w3huqf1p8.html">Jeffrey Dhamer e os hábitos nojentos na prisão que o levaram à morte | GZH</a></li></ul><ul id="f55fa1dd-877b-4ed1-9798-fa4423d12713" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.dice.com/jobs?q=Remote&amp;countryCode=US&amp;radius=30&amp;radiusUnit=mi&amp;page=1&amp;pageSize=20&amp;language=en&amp;eid=S2Q_">Search Jobs | Dice.com</a></li></ul><ul id="1f547a95-51ec-4650-9832-d138f1c21643" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.usebraintrust.com/jobs/4498/proposals/new/?back=%2Fjobs%2F4498">Braintrust | Job: Sr Product Designer, Trello</a></li></ul><ul id="219a529c-0185-40c2-873b-f8caad7bc044" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.ycombinator.com/nonprofits/">Nonprofits | Y Combinator</a></li></ul><ul id="3a5f4a40-429b-4fca-93d8-822657bf1708" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/?q=Product+Designer">Startup Jobs – Developer, designer, marketing, sales jobs, and more</a></li></ul><ul id="e6f2a2ab-ff11-43a6-991f-7c3be0b316ef" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.usebraintrust.com/jobs?role=3&amp;role_type=12%2C14%2C13">Braintrust | Jobs</a></li></ul><ul id="0c08c119-f278-4f3e-8e35-98bace8c85f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?client=safari&amp;hl=pt-br&amp;sxsrf=ALiCzsZBZJhF-Na37dE0rDlCEZ08fe5zUA:1665430254895&amp;q=how+to+be+eligible+to+work+for+a+US+company+remotely&amp;spell=1&amp;sa=X&amp;ved=2ahUKEwio0PaVs9b6AhWRGbkGHXUYCcUQBSgAegQIBxAB&amp;biw=390&amp;bih=664&amp;dpr=3">how to be eligible to work for a US company remotely - Pesquisa Google</a></li></ul><ul id="ebe55eb3-a6fc-4be3-9bfe-50a3d2667f4c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://velocityglobal.com/blog/can-a-us-company-hire-a-foreign-employee-in-another-country-copy/">Can a US Company Hire a Foreign Employee in Another Country?</a></li></ul><ul id="e2e93a98-0fde-48ba-b186-bb326a9fdfa1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=is+possible+to+create+an+LLC+outise+US%3F&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=pt-br&amp;client=safari">is possible to create an LLC outise US? - Pesquisa Google</a></li></ul><ul id="836413e6-520c-464c-a6e3-442c109b9ed2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.tailorbrands.com/llc-row-sem?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=18299857381&amp;utm_content=146304688012&amp;utm_term=llc%20for%20non%20us%20residents&amp;utm_funnel=llc&amp;gclid=Cj0KCQjwhY-aBhCUARIsALNIC05QJIaZs55VhNmSks86AgB2lmip1JUwpbqc9-AeBV0BbfQJUwdXqgIaAjOvEALw_wcB">Form an LLC In the US In Just a Few Steps | Tailor Brands</a></li></ul><ul id="ab8d18ac-623d-4820-a67d-27364340eab2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://ceac.state.gov/GenNIV/Default.aspx">Nonimmigrant Visa - Instructions Page</a></li></ul><ul id="8757bffd-9d37-46e0-a3c5-653c0b277cef" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=how+to+get+a+work+visa&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=pt-br&amp;client=safari">how to get a work visa - Pesquisa Google</a></li></ul><ul id="bd54e238-9788-4c3e-85c9-d075e3c0aaf8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://hubstaff.com/jobs#hsds-open-positions">Open Remote Jobs</a></li></ul><ul id="da7b21fe-8a5c-4e8c-a4c4-2062fb539eea" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://freewalkertours.com/pt-br/historia-rio-de-janeiro/">História do Rio de Janeiro - Leia os Fatos que Mudaram a História do Rio</a></li></ul><ul id="c581c797-27e0-4cc2-8010-174f673ad5da" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=origem+das+favelas&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=pt-br&amp;client=safari">google.com.br</a></li></ul><ul id="66763968-9e90-4d09-98c2-396f8fcd7973" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=republica+e+democracia&amp;client=safari&amp;hl=pt-br&amp;sxsrf=ALiCzsZynoP0OUqgQyi4JfGvArzRZD0Suw%3A1665456297250&amp;ei=qdhEY_bsDtn21sQPxdyUKA&amp;oq=republica+e+democracia&amp;gs_lcp=ChNtb2JpbGUtZ3dzLXdpei1zZXJwEAMyBQgAEIAEMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMggIABAWEB4QDzIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoKCAAQRxDWBBCwAzoHCCMQ6gIQJzoGCCMQJxATOgQIIxAnOgQIABBDOgQILhBDOgsIABCABBCxAxCDAToHCAAQsQMQQzoKCC4QsQMQgwEQQzoICC4QgAQQsQM6BwguELEDEEM6CwguEIAEELEDENQCOggIABCABBCxA0oECEEYAFCCDljzNWD0N2gDcAB4A4AB7ASIAfQWkgELMC40LjIuMS4yLjGYAQCgAQGwAQ_IAQjAAQE&amp;sclient=mobile-gws-wiz-serp">google.com.br</a></li></ul><ul id="399d40d2-4007-4385-ab50-2aac11977130" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.euceo.com.br/lideranca/estrategia-maquiavel/">euceo.com.br</a></li></ul><ul id="709d836c-25be-4ab0-8b9a-b709f566fe71" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.scalablepath.com/profile/andreazevedo">scalablepath.com</a></li></ul><ul id="3eff7178-95c3-432b-b2b1-466346281f94" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://clouddevs.com/turing-alternatives/">8 Best Turing Alternatives for Hiring Remote Developers in 2022</a></li></ul><ul id="943b3f6a-2f9e-4c78-921a-e9e2d0ae7f73" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.unicorn.dev/alternatives/turing/">Turing Alternatives</a></li></ul><ul id="220b8fb5-2854-4591-941c-0c3581fbfb79" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://talent.hubstaff.com/search/jobs?search%5Bkeywords%5D=+Product+Designer&amp;page=2&amp;search%5Btype%5D=&amp;search%5Blast_slider%5D=pay_rate&amp;search%5Bnewer_than%5D=&amp;search%5Bnewer_than%5D=&amp;search%5Bpayrate_start%5D=65&amp;search%5Bpayrate_end%5D=100%2B&amp;search%5Bpayrate_null%5D=0&amp;search%5Bpayrate_null%5D=1&amp;search%5Bbudget_start%5D=1&amp;search%5Bbudget_end%5D=100000%2B&amp;search%5Bbudget_null%5D=0&amp;search%5Bbudget_null%5D=1&amp;search%5Bexperience_level%5D=-1&amp;search%5Bcountries%5D%5B%5D=&amp;search%5Blanguages%5D%5B%5D=&amp;search%5Bsort_by%5D=relevance">Hire Freelancers &amp; Remote Workers For Free</a></li></ul><ul id="c25058a1-b4b1-4f21-9034-ca626f493726" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.cbinsights.com/company/turing/alternatives-competitors">Top &lt;!-- --&gt;Turing&lt;!-- --&gt; Alternatives, Competitors&lt;!-- --&gt;</a></li></ul><ul id="f7ce76ab-8e2d-4611-982b-eba7d284f0c6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/don-t-panic-by-lemon-io#lemon-io">The Best Freelance Apps and Products of 2022 | Product Hunt</a></li></ul><ul id="b0887fd1-615e-4d82-9cd9-e0ce9b1261a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://lemon.io/alternative-for-startups-ph/?ref=producthunt">Alternative for startups - Lemon.io</a></li></ul><ul id="f0adc31d-40c7-4abf-a3a5-e8ceed1c1d5d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/the-gen-z-guide-to-freelancing/alternatives">The Gen-Z Guide to Freelancing Jobs &amp; Careers | Product Hunt</a></li></ul><ul id="d7c53ef7-27dd-4e22-b0a4-98ea15d08295" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/creativeguild">CreativeGuild™ - Product Information, Latest Updates, and Reviews 2022 | Product Hunt</a></li></ul><ul id="f39b0221-6557-457a-9870-500e50052672" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobs.lever.co/netflix/1bd8c9ff-3ce2-4652-b0bb-dfdf4ae36ca4/apply">Netflix - Visual Designer, Customer Service</a></li></ul><ul id="eda014c4-55f5-47ea-85de-2b79133b68a6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://my.aquent.com/mat/myaquent/registration/apply/183384?&amp;locale=en_US&amp;utm_source=creativeguild&amp;utm_medium=jobpost&amp;utm_campaign=%28not+set%29&amp;utm_term=%28not+set%29&amp;utm_content=%28not+set%29&amp;url=https%3A%2F%2Faquent.com%2Ffind-work%2F183384">Aquent</a></li></ul><ul id="9693baab-8f7d-48b1-bc36-2ff85ef91cc9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/topics/hiring">The Best Hiring Apps and Products of 2022 | Product Hunt</a></li></ul><ul id="31198b02-3d9a-48da-9398-f0db2954afcf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/hunter#hunter">Hunter - Find all the email addresses related to a domain</a></li></ul><ul id="1f0e9245-0bed-4e45-816d-b386e9d1e0f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://hunter.io/find/basepaws.com/Richard%20Dyer">Email Finder</a></li></ul><ul id="26487165-9295-4fb3-b356-a6d317b3d622" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/resume-io#resume-io">Resume.io - Build your job-winning resume in minutes</a></li></ul><ul id="112c689d-519b-4750-9b04-e71e0ecb1ae5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/google-hire#hire-by-google">Hire, by Google - A new service for helping businesses recruit</a></li></ul><ul id="553a764d-1889-43d0-ac8a-1055e443e776" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/launch-2021#21-lists">21 Lists - Send and receive targeted, paid microtasks</a></li></ul><ul id="6acac53e-1d76-47d1-8a1d-ac9f39c744fa" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/remote-workers#remote-workers">Remote | Workers - Create a profile and get hired by 1000s of remote companies</a></li></ul><ul id="99bd75df-42bc-4f33-9f7a-1341008a16b2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/remote#remote-job-board">Remote Job Board - Remote jobs for anyone, anywhere</a></li></ul><ul id="a2f265d6-c29a-48db-8c69-8dbb1c527b35" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/landing-jobs#landing-jobs">Landing.jobs - Find the right tech job for you</a></li></ul><ul id="82b045d5-028d-4278-aa47-c3e7fbe4d7d7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/wanted#wanted">Wanted - Anonymous marketplace to switch jobs at your desired salary</a></li></ul><ul id="8e8e8c06-bf09-42e0-8448-cf8b714fd0f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/remotebase#remotebase">RemoteBase - Find the best remote companies &amp; jobs</a></li></ul><ul id="c88937b3-82be-4371-9822-246186171f34" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/remoteonly#remoteonly">RemoteOnly - Get a job you can do from anywhere in the world</a></li></ul><ul id="a8770138-1287-4cfb-a6e5-ea903d7cbf50" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/jt#jt">JT - Product Information, Latest Updates, and Reviews 2022 | Product Hunt</a></li></ul><ul id="63fc9e09-db5d-4b73-9d43-d1b983d7e736" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/blockchain-job#blockchain-job">Blockchain Job - Job board for non-technical roles in the Crypto space</a></li></ul><ul id="10f0f1c6-c8b3-4823-8c36-2b7f58d371e9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/estherbot#estherbot">Estherbot - Transform your resume into a bot</a></li></ul><ul id="6285b5b1-9d23-4a13-94c8-5ef36bd95b4f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/products/dribbble#scout-by-dribbble">Scout, by Dribbble - Find and hire the world’s top designers</a></li></ul><ul id="fc3c44b9-6d54-4dfd-bf7c-e5ec20ddec39" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://almanac.io/docs/andr-azevedo-almanac-onboarding-5llhFrKx5AHce1euwKRKbVf1WcLiRgpo?docView=Editing">André Azevedo Almanac Onboarding - Almanac</a></li></ul><ul id="930926de-5420-408b-8bf2-a61015effb85" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.atlassian.com/company/careers/resources/interviewing/recruitment-fraud">Notice to Candidates: Recruitment Fraud Alert | Atlassian</a></li></ul><ul id="6fcd7556-a5fd-4f84-91a9-1481ac189b40" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://x-team.com/remote-programming-jobs/">For Developers · X-Team</a></li></ul><ul id="bac55900-b36b-4e9e-ac59-4c1bc09a4af8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://applicants.bairesdev.com/home">ApplicantSite</a></li></ul><ul id="e4d7c695-2c43-46dd-9c61-2bd0eda1192a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.designrush.com/marketplace">DesignRush Marketplace | List Live Projects</a></li></ul><ul id="9649db9c-4aa1-4e8f-8153-b96cb2c31a52" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://hyqoo.com/find-jobs/">Find Jobs - Hyqoo</a></li></ul><ul id="78b948a7-f2e2-4742-8f3d-0891e799807d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://talent.hyqoo.com/forgotpassword">Hyqoo For Talent</a></li></ul><ul id="389bfd66-5f3c-4fe1-9043-306ce0c48feb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web-dev-resources.com/#/?id=remote-jobs">Free Web Development Resources</a></li></ul><ul id="b326122d-e6f3-43c9-b3b9-84d2accee909" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://himalayas.app/">The remote job board you&#x27;ll actually enjoy using | Himalayas</a></li></ul><ul id="23ba1924-3e43-4556-bebb-c6539412028f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://weworkremotely.com/?utm_content=wfh-redirect&amp;utm_source=wfh-redirect&amp;utm_campaign=wfh-redirect&amp;utm_medium=wfh-redirect">We Work Remotely: Remote jobs in design, programming, marketing and more</a></li></ul><ul id="9bd21afa-bef5-448a-b9ac-1b1e4949ab6e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://4dayweek.io/company/yelp/jobs">Remote Community Ambassador - Central Coast at Yelp · 4 Day Week Jobs</a></li></ul><ul id="bc911766-87d3-4ef0-9869-84f239302c48" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.nextonlabs.com/talent/?utm_source=4dayweek.io&amp;utm_medium=4dayweek.io&amp;utm_campaign=4dayweek.io&amp;ref=4dayweek.io&amp;source=4dayweek.io">Find your dream job | Nexton</a></li></ul><ul id="b6d566e2-a791-4b44-87ba-b2990938f9e2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://mobile.twitter.com/philostar/status/1539503459401027585">Phil from 4 day week 👋 no Twitter: &quot;When you start you want to go all in on number 3. i.e. write blog posts addressing these niche topics people search for You want to find topics / keywords which are: · Searched for by your customers · Easy to rank on Google for But how do you find these topics?&quot; / Twitter</a></li></ul><ul id="917b85fa-04e1-4a10-977b-5444347b4c65" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://mobile.twitter.com/ahrefs">Perfil / Twitter</a></li></ul><ul id="385f7201-f613-47a8-846e-1476a4ab0f11" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://ahrefs.com/site-explorer">Site Explorer by Ahrefs: Competitive Analysis Tool For SEO</a></li></ul><ul id="d258d112-2822-486e-b5aa-9113f7bc7227" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://ahrefs.com/keywords-explorer">Keywords Explorer by Ahrefs: Discover Keyword Ideas and Analyze SEO Metrics</a></li></ul><ul id="e5b809d8-b1c5-46e5-9dc4-0c9699d9a5e5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.nowhiteboard.org/?&amp;page=1&amp;search=Product%20designer&amp;location=Remote&amp;salaryRoles=true">No Whiteboard</a></li></ul><ul id="0bbd18d4-a4a0-4e58-b170-46ec983f7691" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.coolstartupjobs.com/">coolstartupjobs</a></li></ul><ul id="40314307-c3af-471f-9217-5339b6d65277" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.smartremotejobs.com/">Smart Remote Jobs | Work from home job offers</a></li></ul><ul id="00ec503d-5925-4b62-b32f-d6b76455dadb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/andre.azevedo.1">Find remote jobs in all categories | RemoteHub</a></li></ul><ul id="86514cb0-cb81-47d3-a6da-c0552db090f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/onboarding?returnUrl=%2Fjobs%2Fdetails%2Fsenior-product-designer-634545e8edae3a28d767af03&amp;showCongratulations=&amp;state=e3ca9d35-9a4a-4182-b502-20aad72a364b&amp;code=4%2F0ARtbsJrE5fPoLhmAaEceYkF2Xsf1KfXKjAM9i2FBt1l7jLVwngoIlmAf_GoIrDSYY9zy8w&amp;scope=email%20profile%20https:%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https:%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20openid&amp;authuser=0&amp;prompt=consent&amp;service=google">RemoteHub</a></li></ul><ul id="75df823c-e8f1-4ac4-a4d9-89eb3d0747ab" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/andre.azevedo.1">Senior Product Designer - Full Time, Anywhere job Negotiable - apply now | RemoteHub</a></li></ul><ul id="fabf6c12-714b-4c66-b3f1-10ed1c0f335d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/andre.azevedo.1">Production Designer - Full Time, Anywhere job Negotiable - apply now | RemoteHub</a></li></ul><ul id="90c23275-8cbe-4621-9767-5207328b6f99" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/andre.azevedo.1">Product Design Lead - Magic Creation Experience - Full Time, Anywhere job Negotiable - apply now | RemoteHub</a></li></ul><ul id="41afb978-9260-4bff-a092-a3248189399d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/andre.azevedo.1">Senior UX Designer - Full Time, Anywhere job Negotiable - apply now | RemoteHub</a></li></ul><ul id="17bef287-c7d9-4d84-9619-2141c7ed8a51" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotehub.com/andre.azevedo.1">Lead Product Designer (Remote) - Full Time, Anywhere job Negotiable - apply now | RemoteHub</a></li></ul><ul id="b74eae51-886c-419e-8314-7608c0bbae10" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.rippledesign.co/post/how-snapchat-has-transformed-social-media">How Snapchat Has Transformed Social Media</a></li></ul><ul id="4bbcd333-afd0-45df-a147-3df179616258" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://dribbble.com/freelance-jobs/434249">Fintech UI/UX Design Audit and Refresh - Freelance Design Job on Dribbble</a></li></ul><ul id="83ff01d9-cd02-4330-95c2-2ee890288426" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.verifast.com/registerv1">Verifast | Register</a></li></ul><ul id="705d90c7-e7c3-4b14-9096-06ffe641042d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web3.career/web3-product-designer-ui-ux-bunnylol/37233">Web3 Product Designer UI UX $50k - $165k Remote at Bunnylol</a></li></ul><ul id="3e0d00a7-de0b-41ab-9b38-093d0b9bbdc4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web3.career/senior-web3-engineer-anos-welcome-bunnylol/36376">Web3 Senior Web3 Engineer (Anos Welcome) $60k - $250k Remote at BunnyLol</a></li></ul><ul id="964a299d-be31-4e94-a282-aaece2cb23a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotejobhuntbuddy.com/app/#/remote-jobs">RemoteJobHuntBuddy</a></li></ul><ul id="20dd7bcc-7c0d-465e-90d1-8a120872f19f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotejobhuntbuddy.com/app/#/signup">RemoteJobHuntBuddy</a></li></ul><ul id="210460ee-b2c5-4a64-8600-be70e8d0a78e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.w3.careers/jobs/product-designer-ux-pos">Web3 Careers</a></li></ul><ul id="f831683c-bea5-4a4f-9867-6763cba6b69e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobs.lever.co/Polygon/7c5e8e12-c123-4a07-bfba-828fb77f0112">Polygon - Product Designer (UX) - PoS</a></li></ul><ul id="e25a89fb-811b-4413-802f-cad983ac6137" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web3.career/xborg-design-lead-swissborg/37228">Web3 XBorg - Design lead $70k - $200k All locations, at SwissBorg</a></li></ul><ul id="60680161-229f-4f4c-9c3b-d6ddc266bcad" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web3.career/product-designer-ui-ux-centrifuge/37223">Web3 Product Designer (UI/UX) $45k - $120k Remote at Centrifuge</a></li></ul><ul id="bb0deec1-b47a-4309-aebe-b48eed0aefa8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web3.career/ui-ux-designer-symmetry/36818">Web3 UI/UX Designer Remote at Symmetry</a></li></ul><ul id="7e4420d7-6828-4278-a3c7-c2606954eac3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web3.career/sr-product-designer-certik/36680">Web3 Sr. Product Designer $80k - $200k Remote at CertiK</a></li></ul><ul id="551a482f-58b5-4f0a-89a8-800ebc3d0fb5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://web3.career/senior-ux-ui-designer-ued-team-binance/35485">Web3 Senior UX/UI Designer (UED Team) Remote at Binance</a></li></ul><ul id="c4d681e0-fc67-47e1-ba7d-e41446c8ee63" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://cryptojobslist.com/?page=2">Latest Crypto Jobs, Web3 Jobs and Blockchain Jobs in the leading tech companies.</a></li></ul><ul id="19f6bc96-63d9-4091-81b4-f5a9c4dd6c09" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://beam.so/">Beam - Train and Augment Your Team</a></li></ul><ul id="9acbc3e6-5516-4ad2-af43-30d00e36044e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://dribbble.com/freelance-jobs/430024">UI/UX for Beam&#x27;s Learning App - Freelance Design Job on Dribbble</a></li></ul><ul id="e63dcf07-d363-42d0-aadf-748a360d6291" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://beam.so/">Beam - Train and Augment Your Team</a></li></ul><ul id="55ef1916-0eb3-4877-a116-1f079ebeb93e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://cryptojobslist.com/subscription-success">Crypto Jobs List</a></li></ul><ul id="edc034ba-9065-4eab-bf14-4f5ca7949f07" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://mobile.twitter.com/cryptojobslist">mobile.twitter.com</a></li></ul><ul id="c71b7f2c-41d9-4afe-ad61-a7d04bda804f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=ux%2Fui+designer+doodles&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=pt-br&amp;client=safari">ux/ui designer doodles - Pesquisa Google</a></li></ul><ul id="1488ed61-dec5-477b-b7bd-ee2d98c67b32" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://cryptojobslist.com/blog/the-cryptocurrency-job-market-is-exploding-infographic">The Cryptocurrency Job Market Is Exploding (Infographic) | The Crypto Jobs List Blog</a></li></ul><ul id="167383d0-4050-4597-ae53-1f297acddbe1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://cryptojobslist.com/blog/finding-an-entry-level-cryptocurrency-job">Finding an entry-level Cryptocurrency job | The Crypto Jobs List Blog</a></li></ul><ul id="90f33742-187d-4e61-9355-864799b5cbf0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://cryptojobslist.com/blog/what-makes-a-good-candidate-in-the-crypto-space">What Makes a Good Candidate in the Crypto Space? | The Crypto Jobs List Blog</a></li></ul><ul id="63756d56-3f57-4f03-8726-bbc07c0484f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://cryptojobslist.com/blog/how-to-stay-anonymous-as-a-developer-in-crypto">How to Stay Anonymous as a Developer in Crypto | The Crypto Jobs List Blog</a></li></ul><ul id="13278e7a-cc66-4918-bac6-231b93841673" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://uxdesign.cc/design-is-not-a-process-its-an-odyssey-replacing-double-diamond-d6bc06965238">Design is not a formula, it’s an odyssey: replacing the Double Diamond | by Ryan Ford | Oct, 2022 | UX Collective</a></li></ul><ul id="59a51250-e9fb-437e-b6cd-155b2db135b2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/senior-product-designer-chapter-JV_IC1132348_KO0,23_KE24,31.htm?jl=1008196960674&amp;utm_source=jobalert&amp;utm_medium=email&amp;utm_content=ja-jobpos2-1008196960674&amp;utm_campaign=jobAlertAlert&amp;pos=102&amp;ao=1136043&amp;s=224&amp;guid=00000183cbbafb748b1b7a94d2f6acba&amp;src=GD_JOB_AD&amp;t=JA&amp;vt=e&amp;uido=4358F556172F982A78A3C70B639C3E95&amp;ea=1&amp;cs=1_69c95cd5&amp;cb=1665570372722&amp;jobListingId=1008196960674&amp;jrtk=3-0-1gf5rluuj2ff8001-1gf5rluvbh4fr800-58cd6f933bb9e0e2-&amp;ja=215011570&amp;ctt=1665630467766&amp;srs=EMAIL_JOB_ALERT&amp;gdir=1">glassdoor.com.br</a></li></ul><ul id="ca2373f3-1d1c-488b-b590-3117c6b2b2f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/lead-designer-mechanism-3751914?utm_campaign=new_posts&amp;utm_medium=email&amp;utm_source=alert_email_mailer">Lead Designer at Mechanism</a></li></ul><ul id="8d1b3429-8f84-41af-aebe-eac19f4d50e8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.investopedia.com/terms/r/runrate.asp">Run Rate: Definition, How It Works, and Risks With Using It</a></li></ul><ul id="c1bbc645-e2d0-48a3-9bbb-a5f77ff99aeb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designer.microsoft.com/">designer.microsoft.com</a></li></ul><ul id="4c5238e7-3a5f-41aa-a41f-d9bb5ba485b5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.roberthalf.com.br/blog/gestao-de-talentos/6-beneficios-de-contratar-uma-consultoria-de-recrutamento-para-sua-empresa-rc">Como contratar uma consultoria de recrutamento | Robert Half</a></li></ul><ul id="369629e3-bf0c-44fc-aaf6-2d9b23652d41" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://powertofly.com/jobs/detail/1326045?utm_campaign=Remote%20B2C%20Newsletter&amp;utm_medium=email&amp;_hsmi=229586092&amp;_hsenc=p2ANqtz--XOR9v58Rc3WbuybK4ynj-aQZ_Iay9N9j-f2-P3Ey1_hNfNQjBskmJatHcQ7cY3deVG1Vm3bb8930esJgMZiRKiKElCQ&amp;utm_content=229586092&amp;utm_source=hs_email">Senior Product Designer at Ovia Health (remote)</a></li></ul><ul id="9be9671d-9270-4d92-917e-daadaf3ba540" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.otta.com/jobs/SXQ0YmlT">Otta - The better way to find a job in tech</a></li></ul><ul id="7ce281a4-3c0f-4d28-83c4-ce30640df267" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/aptoslabs/jobs/4086208005?gh_src=618e36825us">Job Application for Product Designer, Web Platforms at Aptos</a></li></ul><ul id="4dde3b83-4c17-4eee-918f-750726a1e53b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/senior-product-designer-insight-global-JV_KO0,23_KE24,38.htm?jl=1008197223707&amp;utm_source=jobalert&amp;utm_medium=email&amp;utm_term=jobalertcountr2var30B&amp;utm_content=ja-jobpos19-1008197223707&amp;utm_campaign=jobAlertAlert&amp;pos=119&amp;ao=1110586&amp;s=58&amp;guid=00000183d4f8deb1a8f495ce27519686&amp;src=GD_JOB_AD&amp;t=MJA&amp;vt=e&amp;ja=212683563&amp;uido=79E180D38BBA19826508C3D93DFA2FF6&amp;ea=1&amp;cs=1_2f898fa5&amp;cb=1665725423845&amp;jobListingId=1008197223707&amp;cpc=2CAED5C921A5F994&amp;jrtk=3-0-1gfafhns2i9jp801-1gfafhnsmitml800-e467e5237098e6a7--6NYlbfkN0BKkHZu3wF05EeDimN_p6sYpKCMArvwa95YdH7UpkaBCi52Bcb3JNt3Qfp7y0IX4HwcIgVCUIcOU-MaRxjRi5-Kg0e-TxJbelTJH6aD7tprmXUc9TuoIdIBchEoEgVOXKDdhNA085KLfXBiRxuwV42B0Qpsbvrx_m33wp-ALh_pj7E4sH0Twwn0lHJLCaOSzyVRFsjvClWrVv5YMDbT-CL6DkajU1VRlV18oAa8JnxVtVM4B5dGVi8avpRqpcmol-6Xl3rletJRCgjs-Lu0iUC-FADC3yxzqhzchUdn8PJpVKx6zb4jJMXLCjQOYDSt9FxsKr8_ynXJC6WfjB8u88ySOfDgD0aNQbR-XmE-M-NdSotZmPP1xP_xWQMeYqK73yr7_8YmJFhdz0Zyg9Gn6Fo4IIZ36WfUTyMKHaN3M4k6xgNhd4kyQH6o64l_3NSExzWNmnhHMa_PTveCQC_ssCDcqOw2QJI-a3HfcjftczItiHjda0Xaxa37__Var8Mbg0eOnSXABuANIgczb8pdh-tp&amp;ctt=1665755935852&amp;srs=EMAIL_JOB_ALERT&amp;gdir=1">Vaga de Senior Product Designer na Insight Global, Inc. em Remote | Glassdoor</a></li></ul><ul id="47dc39eb-965a-4987-a971-0ab2b636ca25" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/senior-product-designer-dbt-labs-JV_KO0,23_KE24,32.htm?jl=1007917112400&amp;pos=101&amp;ao=1136043&amp;s=153&amp;guid=00000183d6cdc23db22cfa137c5c8dfd&amp;src=GD_JOB_AD&amp;t=FJ&amp;vt=w&amp;uido=4358F556172F982A78A3C70B639C3E95&amp;cs=1_026e0cfe&amp;cb=1665756152607&amp;jobListingId=1007917112400&amp;jrtk=3-0-1gfbcrgj0k60l801-1gfbcrgk8h7go800-612757d11591f4f6-&amp;ctt=1665756164378">Vaga de Senior Product Designer na dbt Labs, Inc. em Remote | Glassdoor</a></li></ul><ul id="66f9554d-638e-44d0-85ed-dcbfbf50a3e0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://ecosystem.iotex.io/">IoTeX Ecosystem</a></li></ul><ul id="2d1ca199-6775-4006-8bb9-014ebd09f488" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://winreality.com/careers/id/?gh_jid=4699162004">careers/form - Win Reality</a></li></ul><ul id="211256da-cc95-41c0-9d13-2d14e046d4f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://careers.hashnode.com/jobs/w_dxGdPvykJF/sr-product-designer-remote?ft_source=5000107079&amp;ft_medium=5000109666">Sr. Product Designer (Remote) — Hashnode Careers</a></li></ul><ul id="bd00c677-f42d-4124-b644-bb0646be0c78" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=how+to+create+a+Web3+product&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=pt-br&amp;client=safari">google.com.br</a></li></ul><ul id="5695bc78-11ed-43fa-b589-1049ff220e0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotejobhuntbuddy.com/app/#/remote-jobs">RemoteJobHuntBuddy</a></li></ul><ul id="11fb6092-7931-49b6-9835-ec24ced7ef03" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobs.lever.co/gauntlet/7271ebf8-8030-4037-a837-167a55da9f10?lever-origin=applied&amp;lever-source%5B%5D=cryptocurrencyjobs.co">Gauntlet Networks - Lead Product Designer</a></li></ul><ul id="e8b5e502-0439-418c-aef5-74834bad4864" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobs.ashbyhq.com/Doodles/5bde1d0d-0ce6-4fa1-8d2c-f99b0d3e8328?utm_source=crytojobs">UX/UI Designer @ Doodles</a></li></ul><ul id="531afbc9-a641-4640-9586-38b441fab51d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://dappradar.bamboohr.com/careers/79?source=cryptocurrencyjobs.co">BambooHR</a></li></ul><ul id="97b4d48c-8d8c-4816-ba17-4dcc8a1ae50f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/senior-product-designer-repairpal-JV_KO0,23_KE24,33.htm?jl=1008208063929&amp;utm_source=jobalert&amp;utm_medium=email&amp;utm_term=jobalertcountr2var30B&amp;utm_content=ja-jobpos2-1008208063929&amp;utm_campaign=jobAlertAlert&amp;pos=102&amp;ao=1110586&amp;s=58&amp;guid=00000183d9e8c4498b71e1e6b9091de4&amp;src=GD_JOB_AD&amp;t=MJA&amp;vt=e&amp;ja=212683563&amp;uido=79E180D38BBA19826508C3D93DFA2FF6&amp;ea=1&amp;cs=1_ce3e8b50&amp;cb=1665808254379&amp;jobListingId=1008208063929&amp;cpc=9DC6E4D8324653EE&amp;jrtk=3-0-1gfcuhh4qklvt801-1gfcuhh5ggsq0800-60a173eb92374779--6NYlbfkN0ALOIxE-O2QN8e13UaC5yQqbCBDNIB9g9VY0JYhJxIwsjp1-k9Xnr4ifSFHhH5End2wvOUSBOHsI79dnfdZ_LGrM_Dvc3SBFVGuvTRTYIqgJoUjaQ8Eowb1uJXBGxFe9zkL4b46PLhxa4pz_20L5U8LUMB6vGtdWzBuQQYKQi_yZwua1_R9302iCX1zzSSvwiF93j1XiClv_K5UPbqkojFIe0BN32kZ_5IqFu8jK1uG3zoDVMWQtRqxUD2wuAoXirvhcJGKbqZ2dtoitFDhY6SU0E2KsnvJPL8pf1tnm9MdzWeuBO-lF3EnAKkwbekrcPmYTJRUE9dOl5y4nMI_dEhrjdaiw8mPSIfRNjwWOwPbdGgBqLzIIljj_cmr_4jqILR2e_fEwqFyASOwFhw595LYdOF7yedET38rVhQX9KmaNauuQVUi14xgsaz8My7OrP2LO4K77vhFk6oIw0T0KWa2dZrNy-LoTn1UGjUxCVSchzyZs40qUYQa0y3YkLiayti362VEweszqg%253D%253D&amp;ctt=1665835249661&amp;srs=EMAIL_JOB_ALERT&amp;gdir=1">Vaga de Senior Product Designer na em Remote | Glassdoor</a></li></ul><ul id="86a60736-74ec-4896-a660-3c265904901e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/ux-ui-designer-specialty-computer-enterprises-cei-JV_KO0,24_KE25,49.htm?jl=1008208291166&amp;utm_source=jobalert&amp;utm_medium=email&amp;utm_term=jobalertcountr2var30B&amp;utm_content=ja-jobpos5-1008208291166&amp;utm_campaign=jobAlertAlert&amp;pos=105&amp;ao=1110586&amp;s=58&amp;guid=00000183d9e8c4498b71e1e6b9091de4&amp;src=GD_JOB_AD&amp;t=MJA&amp;vt=e&amp;ja=212683563&amp;uido=79E180D38BBA19826508C3D93DFA2FF6&amp;ea=1&amp;cs=1_6fcda47e&amp;cb=1665808254380&amp;jobListingId=1008208291166&amp;cpc=1160948BCBA38B5B&amp;jrtk=3-0-1gfcuhh4qklvt801-1gfcuhh5ggsq0800-1be74f90c72b19b2--6NYlbfkN0AVVnl_N3xmP3MApcGA3sr6MLnz8P423WWILI1WvbjE8Ry71v-lom9NKs8rBQiPPSc36mMNbGz2rLIjAIe89XdYR289j7y7gF1LtReMMHE6B04MlKptnH97uQkuKRNJj9jlhNMT4CA21U-KsjF0-fYftaXf9VmPdvKfzSOSFLT4syw4Jcks-ZXAkchRRwSGze4fm3tJFqZcaUwAXx7sWJZws7J7nGgrW1s8965pSGM027jmOWn6EXisbO47msMQ-o1KScnMYNIHyi5WDNiVYVbFi732zHG59y45LFu9E0pbwgxf7zFpnAwXknuKH9c7wFtajTPhEglYQeMVIZNiG_MjQWD0GmvKx_HPz0_ui_WSqGNSVE_Z8EruME-CSPDehg2hjpDNgIy72uJv2Mw7PgD7QsHzcaeVg0lABfb0vhC32meVVGTQeevc7xw-cOye9cNh4O15fO2UuBZmcCFexEqvWQX-eDMaQ4dAsgdE2h3ytSq_vyZMaVL9CpdVnAjOrVpOkaUTcFUDJvwukpzH1XK3&amp;ctt=1665835266868&amp;srs=EMAIL_JOB_ALERT&amp;gdir=1">Vaga de UX/ UI Designer Specialty na Pittsburgh Polo Club em Remote | Glassdoor</a></li></ul><ul id="60f8e491-b876-4beb-88c8-8dc04b0def0b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/product-designer-sign-up-onboarding-focus-consultants-JV_KO0,35_KE36,53.htm?jl=1008201964637&amp;utm_source=jobalert&amp;utm_medium=email&amp;utm_term=jobalertcountr2var30B&amp;utm_content=ja-jobpos17-1008201964637&amp;utm_campaign=jobAlertAlert&amp;pos=117&amp;ao=1136043&amp;s=58&amp;guid=00000183d9e8c4498b71e1e6b9091de4&amp;src=GD_JOB_AD&amp;t=MJA&amp;vt=e&amp;ja=212683563&amp;uido=79E180D38BBA19826508C3D93DFA2FF6&amp;ea=1&amp;cs=1_ce85c068&amp;cb=1665808254383&amp;jobListingId=1008201964637&amp;jrtk=3-0-1gfcuhh4qklvt801-1gfcuhh5ggsq0800-6ddc59c6197e319e-&amp;ctt=1665835291415&amp;srs=EMAIL_JOB_ALERT&amp;gdir=1">Vaga de Product Designer - Sign-Up &amp; Onboarding na FOCUS Consultants em Remote | Glassdoor</a></li></ul><ul id="77a7bd33-668d-4390-b13f-8bab049deef2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/product-designer-paylocity-JV_KO0,16_KE17,26.htm?jl=1008208581305&amp;utm_source=jobalert&amp;utm_medium=email&amp;utm_term=jobalertcountr2var30B&amp;utm_content=ja-jobpos20-1008208581305&amp;utm_campaign=jobAlertAlert&amp;pos=120&amp;ao=1136043&amp;s=58&amp;guid=00000183d9e8c4498b71e1e6b9091de4&amp;src=GD_JOB_AD&amp;t=MJA&amp;vt=e&amp;ja=212683563&amp;uido=79E180D38BBA19826508C3D93DFA2FF6&amp;ea=1&amp;cs=1_7e5db5ef&amp;cb=1665808254383&amp;jobListingId=1008208581305&amp;jrtk=3-0-1gfcuhh4qklvt801-1gfcuhh5ggsq0800-2ae397d8218daebb-&amp;ctt=1665835309010&amp;srs=EMAIL_JOB_ALERT&amp;gdir=1">Vaga de Product Designer na Paylocity Corporation em Remote | Glassdoor</a></li></ul><ul id="d4eeadac-6b81-4597-9950-e914946856db" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.luminaarte.com.br/prolongador-para-vidro-p192?gclid=Cj0KCQjw166aBhDEARIsAMEyZh5Xz_q6GNeC2kwJkXWiVDcxAC_xIG_r0NqrJ-P08UXoTc1jknDRCNIaAkSOEALw_wcB">PROLONGADOR PARA VIDRO</a></li></ul><ul id="2ce6747e-e783-4762-98ca-c64b283f92f3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.otta.com/jobs/ekZOdStS">Product Design Manager - Yelp | Otta</a></li></ul><ul id="9475fec0-8d08-4b73-82a7-c3bb6dab9e07" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/reddit/jobs/3000544?utm_source=Otta">Job Application for Staff Product Designer at Reddit</a></li></ul><ul id="26d858e9-9ebd-4236-9339-74337384fceb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.otta.com/jobs/TWhJbm5B?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJCbG9nQXBwR3FsIiwiZXhwIjoxNjY3MTE3ODUzLCJpYXQiOjE2NjU5MDgyNTMsImlzcyI6IkJsb2dBcHBHcWwiLCJqdGkiOiI1MTc4ZjRmYy02MjIyLTQzM2QtOTJlNy1lNzFhNmE5YTRlYmEiLCJuYmYiOjE2NjU5MDgyNTIsInN1YiI6IjExNzAwMTkiLCJ0eXAiOiJhY2Nlc3MifQ.SLzIk3_8F2QV_uwbwqW181gKmO_5aaYR-G3iFWauyIUribFtsK0YOuM_dPp5x2hXd46r9iZDNyWKMUjlrxmtZw&amp;position=2&amp;count=3&amp;utm_source=email&amp;utm_medium=email&amp;utm_campaign=new_job_notification">Senior Product Designer - Chronosphere | Otta</a></li></ul><ul id="0ba08fc4-daf2-48d0-80f7-a759b1379a3f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.otta.com/jobs/b2lycE1j?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJCbG9nQXBwR3FsIiwiZXhwIjoxNjY3MTE3ODUzLCJpYXQiOjE2NjU5MDgyNTMsImlzcyI6IkJsb2dBcHBHcWwiLCJqdGkiOiI1MTc4ZjRmYy02MjIyLTQzM2QtOTJlNy1lNzFhNmE5YTRlYmEiLCJuYmYiOjE2NjU5MDgyNTIsInN1YiI6IjExNzAwMTkiLCJ0eXAiOiJhY2Nlc3MifQ.SLzIk3_8F2QV_uwbwqW181gKmO_5aaYR-G3iFWauyIUribFtsK0YOuM_dPp5x2hXd46r9iZDNyWKMUjlrxmtZw&amp;position=3&amp;count=3&amp;utm_source=email&amp;utm_medium=email&amp;utm_campaign=new_job_notification">Otta - The better way to find a job in tech</a></li></ul><ul id="783b9943-9830-4555-b4b9-0420aef3b14c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/classdojo/jobs/855011?utm_source=Otta">Job Application for Senior Product Designer at ClassDojo</a></li></ul><ul id="20f745da-6d07-4061-b903-03db5db0c53a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com.br/job-listing/senior-product-designer-repairpal-JV_KO0,23_KE24,33.htm?jl=1008208063929&amp;utm_source=jobalert&amp;utm_medium=email&amp;utm_term=jobalertcountr2var30B&amp;utm_content=ja-jobpos2-1008208063929&amp;utm_campaign=jobAlertAlert&amp;pos=102&amp;ao=1110586&amp;s=58&amp;guid=00000183debf8f608c0383d961832585&amp;src=GD_JOB_AD&amp;t=MJA&amp;vt=e&amp;ja=212683563&amp;uido=79E180D38BBA19826508C3D93DFA2FF6&amp;ea=1&amp;cs=1_f2d305c1&amp;cb=1665889439968&amp;jobListingId=1008208063929&amp;cpc=FD1C1DA32C38CFA7&amp;jrtk=3-0-1gffbv3u0jihl801-1gffbv3v7j47k800-60a173eb92374779--6NYlbfkN0ALOIxE-O2QN8e13UaC5yQqbCBDNIB9g9VY0JYhJxIwsjp1-k9Xnr4ifSFHhH5End2wvOUSBOHsI79dnfdZ_LGrM_Dvc3SBFVGuvTRTYIqgJoUjaQ8Eowb1uJXBGxFe9zkL4b46PLhxa4pz_20L5U8LUMB6vGtdWzBuQQYKQi_yZwua1_R9302iCX1zzSSvwiEoKx6pMwrUmxXugw2xoFjzL-iZ85J3g9E3nGL0m1-kiKCK4amOinTi3FRFbbSUSFfihEuzpFlKa8CMYnWS4WErcHRMyh2Er4nnfN0kmGSphLK-nt7A_2XXSJoIPI_oKEF0ae9O9hp_oyGU9ZWA2CT0D1MG316qsVSp55U4aYqDfZWnZapF9whYznHoBMYO5xhLe6h3BkzKAaaqi5zCbFFR-UE1fzzwAWse_dJCXHoNIfPutPBt1qj_TawAdsHBWlSsJ3KCp4dNHXhgVtmVWxbvGZvlGG8QAYvb3yuvHKqZPn2EsKmphriJnJNwdlKBb7yBsO5yORoIhQ%253D%253D&amp;ctt=1665943589865&amp;srs=EMAIL_JOB_ALERT&amp;gdir=1">Vaga de Senior Product Designer na em Remote | Glassdoor</a></li></ul><ul id="8d15e9e4-e209-4e8b-81f2-c0cdba8ddf6c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.usebraintrust.com/jobs/4514/">Braintrust | Job: Blockchain Architect</a></li></ul><ul id="6089bc98-1382-4fa8-98ec-9e65f82281ed" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.goliquid.io/post/guide-working-international-freelancers">Essential Guide to Working with International Freelancers - Liquid</a></li></ul><ul id="cfa4d19c-0975-4dc9-9486-1a1eff605ac1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.goliquid.io/post/10-practical-tips-for-preventing-legal-issues-when-hiring-freelancers/">10 Practical Tips for Preventing Legal Issues When Hiring Freelancers - Liquid</a></li></ul><ul id="dfcdeff9-0403-4601-bad1-c8c51df194bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.goliquid.io/post/freelance-management-system-fms/">What is a Freelance Management System (FMS)? And Why Do You Need an FMS? - Liquid</a></li></ul><ul id="bf82a154-cbaf-40ab-ac24-eaf13f2f2626" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.melhoresdestinos.com.br/cartoes-de-credito">Melhores Cartões de Crédito para acumular milhas e viajar</a></li></ul><ul id="71808de5-add8-46ca-a2ab-29c88ca822e2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://cleverjobs.net/remote/design-lead-at-course-studio-4hg7f">Design Lead - Remote</a></li></ul><ul id="f46a581f-b780-4e46-9c53-0b7d4f074712" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://workingnotworking.com/unjobboard/12847-tremendous-senior-product-designer">Senior Product Designer at Tremendous - WNW</a></li></ul><ul id="760bc6ee-0fe4-4976-9739-8ee6c95b2f0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.upwork.com/freelance-jobs/apply/Designer-for-FinTech-Product_~01ae3d2f558d9aae72/">UI/UX Designer for FinTech Product - Freelance Job in Web &amp; Mobile Design - More than 30 hrs/week - undefined - Upwork</a></li></ul><ul id="00a6e5cc-50a6-4a7d-bc5f-a80ef829c745" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://80.lv/contact-us/?gclid=Cj0KCQjw48OaBhDWARIsAMd966DXQuefxoX-mT0kvDp0p38wlNCtl4rT3A50w1Uqnt7avs2rmHcqJk0aAtKcEALw_wcB#Hire/?utm_source=paid_google&amp;utm_medium=cpc&amp;utm_campaign=80lv_talent_sept_2022&amp;utm_term=global&amp;utm_content=artists-2">80 LEVEL</a></li></ul><ul id="9aef562d-93d7-4351-b464-c3736798b192" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.designmatch.io/designers/">Designers - Join Design Match - Design Match</a></li></ul><ul id="e644230a-8c75-43d7-918f-9168561383a1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://strapi.io/careers?utm_campaign=employer%20branding&amp;utm_content=224995132&amp;utm_medium=social&amp;utm_source=twitter&amp;hss_channel=tw-3832252517#open-positions">Careers at Strapi</a></li></ul><ul id="1e756b7e-4c1a-4890-a87e-f043a997a80b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobs.lever.co/strapi/19082a5c-3f98-4458-9fcd-5c969ba166b3">Strapi - Product Designer (Cloud)</a></li></ul><ul id="c39231fd-40ea-4c7f-a7bb-e6f2e2bb952b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/@vela-games?utm_source=alert_email_mailer&amp;utm_medium=email&amp;utm_campaign=new_posts">Vela Games Jobs (October 2022)</a></li></ul><ul id="04d3a348-dfc6-4721-88aa-49eeadf37426" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/lead-product-designer-brand-growth-magic-labs-inc-3783908?utm_campaign=new_posts&amp;utm_medium=email&amp;utm_source=alert_email_mailer">Lead Product Designer, Brand &amp; Growth at Magic Labs, Inc.</a></li></ul><ul id="75c8b61a-52bd-4468-9a06-9812d0a7580b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/director-of-product-design-wayflyer-3783309?utm_campaign=new_posts&amp;utm_medium=email&amp;utm_source=alert_email_mailer">Director of Product Design at Wayflyer</a></li></ul><ul id="0fa0e765-0d99-44a2-9892-48771d57c813" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/senior-product-designer-idt-3783184?utm_campaign=new_posts&amp;utm_medium=email&amp;utm_source=alert_email_mailer">Senior Product Designer at IDT</a></li></ul><ul id="1338d069-e82a-40c4-85a4-8f2b98cfebd9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://noticias.r7.com/economia/numero-de-cnh-pelo-celular-mais-que-triplica-em-dois-anos-20102022">Número de CNH pelo celular mais que triplica em dois anos - Notícias - R7 Economia</a></li></ul><ul id="62ef7537-42ca-4cab-850e-59df2c93fb3e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.detran.sp.gov.br/wps/portal/portaldetran/cidadao/servicos/formularioCadastro/!ut/p/z1/lZA7D4JAEIR_i4Wl2bk7kKM8UR6CUcQX15irDImiJsbfL1qYGAVhu02-2Z0Z0rQjXZp7cTC34lyaY7XnerifpvDCUPIEluRQNhxfpAkPYpu2L0BYyNwRU4AIJZRcrkKVgCFzSHfSy8nGf-qFzyZzjhjt9G8gYGMPyrWsWTSNBVzRTo-aUV3_fwO6-fyW9AtpavAT-FHRp8kfHfxzkVcpnNoUnk0Z5WPKuXftY6HoclpXs0MRDUyqer0H5mZHnA!!/p0/IZ7_JQ0CHH82L04820A507F3QL2GC5=CZ6_JQ0CHH82L04820A507F3QL2GK5=LA0=Ejavax.servlet.include.path_info!QCPpagesQCPcadastroCidadaoQCPcepSenhaForte.xhtml==/">:: DETRAN-SP :: DEPARTAMENTO ESTADUAL DE TRÂNSITO DE SÃO PAULO</a></li></ul><ul id="0a0d078e-4c6e-459c-a5fe-9ba969661f41" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://bootcamp.uxdesign.cc/the-ux-of-a-banana-1e43cc97cd0a">The UX of a banana. “Mother Nature has great examples that… | by Jehad Mohamed | Bootcamp</a></li></ul><ul id="97898913-2318-4c6c-bf3a-f2eb9da06b37" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://generalassemb.ly/education/learn-user-experience-design-online">Learn User Experience Design | Online User Experience Design Class | General Assembly</a></li></ul><ul id="41eb9875-e817-488f-a391-776ad265a8e2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.svpg.com/transformation-defined/">Transformation Defined - Silicon Valley Product Group : Silicon Valley Product Group</a></li></ul><ul id="2e796898-ae68-48af-ac75-3fc6f5fd9f20" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/companies/elastic/">Remote Design Jobs at Elastic - DesignRemotely</a></li></ul><ul id="18705992-f52e-49b3-ae39-593d608de886" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.figma.com/blog/the-outsized-role-culture-plays-in-attracting-design-talent/">The outsized role culture plays in attracting design talent</a></li></ul><ul id="83a78ff6-4f64-4cd3-baf4-441c59b5810b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://careers.ideas.aha.io/ideas/new?preset%5Brole%5D=sr-ux-designer&amp;preset%5Bteam%5D=product/ux&amp;_ga=2.153454907.2042277399.1663599895-86371354.1660513700">Application</a></li></ul><ul id="b566e8b6-9422-4f11-975e-3332d32b8435" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://ga-core.s3.amazonaws.com/production/uploads/program/course_catalog/15764/Syllabi_UserExperience_Immersive_4.0_013020__1_.pdf">ga-core.s3.amazonaws.com</a></li></ul><ul id="74af36a6-96cb-4781-9915-02fc29306076" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.hireart.com/solutions/sourcing-recruitment">HireArt: The all-in-one-platform to source, employ, and manage contract W2 workers.</a></li></ul><ul id="99cb2cc7-9714-456c-9aa1-5681ed32f194" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.businessnewsdaily.com/8750-work-with-staffing-agency.html">Everything You Should Know About Staffing Agencies</a></li></ul><ul id="fd7ea4e5-7e06-4b66-a9f6-c9699f0307b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.businessnewsdaily.com/15832-how-to-determine-salary.html">How to Determine Salaries for New Employees - businessnewsdaily.com</a></li></ul><ul id="fb018534-40e8-4f49-b68f-95c60b370dc4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.papayaglobal.com/cost-calculator/?countryCode=MX&amp;currency=Local%20Currency&amp;salary=400000">Global Employment Cost Calculator | Papaya Global</a></li></ul><ul id="adc9b1f7-fb4d-4e69-87c1-1d9c14a711f3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=what+companies+hire+throught+PEO&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=pt-br&amp;client=safari">what companies hire throught PEO - Pesquisa Google</a></li></ul><ul id="0d7d1d81-5777-495e-ac6b-dd5a857e1788" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.businessnewsdaily.com/8117-best-professional-employer-organizations.html">The Best PEO Service Providers of 2022 - businessnewsdaily.com</a></li></ul><ul id="f84923cc-51cb-437e-81b3-1b88ccad02c5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://login.shrm.org/?request_id=id508080F98068A2&amp;relay_state=id-1b2767f2-2a88-45ac-8126-b7c285992662&amp;issuer=aHR0cHM6Ly9zc28uc2hybS5vcmcvSURCVVMvU0hSTS9JRFAvU0FNTDIvTUQ=&amp;target=aHR0cHM6Ly9zc28uc2hybS5vcmcvSURCVVMvU0hSTS9QT1JUQUwtU1AvU0FNTDIvTUQ=">Login Page</a></li></ul><ul id="7f755d89-91e2-462e-8abf-13ad0e599ae3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.paychex.com/articles/human-resources/what-is-a-peo-hr-experts-explain">What Is a PEO and How Can It Benefit Your Business? | Paychex</a></li></ul><ul id="429b7f12-7551-48f5-9873-0e20d7ada9b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.netpeo.com/faqs/what-is-the-difference-between-temporary-staffing-services-and-a-peo/">What is the Difference Between Temporary Staffing Services and a PEO? | FAQ</a></li></ul><ul id="1e87e077-4850-419f-8a31-d9f030faef59" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.trustpilot.com/categories/payroll_service?page=2">Best companies in Payroll Service on Trustpilot</a></li></ul><ul id="20edf9a1-3d1a-45f2-b537-42162faf57b3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.trustpilot.com/review/remofirst.com">Remofirst Reviews | Read Customer Service Reviews of remofirst.com</a></li></ul><ul id="1eeaaa77-a1f7-4730-ac40-f51b56fe1eb7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.trustpilot.com/review/rippling.com">Rippling Reviews | Read Customer Service Reviews of rippling.com</a></li></ul><ul id="7f47f7f5-9f46-4e95-bb5b-896eb1febf9a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remofirst.com/">Global Payroll &amp; Employer of Record for Remote Teams | Remofirst</a></li></ul><ul id="0ec07584-5f43-497f-99d5-649504dafc0d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.google.com.br/search?q=list+of+companies+hiring+product+designer+remotely+anyware&amp;ie=UTF-8&amp;oe=UTF-8&amp;hl=pt-br&amp;client=safari">list of companies hiring product designer remotely anyware - Pesquisa Google</a></li></ul><ul id="2d958446-a1aa-4833-8f76-9e6f9dbd2fff" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.welovenocode.com/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=devs_mixed&amp;utm_campaign=dec2021_ps&amp;utm_medium=cpc&amp;utm_source=google&amp;utm_content=campaign_18607040082_adgroup_142023901626_ad_628473896617_kwd_remote%20design%20jobs&amp;utm_term=remote%20design%20jobs&amp;hsa_acc=5725297786&amp;hsa_cam=18607040082&amp;hsa_grp=142023901626&amp;hsa_ad=628473896617&amp;hsa_src=g&amp;hsa_tgt=kwd-46586778399&amp;hsa_kw=remote%20design%20jobs&amp;hsa_mt=p&amp;hsa_net=adwords&amp;hsa_ver=3&amp;gclid=Cj0KCQjwqc6aBhC4ARIsAN06NmO5V2Dd1x8K8b12kOJHEKPgW_Bla8E3DFjZ5T0Df7_HFbdQcIXDBz0aApoDEALw_wcB">Join WeLoveNoCode as no-code Talent | Apply for no-code jobs</a></li></ul><ul id="92ac9ea5-f788-4829-97e8-60e063de5c2c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotewx.com/remote-design-jobs">Tegus: Principal Product Designer</a></li></ul><ul id="ec9d1eed-caa8-40ed-9894-aaddaa8d13a8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.softr.io/">Build website, web app &amp; portals on Airtable without code | Softr</a></li></ul><ul id="99dacf52-e636-420e-9159-19d6a0367c70" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotewx.com/remote-jobs/tegus-principal-product-designer">Tegus: Principal Product Designer</a></li></ul><ul id="412b6e87-15da-4288-a991-d5bd317604ff" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://jobs.lever.co/tegus/d8973872-0905-4820-bec9-35701d8260b1/apply">Tegus - Principal Product Designer</a></li></ul><ul id="08172a47-eea4-48f4-9b1e-23de7db450c1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotewx.com/remote-jobs/tribe-senior-brand-designer">Tribe: Senior Brand Designer</a></li></ul><ul id="3623a14c-19c5-4f30-b469-d82b000aac70" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://tribe.so/careers/#open-roles">Careers at Tribe</a></li></ul><ul id="8b46eddb-4eb1-487a-84cc-2c85224c6245" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/jobs/anywhere/">Remote Design Jobs Anywhere - DesignRemotely</a></li></ul><ul id="0ae66618-20ce-4b9b-8d75-8715b9d2c1aa" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://wikimediafoundation.org/our-work/wikimedia-projects/">Wikimedia Projects – Wikimedia Foundation</a></li></ul><ul id="446adaf6-46f6-4b46-97f3-68accc248f91" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/jobs/2022-08-30/product-designer-growth-at-reddit/">Product Designer, Growth at Reddit - DesignRemotely</a></li></ul><ul id="33f1ad22-1039-4406-9bad-9e0137874fe0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/quora/jobs/4437577002?ref=designremotely.co">Job Application for Senior Product Designer (Remote) at Quora</a></li></ul><ul id="7e7d2649-dbc3-4faa-ba1e-1ae9768732af" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/jobs/2022-09-27/senior-product-designer-at-smartcat/">Senior Product Designer at Smartcat - DesignRemotely</a></li></ul><ul id="60eba305-04a1-4d7e-ad92-abea3f27269c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/jobs/2022-09-27/senior-product-designer-at-unsplash/">Senior Product Designer at Unsplash - DesignRemotely</a></li></ul><ul id="a791e1b1-5aac-41dd-af2e-0a04f2e58378" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/jobs/2022-09-20/senior-product-designer-at-buffer/">Senior Product Designer at Buffer - DesignRemotely</a></li></ul><ul id="961d90f6-6e61-49b0-9e5e-2d1dbf70e51d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://buffer.com/resources/linkedin-/">LinkedIn - Buffer Resources</a></li></ul><ul id="06def053-b53e-4ebf-9431-c214fdafd6e7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://boards.greenhouse.io/reddit/jobs/3943821?ref=designremotely.co">Job Application for Product Designer, Growth (Contract) at Reddit</a></li></ul><ul id="e2b76e38-3a38-486f-a468-72e8895f4d0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://app.uxcel.com/jobs/senior-product-designer-remote-latam-80659">Uxcel - Where design careers are built</a></li></ul><ul id="3a8cb451-358d-4859-abab-62915e1f6451" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotewx.com/">Remote Jobs in Programming, Design, Support, Marketing, Writing and More.</a></li></ul><ul id="ba22e3dd-2b73-4bcc-a208-6e69ba8c21f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.designeopressao.org/designs-of-the-oppressed/">Designs of the Oppressed – design &amp; opressão</a></li></ul><ul id="46d36a40-152a-49e8-909c-b74fdbd80b55" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.diadesign.io/why-we-stopped-reading-design-of-everyday-things/">Representing D for diversity and design at the UX Book Club - Why We Stopped Reading “Design Of Everyday Things”</a></li></ul><ul id="b1883346-c1fc-4ac7-bba1-69f7835d1ef7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.peterme.com/index112498.html">interface design</a></li></ul><ul id="6d3de2b0-a5a4-40df-9142-2b9a0e32f41d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://fredvanamstel.com/blog/what-is-a-contradiction-and-why-it-is-relevant-to-design-research">What is a contradiction and why it is relevant to design research? – Frederick van Amstel</a></li></ul><ul id="3ba3675b-6b02-4c6f-a34c-34ed70618fbf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://fredvanamstel.com/publications/insurgent-design-coalitions-the-history-of-the-design-oppression-network">Insurgent design coalitions: the history of the Design &amp; Oppression network – Frederick van Amstel</a></li></ul><ul id="67ace131-56c1-4a8a-a9cf-9d100355303b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.hingehealth.design/post/sage-advice-from-our-design-ux-team">Sage advice from our Design &amp; UX team</a></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

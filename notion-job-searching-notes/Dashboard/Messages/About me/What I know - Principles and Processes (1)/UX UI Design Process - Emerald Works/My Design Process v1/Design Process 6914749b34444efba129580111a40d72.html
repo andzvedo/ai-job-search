@@ -1,0 +1,772 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Design Process</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="6914749b-3444-4efb-a129-580111a40d72" class="page sans"><header><h1 class="page-title" dir="auto">Design Process</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="17ad3973-52be-463a-ab74-6d4ce1b51a3e" style="display:inline-block">Process Blackbird.ai</h1></summary><div class="indented"><h1 id="231fc156-176d-4236-8f7f-e2b70fc51d0c" class="" dir="auto">Questions</h1><ul id="808a59e5-89fd-4828-bfbe-09b8ae68dd2c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the key topics that every design work should cover and have it documented?<ul id="5356308a-9dc9-407e-9341-7eb15be0dc9b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Goal</li></ul><ul id="04177e60-a2f1-48db-9cfd-bb1b25f1c9f3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Assumptions/Hypothesis</li></ul><ul id="8c2ddb1c-95de-494a-a979-b76c5baf561f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">User needs</li></ul><ul id="7af9a6ed-d2b2-4237-98cc-c15b14800bad" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Proposal</li></ul></li></ul><ul id="35a27edc-7f3c-4964-8f59-a761df8c2964" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the other important topics that the design work should cover depending of the initiative needs?</li></ul><h1 id="bee9ef3e-e276-4b1a-b021-cb6fe3d9bdc6" class="" dir="auto">Keep in mind</h1><ul id="31a662ac-b580-46c6-9284-b67f8d50f6f3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The design documentation will vary depending of:<ul id="48984e80-6a77-4afa-b00c-0f4e86bba943" class="bulleted-list" dir="auto"><li style="list-style-type:circle">The initiative type and goals;</li></ul><ul id="83fb53fc-c7c3-498d-b141-4902e05ac933" class="bulleted-list" dir="auto"><li style="list-style-type:circle">The level of knows and unknowns;<ul id="fb0be18e-2701-4830-945a-a060f89d86c6" class="bulleted-list" dir="auto"><li style="list-style-type:square">A new feature probably has more unknowns then an iteration of a existing feature</li></ul></li></ul></li></ul><ul id="997e5eb5-5421-4af2-ae86-5b0e3e5df869" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Keep in mind that the audience may vary, at the beginning of an initiative would be the Product team, and after that would be the engineering team.<ul id="634fde41-7f5f-4241-b92e-68c3b3e06812" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Discovery: Product<ul id="43d26c65-932d-4a4d-ac5c-cb51040c52a7" class="bulleted-list" dir="auto"><li style="list-style-type:square">Give context;</li></ul><ul id="4f2940b0-7c4e-4b72-8ae5-5bcb9d8a6e12" class="bulleted-list" dir="auto"><li style="list-style-type:square">Informed design decisions;</li></ul></li></ul><ul id="483dde21-394e-45e7-984a-68830f2c9c37" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Delivery: Engineers</li></ul></li></ul><h1 id="eec66ad6-a863-448c-9a2f-117d1db00aa7" class="" dir="auto">To-dos</h1><ul id="bb836894-5bd1-4fe6-882e-9013114c37ea" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">Take a look at the Product documents and raise questions;</span><div class="indented"></div></li></ul><ul id="387ba8fb-8840-4f96-999d-e0b2921e4b4b" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">What are the success metrics;</span><div class="indented"></div></li></ul><ul id="e0ec3bbe-f63c-4eb3-bbd6-deb53fa825e9" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">Create the Wireflows to start to make tangible the Flows in Miro and Minimum aspects</span><div class="indented"></div></li></ul><ul id="f3d4bdb0-9a85-40fd-beab-c0bce11ba5fd" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">Align with the team</span><div class="indented"></div></li></ul><p id="122a61ab-7749-4d84-bf4a-6fd26134d3d6" class="" dir="auto">
+</p><hr id="0e415b5a-116c-4dc6-a6a0-059c7b821da8" dir="auto"/><hr id="9286f934-30ee-4fe6-bf00-d745219bc0a0" dir="auto"/><hr id="4ff83123-23b6-4571-afdd-5ac1be2716a9" dir="auto"/><h1 id="1ff194cd-cd15-46f0-a0f7-827bce9edbbb" class="" dir="auto">Goals</h1><p id="05ce3505-770c-49b7-8eba-247510f617a6" class="" dir="auto">Be sure to cover what is the minimum that it needs from the <span style="border-bottom:0.05em solid">Users</span>, <span style="border-bottom:0.05em solid">Business</span>, and <span style="border-bottom:0.05em solid">Technology</span> perspective to be ready for launch.</p><h1 id="3e4c4493-6e43-421c-a7b6-e8665e4b6ef0" class="" dir="auto">Hypothesis</h1><p id="5b89da18-36db-415c-94a4-94bb30b40eb1" class="" dir="auto">Define the Hypothesis that will be challenging the MVP</p><h1 id="1e7e5018-d2de-4c9a-a243-d048e10e5b91" class="" dir="auto">Priorities</h1><p id="f2b8242c-ae2a-4022-897b-9bd5be20754c" class="" dir="auto">Set the priorities to highlight what features should be tackled first and the reasons of it.</p><ul id="4e4b6d38-6dc4-4149-aa86-3e5de82b3416" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What’s the most important thing we need to learn first?<ul id="252a3759-21f5-47f6-86f2-697a8eb5774d" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Why do we need to learn that?</li></ul></li></ul><ul id="76a66286-b0a5-4794-933f-9701ac4e667f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What would be the estimated effort?<ul id="72335758-72d8-47c8-9430-7eff187b0ecd" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What are the risks involved?</li></ul><ul id="47187c7a-cc3c-4abb-b2c3-b1dd7131d420" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What are the dependencies?</li></ul></li></ul><ul id="4528ffc6-e0a1-43dd-8ec0-4a1cd40c16bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What’s the least amount of work to learn the next most important thing?<ul id="b14988e3-0d8c-4707-871e-9c41ea5d3b40" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Be mindful of: <span style="border-bottom:0.05em solid">Users</span>, <span style="border-bottom:0.05em solid">Business</span>, and <span style="border-bottom:0.05em solid">Technology</span> perspectives</li></ul></li></ul><h1 id="48a80106-c535-4ccf-a6dc-45df958e18bc" class="" dir="auto">Discovery or Delivery focus</h1><p id="b9245a26-7ae9-45d4-be5f-ec2bb2a3c7dd" class="" dir="auto">There are more Unknowns - Focus on Discovery <div class="indented"><ul id="23427251-b30b-4061-bed6-11d0ca35d4e6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborative ways to involve people that will help us get more clarity and seek the opportunities involved;</li></ul></div></p><p id="68802333-6fb0-468e-bb29-a3824e7ac536" class="" dir="auto">There are more Knowns - Focus on Delivery</p><ul id="918c9c8c-debe-4089-8a08-6c5b4e489286" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Co-creation sessions with a specific problem and potential solution with others;</li></ul><h1 id="61ea2fa8-161b-41d4-bdb1-461af1d456a2" class="" dir="auto">Research</h1><p id="b4cd74ab-846e-4b11-b369-e1f0654b7150" class="" dir="auto">What are the gray areas which it needs more clarity from the user&#x27;s perspective?</p><ul id="e4a1abf9-3e70-43a0-938b-d82844a3e551" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Stakeholder interviews</li></ul><ul id="cf80209d-6323-4918-a882-06cc1bf002d2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">In-depth studies</li></ul><ul id="26e81146-ed28-40bf-9332-e2986fef7a56" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Concept Testing </li></ul><h1 id="cd5e993c-3aef-46a8-9dd0-c2dca9a9fa12" class="" dir="auto">Solution</h1><h1 id="7897dc7c-8715-4869-9502-46ca81812035" class="" dir="auto">Ideation</h1><ul id="7c2a5930-04b8-4ab1-b130-3a01e0ffed77" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What if scenarios and brainstorm sessions</li></ul><h1 id="3ce1ce52-5dc1-40af-85ed-7d697eae8e9f" class="" dir="auto">Flows and Features</h1><p id="e289efb9-bf63-4a3f-9168-4faa61d32263" class="" dir="auto">Have something tangible, like a <em>Wireframes</em>, to align with the others from the team.</p><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="9f416817-5095-44f7-945b-9a0315237b10" style="display:inline-block">Bitso card flows example</h3></summary><div class="indented"><ul id="d10693ca-efb4-4595-a225-8262f05bc373" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Card Onboarding<ul id="de8eac41-8523-4c1a-9060-8a7fa74b486f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Virtual Card Onboarding</li></ul><ul id="a4bc682c-387c-41fd-867c-fbf02ee9c6f8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Physical Card Onboarding</li></ul></li></ul><ul id="be9b11eb-4a5c-4a65-9d13-ba9b1371a902" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Card Home page <ul id="414b4b3e-8e2c-4529-bee3-3d2981780ee7" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Card balance</li></ul><ul id="43b45583-cd50-41f3-8d43-29bea81a9315" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Cashback accumulated</li></ul><ul id="58119f60-d5d8-4db0-856c-9535b54d21f9" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Card transactions??</li></ul></li></ul><ul id="8a66d148-61a4-49cd-a57b-8d0381828346" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Card Information <ul id="2034b07f-8a54-45a4-ae1b-183b2a41ece1" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Card number, CSV, exp. Date</li></ul></li></ul><ul id="c695ad83-00f5-43fd-9f91-0b5043a215a1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Card Settings<ul id="a33ddb2b-d376-464f-8da3-3ccd8dfab31b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Block/Unblock</li></ul><ul id="c48c7d76-8eef-45eb-9383-dbe3114c2964" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Re-issue card</li></ul></li></ul><ul id="94cbe908-a1b8-4f9b-bdb6-b980de36d5cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Card Transactions<ul id="ec3154e2-438a-47f1-87fb-d088a28c8a11" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Transaction feed</li></ul></li></ul></div></details><h3 id="be9a7f93-c96b-4f26-bcb6-aea1c2fcef8d" class="" dir="auto">Ideal state</h3><p id="346d4123-a642-44b7-80f0-3a02c4eafdf2" class="" dir="auto">Define the ideal state with the vision of what is the desire outcome.</p><h3 id="40516d20-5281-4452-9244-194fe9f453d3" class="" dir="auto">Must-have and Nice to have</h3><p id="2303701d-3616-4581-9a97-f12eb5495a39" class="" dir="auto">Define the Flows and Features that are must-have and the nice to have ones.</p><ul id="4cd9b77a-b405-40a8-a601-b01f9a9fed30" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Must-Have (To launch)</strong></li></ul><p id="5936822d-1cce-46fe-81a3-af60e96e2852" class="" dir="auto">Be clear what are the reasons these features are considered Must-have.<div class="indented"><ul id="52c75668-9bb1-491f-bb25-0e08eeb9e688" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the minimum requirements for these features?</li></ul><ul id="06b4aa68-e18e-4dbc-b09f-3a596260baa4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What do we not know about them?<ul id="768abae5-6f74-4b61-9fbd-f5c46c30d434" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Enough knowledge around a feature &gt; Ready to start the “Delivery”</li></ul></li></ul><ul id="f3303c30-9322-4718-89ee-156a8bd57a07" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What do we need/want to learn from our users that these features could provide?</li></ul></div></p><ul id="d2f0dd61-aacd-4030-93b9-2fa09029897f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Nice to have (Improvements)</strong></li></ul><p id="4dbea35c-7932-4604-9aa5-037fa9321914" class="" dir="auto">Raise what are the nice to have features to be aware of.</p><h1 id="10d8e91a-d8b0-434c-be0a-66d32514b8ff" class="" dir="auto">Collect feedback</h1><ul id="45270ca8-3d0d-49da-ac36-7609781737f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Product team feedback</li></ul><ul id="bdba88fd-12f2-4145-aa18-451365265bec" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Engineers feedback</li></ul><h1 id="01dadd67-d060-43e0-8f27-68fd296c662f" class="" dir="auto">Success Metrics</h1><p id="2c4f172e-99f4-4592-9eea-b4383a6a5251" class="" dir="auto">Define what should be measure, that will show the impact of the solution,  helping to understand what is working and what&#x27;s not.</p><ul id="f1ea262f-1428-4d26-989d-84d26fd1fc50" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What will be the success criteria of the features?<ul id="2a839808-730f-43d5-946c-b3bb33363436" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Business metrics</li></ul><ul id="cc232a2d-c354-4fa1-aaef-cbd82f8fda95" class="bulleted-list" dir="auto"><li style="list-style-type:circle">UX metrics</li></ul></li></ul><ul id="5a5cb5a7-192c-43df-8b56-5a06bcbe9d0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How will be measured?</li></ul><ul id="60104387-34e9-4517-9b2e-81f9aeccb082" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What is the minimum amount of effort of something that should be built to generate learning?</li></ul><h1 id="8e9a03bb-b4eb-45c2-bd5e-f8c9a9dfa920" class="" dir="auto">Resources</h1><p id="3083858c-58d5-46e4-be5c-3aaf44c94f17" class="" dir="auto">Add all the external links with the related work</p><h1 id="f236c5a1-3775-42b7-beae-539d9e5ec6cc" class="" dir="auto">References</h1><details id="453fb588-5ea6-4f0b-a30c-9ac85d5cf7c7" open="" class="toggle" dir="auto"><summary>Lean UX canvas</summary><div class="indented"></div></details><p id="d66f4562-9935-4504-bb20-6f69b9de3c02" class="" dir="auto">
+</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="39fbfaca-62da-47ee-90ef-c0349122dd73" style="display:inline-block">Process Emerald Works</h1></summary><div class="indented"><p id="11c6a8b7-7bbb-41ce-9336-a5533d326328" class="" dir="auto">To create a new Platform from scratch, using the knowledge [data] from the existing Platforms [Helix and Prime] and with Product mindset, the UX/UI Design Process needs to be <em><strong>Colaborative, Iterative and Dynamic</strong></em>, not linear or static.</p><p id="c3bdf942-37bd-4d5b-adf0-720b029eac19" class="" dir="auto">We will follow the Design Thinking and Human-Centered Design approach, where one of the most important aspects is always involved people in the Design Process.</p><p id="1a5534f7-c163-48d1-bc62-8b6a04b5d7b2" class="" dir="auto">There are phases and methods that we will use as guides, that could change for each challenge that we will face.</p><details id="4fc36d8e-9d5a-457b-b958-86b66b488937" open="" class="block-color-gray toggle" data-notion-highlight="gray" dir="auto"><summary>References</summary><div class="indented"><p id="3b66f1c6-e466-4a35-9643-819897666816" class="" dir="auto">Double Diamond</p><figure id="385865e4-0064-46ab-a606-5ffea06ec9ce" dir="ltr"><a href="https://www.designcouncil.org.uk/news-opinion/what-framework-innovation-design-councils-evolved-double-diamond" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What is the framework for innovation? Design Council&#x27;s evolved Double Diamond</div><div class="bookmark-description">Design Council&#x27;s framework for innovation helps designers and non-designers across the globe tackle some of the most complex social, economic and environmental problems. It is a fundamental part of our work: enabling us to support the public, private and third sector organisations we work with transform the way they develop and deliver their services.</div></div><div class="bookmark-href"><img src="https://www.designcouncil.org.uk/sites/all/themes/designcouncil/favicon.ico" class="icon bookmark-icon"/>https://www.designcouncil.org.uk/news-opinion/what-framework-innovation-design-councils-evolved-double-diamond</div></div><img src="https://www.designcouncil.org.uk/sites/default/files/styles/dc_share_image/public/assets/images/iStock_000021866422_Large.jpg?itok=jMdX-DUQ" class="bookmark-image"/></a></figure></div></details><p id="9dac5c61-fae6-4d69-909b-93eae936061a" class="" dir="auto">
+</p><figure id="158bf93e-f9ef-47b7-b47c-595b20e13791" dir="ltr"><div class="source"><a href="https://miro.com/app/board/o9J_koFNwDU=/?moveToWidget=3074457349289938816&amp;cot=12">https://miro.com/app/board/o9J_koFNwDU=/?moveToWidget=3074457349289938816&amp;cot=12</a></div></figure><p id="ca846c52-cd2a-450b-926d-92098677fa21" class="" dir="auto">
+</p><figure id="66dc5681-b881-45be-bb4f-9723bd4035df" class="image" data-notion-image="Design%20Process/Captura_de_Tela_2020-08-21_as_16.22.34.png" dir="ltr"><a href="Design%20Process/Captura_de_Tela_2020-08-21_as_16.22.34.png"><img style="width:1178px" src="Design%20Process/Captura_de_Tela_2020-08-21_as_16.22.34.png"/></a></figure><h1 id="d6323cd3-4fd8-42e1-9659-2c1a09734a8a" class="" dir="auto">Suggestions of Principles and Foundations </h1><p id="1d1496ac-993c-40be-8a15-bfbe8ab994a0" class="" dir="auto">Human-Centered</p><p id="8b442b6f-2223-4799-9a50-631cefc61545" class="" dir="auto">Content-First</p><p id="2f6ed88c-306f-4373-ab2f-9136d1d0b42a" class="" dir="auto">Customizable, Consistent and Pleasant</p><p id="24e2cf3a-80b3-4345-aff4-8aef9c8c4e92" class="" dir="auto">Modular and Flexible</p><p id="dbacfb4a-74b5-442e-971c-510d38d75ae2" class="" dir="auto">Findable, Accessible and Inclusive</p><h1 id="d6d96081-1681-4b50-a57b-8560751282ba" class="" dir="auto"><strong>Methods and </strong>Artifacts</h1><details id="8f58f608-e4f1-4e40-a3aa-ed3502d7da4b" open="" class="block-color-gray toggle" data-notion-highlight="gray" dir="auto"><summary>References</summary><div class="indented"><figure id="31c0ccea-9952-4fed-bb77-642f77661525" dir="ltr"><a href="https://www.toptal.com/designers/ux/10-common-ux-deliverables" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The 10 UX Deliverables Top Designers Use</div><div class="bookmark-description">Read the Spanish version of this article translated by Yesica Danderfer Listen to the audio version of this article The work of a UX designer happens in many different environments-from lean startups and Agile environments where teams work with little documentation, to consulting engagements for third-parties, or large enterprises and government entities with strict documentation requirements.</div></div><div class="bookmark-href"><img src="https://bs-assets.toptal.io/blackfish-assets/public/base/images/favicons/toptal-blog-favicon32x32_c2c2ba.png" class="icon bookmark-icon"/>https://www.toptal.com/designers/ux/10-common-ux-deliverables</div></div><img src="https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/20390/UX_graphic-45d8a829258c7ad65e9895c500de1b2a.png" class="bookmark-image"/></a></figure></div></details><h3 id="8789d1bf-aff5-4b57-80e7-8986cd2a0919" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">DISCOVER AND DEFINE</mark></h3><details id="ae134902-23c6-4c83-94e2-2d6aca49ea6b" open="" class="toggle" dir="auto"><summary><strong>Product Management [Georgia]</strong></summary><div class="indented"><ul id="93fc8956-54af-4871-9079-6d1208d6c528" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Managing Ideas and Product Outcomes</li></ul><p id="8f9a6eb3-0c38-4ae1-a4aa-80f40d347fa2" class="" dir="auto">Business Objectives</p><p id="925139e3-4c58-40fa-ad67-ec21533b878a" class="" dir="auto">Strategy and Scope</p><p id="0f29202b-7dc6-42a4-9995-8a6abe2d3b4a" class="" dir="auto">Pitch</p></div></details><details id="c29cdd1d-48b6-4d15-a57e-e05ff8d18d41" open="" class="toggle" dir="auto"><summary><strong>UX Research [Agné]</strong></summary><div class="indented"><ul id="1f03a808-d640-4b36-b405-b22160a2f38a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Users needs and pain points </li></ul><p id="9c9406ef-bd99-4afe-8fa2-e955681e55d4" class="" dir="auto">Personas</p><p id="c1581888-bf96-4267-bf76-cac58966c7cc" class="" dir="auto">Journeys</p><p id="cc676d4e-e75b-49e6-aefe-bfab5b5d2eb8" class="" dir="auto">Findings and Reports</p><p id="0d1614c5-7a60-4d16-ad0b-c4926c00b434" class="" dir="auto">Insights and Opportunities</p></div></details><details id="7b7a6fd4-d376-445e-b15a-dc471f6f57d5" open="" class="toggle" dir="auto"><summary><strong>Design Research</strong></summary><div class="indented"><figure id="a02b1359-e246-4561-bd52-4dc717309b38" class="link-to-page"><a href="Design%20Process/Design%20Review%20and%20UX%20Analysis%20a02b1359e2464561bd524dc717309b38.html" data-notion-page-id="a02b1359-e246-4561-bd52-4dc717309b38" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Design Review and UX Analysis</a></figure><figure id="5a3e401a-d972-4ab6-9b57-ce3c82cdee80" class="link-to-page"><a href="Design%20Process/Benchmarking%205a3e401ad9724ab69b57ce3c82cdee80.html" data-notion-page-id="5a3e401a-d972-4ab6-9b57-ce3c82cdee80" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Benchmarking</a></figure></div></details><h3 id="4e2c667e-2b9d-4f3f-b3f1-2800259c64be" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">IDEATE AND VALIDATE</mark></h3><details id="28a257f7-c65c-4c70-9737-25ec3d54e465" open="" class="toggle" dir="auto"><summary><strong>User Experience Design</strong></summary><div class="indented"><figure id="cffbc802-53d7-430c-9d15-c4ced7c1ad10" class="link-to-page"><a href="Design%20Process/Information%20Architecture%20cffbc80253d7430c9d15c4ced7c1ad10.html" data-notion-page-id="cffbc802-53d7-430c-9d15-c4ced7c1ad10" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Information Architecture</a></figure><figure id="95c045b3-5d2a-4067-bc10-8dfe86c044da" class="link-to-page"><a href="Design%20Process/Flows%20and%20Diagrams%2095c045b35d2a4067bc108dfe86c044da.html" data-notion-page-id="95c045b3-5d2a-4067-bc10-8dfe86c044da" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Flows and Diagrams</a></figure><figure id="4210e0e3-25ed-48e1-ac65-b826ee9d1e2b" class="link-to-page"><a href="Design%20Process/Wireframes%204210e0e325ed48e1ac65b826ee9d1e2b.html" data-notion-page-id="4210e0e3-25ed-48e1-ac65-b826ee9d1e2b" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Wireframes</a></figure><figure id="bd3026aa-4fe6-4d86-ac5e-f589d51a75aa" class="link-to-page"><a href="Design%20Process/User%20Testing%20bd3026aa4fe64d86ac5ef589d51a75aa.html" data-notion-page-id="bd3026aa-4fe6-4d86-ac5e-f589d51a75aa" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">User Testing </a></figure></div></details><h3 id="bff51ffb-21f6-48c1-b07b-881e8b11ae22" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">BUILD AND DELIVERY</mark></h3><details id="9d618c16-21cf-4a44-bbd9-da04dbf8b549" open="" class="toggle" dir="auto"><summary><strong>User Interface Design</strong></summary><div class="indented"><figure id="cdf682e6-9b0a-4bf9-ad9e-222c3b2012f1" class="link-to-page"><a href="Design%20Process/Style%20Guide%20cdf682e69b0a4bf9ad9e222c3b2012f1.html" data-notion-page-id="cdf682e6-9b0a-4bf9-ad9e-222c3b2012f1" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Style Guide</a></figure><figure id="c0610aa4-a22a-43b7-875d-a5e8f476f14e" class="link-to-page"><a href="Design%20Process/Prototype%20c0610aa4a22a43b7875da5e8f476f14e.html" data-notion-page-id="c0610aa4-a22a-43b7-875d-a5e8f476f14e" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Prototype</a></figure><figure id="25e62cbf-4b43-4fa5-b773-3b1525024dcb" class="link-to-page"><a href="Design%20Process/User%20Testing%2025e62cbf4b434fa5b7733b1525024dcb.html" data-notion-page-id="25e62cbf-4b43-4fa5-b773-3b1525024dcb" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">User Testing</a></figure></div></details><details id="afccec1e-ebfa-4db8-a62c-3aba2590492b" open="" class="toggle" dir="auto"><summary><strong>Design System</strong></summary><div class="indented"><figure id="35243605-fa08-40be-9b6e-e2901931b5e5" class="link-to-page"><a href="Design%20Process/Design%20Library%2035243605fa0840be9b6ee2901931b5e5.html" data-notion-page-id="35243605-fa08-40be-9b6e-e2901931b5e5" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Design Library</a></figure><figure id="ad7df1da-2d87-4b98-a239-cfc249e55e48" class="link-to-page"><a href="Design%20Process/Documentation%20ad7df1da2d874b98a239cfc249e55e48.html" data-notion-page-id="ad7df1da-2d87-4b98-a239-cfc249e55e48" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Documentation</a></figure></div></details><p id="70e6eac4-394f-4db6-a9f5-32955d21280d" class="" dir="auto">
+</p><p id="cab04afb-a6d9-43ce-883b-abe01596d219" class="" dir="auto"><strong>QA [Rodrigo]</strong></p><p id="15755851-f983-4560-a8f8-b7aa3e714d1e" class="" dir="auto">Help with UI Tests and Visual Tests</p><p id="d34f2f7e-21ab-4b1c-befd-ee4ab6b69e47" class="" dir="auto"><strong>Development [Gabriel and Marcelo]</strong></p><h3 id="a3af8025-4db3-4397-a7cd-2024bb4f01cd" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">EVOLVE</mark></h3><figure id="c89a7c67-9efb-4e7e-9251-5955e8ef0558" class="link-to-page"><a href="Design%20Process/Measure%20and%20Iterate%20%5BAgn%C3%A9%20and%20Georgia%5D%20c89a7c679efb4e7e92515955e8ef0558.html" data-notion-page-id="c89a7c67-9efb-4e7e-9251-5955e8ef0558" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Measure and Iterate [Agné and Georgia]</a></figure></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

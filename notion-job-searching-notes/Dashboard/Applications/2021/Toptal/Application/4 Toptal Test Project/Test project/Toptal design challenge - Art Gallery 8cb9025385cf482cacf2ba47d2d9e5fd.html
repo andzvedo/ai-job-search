@@ -1,0 +1,771 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Toptal design challenge - Art Gallery</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="8cb90253-85cf-482c-acf2-ba47d2d9e5fd" class="page sans"><header><h1 class="page-title" dir="auto">Toptal design challenge - Art Gallery</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="92216655-65e5-42b5-afeb-9a39a06e6603" class="block-color-purple" data-notion-highlight="purple" dir="auto">Briefing notes</h1><h2 id="0f5a38a4-bcc3-4bae-b950-193217418d55" class="" dir="auto">About Business</h2><p id="2fd150df-18c1-4eec-8e58-ff69401f11d4" class="" dir="auto">Nomart is an <strong>itinerant exposition </strong>that showcases the<strong> art of local artists in developing communities.</strong></p><h2 id="6f1e6203-509b-4633-96bb-434a519ef86a" class="" dir="auto">Business objective</h2><p id="10ff5222-f868-4b91-9d31-9e14e9df209c" class="" dir="auto"><strong>Enhance the visibility of artists</strong> that don’t have the <strong>resources or appeal</strong> to get exposed in the <strong>current art gallery </strong>scene<strong>.</strong></p><h2 id="31eb7ed2-147b-4678-b848-97fd84f4f6ea" class="" dir="auto">Expected Output</h2><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="9e413e17-cc15-4363-9c94-1161f4983b47" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%">Design a <strong>progressive web app</strong> for a <strong>Mixed Reality art gallery</strong></div></aside><h2 id="550bc07d-b9f2-46af-a0b2-20978f5dbc43" class="" dir="auto">Needs</h2><p id="0c31a7bf-3c30-4ab5-89fc-3e8e70f31e10" class="" dir="auto"><strong>Create (update</strong> and <strong>manage) virtual exhibitions</strong> for people that <strong>cannot</strong> <strong>travel </strong>to see the exhibitions <strong>in person;</strong></p><p id="b15fc359-faf2-4a78-ba4f-ea1f03ddfa5b" class="" dir="auto">Enable connections between<strong> the actors involved</strong> with an <strong>exhibition</strong><strong>;</strong></p><p id="7e699075-adb9-4785-b4b8-fbfba0d9ba4b" class="" dir="auto">With an<strong> interactive playful,</strong> and <strong>informative experience.</strong></p><h1 id="ee9a7f4d-5ff5-476b-aa5c-d6bbb95ad39b" class="block-color-purple" data-notion-highlight="purple" dir="auto">Design Process</h1><h3 id="3bf43f2b-6064-4d33-b6f3-92a0f42130b2" class="" dir="auto">Double Diamond Adaptation</h3><p id="542da782-c26f-4d2e-b32e-c582bdee2c6c" class="" dir="auto">Following the Double Diamond framework and Human-Centered Design approach,  understanding the different types of people/actors involved in the project scenario to Design for them.</p><figure id="383cd07d-a2c9-4b0f-b39e-5a9361afda6d" class="image" data-notion-image="../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png" dir="ltr"><a href="../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png"><img style="width:795px" src="../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png"/></a></figure><p id="2e8510ca-15ac-41d8-a7cc-a8c9055b49ec" class="" dir="auto">
+</p><h3 id="ac22ab39-d1fe-40c5-9450-4794801856e7" class="" dir="auto">Phases</h3><ul id="28617f40-59f3-4450-91ab-739db375e580" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Research - Problem Space (Discovery and Define)</li></ul><ul id="7f78e9c9-c01f-4b80-b032-a6dfe2cbb538" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Design - Solution Space (Develop and Delivery)</li></ul><h1 id="9f46cbe8-6732-4648-bd63-58af9db13ca8" class="block-color-purple" data-notion-highlight="purple" dir="auto">Research [Problem space]</h1><h1 id="c35999e8-4822-4882-a6d7-8cb9d2ddead6" class="" dir="auto">Current<strong> art gallery </strong>scenario</h1><p id="469c3d7f-c1b8-4009-a109-d393e8d3079e" class="" dir="auto">To understand the context of the business, and the main challenges they are facing, to prioritize what problem would be solved next.</p><h3 id="05155169-105f-4c72-8311-f304c5f85846" class="" dir="auto">What is an Art Gallery?</h3><ul id="16d77156-c6c5-4e24-b66d-f41351a14943" class="bulleted-list" dir="auto"><li style="list-style-type:disc">An art gallery is an exhibition space for the display and sale of artworks.<ul id="c833ce33-1a9f-49e1-95ac-d506dbe28594" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Is a commercial enterprise working with a portfolio of artists that acts as the dealer representing and distributing the artworks by the artists?</li></ul></li></ul><ul id="8fb50e0b-90b1-4dd2-a853-9c46cee75b87" class="bulleted-list" dir="auto"><li style="list-style-type:disc">They are the link between artists and collectors</li></ul><ul id="52e82493-502c-45a2-963e-cd3b510afbed" class="bulleted-list" dir="auto"><li style="list-style-type:disc">They are always scouting for new talent to showcase the best artists with their exhibition program.</li></ul><h3 id="389d5933-47a6-4370-9530-50a301fbcd3b" class="" dir="auto">What do Art Galleries <strong>do</strong>?</h3><ul id="38bbace6-a7d8-4549-8391-882c986f3c8c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Creates an <span style="border-bottom:0.05em solid">Exhibition program</span><ul id="1bd6b58f-db36-480c-a744-7698651af032" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Exhibition program will be the core of the identity of the gallery for a specific period of time, in general six to eight weeks).</li></ul></li></ul><ul id="b2e82654-9478-4ae4-aa3f-51a8705659a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Provides a<span style="border-bottom:0.05em solid"> physical space</span> for the exhibition to happen<ul id="2493cf45-eaba-447c-9d86-897f04528e4f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Most often, galleries rent commercial properties with large windows in big cities – often in close proximity of other galleries – to have great visibility towards many potential clients.</li></ul></li></ul><ul id="0c310b61-8e77-4efe-9037-dff2b4ea8853" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Scouting for <span style="border-bottom:0.05em solid">artists</span><ul id="ce209cd0-4479-4e2e-97b7-268eaaca9656" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Curates their program scouting for the most interesting emerging artists, and inviting them to participate in the exposition.</li></ul></li></ul><ul id="ea341fe5-c0bc-4e3d-936f-3c59e522dd44" class="bulleted-list" dir="auto"><li style="list-style-type:disc"> Building a <span style="border-bottom:0.05em solid">portfolio of artists</span><ul id="bf54af2d-8f2d-4065-8ca6-465a7422232b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Build a portfolio of artists which<strong> </strong>is carefully curated selection of artists the gallery commits to represent, consisting of a long-term collaboration between the artist and the gallery. We call these long-term collaborations <em>represented artists</em>, whereas artists from a one time collaboration for one specific exhibition are referred to as <em>exhibited artists</em>.</li></ul></li></ul><ul id="3835bf6e-b791-42bf-88eb-7855de61c9f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Sell and distribute </span>artworks <ul id="f04fd1f3-f2b2-4e81-90ab-b3f73799e44e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Sell and distribute the artworks from the artists the gallery represents;</li></ul><ul id="42868beb-e72d-4a72-9562-603d8c939d73" class="bulleted-list" dir="auto"><li style="list-style-type:circle">And also take care of everything related with the exhibition, like transportation, insurance, supervision, installation, print work, press interest, invitations, opening and promotion of the exhibition.</li></ul></li></ul><p id="169b98ca-4b80-46a2-a358-428311f1b72e" class="block-color-gray" data-notion-highlight="gray" dir="auto">Source: <a href="https://www.contemporaryartissue.com/the-art-gallery-everything-you-need-to-know/">https://www.contemporaryartissue.com/the-art-gallery-everything-you-need-to-know/</a></p><h3 id="9115fe02-98fa-4746-a494-0b7c96207f2f" class="" dir="auto">Who usually is the Audience of art exhibitions?</h3><ul id="2420eaef-9d1e-4d0f-aa0f-cff5e843c094" class="bulleted-list" dir="auto"><li style="list-style-type:disc">People who appreciate art and visit exhibitions frequently;</li></ul><ul id="770778f9-b0e3-44e6-ba4a-f2128029fccc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">People who want to learn about art;</li></ul><ul id="d88cc596-56bb-4d3a-8adb-c3dba30b1ad7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">People who want to buy art;<ul id="8809e74e-a62a-4c81-b87e-b5694c5f0aba" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Art Collectors</li></ul></li></ul><p id="a7e4827a-9db5-46af-b09f-913cd33337b1" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Source: </mark><mark class="highlight-gray" data-notion-highlight="gray"><a href="https://amplifyxl.com/target-audience-for-an-art-exhibition/#:~:text=People%20who%20are%20passionate%20about,media%20platforms%2C%20and%20email%20newsletters">https://amplifyxl.com/target-audience-for-an-art-exhibition/#:~:text=People who are passionate about,media platforms%2C and email newsletters</a></mark><mark class="highlight-gray" data-notion-highlight="gray">.</mark></p><h1 id="d3368e03-df45-42e9-bbe1-349ef57c14cf" class="" dir="auto"><strong>Local artists in developing communities</strong></h1><p id="162a37ac-0c48-4232-b619-ba38d4ae2e16" class="" dir="auto">To understand what are the main needs of Local artists from developing communities within the Art scene.</p><h3 id="d3dbf3a4-38c1-4019-9469-1953267dfa64" class="" dir="auto">What are the challenges they face and their main needs?</h3><ul id="eb2c5a97-f7fc-45fd-b4d6-b93e93f22a82" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Present new forms of representation,</li></ul><ul id="6980225b-f0c2-489e-96e4-912401f72bcb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Invest in strengthening the territory,</li></ul><ul id="bc8fcb81-d7e4-43fe-bfd9-2d963b3de9db" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Promote dialogue and protagonist of residents</li></ul><ul id="0dd42eb1-9e6a-406d-9375-5477b0088aea" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Help to bring culture for their communities, and increase the Social Progress</li></ul><h3 id="cb30abfa-761e-48bc-884c-3db5772e4d98" class="" dir="auto">How usually these artists present their work? </h3><ul id="fb718d25-4c26-4723-a08a-b0fc227ebffd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Usually they present their work in person at the communities they live.</li></ul><ul id="2b984b54-8e55-40bf-b3b8-de4e6debae41" class="bulleted-list" dir="auto"><li style="list-style-type:disc">And use Instagram (or facebook) as their online portfolio.</li></ul><p id="73883aac-3687-4ba8-8f2d-390c8306cc0d" class="block-color-gray" data-notion-highlight="gray" dir="auto">Source: <a href="https://observatoriodefavelas.org.br/arte-favela-e-resistencia/">https://observatoriodefavelas.org.br/arte-favela-e-resistencia/</a> (In Portuguese)</p><h1 id="37f87a20-e538-451f-95fb-1f0f02278f33" class="" dir="auto">The Problem</h1><p id="fdfca9e1-fa0a-4670-ae70-35cbbf4afad3" class="" dir="auto">The Art galleries business is focused on making money from Artworks, and they choose Artists to collaborate with that are usually well known. They usually don&#x27;t focus on new artists or the ones that are not very well recognized. </p><p id="48ac9edb-6ea1-44c1-ab1f-6979249d70b0" class="" dir="auto">For those artists to get into those galleries, it&#x27;s almost impossible, so they focus on exposing artwork in their local communities, to give back to their people a bit of culture.</p><h1 id="40a90e92-a791-473c-b63e-dc7e4f58b22e" class="" dir="auto">Opportunity</h1><p id="bdb8e11e-3df3-457a-ac82-4b3abbbc243d" class="" dir="auto">Be the Art Gallery chosen by Local Artists to represent them, giving the exposure they are looking for in their people and communities through their Artwork, helping them achieve a broader audience that sees value not only in the work but also in the artist behind that piece of art.</p><p id="83f51063-bc1e-452d-91e0-3fa5e8944581" class="" dir="auto">
+</p><hr id="5b9963aa-8298-4144-a0f6-c79ab23f7d8b" dir="auto"/><h3 id="8cff9183-0284-4be4-9cd0-9804b0d2899e" class="block-color-purple" data-notion-highlight="purple" dir="auto">Design [Solution space]</h3><h1 id="f3fe0b5f-6e77-4f3b-8f92-addaf246d09c" class="" dir="auto">How might we …</h1><ul id="14ec8f65-e852-476f-89a5-1ac829fc93e2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">… find those local artists that are interested in participate in Nomart exhibitions?</li></ul><ul id="82d31a6d-f2e8-41c8-a7b8-2d0e948c6c20" class="bulleted-list" dir="auto"><li style="list-style-type:disc">… be attractive enough for those artists get in contact with Nomart curators?</li></ul><h1 id="f5ce83cf-d538-485a-86bb-27258ef6b6d9" class="" dir="auto">Hypothesis</h1><p id="b8fcd745-712d-41af-bdbe-1868e25118c9" class="" dir="auto">I believe that creating a way for Artists being able to expose not only their art as an individual but also the community they live could help them achieve more things (such as bring attention to people outside their communities of the issues they face in the day to day as artists), and became more attractive encouraging them to be part of it.</p><h1 id="14633125-cbba-4a1b-b18a-a37c7a9ed239" class="" dir="auto">Proposal</h1><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="dd898b51-c4f1-4883-a136-bf551c73db1e" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%">An Art Ecosystem composed of Artist Portfolio, Gallery, and Exhibitions that connects local communities’, and their artists, with a global audience.</div></aside><h1 id="2538b401-2243-4ed0-8ace-7e6ead15dc46" class="" dir="auto">Main areas</h1><div id="45784be9-9728-41cd-a7fe-9bad8bed6a76" class="column-list" data-notion-column-list="" dir="auto"><div id="9575afea-a0e6-4c13-87c9-17b5f6c19b97" style="width:33.333333333333336%" class="column" data-notion-column-ratio="0.33333333333333337" dir="auto"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="c31a7ece-45d0-42df-abe6-4ada53626fb5" style="display:inline-block">Artists Portfolio</h3></summary><div class="indented"><p id="7e64b03e-fd05-4117-b45c-455688b6fa2d" class="" dir="auto">Improve the Local Artist&#x27;s discoverability by Art Curators</p><ul id="e6acccf7-3b78-43c0-9f93-d7358c339dcf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">An <strong>online</strong> <strong>Portfolio</strong> for Local Artists to show their work and community and get connected with other artists, curators, and art collectors.</li></ul></div></details></div><div id="bac8baed-02d6-4971-bc80-df4cc2afd77d" style="width:33.333333333333336%" class="column" data-notion-column-ratio="0.33333333333333337" dir="auto"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="12f68874-cc10-413b-b05c-07a9a5383a88" style="display:inline-block">Gallery</h3></summary><div class="indented"><p id="a3cc3df1-9fab-4cd6-abbe-8a8565a039fa" class="" dir="auto">Be the place where Art Collectors and art enthusiasts go to get in contact with new art and artists</p><ul id="e74110ab-5c73-470a-8090-0f074e5923ee" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A <strong>Gallery</strong> that showcases the Artwork from Artist&#x27;s portfolios.</li></ul></div></details></div><div id="87fad6fd-706f-479b-a5de-a840b6009541" style="width:33.33333333333333%" class="column" data-notion-column-ratio="0.3333333333333333" dir="auto"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="2d2e21b4-5146-401b-91ce-81ad658a8f2a" style="display:inline-block">Exhibitions</h3></summary><div class="indented"><p id="dd45df26-91de-4003-a63c-f62889e5a848" class="" dir="auto">Events that can showcase on another level the Artwork, Artists, and also their Communities to create a bond with the public</p><ul id="c8a1b111-1b0c-4396-af98-5c5fa1654f3e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Exhibitions</strong> that show various mediums of artwork and the behind-the-scenes, or any other material needed.</li></ul></div></details></div></div><h1 id="72da59e9-186c-45e4-92ab-ed477364d90d" class="" dir="auto">Art ecosystem</h1><p id="31aea05c-58c1-4a2d-b627-2994d89d5565" class="" dir="auto">This diagram shows how Communities, Artists, and Exhibitions would be related in the Art ecosystem, and how would be easier for the art curators to create Exhibitions being able to scout Artists and curate their artwork using their online portfolio.</p><figure id="20d18757-8d74-4b7f-a2ab-4768a790cd71" class="image" data-notion-image="Toptal%20design%20challenge%20-%20Art%20Gallery/Untitled.png" dir="ltr"><a href="Toptal%20design%20challenge%20-%20Art%20Gallery/Untitled.png"><img style="width:624px" src="Toptal%20design%20challenge%20-%20Art%20Gallery/Untitled.png"/></a></figure><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="⭐" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="29843aff-5cce-44d2-ba61-3054c8d8536e" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⭐"></span></div><div style="width:100%"><strong>Focus<br/></strong>Until this moment, the focus was on having the big picture of the Project mapped out to help stakeholders, myself, and others from the team visualize opportunities, and be aligned with the current scenario of the project. </div></aside><h1 id="4c04b639-6a98-442a-b94f-2fba0fba8117" class="" dir="auto">Create a<strong> new Exhibition</strong></h1><p id="a5ec14ca-770a-4478-b3f6-3c9b87198a7b" class="" dir="auto">it&#x27;s time to narrow the scope, focusing on how would the Creation of a New Exhibition would impact the Curators and Artists day-to-day, connecting the three main areas (Artist Portfolio, Gallery, and Exhibitions) into a Concept, that would allow the future to gather feedback from end users before investing more effort on it.</p><h3 id="0475fbd6-8b0a-42ae-9a34-00d56ae996e2" class="" dir="auto">Basic requirements</h3><ul id="1ed85c12-5512-46a5-9b6b-05fd2354260c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Choose the Main Theme that will guide the identity of the Exhibition</li></ul><ul id="9d7e52d2-a2eb-4546-8f40-c35e4711fec9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Add Description of the Exhibition</li></ul><ul id="d1e86086-8877-4f15-9793-c22edf6b4d0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Add the Artwork and Artists which will be part of the Exhibition</li></ul><ul id="0a74dd38-aab1-4095-bcb8-fe0eed973cba" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Publish the Exhibition</li></ul><h1 id="726f57d0-eaec-4e51-a1f4-8955499a7944" class="" dir="auto">User flow</h1><p id="3a135e2b-2b88-40e8-9028-fb1e5ea160ef" class="" dir="auto">Evolving the basic requirements into a User Flow based on the [learnings from the research makes more tangible how an exhibition is created, launched, updated, and managed by the Curator( and Artists), within this proposal.</p><ul id="e4fdb4f8-c0fb-4c8a-9b2f-6d71662de2d4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.figma.com/file/qtXxSfVr4FKQ6BIeQezDJh/Toptal-%2F-Challenge-%2F-Art-gallery?node-id=64%3A2102">User flow</a></li></ul><figure id="48df0cc6-e3b4-450b-9bad-76c5b595b2ee" dir="ltr"><div class="source">https://www.figma.com/file/qtXxSfVr4FKQ6BIeQezDJh/Toptal-%2F-Challenge-%2F-Art-gallery?node-id=12%3A113</div></figure><h1 id="7acc9826-3d6a-4537-8635-4a065cef5c9b" class="" dir="auto">Wireframe</h1><p id="f55c32c0-57b5-4d3f-9be9-631e7c1dcc03" class="" dir="auto">After having the steps and actions of Exhibitions mapped, it was possible to create the interactions and screens elements through a low-fidelity wireframes.</p><ul id="4a208c43-914d-494d-a91a-0a761892b066" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.figma.com/file/qtXxSfVr4FKQ6BIeQezDJh/Toptal-%2F-Challenge-%2F-Art-gallery?node-id=15%3A120">Design file</a></li></ul><ul id="f2e0d652-5657-4ecd-959c-ca3b078b5ab9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.figma.com/proto/qtXxSfVr4FKQ6BIeQezDJh/Toptal-%2F-Challenge-%2F-Art-gallery?page-id=13%3A114&amp;node-id=15%3A120&amp;scaling=min-zoom&amp;starting-point-node-id=15%3A120">Interactive Prototype</a></li></ul><figure id="f99f88e5-7016-4c1f-97b8-3b00802991a3" dir="ltr"><div class="source">https://www.figma.com/file/qtXxSfVr4FKQ6BIeQezDJh/Toptal-%2F-Challenge-%2F-Art-gallery?node-id=13%3A114</div></figure><h1 id="36ffb797-e690-4e8c-8020-2a051af04f18" class="block-color-purple" data-notion-highlight="purple" dir="auto">Next Steps</h1><p id="10ed52c6-1b6a-441d-99a6-bf89b4bd95af" class="" dir="auto">The next steps would be:</p><ul id="bcd7329c-101a-40aa-b82d-40b2a77e0cc8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Do a <span style="border-bottom:0.05em solid">Design review</span> of the low fidelity proposal with <span style="border-bottom:0.05em solid">Normart stakeholders</span> to understand if the proposal goes in the same direction as the business objective;</li></ul><ul id="00593049-c6d2-46ca-b726-dec31e2b31e1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Iterate</span> based on their feedback together with the UI Designer and prepare a concept test to put into end users’ hands;</li></ul><ul id="03461b53-9089-4192-a5fe-e1588ca83f38" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Run the <span style="border-bottom:0.05em solid">Concept testing</span> with Local Artists to understand if the proposal contemplates their needs;</li></ul><ul id="314ea666-8362-4969-9c99-ef064f313841" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Iterate</span> based on the feedback received and move to the high fidelity wireframes, pairing with the UI Designer.</li></ul><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="18fca405-9d4d-4d6b-943b-4a9cedbf7be7" style="display:inline-block">References</h2></summary><div class="indented"><p id="06913b33-741c-4c91-9ce7-52fe4a69e6be" class="block-color-gray" data-notion-highlight="gray" dir="auto"><a href="https://www.format.com/magazine/resources/art/how-to-get-your-work-in-an-art-gallery">https://www.format.com/magazine/resources/art/how-to-get-your-work-in-an-art-gallery</a></p><p id="881d5890-0d9f-481c-92e1-defc100255c4" class="" dir="auto"><a href="https://www.pps.org/article/artsprojects">https://www.pps.org/article/artsprojects</a></p><p id="2cb9cb5a-dc76-4256-b13a-93a2fd5aea3a" class="" dir="auto"><a href="https://www.americansforthearts.org/by-program/networks-and-councils/local-arts-network/professional-development/artists-at-the-community-development-table">https://www.americansforthearts.org/by-program/networks-and-councils/local-arts-network/professional-development/artists-at-the-community-development-table</a></p><p id="03d24ac6-da29-4172-99d8-dcb892929afd" class="" dir="auto"><a href="https://www.socialworkdegreeguide.com/amazing-community-arts-projects/">https://www.socialworkdegreeguide.com/amazing-community-arts-projects/</a></p><p id="208bf819-55f4-4b09-8198-5f7ee27b4442" class="" dir="auto"><a href="https://www.arts.gov/stories/blog/2020/transforming-community-development-through-arts-and-culture">https://www.arts.gov/stories/blog/2020/transforming-community-development-through-arts-and-culture</a></p></div></details><p id="2e6d6658-cff3-4635-9de9-921db863c414" class="" dir="auto">
+</p><h3 id="05aa3574-5158-4d54-bf73-6893edba6ba4" class="" dir="auto">Thanks for reading 😊 </h3><p id="944d4cb3-dd1e-463a-b847-70e73396272e" class="" dir="auto">
+</p><p id="3eeef717-b9e4-474b-a3ef-0dd365b153d5" class="" dir="auto">Kind regards,</p><p id="1a390b9a-a996-4cd4-b2c9-387d15ff6255" class="" dir="auto"><strong>André Azevedo</strong></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

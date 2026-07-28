@@ -1,0 +1,802 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>3. Describe a project where you had to rely on your design instincts to meet user needs, rather than extensive research? How did you balance your instincts with user data, and what was the outcome?</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="8ca840dd-4d70-4031-9a50-5c4d1601835f" class="page sans"><header><h1 class="page-title" dir="auto">3. Describe a project where you had to rely on your design instincts to meet user needs, rather than extensive research? How did you <strong><span style="border-bottom:0.05em solid">balance your instincts with user data</span></strong>, and what was the outcome?</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><figure id="e6c9f1f7-6a0d-4000-8128-03a16d0ab9b5" class="link-to-page"><a href="3%20Describe%20a%20project%20where%20you%20had%20to%20rely%20on%20your/Final%20%5BData%20connectors%5D%20e6c9f1f76a0d4000812803a16d0ab9b5.html" data-notion-page-id="e6c9f1f7-6a0d-4000-8128-03a16d0ab9b5" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6"><span class="icon" data-emoji="✅"></span>Final [Data connectors]</a></figure><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="892d5a92-37a1-446d-8167-e9e7355f69a0" style="display:inline-block">Notes</h1></summary><div class="indented"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="df6a114c-a292-4a25-9e0c-a83b5bc2c1d2" style="display:inline-block">Latest version</h1></summary><div class="indented"><p id="57e46536-0903-40e8-aff9-2acfebbfe716" class="" dir="auto">I believe that knowledge about the user needs can determine the risk level of a project. This, in turn, allows for me to balance between the amount of user data required and the extent to which I can rely on my instincts for design. </p><p id="340a8f4a-3a6e-4985-913b-8fd4ba9a31f5" class="" dir="auto">
+</p><p id="3df98229-8f77-49b6-8c49-d3c94862d744" class="" dir="auto">Regarding risk level, if it doesn&#x27;t block the user from performing their main tasks, it could be considered low risk. However, if it could potentially block the user in some way and impact the product&#x27;s value perception, it might be high risk and would require more attention.</p><p id="6828ef22-eacf-4954-81fa-e05fd86aadf9" class="" dir="auto">
+</p><p id="376f063a-3afc-4901-bf0a-3024eaedd4f5" class="" dir="auto">I led the design of the Data connector project at <strong><a href="http://Blackbird.ai">Blackbird.ai</a></strong><strong>,</strong> and I think is a good example to help me answer this question. </p><p id="16d59080-490b-4dfe-add0-64edc4c67780" class="" dir="auto">
+</p><details id="16bfb677-ca66-4d1a-9106-08ea961fc3ba" open="" class="block-color-yellow_background toggle" data-notion-highlight="yellow_background" dir="auto"><summary>Evidences</summary><div class="indented"><p id="119331c1-372c-49d7-988a-33881eb53227" class="" dir="auto">This <strong>Data connectors project</strong> aimed to streamline and automate data uploads, enabling users to connect by themselves to partners&#x27; APIs, such as social listening tools like Talkwalker and  Meltwater, or Amazon S3.</p><p id="4860a8ee-bb97-4f0f-a336-6abc926ea10b" class="" dir="auto">
+</p><p id="b65817b1-2617-4e78-8a21-0a243ca36be4" class="" dir="auto">The<strong> </strong>is a good example here, because it was consider a low-risk</p><p id="e493f831-5d69-4474-83e6-43ad08e2a487" class="" dir="auto">
+</p></div></details><p id="15717c7b-ab8c-45f5-bb83-a0b62f1a0675" class="" dir="auto"><br/>Previously, customers had to ask a Blackbird Data Engineer to manually upload their data, it was time consuming, for both the data engineer, and also for the customer who has to wait sometimes several days to get their data into the Blackbird&#x27;s B2B risk intelligence platform, called Constellation (<a href="https://constellation.blackbird.ai/">https://constellation.blackbird.ai/</a>).</p><p id="aab53274-91d3-428f-87b4-bc13c31b26bb" class="" dir="auto">
+</p><p id="b0b7d09f-91c6-4237-afad-3b9e2a1576f1" class="" dir="auto">In this case, I felt that I could rely on the internal stakeholders to help me.</p><p id="6ed5ccb7-8734-490e-9e77-a923d1881e30" class="" dir="auto"> </p><p id="d00922f0-703f-4116-ad8a-c6b4738e9190" class="" dir="auto">I partnered with the Data engineer responsible to these manuals data ingestion to understand how the data pipeline was structure, their pain points, and also understand his perspective about the customers related with the ingestion.</p><ul id="7d8d5bca-7bc6-4528-a851-2b051962b332" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Main issue was the TIME consumed to do it manually, something that could be automated.</li></ul><p id="f08de4ea-ffe9-43a0-a537-d788f3001744" class="" dir="auto">
+</p><p id="eb71b035-b626-44bb-9989-c2e01bb8ab9b" class="" dir="auto">I also looked into Zendesk issues, looking for user feedback related with data ingestion, and the main insight was that…</p><ul id="fe6407f4-ba16-49a0-bea8-4eabb84f2573" class="bulleted-list" dir="auto"><li style="list-style-type:disc">they would like to have more flexibility and control over the data upload</li></ul><p id="60b68f40-5552-4828-92b6-efb4fbf230ef" class="" dir="auto">
+</p><details id="df10f806-9975-47ae-b207-64b0289978d2" open="" class="block-color-yellow_background toggle" data-notion-highlight="yellow_background" dir="auto"><summary><strong>User need / Supporting Data</strong></summary><div class="indented"><p id="41aa28c8-e9f9-4fc4-ba24-b45c493ec300" class="" dir="auto">Customers have vocalized their needs in several ways:</p><p id="b744b141-0625-4c44-8746-a2d849784639" class="" dir="auto"><strong>Sales Calls</strong></p><p id="657a3b37-89ab-40eb-b082-211d3f118cf2" class="" dir="auto">Do you integrate with Meltwater? We use them for social listening, so we would need to seamlessly integrate with them rather than<br/>having to manually export and upload all of our data. — <strong>Customer A</strong></p><p id="9d6a5384-6609-429a-90fb-60dd4af211cd" class="" dir="auto"><strong>Customer Support</strong></p><p id="f0786475-ccc6-40a6-bdee-12da28afe07f" class="" dir="auto">It’s really less than ideal having to give you guys CSVs to create projects and then sitting on our hands for multiple days to see the<br/>data in side the network graph. — <strong>Customer B</strong></p><p id="c99d7fd9-69f9-4473-974f-1a4e76b22283" class="" dir="auto">It would be helpful if instead of creating a new project for each ingestion that we could also increment data into existing projects.<br/>This would reduce the need for duplicating narratives and other workflow functions in order to perform identical analyses. — <strong>Customer C</strong></p><p id="ec4b56b3-ec7d-4f2d-9edb-cef9a819b7ae" class="" dir="auto"><strong>Data Engineering</strong></p><p id="1b74c477-f4f4-4af3-9a00-a784152a8b08" class="" dir="auto">It takes too much time dealing with customer data in an ad hoc way... I spend xx time per week processing CSVs...</p></div></details><p id="392d8382-ae91-4019-9d97-111c6cee8ef4" class="" dir="auto">
+</p><p id="a94ad785-15f0-4958-aa4f-4b4e586a3738" class="" dir="auto">Document processing is the basis of Blackbird&#x27;s billing system, which is core. However, since we were doing it manually before, in the worst case scenario in case a solution didn&#x27;t work as expected, we could manually perform it as a backup, thus reducing the risk level.</p><p id="c8ab7724-d4a7-4265-98a3-8942a55367da" class="" dir="auto">
+</p><p id="bcf18b29-f822-49ba-9791-6870f077fbff" class="" dir="auto">Generate testable Hypothesis<div class="indented"><p id="759ca489-e771-4865-aea3-cb4ed2a267d2" class="" dir="auto">Challenge my design instincts measuring the impact of the solution</p></div></p><p id="fca3faef-663b-4305-b3c3-4fb8b6a28f3d" class="" dir="auto">
+</p><p id="af7f772d-ade7-4c31-b6f7-a4b5227ddb03" class="" dir="auto">Hypothesis<div class="indented"><p id="aa1049e8-66e1-4376-8a4b-163c1ebd2a2a" class="" dir="auto">We believe that allowing customers to upload their data without relying on BB, can improve their satisfaction and enhance Blackbird perceived value, at the same time that can reduce operational costs, and potentially increase the frequency and volume of data uploads, and consequently, more money. </p></div></p><p id="5e6661ae-af8d-46eb-bca6-4657a5783c59" class="" dir="auto">
+</p><p id="d5563d6b-e452-4853-87ab-115a301a4d99" class="" dir="auto">and incorporating it into the design process as a Controlled risk</p><p id="06a02f22-3bec-43e9-a95c-75b260be478d" class="" dir="auto">
+</p><details id="5547e460-b487-440b-9cf7-bba6c6903ecf" open="" class="block-color-yellow_background toggle" data-notion-highlight="yellow_background" dir="auto"><summary>Evaluate if needed</summary><div class="indented"><p id="53f42a6c-9249-430c-8a79-d8e279de58a2" class="" dir="auto">I do guerrilha benchmark studies with other existing products and platforms to understand how they are solving similar problems, as an inspiration;</p></div></details><p id="84701b62-c53b-4f99-bcfc-9b60cd77ce35" class="" dir="auto">
+</p><h3 id="c5a000a2-2368-471b-ac77-d275ef3818a3" class="" dir="auto">Outcome</h3><p id="6026c364-0d0d-4d2c-83ee-db9b7d0585f7" class="" dir="auto">The outcome of the version 1 of the Data connectors was that:</p><ul id="081dd6be-3dbb-476a-9241-9a9c34c17360" class="bulleted-list" dir="auto"><li style="list-style-type:disc">It was possible to see an increase in the data processed, in Mix Panel;</li></ul><ul id="4470483e-a10a-482a-a7c4-1f035c2a225e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Also, the Data engineer had to help just a few data uploads from costumers, instead of all of them.</li></ul><ul id="5e86423c-2647-4f48-b3bc-20c795bee443" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Also helped  us to expand the knowledge around the user needs, getting insights towards over a real-time capabilities (auto-update) of the data;</li></ul><p id="92e58968-c844-4703-921f-8218e948065d" class="" dir="auto">
+</p><p id="f6f401cb-6411-4641-ba84-4f8ba9793afa" class="" dir="auto">
+</p></div></details><hr id="a80bdecb-3207-478a-ae7d-6383276045a2" dir="auto"/><hr id="65db5e66-7460-401b-86d2-608643f5532a" dir="auto"/><hr id="a101c35b-8b65-4aee-8203-a85b141b00f3" dir="auto"/><p id="9d6d5872-c8a2-4724-a483-febbd8c4c09d" class="" dir="auto">
+</p><p id="5e314611-2b57-44ed-bc6a-f3c45e441313" class="" dir="auto">By reducing the time and effort required to ingest data into the Constellation platform, <a href="http://blackbird.ai/">Blackbird.ai</a> can significantly improve customer satisfaction, reduce operational costs, and potentially increase the frequency and volume of data uploads. </p><p id="0d467443-34e4-485b-900a-3615ced6d5f6" class="" dir="auto">
+</p><p id="e95cf443-3f0b-4b95-b4d7-d04484626171" class="" dir="auto">Document processing is the basis of Blackbird billing system, which is core, but as we was doing it manually before, in case the solution didn&#x27;t work as expected, as backup, we could do it manually, reducing the risk-level of it.</p><p id="7708205c-280d-4378-b036-c0a20e1ec6df" class="" dir="auto">
+</p><p id="55a48b12-8648-4ab6-9505-c4f6475f4c58" class="" dir="auto">Document processing is the basis of Blackbird billing system. </p><p id="f9a4219b-b29a-4858-acfe-8d06df4041e2" class="" dir="auto">
+</p><hr id="59963e21-bbe4-4989-a2f8-652316a6793c" dir="auto"/><p id="1d99a0db-967f-404f-b274-8e6d96766799" class="" dir="auto">
+</p><p id="3213df1c-ba2f-451d-8e7a-25bd99b1eb29" class="" dir="auto">
+</p><p id="302cfa2d-33c4-4ccc-844d-0eba96bc3c79" class="" dir="auto">The Constellation Risk Intelligence Dashboard empowers teams to proactively detect and contextualize information driven threats to accelerate response and mitigation.</p><p id="afa361da-4757-4a23-90ba-edacc1167f15" class="" dir="auto">
+</p><hr id="19ebd5e6-578e-4db3-acc0-f973136a7ece" dir="auto"/><p id="f0d54861-6874-4ea0-94a6-6efa1ef5c2e7" class="" dir="auto">
+</p><p id="e2844fda-bca1-4040-8d7f-6c1b3e55146f" class="" dir="auto">The Data Connectors project is an initiative to streamline and automate data uploads into the platform. It allows users to connect to partners&#x27; APIs, such as social listening tools, like Talkwalker or Meltwater, or Amazon S3. </p><p id="3b416307-a884-44af-b47d-fdac469b2980" class="" dir="auto">The data connectors are configured at a source-of-data level and attached to projects to trigger jobs. They specifically refer to the connection to the external data provider, including the necessary credentials. When a query runs, it triggers a job, capturing the query and connection used. This project enhances efficiency by eliminating the need for manual data ingestion and providing users with more control over their projects.</p><p id="9fc14db1-0d95-4c25-81c7-2a2e5b3c5788" class="" dir="auto">
+</p><hr id="51826e0f-b2e3-413c-80cb-76976ac752bd" dir="auto"/><p id="8df527c6-4788-4580-af19-e0ce392f3179" class="" dir="auto">
+</p><p id="275362a9-7b9d-473d-a36d-a44365019159" class="" dir="auto">I think that a knowledge around a scenario would determines the risk level of a project, and with that, will allow to balance the amount of user data needed with the amount I could rely on my instincts to design.</p><hr id="97d5c80b-4158-4ce2-ba0f-7650042ed79b" dir="auto"/><p id="1e9db088-3e83-43de-a8fc-bd9476511c2e" class="" dir="auto">
+</p><p id="de74dced-876f-456d-b22e-b6d068257a64" class="" dir="auto"><a href="https://chat.openai.com/share/113c15de-7817-4567-b71d-ec098446fa18">Chatgpt explanation link</a></p><ol type="1" id="fe8ec6c3-20bc-4b1b-986b-ede2ce9f2310" class="numbered-list" start="1" dir="auto"><li>Risk level assessment;</li></ol><ol type="1" id="083c2e9d-c432-432b-8508-79c1edce8f51" class="numbered-list" start="2" dir="auto"><li>Star with assumptions;</li></ol><ol type="1" id="f3df3a42-df49-45d7-901a-79c7a995c4fa" class="numbered-list" start="3" dir="auto"><li>Reviewing Existing Evidence;</li></ol><p id="648afc45-ea4a-423c-a3c1-dbbee397e701" class="" dir="auto">
+</p><hr id="ece5e397-50c0-4fed-8237-12f4c8a58b41" dir="auto"/><p id="4ed7f6ee-86f4-4d97-93fb-876829b5f021" class="" dir="auto">I think that the knowledge around a scenario determines the risk level of a project</p><ul id="1f8cbee5-a8d8-4947-ba3d-196c3355bf01" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I would say that depends of the risk level of the project, if don&#x27;t block the user in doing their main tasks, could be consider low risk, but if block the user and can also impact the product value proposition, it might be high risk, and it would require more care</li></ul><hr id="e91d4c7a-dc76-4698-8184-476a0c234f9a" dir="auto"/><p id="921e4f34-b720-4121-934f-3d6f441a277f" class="" dir="auto">Before understand User needs - Raise Assumptions - It&#x27;s fast</p><p id="4b0de8aa-960b-4bb3-83cb-349fca70b851" class="" dir="auto">Review existing and related evidences from previous research studies</p><p id="7edc7022-f292-4d9f-9e5a-a3dac13aeafd" class="" dir="auto">Getting a better idea of User needs - Generate testable hypothesis - Low risk<div class="indented"><p id="8efdf367-1ba7-47a3-8c0e-3225639943fa" class="" dir="auto">If the risk level is potentially high, I would try to negotiate more time to do more research, with the intent of generate more learnings, trying to reduce the risk about the scenario</p></div></p><p id="38344d9f-ae06-4630-b9f4-f1290adfd9bf" class="" dir="auto">Generate Hypothesis</p><p id="8ffc8c4e-5ff5-42e8-b060-1c97c8041fd5" class="" dir="auto">Challenge my design instincts measuring the impact of the solution, to understand </p><p id="b10bc9d8-1c75-49c8-a3a0-bcd9bc7c31a6" class="" dir="auto">
+</p><hr id="d0a3ce9e-8b78-430f-abfc-4e17bdb9d81f" dir="auto"/><details id="9ace2612-ed15-4333-953a-8cf16438b3ee" open="" class="toggle" dir="auto"><summary>AI answer</summary><div class="indented"><p id="88da23f5-5002-443f-a822-bdb99147cf03" class="" dir="auto">In a project where time constraints limited research, I relied on design instincts to create a user-friendly dashboard layout. I balanced this with user feedback from previous projects to ensure usability. </p><p id="6ebfd2d2-0758-4c3f-908b-50015991dc14" class="" dir="auto">The outcome was a well-received design that improved user interaction and efficiency. This experience highlighted the importance of combining intuition with user input to achieve successful design outcomes. </p><p id="105dafc4-4763-4421-aa2e-0259388e7949" class="" dir="auto">By leveraging past feedback and incorporating it into the design process, I was able to create a solution that not only met user needs but also exceeded their expectations. The iterative process of refining the dashboard layout based on user feedback allowed for continuous improvement and ultimately resulted in a highly effective and user-friendly design.</p></div></details><h1 id="ddf830e1-0b91-426f-a324-47ecb7ab43a0" class="" dir="auto">Show the ability to integrate intuition with evidence</h1><ul id="89dc2779-1c06-44ca-908d-67169f8b9386" class="bulleted-list" dir="auto"><li style="list-style-type:disc">To ensure that design decisions are not solely based on personal bias but are grounded in user needs and behaviors.</li></ul><ul id="bd7b4e3f-1286-492e-99fe-bcc62c2ff0d6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">This includes the impact on the project, the feedback from users or stakeholders, and what you learned from the experience.</li></ul><h1 id="4ac4cd9b-ecc5-4cfd-9929-1751b896d3f2" class="" dir="auto">Apply my process into Data connector project</h1><ul id="0652155b-061c-450c-8061-76764b05e77b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Business objectives</li></ul><ul id="6f6ab2c4-a58f-431d-9f3b-e397e9a29f61" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Raise assumptions<ul id="80b34424-87fa-4e40-bba5-0a42b480085f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Raise assumptions about the user needs and the possible solution based on Biz objectives to visualize how much we know, or we don&#x27;t know about the scenario of the project, and the level of risk involved.</li></ul></li></ul><ul id="cecec9fe-5d68-4bb7-8fac-593c94fe5405" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Research - Collect Evidences<ul id="55dd8b68-ac34-4056-96dc-f293d18215da" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Started review previous data collected from related research studies done in the past;</li></ul><ul id="5b466566-3015-45c4-a21c-4b8ff73276ef" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Review user&#x27;s feedback with the help of Customer success team, using tools like Zendesk;</li></ul><ul id="18ce5b71-49d1-488f-9f02-49ac86205f67" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I do guerrilha benchmark studies with other existing products and platforms to understand how they are solving similar problems, as an inspiration;</li></ul></li></ul><ul id="d25b73ff-5bcd-4dfe-be18-6d890b4802b4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Generate testable Hypothesis<ul id="d9c0bdf7-9b9a-4b18-a8fe-8b813584064a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Generate testable Hypothesis that </li></ul><ul id="afd4d8b8-8e8c-4d4c-a07a-e9e008c137b5" class="bulleted-list" dir="auto"><li style="list-style-type:circle">can challenge based on the evidences collected </li></ul></li></ul><p id="2bdd300a-6a68-441a-9006-0ea40d910944" class="" dir="auto">and incorporating it into the design process as a Controlled risk</p><hr id="af45321f-71b2-43ca-9d2e-4539e905e4a2" dir="auto"/><h1 id="14856847-4e46-4bf2-96bf-22c021230d79" class="" dir="auto"><strong>Data connectors</strong></h1><p id="f8ec5818-4f00-445f-9153-90f6729e9edd" class="" dir="auto">At Blackbird, I collaborated on the design of the data connectors. </p><p id="306bdda0-8832-4226-9cce-05157e21661c" class="" dir="auto">
+</p><details id="1a05bd5f-5df1-4eeb-aa12-30b79c6c0073" open="" class="toggle" dir="auto"><summary><strong>Business Problem</strong></summary><div class="indented"><p id="72259c1e-7a6d-49a2-ae60-14b5caf14028" class="" dir="auto">Document processing is the basis of our billing system at Blackbird. The more documents processed, the more we can charge customers. Customers currently need to ask a Blackbird data engineer to ingest their data manually, and this is a time consuming problem. It’s time consuming for both the data engineer, and also for the customer who has to wait sometimes several days to get their data into our system.</p><p id="5fb00ab1-eae3-4d65-8542-246eb0b5bad6" class="" dir="auto">
+</p></div></details><details id="03f6816a-1492-4f18-9194-2f46ec7cba54" open="" class="toggle" dir="auto"><summary><strong>User need / Supporting Data</strong></summary><div class="indented"><p id="81efa98b-028d-4537-9c39-0a216ab089fd" class="" dir="auto">Customers have vocalized their needs in several ways:</p><p id="6b6cea25-b963-4253-9f3e-d1cd2695cc0f" class="" dir="auto"><strong>Sales Calls</strong></p><p id="21302bfb-c158-4a98-a5b0-e4324a49332a" class="" dir="auto">Do you integrate with Meltwater? We use them for social listening, so we would need to seamlessly integrate with them rather than<br/>having to manually export and upload all of our data. — <strong>Customer A</strong></p><p id="c2b3340c-685f-4be9-a940-bed58e51dfa7" class="" dir="auto"><strong>Customer Support</strong></p><p id="4d2943e1-97f3-45fa-9b6d-d2724a6909f6" class="" dir="auto">It’s really less than ideal having to give you guys CSVs to create projects and then sitting on our hands for multiple days to see the<br/>data in side the network graph. — <strong>Customer B</strong></p><p id="7219f956-038d-4475-9e18-4eda5c1b870e" class="" dir="auto">It would be helpful if instead of creating a new project for each ingestion that we could also increment data into existing projects.<br/>This would reduce the need for duplicating narratives and other workflow functions in order to perform identical analyses. — <strong>Customer C</strong></p><p id="75ff576f-7bc2-41dd-a949-f82b1db75535" class="" dir="auto"><strong>Data Engineering</strong></p><p id="0a51903a-6d67-4a45-8d93-f107aaca5577" class="" dir="auto">It takes too much time dealing with customer data in an ad hoc way... I spend xx time per week processing CSVs...</p></div></details><details id="e6af36c0-cdd6-4bf6-b511-5416a2b60ac2" open="" class="toggle" dir="auto"><summary>Problem definition</summary><div class="indented"><p id="ca7b2a39-4669-401e-9687-b512310babb9" class="" dir="auto">By not offering seamless data ingestion, we are inconveniencing current customers, lacking capabilities that prospective customers want and need, and essentially leaving money on the table.</p></div></details><details id="c5e65b09-686e-4ba8-9096-4d47fe823318" open="" class="toggle" dir="auto"><summary><strong>Success metrics</strong></summary><div class="indented"><figure id="b8da09ec-94ab-426f-a083-11ec165701c8" class="image" data-notion-image="3%20Describe%20a%20project%20where%20you%20had%20to%20rely%20on%20your/Screenshot_2024-03-14_at_21.46.40.png" dir="ltr"><a href="3%20Describe%20a%20project%20where%20you%20had%20to%20rely%20on%20your/Screenshot_2024-03-14_at_21.46.40.png"><img style="width:2060px" src="3%20Describe%20a%20project%20where%20you%20had%20to%20rely%20on%20your/Screenshot_2024-03-14_at_21.46.40.png"/></a></figure></div></details><details id="a7c9910f-2ee2-4814-8282-530335128a96" open="" class="toggle" dir="auto"><summary><strong>Assumptions</strong></summary><div class="indented"><p id="0741ac8f-5b6c-4728-8775-37705ea7ed3e" class="" dir="auto">Users want to manage their own projects and data because that’s faster than asking a Blackbird specialist to do that for them</p><p id="53f8afb0-c699-4155-9f32-78c3d5c5bf5a" class="" dir="auto">Customers want to have full visibility of how many documents were are being processed and to see the breakdown of platform as well</p></div></details><p id="94bddd3c-98c9-4979-9453-64810ba89c15" class="" dir="auto">
+</p><details id="cd7c0fb6-1a53-40ee-a3fa-658073e498b0" open="" class="toggle" dir="auto"><summary><strong>About/ Solution</strong></summary><div class="indented"><p id="34287661-c22b-4757-a9a6-f3b0455df57b" class="" dir="auto">These allow users to connect to partners&#x27; APIs, such as Amazon S3, and automate data uploads into the platform.</p><p id="667356c3-a09b-4504-b4a3-203da17867cd" class="" dir="auto">
+</p><p id="a44f5e7d-c935-4fec-a992-a9c4dfcfe140" class="" dir="auto">Data Connectors are the way we pull data into a project. They are configured at a source-of-data level and attached to projects to trigger jobs</p><h3 id="bbfa431b-3b44-4abb-a807-0fa1993a7405" class="" dir="auto"><strong>Data connector vs Data Query vs Job</strong></h3><p id="308d6f52-076a-42ca-9413-9896ecb84601" class="" dir="auto">A data connector most specifically refers to the connection to the external data provider. <div class="indented"><p id="9a7aef36-3677-45d2-9ba8-aad25abf4767" class="" dir="auto">This includes any credentials needed to connect, but not the specific query to use for a project’s jobs. However, it is still common to refer to the “connector/connection for a project” as the connection plus the query.</p></div></p><p id="f3581797-70ef-4a1f-b05f-d96632d1f0b2" class="" dir="auto">When a query runs, it triggers a job.</p><p id="3061923f-8496-4bbb-b6e8-56f82f1269a7" class="" dir="auto">There isn’t any resource that represents a query, and a connection isn’t <em>really</em> tied to a project. Projects have jobs which ran, jobs capture the query+connection used to run. Because of this, there isn’t really the concept of updating a project to capture the data that a past <em>query</em> ran.</p><p id="5dba5e1b-ee66-4af8-af5d-96264a9ddd9e" class="" dir="auto">
+</p></div></details><p id="61211f8f-bab4-4652-a7a7-9dbcf15ccef1" class="" dir="auto">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

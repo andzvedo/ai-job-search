@@ -1,0 +1,769 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Searching</title><meta name="data-notion-page-icon" content="🔎"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%94%8E%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="87dab567-1688-465c-b61c-70327c8782e0" class="page sans" data-notion-page-icon="🔎"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🔎"></span></div><h1 class="page-title" dir="auto">Searching</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="1caaf95c-11a3-4fb4-a22e-c9269cf84b81" class="" dir="auto">UX Staffing agencies and Design talent professionals</h1><details id="82c93797-3e6a-408a-a439-bda840cef00a" open="" class="toggle" dir="auto"><summary>Pinterest example</summary><div class="indented"><figure id="0749089d-6345-41b0-9190-69e3471b55dc" class="image" data-notion-image="Searching/How_companies_Hires_Contractors.png" dir="ltr"><a href="Searching/How_companies_Hires_Contractors.png"><img style="width:2412px" src="Searching/How_companies_Hires_Contractors.png"/></a></figure></div></details><p id="482074e7-2ca8-4616-a20f-54ab8fc74582" class="" dir="auto"><strong>List</strong></p><p id="30685235-dc2b-4422-8acc-ae68d4468dee" class="" dir="auto"><a href="https://www.uxjobsboard.com/ux-resources/ux-staffing-recruitment-agencies/">https://www.uxjobsboard.com/ux-resources/ux-staffing-recruitment-agencies/</a></p><p id="4de184ce-f741-4046-b9e3-83b7aa55deb5" class="" dir="auto"><a href="https://www.beststaffingagencies.com/design">https://www.beststaffingagencies.com/design</a></p><p id="fe2d1bbb-36a8-41ed-8da6-07682b14248a" class="" dir="auto"><strong>Continue Searching here:</strong></p><p id="5d8ca6d9-65a6-4345-9341-1dd4580378ab" class="" dir="auto"><a href="https://www.google.com/search?q=Staffing+companies+USA+hiring+UX+Designer&amp;sxsrf=ALiCzsZ-j6v_HMIYg8PGMqvdrgF-My-Shg:1666285572508&amp;ei=BIBRY83PHrmj1sQPmeCemAI&amp;uact=5&amp;oq=Staffing+companies+USA+hiring+UX+Designer&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECc6CggAEEcQ1gQQsANKBAhNGAFKBAhBGABKBAhGGABQngZYngZgzwdoAXABeACAAZoBiAGaAZIBAzAuMZgBAKABAcgBCMABAQ&amp;sclient=gws-wiz&amp;ibp=htl;jobs&amp;sa=X&amp;ved=2ahUKEwjzqLK-pe_6AhUUlZUCHSAgCBEQudcGKAJ6BAgXECg#htivrt=jobs&amp;htidocid=QhrxaWCWM5oAAAAAAAAAAA%3D%3D&amp;fpstate=tldetail">From google search</a></p><p id="71aea0a2-7260-4d55-bc4a-a6c324f0d363" class="" dir="auto"><a href="https://www.welovesalt.com/jobs/job-industry/design/">https://www.welovesalt.com/jobs/job-industry/design/</a></p><p id="fe248bae-3645-4992-94dd-4973bbf056dc" class="" dir="auto"><a href="https://www.welovesalt.com/usa/jobs/job-industry/ui-ux/">https://www.welovesalt.com/usa/jobs/job-industry/ui-ux/</a></p><p id="52f7c528-4521-41e5-b83f-6490932cfcf8" class="" dir="auto"><a href="https://aslileone.biz/current-jobs/">https://aslileone.biz/current-jobs/</a></p><p id="a9e9fc34-f183-419e-9a28-58c68fc8be12" class="" dir="auto"><a href="https://fountaincity.tech/services/design/">https://fountaincity.tech/services/design/</a></p><p id="934c5260-9783-4df6-9647-78bb1c59fd61" class="" dir="auto"><a href="https://www.uxjobsboard.com/#!search/location=anywhere">https://www.uxjobsboard.com/#!search/location=anywhere</a></p><p id="e771866d-62b9-4e2a-b955-ac3a31ba8ebf" class="" dir="auto"><a href="https://uxhires.com/job-seekers/">https://uxhires.com/job-seekers/</a></p><p id="f758d036-b23f-4d3e-905b-e3225c151b68" class="" dir="auto"><a href="https://www.consortia.com/jobs/">https://www.consortia.com/jobs/</a></p><p id="94cd4687-d9c5-4ef9-9199-351aa480f42d" class="" dir="auto"><a href="https://www.clearpnt.com/find-jobs/">https://www.clearpnt.com/find-jobs/</a></p><p id="d039c5aa-1b98-4404-9b16-4bef883d41c7" class="" dir="auto">
+</p><p id="f652b966-401f-45e4-8306-bbd3bf7d2f79" class="" dir="auto"><a href="https://www.google.com/search?q=Staffing+companies+USA+hiring+UX+Designer&amp;sxsrf=ALiCzsZ-j6v_HMIYg8PGMqvdrgF-My-Shg:1666285572508&amp;ei=BIBRY83PHrmj1sQPmeCemAI&amp;uact=5&amp;oq=Staffing+companies+USA+hiring+UX+Designer&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECc6CggAEEcQ1gQQsANKBAhNGAFKBAhBGABKBAhGGABQngZYngZgzwdoAXABeACAAZoBiAGaAZIBAzAuMZgBAKABAcgBCMABAQ&amp;sclient=gws-wiz&amp;ibp=htl;jobs&amp;sa=X&amp;ved=2ahUKEwjzqLK-pe_6AhUUlZUCHSAgCBEQkd0GegQIIRAB#fpstate=tldetail&amp;htivrt=jobs&amp;htiq=Staffing+companies+USA+hiring+UX+Designer&amp;htichips=&amp;htischips=&amp;htilrad=-1.0&amp;htiltype=1&amp;htidocid=dSFs5saPAKoAAAAAAAAAAA%3D%3D">Staffing options in Google search</a></p><h1 id="0aa0ec1d-65c7-4f03-8368-6ebb184308ff" class="" dir="auto">Keywords: On Linkedin</h1><h3 id="28e23399-063b-4dec-afd8-ee46d9b793ed" class="" dir="auto">Terms and ideas</h3><ul id="e7c30457-5a98-46e5-be47-14b7eecf27a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Founding Product Designer</li></ul><ul id="26704a41-938d-49e5-be05-6da1c4d268df" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Product Designer Lead</li></ul><ul id="66fa871b-6a30-4558-b2b1-07f00b6bb781" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Startups that might need Design help - Freelance gig</li></ul><h3 id="c866bc91-06bf-4090-85e8-5eb5fc70702a" class="" dir="auto">Identify Key works in a Job Description</h3><p id="f1b7068d-f779-4c84-8efd-a60db0a41355" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">Example at 3/4  Min -  <a href="https://www.youtube.com/watch?v=B4OhuzwLc9o&amp;ab_channel=JeffSu">https://www.youtube.com/watch?v=B4OhuzwLc9o&amp;ab_channel=JeffSu</a></p><p id="3262da75-fa7d-4e59-8fbb-5146a32a40f8" class="" dir="auto">The only way to be accepted <span style="border-bottom:0.05em solid">REMOTELY</span> <span style="border-bottom:0.05em solid">as Brazilian</span> is by being a <span style="border-bottom:0.05em solid">CONTRACTOR/FREELANCE for companies that accept.</span></p><ul id="8998725c-fb76-4557-bb32-eb9a46264254" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Senior Product Designer Contract</li></ul><ul id="6893bdeb-2d28-45da-b93c-cf0b56fba94a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Senior Product Designer Freelance</li></ul><ul id="bc143791-2404-4bc4-bc17-d985c3bb123b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Hiring Product Designer <ul id="325ad7fb-f1ad-4e23-9d9c-5a7771b597d0" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Search for Hiring managers/ Talent people looking for PD &gt; Get in touch directly!</li></ul></li></ul><p id="17c4bfa1-8338-4994-96e2-e03468708018" class="" dir="auto">Add the main cities to get the best <span style="border-bottom:0.05em solid">Pay range</span></p><ul id="c2610e9b-0ce8-4ab4-90e2-3890004a0b77" class="bulleted-list" dir="auto"><li style="list-style-type:disc">San Francisco </li></ul><ul id="e9525f42-9e4c-4a72-bec2-db4c99a1b652" class="bulleted-list" dir="auto"><li style="list-style-type:disc">New York</li></ul><h1 id="f3bf560f-2b95-4ba0-beff-7b3b6ee26a81" class="" dir="auto">Boards</h1><details id="1e55616c-594f-4040-8da4-ead0eed5a7a2" open="" class="toggle" dir="auto"><summary>Remote job board list [TO CHECK]</summary><div class="indented"><figure id="7d31e808-55ca-41ae-9b70-3eca1ed2e284" class="image" data-notion-image="Searching/Remote_Job_boards.png" dir="ltr"><a href="Searching/Remote_Job_boards.png"><img style="width:576px" src="Searching/Remote_Job_boards.png"/></a></figure></div></details><details id="770dc982-8f95-4e82-abc3-a0ddb8283016" open="" class="toggle" dir="auto"><summary><a href="https://justremote.co/a/dashboard">https://justremote.co/a/dashboard</a></summary><div class="indented"></div></details><ul id="c1e743b3-1b98-4f4b-8f7f-e6c427dd4702" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.producthunt.com/jobs?categories=Design&amp;">https://www.producthunt.com/jobs?categories=Design&amp;</a></li></ul><ul id="897253da-3232-44b5-aafe-2ecb3e98debd" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://powertofly.com/">https://powertofly.com/</a></li></ul><ul id="425aa658-8730-4f52-aea9-31550eda7000" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/jobs/">https://designremotely.co/jobs/</a></li></ul><ul id="28283203-ab50-4a7d-989d-54ab8775682b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://unemployed.today/jobs/">https://unemployed.today/jobs/</a></li></ul><ul id="19d08402-62b2-423e-b46c-02e13041c8e0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com/Job/remote-product-designer-jobs-SRCH_IL.0,6_IS11047_KO7,23_IP2.htm?fromAge=7&amp;remoteWorkType=1&amp;includeNoSalaryJobs=true&amp;pgc=AB4AAYEAHgAAAAAAAAAAAAAAAeOr8BMAMQEBAQoDi6ojCMvULwCWRP4QDn7yW6fXyujkRvwbmfcGF7VkPWvGuhQg75r91z2TivQAAA%3D%3D">https://www.glassdoor.com/Job/remote-product-designer-jobs-SRCH_IL.0,6_IS11047_KO7,23_IP2.htm?fromAge=7&amp;remoteWorkType=1&amp;includeNoSalaryJobs=true&amp;pgc=AB4AAYEAHgAAAAAAAAAAAAAAAeOr8BMAMQEBAQoDi6ojCMvULwCWRP4QDn7yW6fXyujkRvwbmfcGF7VkPWvGuhQg75r91z2TivQAAA%3D%3D</a></li></ul><ul id="41c94b38-d781-4dbb-982e-3b7b3e4a93e3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://weworkremotely.com/categories/remote-design-jobs#job-listings">https://weworkremotely.com/categories/remote-design-jobs#job-listings</a></li></ul><ul id="6d36bb05-0a68-40b0-a15b-983eae3204f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remotive.com/remote-jobs/design">https://remotive.com/remote-jobs/design</a></li></ul><ul id="e064cf4f-271b-49de-bd68-5633c48e7867" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://remoteok.com/remote-design-jobs">https://remoteok.com/remote-design-jobs</a></li></ul><ul id="1329c367-c42a-4845-9635-12392b05f749" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://dribbble.com/remote-product-design-jobs">https://dribbble.com/remote-product-design-jobs</a></li></ul><ul id="11730904-df81-4ebe-b386-28b2c17a4170" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://nodesk.co/remote-jobs/product-designer/">https://nodesk.co/remote-jobs/product-designer/</a></li></ul><ul id="6fadd923-577c-4d29-aaa0-461f5081988f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.remotedesignjobs.co/">https://www.remotedesignjobs.co/</a> <mark class="highlight-teal" data-notion-highlight="teal"> [NEW] </mark></li></ul><ul id="b33a042e-da5b-40be-9d8f-d012c8f1e314" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://startup.jobs/">https://startup.jobs/</a> <mark class="highlight-teal" data-notion-highlight="teal"> [NEW] </mark></li></ul><ul id="2da6a2fe-84c9-4f74-93b6-661e9957fe3d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://angel.co/jobs">https://angel.co/jobs</a></li></ul><ul id="1b2f9719-7d55-4472-b3ad-17ea688e685a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.ycombinator.com/jobs/role/design">https://www.ycombinator.com/jobs/role/design</a></li></ul><ul id="7c5895a7-c0ca-4677-a9d3-4cad15326b13" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.glassdoor.com/Job/remote-product-designer-jobs-SRCH_IL.0,6_IS11047_KO7,23.htm">https://www.glassdoor.com/Job/remote-product-designer-jobs-SRCH_IL.0,6_IS11047_KO7,23.htm</a></li></ul><ul id="09714358-4ceb-461e-8dc5-1888c7b716b2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Crypto remote boards</li></ul><h1 id="038b43cf-3238-46ca-a842-bc9b34e7acea" class="" dir="auto">Communities</h1><ul id="d38a7b63-bb58-4e38-a631-92ea8b7fd1c4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Slack </li></ul><ul id="27c4f7cd-6857-4e3e-aa47-00cc6a1e01d1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Twitter</li></ul><h1 id="8d1b5c86-26a7-4db7-af36-d606e11a2afc" class="" dir="auto">Resources</h1><p id="7b5d86f6-582b-48c3-ad8a-8690e54b6c54" class="" dir="auto"><a href="https://www.topresume.com/career-advice/fired-what-do-i-say-on-my-resume#:~:text=As">How To Say You Were Fired on an Application</a></p><h3 id="74564b3e-8d8a-4705-9b77-e4f9fbc8d1c5" class="" dir="auto">Compensation and Benefits</h3><details id="c5e6ae95-2a33-4fe9-be36-3ee1d8eedcc8" open="" class="toggle" dir="auto"><summary>Pay and benefits levels by country</summary><div class="indented"><p id="11ac26a4-654d-4f54-9f11-6c168d35ab88" class="" dir="auto">Our pay levels are set according to a formula that combines above-median market rate data for the role (we pay 55th percentile of market rate for this role, based on <a href="https://www.payscale.com/">Payscale</a> data) adjusted for your local cost of living based on <a href="https://www.numbeo.com/cost-of-living/rankings_current.jsp">Numbeo</a> data.</p><p id="8246df12-e772-4600-86d8-ff67e4b10d48" class="" dir="auto">We take the issue of equitable pay very seriously, and we apply our pay formula to all workers who work 80% or more of full time hours with us.</p></div></details><p id="01fc64c8-719e-4ccd-bf94-98a0c8a5566a" class="" dir="auto"><a href="https://www.numbeo.com/cost-of-living/rankings_current.jsp">Cost of living index</a></p><h1 id="7d232f38-dc64-4bf4-ba8e-07c74ba6542a" class="" dir="auto">To register</h1><h3 id="4c480c59-7fd3-4f50-8eb4-5fcf233f0588" class="" dir="auto">Freelancer public board</h3><ul id="737e0e6d-a5f7-40d2-981f-b9c5a754e270" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.peopleperhour.com/freelance-Ux-researcher-jobs">https://www.peopleperhour.com/freelance-Ux-researcher-jobs</a><ul id="319ade9a-74d2-48f7-9ed0-fc5607a638a5" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/tech-ux-usability-testing-specialist-4128205">https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/tech-ux-usability-testing-specialist-4128205</a></li></ul></li></ul><ul id="1240c7d7-4bf2-4aef-ae71-a6b69fbdb190" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://contra.com/">https://contra.com/</a><ul id="c7248831-155a-4eed-bcdb-cd2e0aa4fc48" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="https://contra.com/nicolesinsight/recommendations">https://contra.com/nicolesinsight/recommendations</a></li></ul></li></ul><ul id="a7d17455-09c8-4379-8ee6-48151594fa64" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.roberthalf.com/us/en/find-jobs/upload-resume/app">https://www.roberthalf.com/us/en/find-jobs/upload-resume/app</a></li></ul><h1 id="b28878c8-9751-4e3e-9cbc-d73b5badcaec" class="" dir="auto">To apply</h1><h3 id="314fc26f-93fa-46a0-8de0-6dfc606e3db5" class="" dir="auto">Vetted Augmented Staff</h3><ul id="af7b47c4-c5e6-4d66-87f3-bbe081313ddb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">BairesDev [Ruin]</li></ul><ul id="dacd3c35-f926-4c3d-a803-a67530a7a2d6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.toptal.com/talent/apply">https://www.toptal.com/talent/apply</a></li></ul><ul id="150b8b4a-98cc-4261-bb66-6d870a42731c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.yunojuno.com/sub-disciplines/ux-researchers">https://www.yunojuno.com/sub-disciplines/ux-researchers</a></li></ul><h3 id="87d6cf35-2af9-42f9-bb4b-f9f66ae7cf38" class="" dir="auto">Outsourcing</h3><ul id="c982013b-b58a-4981-af34-9a2cda7257b3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Multiplica Talent - Espanhol<ul id="30a8fc17-86d9-41b7-bb2d-7952975c7bf3" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="https://apply.workable.com/multiplicatalent/j/3354BD4D06/?utm_source=startup.jobs&amp;utm_medium=organic">https://apply.workable.com/multiplicatalent/j/3354BD4D06/?utm_source=startup.jobs&amp;utm_medium=organic</a></li></ul></li></ul><ul id="2a4d4d58-d3a0-4f4c-9056-8e78efd059eb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://aquent.com/find-work/page/2?keyword_search">https://aquent.com/find-work</a><ul id="888d9ff5-4496-4f1e-aacd-2dd2b288832f" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="https://aquent.com/find-work/193395">https://aquent.com/find-work/193395</a></li></ul><ul id="d9549d85-835b-4b1c-a1a4-46f0932edc62" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="https://aquent.com/find-work/193245">https://aquent.com/find-work/193245</a></li></ul></li></ul><h3 id="919ccbcc-b885-4795-9202-d5230b376098" class="" dir="auto">Companies</h3><ul id="ad98f5d9-dfdc-48da-8614-dcd907a02a21" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.linkedin.com/jobs/view/3780794316">https://www.linkedin.com/jobs/view/3780794316</a></li></ul><h1 id="5033f619-fc21-47d9-8260-1dbc54c18435" class="" dir="auto">To get in contact</h1><h3 id="e556d10b-b5d7-40a2-a2f2-ff9323857013" class="" dir="auto">Companies hiring remote</h3><ul id="84eb883d-03be-4efb-9164-19355df3cdff" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://designremotely.co/companies/hiring-now/">https://designremotely.co/companies/hiring-now/</a></li></ul><p id="2674166c-52fa-49ac-af64-a02c03721248" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

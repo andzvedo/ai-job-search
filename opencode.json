@@ -1,0 +1,80 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "anthropic/claude-sonnet-4-5",
+  "instructions": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".claude/skills/job-application-assistant/01-candidate-profile.md",
+    ".claude/skills/job-application-assistant/02-behavioral-profile.md",
+    ".claude/skills/job-application-assistant/03-writing-style.md",
+    ".claude/skills/job-application-assistant/04-job-evaluation.md",
+    ".claude/skills/job-application-assistant/05-cv-templates.md",
+    ".claude/skills/job-application-assistant/06-cover-letter-templates.md",
+    ".claude/skills/job-application-assistant/07-interview-prep.md",
+    ".claude/skills/job-application-assistant/08-application-forms.md"
+  ],
+  "permission": {
+    "edit": "ask",
+    "bash": {
+      "*": "ask",
+      "bun --version": "allow",
+      "bun run *": "allow",
+      "bun install": "allow",
+      "python3 --version": "allow",
+      "python3 *": "allow",
+      "python *": "allow",
+      "lualatex *": "allow",
+      "xelatex *": "allow",
+      "pdftotext *": "allow",
+      "pdftotext -v": "allow",
+      "git *": "allow",
+      "git commit *": "ask",
+      "git push *": "ask",
+      "rm *": "ask",
+      "mkdir *": "allow",
+      "ls *": "allow",
+      "cd *": "allow",
+      "grep *": "allow",
+      "cp *": "allow",
+      "mv *": "allow"
+    },
+    "webfetch": "allow",
+    "websearch": "allow",
+    "question": "allow",
+    "skill": "allow",
+    "task": "allow",
+    "todowrite": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "glob": "allow",
+    "grep": "allow",
+    "doom_loop": "ask",
+    "external_directory": "ask"
+  },
+  "agent": {
+    "reviewer": {
+      "description": "Hiring manager proxy that reviews job applications (CVs and cover letters) for factual accuracy, tone, and targeting. Used by the /apply workflow.",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "webfetch": "allow",
+        "websearch": "allow"
+      }
+    },
+    "scoring-agent": {
+      "description": "Batch-scores job postings against the candidate profile for the /rank workflow. Fetches posting URLs and returns structured scores.",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "webfetch": "allow",
+        "websearch": "deny"
+      }
+    }
+  }
+}

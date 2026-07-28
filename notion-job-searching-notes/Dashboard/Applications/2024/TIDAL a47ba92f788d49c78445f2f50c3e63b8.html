@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>TIDAL</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="a47ba92f-788d-49c7-8445-f2f50c3e63b8" class="page sans"><header><h1 class="page-title" dir="auto">TIDAL</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="228e5d51-1b7f-4a62-9f54-214f2a6cc7e0" style="display:inline-block">Job Description</h1></summary><div class="indented"><h1 id="21e44479-5706-41e5-8a55-c41e0e7f21aa" class="" dir="auto">Product Designer, Commerce</h1><ul id="564da311-76a9-4a29-b4f8-1f80b68b8603" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Employees can work remotely</li></ul><ul id="bfc57876-5774-47df-8223-f8e6cf685f39" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Full-time</li></ul><h2 id="6dbb09c6-0d6f-45c3-a2b4-3d3f4398c694" class="" dir="auto"><strong>Company Description</strong></h2><p id="358fdc6d-2898-4995-b269-4cfe76a36380" class="" dir="auto">TIDAL was founded for artists by artists as the next innovative streaming platform to bring value back to the music industry. We empower artists with the products, resources, services, and content required to take control of their careers and connect more deeply with fans. Available in over 60+ countries, TIDAL continues to help artists break down economic barriers to continue creating what’s next in culture. TIDAL is part of Block, Inc. (NYSE: SQ), a global technology company with a focus on financial services.</p><h2 id="f916cdbb-c06b-43e4-9e94-6c05dffe502b" class="" dir="auto"><strong>Job Description</strong></h2><p id="ba861ede-46b5-4716-807f-ad639907b8ad" class="" dir="auto">We are looking for a Product Designer to join our growing design team. Our product designers take a product, feature, or experience from ideation to production. This includes vision setting, designing solutions, prototyping, bringing along cross-functional teams, overseeing implementation, and collaborating with other designers, researchers, writers, product managers, analysts, and engineers. You will focus on our new investments in artist tools, specifically focused around audience and marketing tools.  We are looking for a senior level designer with a system thinking background, experienced in developing scalable interfaces on multiple platforms, and that can pair product thinking with thoughtful craft.</p><p id="6e23a6e7-0ca9-450f-9f16-f69b92adcc7d" class="" dir="auto"><strong>You Will:</strong></p><ul id="ca0c303b-6da1-4ad2-91cb-b0ca5e50e642" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Drive the strategy and position of your product area</li></ul><ul id="90056ed2-af9d-4ff9-879a-6e68ea2a86b6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Plan, scope, and create work that contributes to a larger, long-term plan</li></ul><ul id="e148ce4e-f0bc-4362-b52f-bdceb4a43d10" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Communicate your ideas and work to your direct team and other teams</li></ul><ul id="1cf5cfa8-714a-42d8-83ce-d4f7968e21f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Work with other designers and XFN stakeholders to integrate your product area with the larger Tidal’s ecosystem.</li></ul><ul id="ca839fad-8bcb-4a6e-8bfb-bdc70344373c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Drive execution of your product area in its entirety.</li></ul><ul id="309911d7-4df0-4297-b3ad-b37eba4f1d35" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Work on challenging, wide-reaching projects for your team.</li></ul><h2 id="6bc00b83-fd3a-4652-ac94-76bd8e8ff433" class="" dir="auto"><strong>Qualifications</strong></h2><p id="6b54e9f4-b935-427f-a6f6-bd16eacd08ee" class="" dir="auto"><strong>You have:</strong></p><ul id="35a69eac-eb64-4b56-b97c-91a5e40d2b78" class="bulleted-list" dir="auto"><li style="list-style-type:disc">6+ years of professional design experience</li></ul><ul id="97947b5e-983f-488b-9cf2-5b8b54293a92" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience with turning complex problems into simple and engaging solutions</li></ul><ul id="1a17f4a2-db30-4cdb-bea2-5a056ee1de80" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A natural understanding of the end-to-end design process - from identifying customer needs, jobs-to-be-done and pain points to delivering exceptional customer experiences</li></ul><ul id="4f2bcd46-6c84-43c9-86f7-3511ce59d56d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ability to connect the dots across the entire customer ecosystem both on and off our products</li></ul><ul id="59c54b7e-3e48-40bb-9817-bb62bec2b241" class="bulleted-list" dir="auto"><li style="list-style-type:disc">You actively plan, scope, and create work that contributes to a larger, long-term plan</li></ul><ul id="36c7fd7b-ff3d-4a9f-82bc-e1d8e5b9d380" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A portfolio of work on which you were the primary designer, with moderate guidance from design leadership</li></ul><ul id="954ea22a-a1ba-41f1-9221-7277a095fa46" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Articulate high-level team goals and connect your work to larger team or company initiative</li></ul><p id="d87c7241-60c7-4406-ba74-08573cbcbb0f" class="" dir="auto"><strong>Even better:</strong></p><ul id="67060ddd-654a-4f7f-b20b-6f69d967cfaf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience in customer journey mapping and strategic design to complement design foundations</li></ul><ul id="cd6b637a-ac7c-4b0b-8d13-a29a4e7b4424" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Familiarity in creating interactive prototypes</li></ul><ul id="18f983c4-3f41-459f-b243-d1e02d83b67b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience with designing CRM and Email Marketing products.</li></ul><h2 id="b75b27ef-73e2-4205-b56f-e38e57f3aaef" class="" dir="auto"><strong>Additional Information</strong></h2><p id="ef7cdf6f-fa29-4d4f-8852-03e1b08a140c" class="" dir="auto">Block takes a market-based approach to pay, and pay may vary depending on your location. U.S. locations are categorized into one of four zones based on a cost of labor index for that geographic area. The successful candidate’s starting pay will be determined based on job-related skills, experience, qualifications, work location, and market conditions. These ranges may be modified in the future.</p><p id="183c54c9-8ac1-44f5-a1cb-2d247c24cf62" class="" dir="auto">Zone A: USD $156,200 - USD $234,200</p><p id="142acd9a-d90d-45d0-89a8-21c878c47bf7" class="" dir="auto">Zone B: USD $148,300 - USD $222,500</p><p id="08179dd6-f41e-41bf-a6cc-28250fa25aa7" class="" dir="auto">Zone C: USD $140,600 - USD $210,800</p><p id="216cbea7-830b-4037-8835-23dbaab4f349" class="" dir="auto">Zone D: USD $132,700 - USD $199,100</p><p id="c844b20a-47ab-4834-92f4-e0bf22d83495" class="" dir="auto">To find a location’s zone designation, please refer to this <a href="https://careers.smartrecruiters.com/Square/salary-zones">resource</a>. If a location of interest is not listed, please speak with a recruiter for additional information.</p><p id="0a25d18a-c92d-447a-b229-0ce6880f2ad8" class="" dir="auto">Full-time employee benefits include the following:</p><ul id="be0d83d5-9e66-483c-8d97-474cb87e00e9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Healthcare coverage (Medical, Vision and Dental insurance)</li></ul><ul id="74f37529-0a36-4f5d-b215-6679525109ba" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Health Savings Account and Flexible Spending Account</li></ul><ul id="b2867b29-7bf4-4a13-bb02-55856f64fed4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Retirement Plans including company match</li></ul><ul id="b266cbb2-8f14-473b-9221-bd1831e2f8c8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Employee Stock Purchase Program</li></ul><ul id="e21b8ef6-91f6-4fd8-b00f-4f0007a336c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Wellness programs, including access to mental health, 1:1 financial planners, and a monthly wellness allowance</li></ul><ul id="fd09f872-e178-40a3-ae00-cb019851d559" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Paid parental and caregiving leave</li></ul><ul id="bd9cc036-6a34-449e-b26c-7109c78febfe" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Paid time off (including 12 paid holidays)</li></ul><ul id="270dfff3-4b59-43ae-8d33-d309d710729e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Paid sick leave (1 hour per 26 hours worked (max 80 hours per calendar year to the extent legally permissible) for non-exempt employees and covered by our Flexible Time Off policy for exempt employees)</li></ul><ul id="19756cb0-c322-4688-a657-ffa8065d0bd1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Learning and Development resources</li></ul><ul id="2f492d86-797c-40c9-86bb-b042d70b6fbb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Paid Life insurance, AD&amp;D, and disability benefits</li></ul><p id="53a1196a-81a7-4637-8d43-e6d5f2e6a50a" class="" dir="auto">These benefits are further detailed in Block&#x27;s policies. This role is also eligible to participate in Block&#x27;s equity plan subject to the terms of the applicable plans and policies, and may be eligible for a sign-on bonus. Sales roles may be eligible to participate in a commission plan subject to the terms of the applicable plans and policies. Pay and benefits are subject to change at any time, consistent with the terms of any applicable compensation or benefit plans.</p><p id="2a019549-9ed2-414a-b276-c42444525709" class="" dir="auto"><strong>US and Canada EEOC Statement</strong></p><p id="0a0787e2-96fb-408b-b9fc-3eafe4a81d35" class="" dir="auto">We’re working to build a more inclusive economy where our customers have equal access to opportunity, and we strive to live by these same values in building our workplace. Block is a proud equal opportunity employer. We work hard to evaluate all employees and job applicants consistently, without regard to race, color, religion, gender, national origin, age, disability, pregnancy, gender expression or identity, sexual orientation, citizenship, or any other legally protected class.</p><p id="cf35a4eb-5d10-4c11-9f95-7054c6f91584" class="" dir="auto">We believe in being fair, and are committed to an inclusive interview experience, including providing reasonable accommodations to disabled applicants throughout the recruitment process. We encourage applicants to share any needed accommodations with their recruiter, who will treat these requests as confidentially as possible. <em><strong>Want to learn more about what we’re doing to build a workplace that is fair and square? Check out our</strong></em><em><strong><a href="https://squareup.com/us/en/about/diversity?utm_source=job_description"><span style="border-bottom:0.05em solid"> I+D page</span></a></strong></em><em><strong>.</strong></em></p><p id="d319ea7f-0e3a-4cfb-aed6-6191c4c31993" class="" dir="auto">Additionally, we consider qualified applicants with criminal histories for employment on our team, and always assess candidates on an individualized basis.</p><p id="abfa5c5b-f864-4714-9d80-a971d73ed3d6" class="" dir="auto"><em>Block, Inc. (NYSE: SQ) is a global technology company with a focus on financial services. Made up of Square, Cash App, Spiral, TIDAL, and TBD, we build tools to help more people access the economy. Square helps sellers run and grow their businesses with its integrated ecosystem of commerce solutions, business software, and banking services. With Cash App, anyone can easily send, spend, or invest their money in stocks or Bitcoin. Spiral (formerly Square Crypto) builds and funds free, open-source Bitcoin projects. Artists use TIDAL to help them succeed as entrepreneurs and connect more deeply with fans. TBD is building an open developer platform to make it easier to access Bitcoin and other blockchain technologies without having to go through an institution.</em></p><p id="e89ad54d-6526-42c2-b0cf-1b151fcc1c0d" class="" dir="auto"><em>While there is no specific deadline to apply for this role, on average, U.S. open roles are posted for 70 days before being filled by a successful candidate.</em></p><p id="e8661585-955f-41c4-9ae8-9dc5b9e8314c" class="" dir="auto"><a href="https://jobs.smartrecruiters.com/oneclick-ui/company/Square/publication/ae260211-e0c6-47da-b7da-96cbedec62f3?dcr_ci=Square&amp;sid=2d92f286-613b-4daf-9dfa-6340ffbecf73">I&#x27;m interested</a></p><p id="d7e81fa1-02e8-4044-9af8-f01131d1fd64" class="" dir="auto"><a href="https://block.xyz/en/legal/applicant-privacy-notice">Privacy Policy</a></p><p id="7072dd81-a86c-428c-a9ea-8ac686242b4a" class="" dir="auto">Cookies Settings</p></div></details><h3 id="40201479-42ee-4568-b16b-d9d8b14897ff" class="" dir="auto">Tell us a bit about why you&#x27;re applying to work here. What excited you about this role?</h3><p id="b6b81412-b6f3-40e6-ba01-a563b32a3882" class="" dir="auto">I’m thrilled to apply for the Product Designer role at TIDAL, as it offers the perfect opportunity to blend my passion for design with the vibrant world of music. My journey began with a deep love for art and drawing, which inspired me to pursue a design degree. As a visual artist, I see TIDAL as the ideal platform to merge my creative talents with a cutting-edge industry. The chance to develop innovative tools that empower artists and contribute to a company dedicated to revolutionizing the music industry is incredibly inspiring.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

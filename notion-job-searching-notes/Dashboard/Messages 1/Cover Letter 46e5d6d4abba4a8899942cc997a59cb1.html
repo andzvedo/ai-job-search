@@ -1,0 +1,783 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cover Letter</title><meta name="data-notion-page-icon" content="✉️"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%9C%89%EF%B8%8F%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="46e5d6d4-abba-4a88-9994-2cc997a59cb1" class="page sans" data-notion-page-icon="✉️"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="✉️"></span></div><h1 class="page-title" dir="auto">Cover Letter</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><figure id="39c359ae-eb9a-80e5-9781-e28bf91491e4" class="link-to-page"><a href="Cover%20Letter/About%20me%20-%20Design%20experience%2039c359aeeb9a80e59781e28bf91491e4.html" data-notion-page-id="39c359ae-eb9a-80e5-9781-e28bf91491e4" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">About me - Design experience</a></figure><h1 id="239359ae-eb9a-80db-b271-ed5fc4fde700" class="" dir="auto">AI: Latest-Jully-2025 [OUTDATED]</h1><figure id="23b359ae-eb9a-80fa-916b-ddf4a62cfd02" class="link-to-page"><a href="Cover%20Letter/With%20AI-Assisted%20coding%2023b359aeeb9a80fa916bddf4a62cfd02.html" data-notion-page-id="23b359ae-eb9a-80fa-916b-ddf4a62cfd02" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">With AI-Assisted coding</a></figure><figure id="318359ae-eb9a-8019-b9b6-f2f4ea739584" class="link-to-page"><a href="Cover%20Letter/AI%20Automation%20version%20318359aeeb9a8019b9b6f2f4ea739584.html" data-notion-page-id="318359ae-eb9a-8019-b9b6-f2f4ea739584" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">AI Automation version</a></figure><figure id="23b359ae-eb9a-8039-b07b-de3238ba5f80" class="link-to-page"><a href="Cover%20Letter/Turing%20Ultralab%2023b359aeeb9a8039b07bde3238ba5f80.html" data-notion-page-id="23b359ae-eb9a-8039-b07b-de3238ba5f80" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Turing Ultralab</a></figure><h1 id="239359ae-eb9a-8038-a5dd-f316324cdd0e" class="" dir="auto">Previous versions</h1><figure id="239359ae-eb9a-8083-966b-dcf2d43055d1" class="link-to-page"><a href="Cover%20Letter/Generic%20LATEST%20239359aeeb9a8083966bdcf2d43055d1.html" data-notion-page-id="239359ae-eb9a-8083-966b-dcf2d43055d1" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Generic LATEST</a></figure><figure id="31d359ae-eb9a-807a-a362-cad41aebe705" class="link-to-page"><a href="Cover%20Letter/Generic%20with%20EOR%2031d359aeeb9a807aa362cad41aebe705.html" data-notion-page-id="31d359ae-eb9a-807a-a362-cad41aebe705" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Generic with EOR</a></figure><hr id="31d359ae-eb9a-80bb-b2fe-ca7b6c816107" dir="auto"/><hr id="31d359ae-eb9a-80a9-8283-f71f8df6a0c8" dir="auto"/><figure id="31d359ae-eb9a-8015-95a2-c0068b5c85e9" class="link-to-page"><a href="Cover%20Letter/Cover%20letter%20web3%2031d359aeeb9a801595a2c0068b5c85e9.html" data-notion-page-id="31d359ae-eb9a-8015-95a2-c0068b5c85e9" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Cover letter web3</a></figure><h1 id="31d359ae-eb9a-804d-93ad-dec5a3c24ab7" class="" dir="auto">Old notes</h1><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="31d359ae-eb9a-80fa-b67f-dead576b36d6" style="display:inline-block">V1</h1></summary><div class="indented"><p id="31d359ae-eb9a-804c-a9d3-f8ea991a40fe" class="" dir="auto">Hello everyone. It&#x27;s nice to e-meet you. My name is André Azevedo, and I&#x27;m a Product Designer from Brazil.</p><p id="31d359ae-eb9a-80ec-844f-db84db53d8a3" class="" dir="auto">For the past 6 years, I have collaborated with cross-functional teams in more than six industry sectors, from consultancy to artificial intelligence, working with companies in Brazil, Mexico, and the United States.</p><p id="31d359ae-eb9a-801b-bd20-f4e6b8831a4b" class="" dir="auto">I&#x27;m a crypto enthusiast and have professional experience in web3 as a Staff Product Designer since I worked at Bitso (bitso.com) for 1.5 years (The biggest crypto exchange in Latam). There, I worked with two products, Bitso for Business (bitso.com/landing/business) and Bitso Card (bitso.com/br/landing/card).</p><p id="31d359ae-eb9a-80ad-9abc-dc2990b5cf0e" class="" dir="auto">I can also plan, run, and manage UX Research studies, like user/customer interviews, UX analysis, concept testing, or usability testing, to gather qualitative and quantitative data. This allows me to make user-centered design decisions based on evidence, and influence product strategy to help the company achieve its goals.</p><p id="31d359ae-eb9a-80b6-8a84-c6bdeda11669" class="" dir="auto">In addition, I can use the Service Design approach to help translate the company vision into a holistic experience that is not tied to a screen-specific but to an entire end-to-end customer journey.</p><p id="31d359ae-eb9a-809f-997a-d07831e58709" class="" dir="auto">Having graduated as a Graphic Designer in 2012, I&#x27;ve studied and applied Visual and User Interface Design concepts, like Visual Identity, Typography, Layout, Colors, and Assets creation throughout my entire career. Design system? I&#x27;ve collaborated with and maintained Design Systems in the companies I&#x27;ve worked for.</p><p id="31d359ae-eb9a-80cf-ba69-dd2500495a31" class="" dir="auto">I look forward to hearing more from you soon, and I am more than happy to jump on a call, provide any additional material, or answer any questions you may have.</p><p id="31d359ae-eb9a-8029-ac23-c550ee66d20c" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80d3-8f12-faaffcf4ff35" class="" dir="auto">If you&#x27;d like to get a better understanding of my design process, you can check out my portfolio at this link: bit.ly/portfolioandreazevedo</p><p id="31d359ae-eb9a-8035-8323-f688bc696ff0" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80ab-b75c-c429079c4945" class="" dir="auto">All the best,</p><p id="31d359ae-eb9a-80a4-8919-ec3697422534" class="" dir="auto">André</p></div></details><hr id="31d359ae-eb9a-80be-9e2d-c14dd5b43fce" dir="auto"/><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-800c-a435-ef3fecafc2d9" style="display:inline-block">v4 [WIP]</h3></summary><div class="indented"><p id="31d359ae-eb9a-8057-b856-ea36be0e5d27" class="" dir="auto">Hello everyone! Nice to e-meet you, my name is André Azevedo, and I&#x27;m a Brazilian Product Designer. </p><p id="31d359ae-eb9a-80b0-a1d6-fc96ef4920ff" class="" dir="auto">I&#x27;d like to use this space too, not only share my portfolio but also to (hopefully) explain why I could the business achieve goals and identify user needs.</p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="31d359ae-eb9a-802d-b864-e975ced0323e" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%">Divide by main topics as titles, which helps the viewers quickly understand if I would be a good fit for what they are looking for.</div></aside><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-8009-9c83-e40748db9929" style="display:inline-block">Overall Professional and Design experience</h3></summary><div class="indented"><p id="31d359ae-eb9a-806e-a479-e2a41938f3df" class="" dir="auto">International design experience with a strong focus on B2B in more than six industrial sectors.</p><ul id="31d359ae-eb9a-807d-b049-efaf2d359b54" class="bulleted-list" dir="auto"><li style="list-style-type:disc">For the past 6 years, I have worked as a Designer in tech, collaborating with cross-functional teams in more than six industry sectors, including consultancy, retail, fintech, edtech, and artificial intelligence, from companies in Brazil, Mexico, and the United States. I am also experienced with the open-source design community.<ul id="31d359ae-eb9a-80d0-a019-f3657dfa5f89" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I can help navigate through the most diverse Design challenges because<mark class="highlight-orange_background" data-notion-highlight="orange_background"><strong> I&#x27;ve worked as designer in different industry sectors, such as artificial intelligence, fintech, edtech, and wellness </strong></mark><mark class="highlight-orange_background" data-notion-highlight="orange_background">  [add here the industries sectors i&#x27;ve worked]  </mark> </li></ul><ul id="31d359ae-eb9a-804f-944f-ca41894f3e3a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">most of my Product Design/ UX Design experience was working with B2B in different industries.</li></ul></li></ul><ul id="31d359ae-eb9a-804b-8018-fb0856183ff9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience in more than 6 industry sectors (Consultancy, Retail, Fintech, Edtech, and Artificial Intelligence), from big companies to early-stage startups.</li></ul><ul id="31d359ae-eb9a-8036-aa4a-d72c19a9b69c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cross-functional teams, non-tech stakeholders</li></ul><ul id="31d359ae-eb9a-8050-b181-c6b9c91b3187" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I&#x27;ve worked with a few startups such as Arquivei (<a href="http://arquivei.com.br/">arquivei.com.br</a>), Bitso (<a href="http://bitso.com/">bitso.com</a>), SIA (<a href="http://salesimpact.io/">salesimpact.io</a>), and lastly, Blackbird (<a href="http://blackbird.ai/">blackbird.ai</a>) - some of them were in the early stage.</li></ul></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-80ee-8ad0-c349b40c2ace" style="display:inline-block">Holistic view to execute a lean UX</h3></summary><div class="indented"><p id="31d359ae-eb9a-8046-a552-dd3eb40ae022" class="" dir="auto">Besides working as a Product/ UI-UX Designer with a few startups such as Arquivei (arquivei.com.br), Bitso (bitso.com), and SIA (<a href="http://salesimpact.io/">salesimpact.io</a>), I have experience with Service Design, so I can help translate the company vision into a holistic seamless experience that is not tight to a screen-specific but to an entire end-to-end customer journey. </p><p id="31d359ae-eb9a-80cd-8709-ea16f4b9f82c" class="" dir="auto">Having a High level view of a scenario to be able to not only spot good opportunities, but to have more information and know where and why to focus next.</p><ul id="31d359ae-eb9a-8078-a2d2-fb37370c59a8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Besides that, I have experience as a Service Designer, so I can help translate the product vision into a holistic experience that is not tight to a screen-specific but to an entire end-to-end customer journey.</li></ul></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-801c-818e-dac09b874123" style="display:inline-block">Human-centered Design - Making informed design decisions</h3></summary><div class="indented"><ul id="31d359ae-eb9a-80c0-b8e6-f4c0b018acd4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I can plan, run, and manage UX Research studies, user/customer interviews, UX analysis, concept testing, or usability testing, to make decisions informed by qualitative and quantitative real data.</li></ul></div></details><p id="31d359ae-eb9a-80d4-9339-ea2dd596176a" class="" dir="auto">
+</p><ul id="31d359ae-eb9a-8041-8c06-fc6cbf46bc35" class="bulleted-list" dir="auto"><li style="list-style-type:disc">And as I graduated as a Graphic Designer in 2011, working with Visual and UI Design is natural for me, so I also have been collaborating and maintaining Design Systems for the past years.</li></ul><p id="31d359ae-eb9a-8045-8082-ef731e70203e" class="" dir="auto">
+</p><p id="31d359ae-eb9a-804d-b2db-d61c7fb75801" class="" dir="auto">You can access my <strong>portfolio at</strong> this link: <a href="https://bit.ly/portfolioandreazevedo">https://bit.ly/portfolioandreazevedo</a></p><p id="31d359ae-eb9a-8072-a106-c33604d16a14" class="" dir="auto">I hope to hear more from you soon, and I am more than happy to jump on a call, provide any additional material, or answer any questions needed.</p><p id="31d359ae-eb9a-80b7-830d-ee1e67f60b01" class="" dir="auto">
+</p><p id="31d359ae-eb9a-8016-9317-e09376a60bdc" class="" dir="auto">All the best,</p><p id="31d359ae-eb9a-8079-92a5-ee11205262fd" class="" dir="auto">André</p><p id="31d359ae-eb9a-808b-b253-cb3c852b6ac9" class="" dir="auto">
+</p></div></details><hr id="31d359ae-eb9a-800c-9a5d-fade7baff9d5" dir="auto"/><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-803c-9543-cd67ff150d51" style="display:inline-block">v2</h3></summary><div class="indented"><p id="31d359ae-eb9a-8081-aab2-c5ef38a5d70e" class="" dir="auto">Hello everyone, my name is André Azevedo, and I am a Product Designer from Brazil. It&#x27;s nice to meet you.</p><p id="31d359ae-eb9a-80a8-9020-faa26c11ab55" class="" dir="auto">I believe I am a strong candidate for this job because I have worked as a Product/UI-UX Designer with several startups, such as Arquivei (<a href="http://arquivei.com.br/">arquivei.com.br</a>), Bitso (<a href="http://bitso.com/">http://bitso.com</a>), SIA (<a href="http://salesimpact.io/">salesimpact.io</a>), and <a href="http://blackbird.ai/">Blackbird.ai</a>. I also have experience with Service Design, which allows me to create a seamless user experience from beginning to end.</p><p id="31d359ae-eb9a-807c-8e7b-d5f176317520" class="" dir="auto">Furthermore, I have a professional background in Web3, having worked at <strong><a href="http://www.bitso.com/">Bitso</a></strong> for one and a half years. This is the largest crypto exchange in Latin America.</p><p id="31d359ae-eb9a-80c1-9561-cc107f480c78" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80c8-af77-d971125dd582" class="" dir="auto">I am skilled in planning, running, and managing UX Research studies, including user/customer interviews, UX analysis, concept testing, and usability testing. This allows me to make user-centered design decisions based on qualitative and quantitative data rather than making guesses.</p><p id="31d359ae-eb9a-8055-ac24-fcc9823f29f9" class="" dir="auto">Additionally, I graduated as a Graphic Designer in 2011, so working with Visual and UI Design comes naturally to me. I have also collaborated with and maintained Design Systems for the past few years.</p><p id="31d359ae-eb9a-8071-a470-dec6ea0d092c" class="" dir="auto">If you&#x27;d like to get a better understanding of my design process, you can check out my portfolio at this link: <a href="https://bit.ly/portfolioandreazevedo">bit.ly/portfolioandreazevedo</a></p><p id="31d359ae-eb9a-8007-8686-e1ed7b66672c" class="" dir="auto">I look forward to hearing from you soon, and I am happy to jump on a call, provide additional material, or answer any questions you may have.</p><p id="31d359ae-eb9a-8040-8441-e4dffa1ac4ac" class="" dir="auto">Best regards,</p><p id="31d359ae-eb9a-8002-acb7-d933c5ee8331" class="" dir="auto">André</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-80ae-bb1b-fa214902f9f4" style="display:inline-block">v1</h3></summary><div class="indented"><p id="31d359ae-eb9a-80e1-8252-da4890f48265" class="" dir="auto">Hello everyone. . My name is André Azevedo, and I&#x27;m a Product Designer from Brazil :)</p><p id="31d359ae-eb9a-80bc-bd0a-c2cb039dafe3" class="" dir="auto">I can help with the most Design challenges because besides working as a Product/ UX Designer, I also have experience with Service Design, so I can help translate the product vision into a holistic experience that is not tight to a screen-specific but to an entire end-to-end customer journey.</p><p id="31d359ae-eb9a-807d-b7d4-e8ebe8e801af" class="" dir="auto">I can plan, run, and manage UX Research studies, like user/customer interviews, UX analysis, concept testing, or usability testing, to gather qualitative and quantitative data and make user-centered design decisions.</p><p id="31d359ae-eb9a-80ff-a590-c0c23321c940" class="" dir="auto">And as I graduated as a Graphic Designer in 2012, working with Visual Design is something I have done for more than ten years. I&#x27;ve been collaborating and maintaining with Design Systems </p><p id="31d359ae-eb9a-808f-b667-ce3adeb40381" class="" dir="auto">Here is my <a href="https://bit.ly/resumeandreazevedo">resume</a> and my <a href="https://bit.ly/portfolioandreazevedo">portfolio</a>.</p><p id="31d359ae-eb9a-80c3-899e-fd3e9e171e1f" class="" dir="auto">I hope to hear more from you soon, and I am more than happy to jump on a call, provide any additional material, or answer any questions needed.</p><p id="31d359ae-eb9a-80c1-abc0-d70ae8d36540" class="" dir="auto">Best,</p><p id="31d359ae-eb9a-80cf-a71a-c5a936f6f6a9" class="" dir="auto">André</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-8010-9aaf-fa22f06283b4" style="display:inline-block">Generic Full stack Designer</h3></summary><div class="indented"><details id="31d359ae-eb9a-80f0-8c99-fd0bba09068a" open="" class="toggle" dir="auto"><summary>v 1.0</summary><div class="indented"><p id="31d359ae-eb9a-802f-bbbf-db3a41c320fc" class="" dir="auto">Hello,</p><p id="31d359ae-eb9a-80c7-adee-dde05c3d47ac" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80f9-a3e6-c9421a057364" class="" dir="auto">I believe that I can help with the Design challenges because …</p><p id="31d359ae-eb9a-8001-afaa-c633d19d19cf" class="" dir="auto"> </p><p id="31d359ae-eb9a-809e-a962-c4bc9bb34c6a" class="" dir="auto">Besides working as a Product/ UX Designer for a couple of years, I also have experience in Service Design, so I can help translate the product vision into a holistic experience that is not tight to a screen-specific but to an entire end-to-end customer journey.</p><p id="31d359ae-eb9a-80e8-91de-c931164a09b0" class="" dir="auto">I can also plan, run, and manage UX Research studies, like user/customer interviews, UX analysis, concept testing, or usability testing, to gather qualitative and quantitative data and be able to make user-centered design decisions.</p><p id="31d359ae-eb9a-80c1-b93c-cc68d9e1da93" class="" dir="auto">And as I graduated as a Graphic Designer in 2012, working with Visual Design and Design softwares is something that I have done for more than ten years.</p><p id="31d359ae-eb9a-807e-afaf-c540af768cc0" class="" dir="auto">I&#x27;m available to answer any questions you might have, and I hope to hear more from you soon.</p><p id="31d359ae-eb9a-801f-8206-eac3cace6e8d" class="" dir="auto">All the best,<br/>André</p></div></details><details id="31d359ae-eb9a-80d8-8bba-e3c23bda6367" open="" class="toggle" dir="auto"><summary>V 1.1 - EMAIL</summary><div class="indented"><p id="31d359ae-eb9a-80d9-8fa1-eb34db8ffb2a" class="" dir="auto">Hello everyone. Nice to e-meet you. My name is André Azevedo, and I&#x27;m a Product Designer from Brazil :).</p><p id="31d359ae-eb9a-80ce-8670-ed6c506fc0a1" class="" dir="auto">I can help Centrifuge with the Design challenges because I have professional experience in web3 as a Product Designer since I worked at Bitso for 1,5 years (<a href="http://www.bitso.com/">www.bitso.com</a> - the biggest crypto exchange in Latin America).</p><p id="31d359ae-eb9a-80df-a7e2-c8460e99505a" class="" dir="auto">And besides working as a Product/ UX Designer, I also worked as a Service Designer in the past, so I can help translate the product vision into a holistic experience that is not tight to a screen-specific but to an entire end-to-end customer journey.</p><p id="31d359ae-eb9a-806c-8412-cd9826725698" class="" dir="auto">I can also plan, run, and manage UX Research studies, like user/customer interviews, UX analysis, concept testing, or usability testing, to gather qualitative and quantitative data and make user-centered design decisions.</p><p id="31d359ae-eb9a-8090-9e01-e405e4234b05" class="" dir="auto">And as I graduated as a Graphic Designer in 2012, working with Visual Design is something I have done for more than ten years.</p><p id="31d359ae-eb9a-80f9-8a3f-da0c987d81e2" class="" dir="auto">I am happy to jump on a call, provide any additional material, or answer any questions needed. I hope to hear more from you soon.</p><p id="31d359ae-eb9a-80ad-881f-db382870119f" class="" dir="auto">Best,<br/>André</p></div></details><details id="31d359ae-eb9a-80c2-b127-f5db2f446771" open="" class="toggle" dir="auto"><summary>V 2.0</summary><div class="indented"><p id="31d359ae-eb9a-8006-a665-dae4224bb4b1" class="" dir="auto">Hello everyone. Nice to e-meet you. My name is André Azevedo, and I&#x27;m a Product Designer from Brazil :)</p><p id="31d359ae-eb9a-80b3-a131-f89f93a07703" class="" dir="auto">I can help with the most Design challenges because besides working as a Product/ UX Designer, I also have experience with Service Design, so I can help translate the product vision into a holistic experience that is not tight to a screen-specific but to an entire end-to-end customer journey.</p><p id="31d359ae-eb9a-80fc-a364-f5d4e985401c" class="" dir="auto">I can plan, run, and manage UX Research studies, like user/customer interviews, UX analysis, concept testing, or usability testing, to gather qualitative and quantitative data and make user-centered design decisions.</p><p id="31d359ae-eb9a-80aa-a008-ea36da29166e" class="" dir="auto">And as I graduated as a Graphic Designer in 2012, working with Visual Design is something I have done for more than ten years. I&#x27;ve been collaborating and maintaining with Design Systems </p><p id="31d359ae-eb9a-806e-88c5-fc4306063e0e" class="" dir="auto">Here is my <a href="https://bit.ly/resumeandreazevedo">resume</a> and my <a href="https://bit.ly/portfolioandreazevedo">portfolio</a>.</p><p id="31d359ae-eb9a-8090-93fe-e5595025d537" class="" dir="auto">I hope to hear more from you soon, and I am more than happy to jump on a call, provide any additional material, or answer any questions needed.</p><p id="31d359ae-eb9a-804e-b2f4-f87f85b71f68" class="" dir="auto">Best,</p><p id="31d359ae-eb9a-8087-895b-c8e29e359d9d" class="" dir="auto">André</p></div></details></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="31d359ae-eb9a-8084-bc79-e8f81c2d67c8" style="display:inline-block">First version - Father inspired</h3></summary><div class="indented"><p id="31d359ae-eb9a-802a-940b-ee3fca5da6a0" class="" dir="auto">My father thaught me emphaty</p><p id="31d359ae-eb9a-80c9-bf01-fea30ba4c462" class="" dir="auto">Since I was a kid, I observed my father working as a merchant and how he listened to the clients, treated them with care and respect, and made an extreme effort to serve them in the best way he could, always trying to help them with what they want and need. </p><p id="31d359ae-eb9a-8086-a3a1-ceb320d26d04" class="" dir="auto">He taught empathy and the importance of understanding first and only then doing or speaking something. I carry this with me, which immensely helped me in my professional journey.</p><p id="31d359ae-eb9a-80fa-9c30-c382a89cc35b" class="" dir="auto">
+</p><details id="31d359ae-eb9a-80ea-8a4c-cbda3c685626" open="" class="toggle" dir="auto"><summary>v1</summary><div class="indented"><p id="31d359ae-eb9a-8005-9ffb-d56faad515f7" class="" dir="auto">Since I was a kid, I observed my father working as a merchant and how he listened to the clients, treated them with care and respect, and made an extreme effort to serve them in the best way he could, always trying to help them with what they want and need.</p><p id="31d359ae-eb9a-8029-a6a9-dfdbff3adb46" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80cf-893b-c6d99ce06d15" class="" dir="auto">He taught empathy. me how listen is powerful, understand, and only then do something. I carry this with me, and I also apply it in my design process.</p><p id="31d359ae-eb9a-8082-b838-d4f05cd2d5ee" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80e1-9829-f216489eba9d" class="" dir="auto">I&#x27;m always looking for opportunities to push myself as a designer, face the unknowns and new challenges, and use human-centered design to make unexpected connections, and I saw all of that after analyzing the <mark class="highlight-pink" data-notion-highlight="pink"><strong><span style="border-bottom:0.05em solid">Lead Product Designer</span></strong></mark><mark class="highlight-pink" data-notion-highlight="pink"><strong> </strong></mark>position.<mark class="highlight-pink" data-notion-highlight="pink"> The example shared, which says the possibility of working with computer vision and motion tracking, sounds very exciting and gives me the taste that working at Hinge would take me out of my comfort zone, challenging me to combine hardware and software to Design innovative, and cohesive experiences to have a positive impact into people lifes, helping me grow not only as Designer, but also as human being.</mark></p><p id="31d359ae-eb9a-8008-950c-dbe9cb04ec20" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80e7-b0e6-e02ad516519a" class="" dir="auto">I hope that I can be a good fit with the Design team. </p><p id="31d359ae-eb9a-809e-9dbc-cff5377f4b3a" class="" dir="auto">
+</p><p id="31d359ae-eb9a-806e-aae0-cbc6b379fe39" class="" dir="auto">Looking forward to hearing from you.</p><p id="31d359ae-eb9a-803f-a174-e29a0c178fcb" class="" dir="auto">
+</p><p id="31d359ae-eb9a-80fc-ad7f-ff9d178d7882" class="" dir="auto">Best,</p><p id="31d359ae-eb9a-8099-84a5-ff4e06ab0463" class="" dir="auto">André</p><p id="31d359ae-eb9a-807c-8b9a-ebca5548cce1" class="" dir="auto">
+</p></div></details><p id="31d359ae-eb9a-8034-9c54-f71e64d75fc3" class="" dir="auto">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

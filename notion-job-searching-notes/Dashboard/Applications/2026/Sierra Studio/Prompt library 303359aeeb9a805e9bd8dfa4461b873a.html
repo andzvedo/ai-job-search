@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Prompt library</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="303359ae-eb9a-805e-9bd8-dfa4461b873a" class="page sans"><header><h1 class="page-title" dir="auto">Prompt library</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-812a-83b5-e87619384916" style="display:inline-block">Design Prompt v1</h3></summary><div class="indented"><p id="300359ae-eb9a-819a-9197-d0183b19ce2c" class="" dir="auto">App design: LLM Comparison App</p><h2 id="300359ae-eb9a-811e-a29a-dc8526d9fd05" class="" dir="auto">Screen 1: Onboarding</h2><p id="300359ae-eb9a-81df-b365-e4a088e92edd" class="" dir="auto">[FRAME: iPhone 15 Pro - Onboarding]</p><ul id="300359ae-eb9a-8195-ad63-c7ddb7762490" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Background: Linear gradient from #2563EB to #7C3AED</li></ul><ul id="300359ae-eb9a-81e5-8fee-c99b477a9885" class="bulleted-list" dir="auto"><li style="list-style-type:disc">App Logo: Circular icon with comparison symbol</li></ul><ul id="300359ae-eb9a-81e7-ba41-db87cccc750e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Title: &quot;LLM Compare&quot; (32px, white, 600 weight)</li></ul><ul id="300359ae-eb9a-8163-91e9-fb57c9574ebf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Subtitle: &quot;Compare AI Models, Side by Side&quot; (16px, rgba(255,255,255,0.8))</li></ul><ul id="300359ae-eb9a-810a-94bf-d831e7323bb8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Value Cards (3 horizontally scrollable):<ol type="1" id="300359ae-eb9a-81fc-8f28-c094645fe969" class="numbered-list" start="1" dir="auto"><li>&quot;Select Models&quot; - Icon with grid</li></ol><ol type="1" id="300359ae-eb9a-8199-926b-f938b4bf4cdc" class="numbered-list" start="2" dir="auto"><li>&quot;Configure Settings&quot; - Icon with sliders</li></ol><ol type="1" id="300359ae-eb9a-8116-8bb2-c471d39b92e6" class="numbered-list" start="3" dir="auto"><li>&quot;Compare in Real-Time&quot; - Icon with split screen</li></ol></li></ul><ul id="300359ae-eb9a-8145-9c3a-e012f7a84157" class="bulleted-list" dir="auto"><li style="list-style-type:disc">CTA Button: &quot;Get Started&quot; (white background, primary color text, rounded 12px)</li></ul><h2 id="300359ae-eb9a-8156-9e02-c32a0d325cd8" class="" dir="auto">Screen 2: Model Selection</h2><p id="300359ae-eb9a-8115-83c0-d79baeb3aad4" class="" dir="auto">[FRAME: iPhone 15 Pro - Model Selection]</p><ul id="300359ae-eb9a-817b-a5ce-d76c9dfbe0dd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Header: &quot;Choose Models to Compare&quot; with back button</li></ul><ul id="300359ae-eb9a-81e1-8c72-fd50863bde9e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Search Bar: &quot;Search models...&quot; with filter icon</li></ul><ul id="300359ae-eb9a-8187-a1fd-c6823babd7da" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Model Grid (2 columns):<ul id="300359ae-eb9a-81b2-92f2-e2bca2b03265" class="bulleted-list" dir="auto"><li style="list-style-type:circle">OpenAI GPT-5.1: Green card, OpenAI logo, &quot;128K context&quot;</li></ul><ul id="300359ae-eb9a-81b8-8172-ccfc45fa9730" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Google Gemini 3 Pro: Blue card, Google logo, &quot;1M context&quot;</li></ul><ul id="300359ae-eb9a-8192-9f2b-d25e73bc9132" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Anthropic Claude 4: Orange card, Anthropic logo, &quot;200K context&quot;</li></ul><ul id="300359ae-eb9a-81a9-a0d9-f1865619c504" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Meta Llama 4: Meta blue card, Meta logo, &quot;128K context&quot;</li></ul><ul id="300359ae-eb9a-8160-ac24-d0e3d096e0a1" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Mistral Large: Coral card, Mistral logo, &quot;128K context&quot;</li></ul></li></ul><ul id="300359ae-eb9a-81b7-8afd-e12499b71020" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Selection checkboxes on each card</li></ul><ul id="300359ae-eb9a-81ac-b1a1-e2dc028a0340" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Bottom Bar: &quot;Continue&quot; button (disabled until 2+ selected)</li></ul><h2 id="300359ae-eb9a-81a9-ae1f-ff17033dc893" class="" dir="auto">Screen 3: Configuration</h2><p id="300359ae-eb9a-8189-93cf-f50f61e362f8" class="" dir="auto">[FRAME: iPhone 15 Pro - Configuration]</p><ul id="300359ae-eb9a-813c-9e88-ed699ab544a9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Header: &quot;Configure Comparison&quot; with selected models displayed</li></ul><ul id="300359ae-eb9a-8196-b9d0-f4b1bbc22a54" class="bulleted-list" dir="auto"><li style="list-style-type:disc">System Prompt Section:<ul id="300359ae-eb9a-817f-918c-e6fd82d6c8c3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Label: &quot;System Prompt&quot;</li></ul><ul id="300359ae-eb9a-81f8-b711-f7f1c1c72d49" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Large text area: &quot;You are an expert in Italian cuisine...&quot;</li></ul><ul id="300359ae-eb9a-810a-90c7-f164db65035b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Template buttons: &quot;Code Review&quot;, &quot;Creative Writing&quot;, &quot;Analysis&quot;</li></ul></li></ul><ul id="300359ae-eb9a-8180-a218-e3465c2596bd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Temperature Slider:<ul id="300359ae-eb9a-8195-b65b-d136d84a9d4a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Label: &quot;Temperature: 0.7&quot;</li></ul><ul id="300359ae-eb9a-8135-86bb-f17fbfffe149" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Visual scale: 0.0 [Predictable] — 1.0 [Balanced] — 2.0 [Creative]</li></ul></li></ul><ul id="300359ae-eb9a-8156-9347-f393db1ff182" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Advanced Settings (expandable):<ul id="300359ae-eb9a-8119-a519-dddfcd6caf92" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Max Tokens: 2048</li></ul><ul id="300359ae-eb9a-815f-b20c-c2a0f18a16b3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Top P: 1.0</li></ul><ul id="300359ae-eb9a-81d1-8ae8-dacafa5e2cf4" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Frequency Penalty: 0.0</li></ul></li></ul><ul id="300359ae-eb9a-8188-ad91-cf3396096534" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Start Button: &quot;Start Comparison&quot; (primary color)</li></ul><h2 id="300359ae-eb9a-81ca-944f-f716519f5b8e" class="" dir="auto">Screen 4: Main Chat Interface</h2><p id="300359ae-eb9a-81c5-92b4-c5dc97ac3d53" class="" dir="auto">[FRAME: iPhone 15 Pro - Chat Interface]</p><ul id="300359ae-eb9a-8101-9f8e-d5e28384e936" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Top Bar: Selected models with colored indicators (green for OpenAI, blue for Google)</li></ul><ul id="300359ae-eb9a-815d-b8d4-ff5178a4b309" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Input Area (left 40%):<ul id="300359ae-eb9a-81ae-a4e0-d92fac542055" class="bulleted-list" dir="auto"><li style="list-style-type:circle">User message bubble: &quot;What makes authentic carbonara different from American versions?&quot;</li></ul><ul id="300359ae-eb9a-8110-9c9f-dcf184518f0a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Text input field with attach and voice buttons</li></ul></li></ul><ul id="300359ae-eb9a-81f3-b032-f9e448b58300" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Response Areas (right 60%, split horizontally):<ul id="300359ae-eb9a-81b0-821f-c1edaee0f252" class="bulleted-list" dir="auto"><li style="list-style-type:circle">OpenAI Column (green accent):<ul id="300359ae-eb9a-81f6-a11a-eae72bfedbae" class="bulleted-list" dir="auto"><li style="list-style-type:square">Header: &quot;GPT-5.1&quot; with typing indicator</li></ul><ul id="300359ae-eb9a-81d3-b7c2-dee2a8701451" class="bulleted-list" dir="auto"><li style="list-style-type:square">Response text streaming in</li></ul><ul id="300359ae-eb9a-81f9-b175-eba655a8e335" class="bulleted-list" dir="auto"><li style="list-style-type:square">Metadata: &quot;245 tokens • 2.3s&quot;</li></ul></li></ul><ul id="300359ae-eb9a-81e3-8457-e9a9920f6ef6" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Google Column (blue accent):<ul id="300359ae-eb9a-816c-a284-ebeacbb14c8b" class="bulleted-list" dir="auto"><li style="list-style-type:square">Header: &quot;Gemini 3 Pro&quot; with typing indicator</li></ul><ul id="300359ae-eb9a-8130-9c71-db79c0a4557f" class="bulleted-list" dir="auto"><li style="list-style-type:square">Response text streaming in</li></ul><ul id="300359ae-eb9a-81dd-a730-fa042792803a" class="bulleted-list" dir="auto"><li style="list-style-type:square">Metadata: &quot;312 tokens • 1.8s&quot;</li></ul></li></ul></li></ul><h2 id="300359ae-eb9a-811c-bf0c-e8455b2ecd3c" class="" dir="auto">Screen 5: Comparison Tools</h2><p id="300359ae-eb9a-8141-a999-f78bc6583544" class="" dir="auto">[FRAME: iPhone 15 Pro - Comparison View]</p><ul id="300359ae-eb9a-812e-b284-e3f10846e691" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Mode Toggle: &quot;Chat&quot; / &quot;Compare&quot;</li></ul><ul id="300359ae-eb9a-81a6-9ae8-d36946939378" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Split screen comparison:<ul id="300359ae-eb9a-812b-a5a0-cf661121e1a1" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Left: OpenAI response highlighted</li></ul><ul id="300359ae-eb9a-81d9-8758-eb90ee6ebe30" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Right: Gemini response highlighted</li></ul><ul id="300359ae-eb9a-8125-b9ac-dea8bdace968" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Differences underlined in red</li></ul></li></ul><ul id="300359ae-eb9a-816d-a5fb-fe3197ff9590" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Vibe Scores:<ul id="300359ae-eb9a-81ed-b5cb-e32dd3d245ef" class="bulleted-list" dir="auto"><li style="list-style-type:circle">OpenAI: Slider at 75/100 &quot;Technical accuracy&quot;</li></ul><ul id="300359ae-eb9a-814c-b263-caeb59481b33" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Gemini: Slider at 85/100 &quot;Cultural nuance&quot;</li></ul></li></ul><ul id="300359ae-eb9a-816d-8884-c7a89382b6dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Notes Section: &quot;Gemini shows better understanding of regional variations...&quot;</li></ul><ul id="300359ae-eb9a-81f9-a94a-ee6505ff2d2e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Export Button: &quot;Share Comparison&quot;</li></ul><h2 id="300359ae-eb9a-8130-9a1d-c4d9084d3121" class="" dir="auto">Component Details</h2><h3 id="300359ae-eb9a-81e6-b3ee-f79e9f8f2eeb" class="" dir="auto">Model Cards</h3><ul id="300359ae-eb9a-8113-bc18-de9f12c14a4d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Size: 160px × 120px</li></ul><ul id="300359ae-eb9a-81e9-8c83-f0a4608b8ed2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Border radius: 12px</li></ul><ul id="300359ae-eb9a-8170-bfe7-f92bc5f26196" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Shadow: 0 2px 8px rgba(0,0,0,0.1)</li></ul><ul id="300359ae-eb9a-8161-bdd5-e44984bc205e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Provider logo: 24px circular</li></ul><ul id="300359ae-eb9a-81c7-8f89-ff9ccce30121" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Selected state: 2px border + checkmark</li></ul><h3 id="300359ae-eb9a-8171-b691-f0ff11baf23e" class="" dir="auto">Chat Bubbles</h3><ul id="300359ae-eb9a-812e-9ed4-ed54e69a6d0c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">User: Gray background, left-aligned</li></ul><ul id="300359ae-eb9a-81ca-a294-e4746c8c86af" class="bulleted-list" dir="auto"><li style="list-style-type:disc">AI: Colored backgrounds by provider, right-aligned</li></ul><ul id="300359ae-eb9a-81d0-801c-d03339474c78" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Border radius: 18px (user), 18px 4px (AI for tail)</li></ul><ul id="300359ae-eb9a-81d5-be36-f29466f182c0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Padding: 12px 16px</li></ul><h3 id="300359ae-eb9a-819d-b206-fc511bdd6c42" class="" dir="auto">Interactive Elements</h3><ul id="300359ae-eb9a-81b1-a1eb-cc5e24248e91" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Buttons: 44px min height, 12px radius</li></ul><ul id="300359ae-eb9a-812c-bd0d-f19c4b4e80f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sliders: Custom thumb, smooth animations</li></ul><ul id="300359ae-eb9a-81ad-8911-ec96deadbd83" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Text inputs: 1px border, focus states</li></ul><ul id="300359ae-eb9a-819c-95ad-daca8338d90e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Loading: Skeleton screens + pulsing dots</li></ul><h2 id="300359ae-eb9a-81f0-8b4f-f872b4948e4c" class="" dir="auto">Design System</h2><h3 id="300359ae-eb9a-81d5-8a77-db31736a6920" class="" dir="auto">Colors</h3><ul id="300359ae-eb9a-8197-be77-f4d5f02eea12" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Primary: #2563EB</li></ul><ul id="300359ae-eb9a-81b5-96dc-f869bab85dfc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Secondary: #7C3AED</li></ul><ul id="300359ae-eb9a-8187-af4d-d119077907af" class="bulleted-list" dir="auto"><li style="list-style-type:disc">OpenAI: #10A37F</li></ul><ul id="300359ae-eb9a-81a3-8ac0-c984aaa7ea04" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Google: #4285F4</li></ul><ul id="300359ae-eb9a-81fd-99c6-f86acab32690" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Anthropic: #D97706</li></ul><ul id="300359ae-eb9a-811a-a48f-e374c14c12fb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Meta: #0866FF</li></ul><ul id="300359ae-eb9a-8123-9b3d-e926faaa14cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Mistral: #FF6B35</li></ul><h3 id="300359ae-eb9a-813d-93d1-f68575ff4cc9" class="" dir="auto">Typography</h3><ul id="300359ae-eb9a-8189-a513-f6b918d3792e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Headings: Inter 600</li></ul><ul id="300359ae-eb9a-8158-b18e-e0123af19db0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Body: Inter 400</li></ul><ul id="300359ae-eb9a-8162-bdee-ec4ccb594371" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Code: SF Mono</li></ul><ul id="300359ae-eb9a-814c-9a72-c16397e0436c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Scale: 32/24/20/16/14/12</li></ul><h3 id="300359ae-eb9a-810f-8b58-c7ebd173fee1" class="" dir="auto">Spacing</h3><ul id="300359ae-eb9a-81d1-8263-dce4c691c24b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Base unit: 4px</li></ul><ul id="300359ae-eb9a-8190-a664-fd24495d8cd2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Components use 4px multiples</li></ul><ul id="300359ae-eb9a-8146-b3fe-dc3072c6aa26" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Safe areas respected</li></ul><ul id="300359ae-eb9a-81c0-801f-ccf7c64b6bc5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Touch targets: 44px minimum</li></ul><h2 id="300359ae-eb9a-81fe-85d3-c62e729ed87e" class="" dir="auto">Microinteractions</h2><ul id="300359ae-eb9a-817a-b4f2-ed2d897c6386" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Card hover: scale(1.02) + shadow</li></ul><ul id="300359ae-eb9a-81fd-8eeb-c522e2d059db" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Button press: scale(0.98) + haptic</li></ul><ul id="300359ae-eb9a-810c-b726-cd4d9cd7ed1e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Streaming text: character-by-character reveal</li></ul><ul id="300359ae-eb9a-810b-8c7d-e0b325a88b76" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Screen transitions: easeInOut 300ms</li></ul><h2 id="300359ae-eb9a-8189-b847-c56bc694d6b7" class="" dir="auto">Accessibility</h2><ul id="300359ae-eb9a-81f8-a881-fca4bf9b8d6a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">4.5:1 contrast minimum</li></ul><ul id="300359ae-eb9a-81a4-ac86-eecf38834b07" class="bulleted-list" dir="auto"><li style="list-style-type:disc">VoiceOver labels</li></ul><ul id="300359ae-eb9a-815b-adde-df4d12e4eb41" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Large text support</li></ul><ul id="300359ae-eb9a-81eb-b51a-cd524136e6cb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Color-independent model identification</li></ul><p id="300359ae-eb9a-816e-8649-e02e40131de4" class="" dir="auto">This design emphasizes speed and clarity for technical users, with innovative split-screen comparison that enables rapid qualitative assessment of model differences.</p></div></details><details id="303359ae-eb9a-80bf-bf28-f919220a514f" open="" class="toggle" dir="auto"><summary>Integrate Text input with Eval moment</summary><div class="indented"><p id="303359ae-eb9a-8061-b726-fa4ff057f992" class="" dir="auto">Como eu poderia melhorar esta tela de maneira menos impositiva, em que ao invés de desabilitar o input de mensagem, que combinasse esta area com a necessidade de que o usuário precisa avaliar as respostas dos dois LLMS para que possa continuar o chat e mandar outras mensagens?</p><p id="303359ae-eb9a-8025-87b6-e202086154ca" class="" dir="auto">Como poderia transformar o text input, usar a area dela, na hora de avaliar as respostas?</p><figure id="303359ae-eb9a-8095-b668-d844d89b68b9" class="image" data-notion-image="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.12.36.png" dir="ltr"><a href="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.12.36.png"><img style="width:336px" src="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.12.36.png"/></a></figure><figure id="303359ae-eb9a-80a1-b65e-d7ded5f2a7c1" class="image" data-notion-image="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.15.08.png" dir="ltr"><a href="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.15.08.png"><img style="width:336px" src="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.15.08.png"/></a></figure><figure id="303359ae-eb9a-80e8-b782-d95fc25f2bac" class="image" data-notion-image="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.15.19.png" dir="ltr"><a href="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.15.19.png"><img style="width:336px" src="Prompt%20library/Captura_de_Tela_2026-02-10_as_11.15.19.png"/></a></figure><p id="303359ae-eb9a-8084-be78-d4d6d3677450" class="" dir="auto">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

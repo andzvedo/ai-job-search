@@ -1,0 +1,787 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Aplications</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="87d74d1f-d2f8-4922-a5a9-7fcc19f3d7fa" class="page sans"><header><h1 class="page-title" dir="auto">Aplications</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="0cbdad51-e257-441b-8631-1b41a024cbb2" class="" dir="auto">
+</p><details id="ded8500e-fc5d-4e0d-91c5-eacf6f68748f" open="" class="toggle" dir="auto"><summary>Job Description</summary><div class="indented"><figure id="5aaf835f-7b00-485c-a85d-0fd2b7fca317" class="image" data-notion-image="Aplications/screencapture-bitso-jobs-2021-02-18-17_33_01.png" dir="ltr"><a href="Aplications/screencapture-bitso-jobs-2021-02-18-17_33_01.png"><img style="width:1167px" src="Aplications/screencapture-bitso-jobs-2021-02-18-17_33_01.png"/></a></figure></div></details><details id="4c8b95be-be37-40b8-8e46-764b4de1e21c" open="" class="toggle" dir="auto"><summary>Recomendation</summary><div class="indented"><h1 id="5b336e06-a6ce-4753-b060-efdd10660ab7" class="" dir="auto">Name &amp; Company</h1><p id="13ed277e-b030-461d-9ec8-3e89f574e8a5" class="" dir="auto">
+</p><p id="24506694-b904-496b-8232-2dbc31cfeaab" class="" dir="auto"><strong>First Name</strong><div class="indented"><p id="72684f58-e72c-4b1e-8bb1-97bb5883ad52" class="" dir="auto">André</p></div></p><p id="133a5749-31b1-45cd-8969-b73287e1f96f" class="" dir="auto">
+</p><p id="f06556cc-dbac-4208-9775-4ab90deb5b03" class="" dir="auto"><strong>Last Name</strong><div class="indented"><p id="a3e25c7c-7112-4bf7-92a7-8006843cd539" class="" dir="auto">Azevedo</p></div></p><p id="666e11af-b919-4f95-888a-fb22698a5655" class="" dir="auto">
+</p><p id="747a7a99-0820-4e48-9697-86bd924ac368" class="" dir="auto"><strong>Current Company</strong><div class="indented"><p id="ee9ac13f-ce9f-455a-bd20-525b2689c104" class="" dir="auto">DevSquad / Emerald Works</p></div></p><p id="984ab527-90a9-43da-bef5-e72c791e3af6" class="" dir="auto">
+</p><p id="dbbe3a18-cda5-4b01-a2d7-1a047a97b40a" class="" dir="auto"><strong>Current Title</strong><div class="indented"><p id="4b3137c5-1a74-42c9-84dc-94e65d3b7c65" class="" dir="auto">Senior Product Designer</p></div></p><h1 id="69c0ea0f-ddea-48c9-ad89-657487757880" class="" dir="auto"><strong>Info</strong></h1><p id="85044c24-286a-4107-8114-f5582fabc153" class="" dir="auto"><strong>Phone</strong><div class="indented"><p id="97b9c1c3-64cd-4177-98f5-1cf671be67c2" class="" dir="auto">+55 16 99705 8077</p></div></p><p id="30b01bbc-dfaa-4c84-9f04-25bf1d71092a" class="" dir="auto">
+</p><p id="097e4961-3669-4fb2-b048-ce4bf7a9d342" class="" dir="auto"><strong>Email:</strong><div class="indented"><p id="e3e2e72d-2003-45e9-acd8-1ed5a781fe7c" class="" dir="auto">andreazeved1@gmail.com</p></div></p><p id="e56187eb-57ba-4ed1-8a0c-3e965a127614" class="" dir="auto">
+</p><p id="8f57f595-01f1-439e-9c01-2c7d27ccf60c" class="" dir="auto"><strong>Social Media links:</strong><div class="indented"><p id="16358e07-2cbf-4ad5-a76f-cbb655fb0803" class="" dir="auto"><a href="https://www.linkedin.com/in/azevedodesign/">https://www.linkedin.com/in/azevedodesign/</a></p><p id="8e9bb563-ffeb-465e-aeda-c156867e512a" class="" dir="auto"><a href="https://www.facebook.com/andzevedo">https://www.facebook.com/andzevedo</a></p></div></p><p id="0a84980b-a5ad-4d11-92a2-8a8ebc060587" class="" dir="auto">
+</p><p id="09ff6e28-4446-4be0-9325-a9bd31894c08" class="" dir="auto"><strong>Websites</strong><div class="indented"><p id="c3bd0e5c-e18b-4bf9-9c5a-17d2ceb4a14d" class="" dir="auto"><a href="https://www.notion.so/peopleand/Hello-I-m-Andre-Azevedo-f287c62f46a643159e1d922f0964bb65">https://www.notion.so/peopleand/Hello-I-m-Andre-Azevedo-f287c62f46a643159e1d922f0964bb65</a></p></div></p><p id="2bfa8338-2feb-4645-9e6f-3186fd34ca7e" class="" dir="auto">
+</p><p id="9d1928be-3b82-40fa-9ff2-94febfa72d84" class="" dir="auto"><strong>Education</strong><div class="indented"><p id="541ade18-58fb-4a7b-bff6-d8308d5751fe" class="" dir="auto"><strong>Specialist in User-Centred Design | Interaction and Service Design</strong></p><p id="8561f338-7fe9-4759-ab3b-62181efc1ebb" class="" dir="auto"><em>Positivo University – São Paulo/SP  - Brazil   - Apr. 2016 – Dec.2017</em></p><p id="ab12d780-13ea-4989-95d9-9ddc9011cc9d" class="" dir="auto">
+</p><p id="f4f5c33e-0272-4e15-b4d2-542a6293dba6" class="" dir="auto"><strong>Bachelor of Graphic Design</strong></p><p id="6979a978-898c-4fd0-832c-719a5b4d3098" class="" dir="auto"><em>Paulista State University “Júlio de Mesquita Filho” - UNESP - Bauru/SP  - Brazil  -</em></p><p id="f206ceb7-ccb5-4d93-a683-f5184cadd521" class="" dir="auto"><em>Mar. 2007 –July 2011</em></p></div></p><h1 id="73f99185-c7c0-47ba-8e4d-a44944503166" class="" dir="auto">Details</h1><p id="654c0b2b-62c2-491f-8472-8f105c3ced8c" class="" dir="auto"><strong>Resume</strong><div class="indented"><p id="f216fa03-484b-4787-9ad7-2617c25675ad" class="" dir="auto"><a href="https://docs.google.com/document/d/1slhXU1D_rpvj6qmE91oyikzPC7fmZZ_HrsKxs8Zp11A/edit?usp=sharing">https://docs.google.com/document/d/1slhXU1D_rpvj6qmE91oyikzPC7fmZZ_HrsKxs8Zp11A/edit?usp=sharing</a></p></div></p><p id="de7b2da6-7868-4cb4-95a6-f2302be2912a" class="" dir="auto">
+</p><p id="c7922902-3220-4e54-948c-ca453f13db6e" class="" dir="auto"><strong>Relationship</strong><div class="indented"><p id="ff6cacd1-69b3-4543-a620-4dd52b475b3d" class="" dir="auto">Co-worker</p></div></p><p id="7669879c-fd25-4bec-ad0b-e107ff2b0f7d" class="" dir="auto">
+</p><p id="365d2c92-f502-4a49-adca-3053f2f7c51b" class="" dir="auto"><strong>Work history</strong><div class="indented"><p id="7bf57a78-d938-45bd-9bfb-c4457920d33a" class="" dir="auto">Couple of months</p></div></p><p id="efc32a86-f97b-4448-973a-12e4cf1d5a88" class="" dir="auto">
+</p><p id="7b7a3085-2bc5-40ea-ad6f-cfcb1113c764" class="" dir="auto"><strong>When we reach out</strong><div class="indented"><p id="d2ad3b31-519a-4c55-a5b1-29283f22becf" class="" dir="auto">???</p></div></p><p id="21873d31-3063-4335-8838-d08eb65ae524" class="" dir="auto">
+</p><p id="7f52c7d5-2de2-43c4-abae-62ad0fc4d185" class="" dir="auto"><strong>They know they&#x27;re being referred</strong><div class="indented"><p id="9f5c46cf-3835-45f4-914c-9781ff30a4b0" class="" dir="auto">Yes</p><p id="d7d6f5f8-316f-4c14-a2be-e7b0d299748c" class="" dir="auto">
+</p></div></p><p id="2f685e2b-2e64-4545-8bd9-f4acc6882d83" class="" dir="auto"><strong>Why are you referrng this person? Explain us</strong><div class="indented"><p id="ea26041a-66d7-4e6c-9006-2674f638f2b0" class="" dir="auto">I&#x27;d like to introduce my friend André as a candidate for the Product Designer role at Bitso. He&#x27;s a great Product Designer and I think that he could be a good fit to Bitso.</p><p id="3625a9c4-c42a-4ef2-9398-6a2a7c943553" class="" dir="auto">
+</p><p id="60aa94e6-c7e9-4796-9f00-30c6c36abb66" class="" dir="auto">We&#x27;ve worked together as Designers for a couple of months at ONOVOLAB, in Brazil, where I had the chance to know him and his design work and process.</p><p id="302ec16a-8454-41c8-89e8-32864dc7196c" class="" dir="auto">
+</p><p id="dfeadebe-5204-4be8-895d-d5a16fdd80ad" class="" dir="auto">He&#x27;ve worked collaboratively with the other peers, always trying to give people room to express their ideas, pain points, and needs, to finally understand their motivations, and then design valuable, empathic, and human-centered solutions.</p><p id="a2bc38e6-2c48-4a80-a58d-e5fd4e27d55c" class="" dir="auto">
+</p><p id="ae4a8ddf-98a5-40e7-b95c-72e60d7219c0" class="" dir="auto">André was very flexible and adaptive with his process, trying to fit the business needs and metrics, using Double Diamond, or Design Thinking, or even Design Sprint in his day-to-day work.</p><p id="5ebed508-d16a-4c75-8623-070045466b21" class="" dir="auto">He was a nice co-worker and a very good friend who really likes to heard people and solve challenges for them.</p></div></p></div></details><details id="86ac0b91-5df5-4ee7-a191-e4e9265ece51" open="" class="toggle" dir="auto"><summary>Job Application</summary><div class="indented"><h3 id="23218828-91b6-49bb-84b9-39fd4948af94" class="" dir="auto">Expected Salary and currency </h3><p id="2ae5de8f-ac05-4d86-bcb5-2825b6c8c5ec" class="" dir="auto">My expected salary is around R$ 16.000,00 - as an employee, or R$ 22.000,00 - as a contractor.  As a Brazilian, if I could receive in Reais, it would be easy. But could be in Dollars as well. Is it within the budget for this role?</p><p id="107b21fb-c1b8-4708-90aa-f44502fef680" class="" dir="auto">
+</p><h3 id="f7926e3b-126b-41be-b141-f9e5ea07e222" class="" dir="auto">Why do you want to be part of Bitso?</h3><p id="010819de-7ca9-4400-b2bc-9e48c26bdcab" class="" dir="auto">The possibility of working at Bitso as a Product Designer reinventing financial services, and empowering people to do more with their money, are things that excited me, and it&#x27;s very much aligned with my personal goal as a Designer, which is to help make technology more human and meaningful for people.</p><p id="6696347d-c8af-4d01-a4c2-c95c78e5a0d2" class="" dir="auto"><br/>I&#x27;m fascinated by the decentralization provided by Blockchain that Crypto has, where it creates a lot of interesting design challenges and new opportunities, and at the same time gives transparency for the financial services.</p><p id="5dea06a4-236b-4b85-bc33-7ac0f0ef3ca0" class="" dir="auto"><br/>Working with Bitso could not only provide me with excellent new challenges to grow as a Product Designer but could allow me to grow as a person too, learning and working remotely with people from other cultures and nationalities without the geographical barriers.</p><p id="b6499b9a-c2bb-42a8-a2e3-4960f4113454" class="" dir="auto">
+</p><p id="64eeb24d-9705-44cd-a7eb-ffb2dd65601d" class="" dir="auto">I don&#x27;t believe crypto is the future, I believe it is the present, and I would love to be part of this journey with Bitso. :D</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Sierra Studio</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="300359ae-eb9a-80e2-a21f-ea5cb6047466" class="page sans"><header><h1 class="page-title" dir="auto">Sierra Studio</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="300359ae-eb9a-80ea-9e59-f022fcadddba" style="display:inline-block">Job Description</h1></summary><div class="indented"><p id="300359ae-eb9a-8080-bede-ccb5d56170dd" class="" dir="auto">Link: <a href="https://wellfound.com/jobs/3544757-senior-product-designer">https://wellfound.com/jobs/3544757-senior-product-designer</a><br/></p><p id="300359ae-eb9a-80d8-83f6-e7a8e7fc560d" class="" dir="auto"><strong>Senior Product Designer</strong></p><p id="300359ae-eb9a-8061-ba77-e0518a68f76d" class="" dir="auto"><strong>🏔️ About Sierra Studio</strong></p><p id="300359ae-eb9a-801e-9778-d9bfd3ced0eb" class="" dir="auto">Sierra Studio is an AI engineering studio and startup incubator – we turn our customers’ ideas into reality! We’re based in Los Angeles, but our teammates live all around the world. We create products across all areas of software — from web and mobile apps to cutting-edge work at the forefront of AI and large language models.</p><p id="300359ae-eb9a-8083-913e-cecbb1e0d33d" class="" dir="auto"><strong>💼 About The Role</strong></p><p id="300359ae-eb9a-80e1-b4f3-f96538d8ead7" class="" dir="auto">We’re hiring a senior product designer to create AI products that are easy to use, beautiful, and push the boundaries of what’s possible. You’ll help chart our course into the future as we evolve our technology, product, and design paradigms. As an early employee at a startup, you’ll also be part of creating our culture!</p><p id="300359ae-eb9a-80c8-ac1c-d33fe0c3026b" class="" dir="auto"><strong>🔎 What you&#x27;ll do in this role</strong></p><ul id="300359ae-eb9a-8043-8d92-ee9378ee6c80" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Contribute to the overall design and product direction of our clients&#x27; products</li></ul><ul id="300359ae-eb9a-80e6-a42a-e6e443268491" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Design and ship high-quality products, from early concepts to high-fidelity prototypes</li></ul><ul id="300359ae-eb9a-803e-bed9-d16388d271f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Work closely with our clients and our team’s engineers and product managers</li></ul><ul id="300359ae-eb9a-80d3-ab89-eb81937c3d27" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conduct user research to better understand customer needs</li></ul><ul id="300359ae-eb9a-8072-8eaf-da70ec83b84d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Help to shape our design culture and grow our team</li></ul><p id="300359ae-eb9a-808e-8aad-e606bbb28040" class="" dir="auto"><strong>🔎 Who We’re Looking For</strong></p><ul id="300359ae-eb9a-80ab-b032-e89c1a65541a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Have 5+ years of experience designing software products</li></ul><ul id="300359ae-eb9a-8096-9651-cb59ae762776" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Have a portfolio showcasing strong critical thinking and UX/UI skills</li></ul><ul id="300359ae-eb9a-8096-8ae0-d575d38c13e9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Excellent taste in products and deep curiosity to understand customer pain points</li></ul><ul id="300359ae-eb9a-8042-ae9c-caa01ea0b4a8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Can think through ambiguous design problems and shape them into a clear vision</li></ul><ul id="300359ae-eb9a-80d1-a016-e53b661a03b7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Possess impactful communication and storytelling skills</li></ul><ul id="300359ae-eb9a-80a9-a527-e77a2afd17a2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Excited about defining how AI products should look and behave</li></ul><ul id="300359ae-eb9a-808e-9968-f11d34fd0fac" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Nice to have: frontend engineering skills (e.g. TypeScript, React)</li></ul><ul id="300359ae-eb9a-802a-aa05-e6d377640c74" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Nice to have: experience designing AI products</li></ul><p id="300359ae-eb9a-8033-9fd3-eca93bc420ed" class="" dir="auto"><strong>💖 Our culture</strong></p><ul id="300359ae-eb9a-8051-8d8c-fd3bd8fa125c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Growth mindset</span>: We look to magnify our strengths, take chances, and always learn from our mistakes.</li></ul><ul id="300359ae-eb9a-800e-b501-c3e0da1236f0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Supportive</span>: We keep our egos out of the workplace and support each other when trying new things.</li></ul><ul id="300359ae-eb9a-8037-be37-d5ea6bdfcbd7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Product &amp; customer centric</span>: We care deeply about our customers and clients and always keep their needs top of mind. We build tech to solve real problems.</li></ul><ul id="300359ae-eb9a-8022-b91f-cfb4fe603bdf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">Ownership</span>: We take initiative, even when it is “not our job.” As a startup, we all wear lots of hats.</li></ul><p id="300359ae-eb9a-80af-9013-ebe14c66e244" class="" dir="auto"><strong>💡 Why join us?</strong></p><p id="300359ae-eb9a-8085-85f7-c6c17bb86f02" class="" dir="auto">At Sierra Studio, we believe in nurturing talent and creating good vibes at work. We seek inclusion and embrace our differences. We’re all about “growth mindset”, and we look to magnify our strengths, take chances, and always learn from our mistakes. We don’t fit our teammates into boxes, and instead we understand that each person has their own unique set of skills that they bring to the table. If you join us, we’ll embrace who you are today, and give you the space and tools to keep growing.</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="300359ae-eb9a-8043-b65d-f8f2960d771c" style="display:inline-block">Description</h1></summary><div class="indented"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-81bd-b14f-dc13c02c4904" style="display:inline-block">Instructions</h3></summary><div class="indented"><p id="300359ae-eb9a-8104-b9e1-dffab89abe4e" class="" dir="auto">Hi André,</p><p id="300359ae-eb9a-8126-94e7-df7407f7e3e8" class="" dir="auto">Thank you for applying to the Senior Product Designer position at Sierra Studio. We were impressed by your application and would like to invite you to the next stage of our hiring process.</p><p id="300359ae-eb9a-8157-b1ae-d0fb2524a041" class="" dir="auto">We&#x27;ve prepared a take-home design challenge that will help us better understand how you approach product problems, make design decisions, and balance user needs with creative solutions. <span style="border-bottom:0.05em solid">The challenge is attached as a PDF to this email and includes all the details you&#x27;ll need to get started.</span></p><p id="300359ae-eb9a-81c8-b06f-f8fd66eda093" class="" dir="auto"><strong>Timeline:</strong> Please submit your completed challenge within one week of receiving this email.</p><p id="300359ae-eb9a-8113-afef-cf03d7d87e3b" class="" dir="auto">We understand that you likely have other commitments, so we&#x27;ve designed this challenge to be completed within a reasonable timeframe. </p><p id="300359ae-eb9a-8103-8bf8-c6e5eb10de7c" class="" dir="auto"><strong>If you need an extension for any reason, please don&#x27;t hesitate to reach out.</strong></p><p id="300359ae-eb9a-81c2-b670-fc8d0d76fbb8" class="" dir="auto"><strong>If you have any questions about the challenge or need clarification on anything, feel free to reply to this email. We&#x27;re here to help ensure you can do your best work.</strong></p><p id="300359ae-eb9a-814d-8017-da62baec7503" class="" dir="auto">We&#x27;re excited to see your approach and looking forward to reviewing your submission!</p><p id="300359ae-eb9a-81a7-aa5e-f78404543405" class="" dir="auto">Best regards,</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-8132-9fed-f3eb02c3211d" style="display:inline-block">Design Challenge</h3></summary><div class="indented"><p id="300359ae-eb9a-8163-b411-f049ff71e8f4" class="" dir="auto"><strong>Scenario</strong></p><p id="300359ae-eb9a-8180-a1e8-da0a0cda6795" class="" dir="auto">Hello! You’ve been hired by a startup to <strong>design a mobile app to compare<br/>different LLMs</strong>. Their target audience is <strong>AI engineers</strong> who want to see how<br/><strong>different models perform on the domain area of their project.</strong></p><h3 id="300359ae-eb9a-8110-b60b-e706b0616b87" class="" dir="auto"><strong>Example use case</strong></h3><p id="300359ae-eb9a-81eb-81bb-d7514b0a8222" class="" dir="auto">An AI engineer at <strong>iFood</strong> wants to compare<strong> OpenAI GPT-5.1</strong> vs. <strong>Google<br/>Gemini 3 Pro </strong>to see which has a better understanding of <strong>Italian cuisine.</strong></p><h3 id="300359ae-eb9a-815f-9549-dc39f42307ae" class="" dir="auto"><strong>Requirements</strong></h3><p id="300359ae-eb9a-81db-b9d2-e54bd5d5273b" class="" dir="auto">A user should be able to</p><ul id="300359ae-eb9a-819f-bb12-ef125e5aeda5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Select which models they want to compare from a list</li></ul><ul id="300359ae-eb9a-8153-a724-eb1f8c957ab4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Chat with all models simultaneously</li></ul><ul id="300359ae-eb9a-81cd-942f-f1d2fab43be0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The user will form their opinion about the models through<br/>conversation (think “vibes” instead of quantitative metrics)</li></ul><ul id="300359ae-eb9a-818b-80be-fc01d8181b8f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Configure the <ul id="300359ae-eb9a-8181-96cd-dfbf56a35f8c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">system prompt, </li></ul><ul id="300359ae-eb9a-817c-831f-e8bc7d05649d" class="bulleted-list" dir="auto"><li style="list-style-type:circle">temperature, </li></ul><ul id="300359ae-eb9a-8121-9e65-c9c7ecf53f27" class="bulleted-list" dir="auto"><li style="list-style-type:circle">and other settings<ul id="300359ae-eb9a-81aa-abd3-de0ce459ef25" class="bulleted-list" dir="auto"><li style="list-style-type:square">Feel free to include other features that you think the user would want</li></ul></li></ul></li></ul><ul id="300359ae-eb9a-81da-be45-f9eb251374ee" class="bulleted-list" dir="auto"><li style="list-style-type:disc">When you’re done, please send us a <strong>Figma</strong> that includes:<ul id="300359ae-eb9a-8097-ae1a-fa5c150dd768" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Your designs for this product</li></ul><ul id="300359ae-eb9a-807f-870b-d7ccf6f9cc8a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Explanation of your process and why you made key design decisions</li></ul><ul id="300359ae-eb9a-808a-b1af-fc964f82bfed" class="bulleted-list" dir="auto"><li style="list-style-type:circle">What you would improve further if this was a real product</li></ul></li></ul><h3 id="300359ae-eb9a-80dd-91f4-d237ffb6ac90" class="" dir="auto"><strong>Assessment</strong></h3><p id="300359ae-eb9a-81b1-abfe-c2aed0c149f5" class="" dir="auto">You’ll be assessed on these criteria:</p><ul id="300359ae-eb9a-8176-a34c-eab374347de6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Critical thinking: how did you make decisions?</li></ul><ul id="300359ae-eb9a-81fe-b6de-c5942a70de2f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Product sense: does the app solve the problem?</li></ul><ul id="300359ae-eb9a-813c-8921-e14a98c9df12" class="bulleted-list" dir="auto"><li style="list-style-type:disc">UX design: is the app intuitive?</li></ul><ul id="300359ae-eb9a-8135-8937-d76da330bb79" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Visual design: does the app look good?</li></ul><ul id="300359ae-eb9a-81b0-a961-d5f60666bfe0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Creativity: how innovative is the solution?</li></ul></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-81d6-b904-f2d71fe6dc10" style="display:inline-block">Breakdown</h3></summary><div class="indented"><ul id="300359ae-eb9a-81f5-bf00-e75923f4a7ce" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Task: <ul id="300359ae-eb9a-817f-87a1-d01f5ed22342" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Design a mobile app to compare<br/>different LLMs</li></ul></li></ul><ul id="300359ae-eb9a-81a5-ac63-f9b66f3920f4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Users: <ul id="300359ae-eb9a-818f-a577-dc0b7687950c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Their target audience is AI engineers who want to see how<br/>different models perform on the domain area of their project.</li></ul></li></ul><ul id="300359ae-eb9a-81ff-8ab6-f2586bd306d4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Deliverables:<ul id="300359ae-eb9a-81ba-971c-e037732cd6c1" class="bulleted-list" dir="auto"><li style="list-style-type:circle">When you’re done, please send us a Figma that includes:<br/>- Your designs for this product<br/>- Explanation of your process and why you made key design decisions<br/>- What you would improve further if this was a real product</li></ul></li></ul></div></details></div></details><h1 id="303359ae-eb9a-80a9-88e7-f6b1a0b4cdb6" class="" dir="auto">Prompts</h1><figure id="303359ae-eb9a-805e-9bd8-dfa4461b873a" class="link-to-page"><a href="Sierra%20Studio/Prompt%20library%20303359aeeb9a805e9bd8dfa4461b873a.html" data-notion-page-id="303359ae-eb9a-805e-9bd8-dfa4461b873a" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Prompt library</a></figure><h1 id="305359ae-eb9a-80e8-843f-e890b855db6a" class="" dir="auto">Design Exercise</h1><figure id="300359ae-eb9a-80ac-8d76-c5415e582823" class="link-to-page"><a href="Sierra%20Studio/Andr%C3%A9%20Azevedo%20Design%20Exercise%20300359aeeb9a80ac8d76c5415e582823.html" data-notion-page-id="300359ae-eb9a-80ac-8d76-c5415e582823" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">André Azevedo Design Exercise</a></figure><p id="300359ae-eb9a-80cb-b5fb-e26901b8da06" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

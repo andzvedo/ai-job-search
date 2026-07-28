@@ -115,12 +115,17 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Staff / Senior Product Designer (AI, data, platform) roles:**
+> Staff Product Designer with 12+ years in design and formal training in Graphic Design and User-Centered Design. Experienced in UX research, UX/UI, and design systems across AI/data platforms, fintech, and B2B SaaS in the USA, Mexico, and Brazil. Recent work includes AI narrative intelligence at Blackbird.ai (including a redesign that cut related support tickets by 39%) and complex fintech product delivery at Bitso.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Fintech / crypto Product Designer roles:**
+> Senior/Staff Product Designer with hands-on fintech delivery: Bitso Card MVP discovery that pivoted rewards to Cryptoback, and B2B institutional onboarding with multi-jurisdiction compliance for 1,900+ customers. Strong in user-centered research, cross-functional collaboration, and design systems for regulated products.
+
+**For UX-led / research-heavy Product Design roles:**
+> Human-centered Product Designer skilled in qualitative and quantitative UX research, journey mapping, and service blueprints. Background spans AI narrative intelligence, fintech, retail B2B SaaS (including Arquivei onboarding with +56% lead-to-trial), and learning products. I use research and usage data to inform strategy, not only interface polish.
+
+**For Brazil remote roles (Portuguese CV profile — translate when drafting):**
+> Product Designer Sênior/Staff com experiência em pesquisa, UX/UI, service design e design systems em fintech, IA/dados e SaaS B2B (EUA, México e Brasil). Busco vagas remotas no Brasil; portfólio em andreazevedo.design.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

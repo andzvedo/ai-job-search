@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>How the Figma design team level set on career leveling</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="7fcdbe37-b4b8-4a71-92f0-a0f1a41584bf" class="page sans"><header><h1 class="page-title" dir="auto">How the Figma design team level set on career leveling</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><figure id="9d21349b-7976-49c7-a597-4e4d27c62350" class="image" data-notion-image="How%20the%20Figma%20design%20team%20level%20set%20on%20career%20leve/61393d5ced020119f375547dac95e9532a078750-4240x2000.png" dir="ltr"><a href="How%20the%20Figma%20design%20team%20level%20set%20on%20career%20leve/61393d5ced020119f375547dac95e9532a078750-4240x2000.png"><img style="width:700px" src="How%20the%20Figma%20design%20team%20level%20set%20on%20career%20leve/61393d5ced020119f375547dac95e9532a078750-4240x2000.png"/></a></figure><p id="1f1fab8d-ef7e-405c-8abe-43a02a85cd6b" class="" dir="auto">When I joined Figma as a design manager in 2021, I wanted to get a better sense for what made a designer successful at the company. I would be hiring soon, and I wanted to set my future team up for success. Everyone seemed to agree: It was all about craft. The problem was, we didn’t all agree on what “craft” meant. Was it about great visual design skills? Amazing prototyping capability? Designers with specialized skills like motion design? Without a clear definition, it was hard to coach and evaluate the team. The only resource we had was an early version of ladders and levels that our head of design put together a few years back. That artifact had served us well as a smaller team, but hadn’t grown with us as the organization expanded to support multiple products and teams. So, I wanted to dig deeper: How did we measure craft at Figma?</p><p id="ee5d6710-1067-40c3-adea-52f06d497bfb" class="" dir="auto">It wouldn’t be a real project without some scope creep, so of course <em>improving our definition of craft</em> snowballed to <em>revamping our entire career ladder</em>. A year later, we&#x27;re excited to share our new <a href="https://www.figma.com/community/file/1220482745322443565/Figma-Product-Design-%26-Writing-Career-Levels"><strong>Figma Product Design &amp; Writing Career Levels</strong></a> and accompanying <a href="https://www.figma.com/community/widget/1207836110040407856/Skills-Chart"><strong>Skills Widget</strong></a>. But first to quickly backtrack—here’s how I took point on bringing our vision to life.</p><h2 id="caa4ecab-a602-4128-9de5-94a4036ee710" class="" dir="auto"><a href="https://www.figma.com/blog/figma-design-team-career-levels/#research-research-and-a-little-inspiration">Research, research, and a little inspiration gathering</a></h2><p id="8aef7d9a-8a10-473d-b7aa-3260b40d37df" class="" dir="auto">As a growing team, with many designers hitting their two- or three-year marks at Figma, it was the perfect time to rethink this fundamental management tool. A new, better career ladder would scale with us for the next few years, allowing managers to make stronger hiring and performance management decisions, and help individual designers on the team understand where to invest in developing their skills.</p><p id="f910c401-99e0-49e6-b745-29b08e443ff8" class="" dir="auto">Our <a href="https://nlevin.com/figma/ladder/">existing career ladder</a> was a one-page Notion document that mapped to each role’s level, including a range of skills: product strategy (to make sure designers were engaging with research, influencing their team’s roadmaps, and understanding core user needs), craft and quality (a designer’s bread and butter), and upleveling others (to encourage mentorship and feedback-giving on the team). My sense was that some of this content was worth keeping.</p><p id="917980c6-f5b5-42ee-8c1d-aa5a809882c4" class="" dir="auto">I also wanted to get input from designers across Figma about what they’d like to see in an updated career ladder. These documents can carry a lot of weight, particularly with those who pore over what’s expected of them at their level (or the next level). I also knew our wider team would likely have some smart suggestions about the content and format for the ladder.</p><p id="ce80dfc4-e680-4440-b333-0b474c151121" class="" dir="auto">I sent out a basic survey to get started, asking questions like:</p><ul id="c14cdc0a-f134-41c6-af66-15b6dd13e3ae" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How are you using the existing career ladder today?</li></ul><ul id="aa0ce2fd-13d3-43ce-8c9e-2f37c2b113db" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What questions do you want an updated career ladder to answer?</li></ul><ul id="657463ea-2a55-42f9-8458-3cd696096fbf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Anything you like about the current ladder you’d like to keep?</li></ul><ul id="42e1c90f-b4e3-4173-84ad-37746ee3e39e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What other strong examples of levels or ladders have you seen?</li></ul><p id="ab0c092e-d20b-4e76-890d-044999401633" class="" dir="auto">Our team was, of course, extremely thoughtful and helpful in their responses. The main themes we heard were:</p><ul id="e1f6704c-d24a-4470-90fe-6bc37fbfc6cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>A desire for more detail. </strong>Phrases like “can handle complex product challenges” weren’t specific enough or were too subjective to be helpful in performance and growth conversations. The team had a clear hunger for more concrete examples.</li></ul><ul id="ab601c24-33ad-479b-94df-620e3d4fb2ae" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>A need for clarity around senior levels. </strong>Designers can tend to be spikier in their skillset, or more “<a href="https://www.thedesignerstoolbox.com/learn-ux/t-shaped-designer/">T-shaped</a>,” as they get more senior. The team wanted us to make an explicit call on how we saw promotion and hiring at those levels. Did we want to continue to require someone to be excellent across the board as their seniority grew, or did we want to reward the natural specialization that often occurs?</li></ul><ul id="9c8e7920-ca31-47f0-9715-e442372b620c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Craft, craft, craft. </strong>As expected, we saw a strong theme around articulating what good craft looked like at each level in a more robust way, and teasing out which skills made up a strong craftsperson.</li></ul><p id="43492cfc-2816-4ae0-9345-7dfc439c597f" class="" dir="auto">Delightfully, we also got some great suggestions for other ladders as inspiration. Several folks referenced Slack’s (which I worked on previously), <a href="https://github.com/buzzfeed/design/blob/master/product-design-roles.md">Buzzfeed’s</a>, Meta’s, and <a href="https://basecamp.com/handbook/appendix-02-titles-for-designers">Basecamp’s</a>. A designer on the team (<a href="https://www.linkedin.com/in/shanahu">Shana Hu</a>) took the time to break down her feedback on the existing ladder extensively, and propose a new, more visual format using FigJam.</p><p id="ff1bece4-499e-451b-a89e-07a58cf7e33e" class="" dir="auto">Shana broke down her feedback and proposed a new visual format using FigJam</p><h2 id="9be51734-bbf2-4bb4-9e97-24edd37c7168" class="" dir="auto"><a href="https://www.figma.com/blog/figma-design-team-career-levels/#first-draft-plus-feedback">First draft (plus feedback)</a></h2><p id="0ee04133-3320-44b3-a3c8-eef67c53fe2c" class="" dir="auto">As I drafted, I looked deeply at examples across the industry, and asked the rest of our management team for help sourcing even more. We pulled together an inspiration board (in FigJam, of course) of all the artifacts we liked. Combing through these, a few approaches I liked were: (1) Grouping skills by area, (2) Ditching “ladder” language in lieu of “stages” or “levels”—which better reflect the rambling, nonlinear path most people take in their career, and (3) Visualizing the information so that it was easier to scan and understand, which we thought we could achieve by using FigJam.</p><p id="f8a9ef68-7717-4f3b-ab8d-7505146fb38b" class="" dir="auto">I put together a proposal of <strong>four core skill areas </strong>and the skills I thought should be included in each. Craft, of course, would be top of mind due to its importance to our team; a category around “product,” encompassing vision, strategy, and research was also essential. Finally, I wanted there to be a couple of skill areas that would be translatable across the functions on our team, which includes specialties like design operations and UX writing. Here’s our final list:</p><ol type="1" id="fa87e6ef-91c6-4f2d-ab19-660b6cfaec7c" class="numbered-list" start="1" dir="auto"><li>Product Strategy: Defining requirements, research, vision</li></ol><ol type="1" id="4126c4cf-ef9e-4aba-a40b-0a7679fa17a3" class="numbered-list" start="2" dir="auto"><li>Collaboration: Communication, process and feedback, mindset</li></ol><ol type="1" id="2497c519-6c82-40c9-9b0d-f65794fd9d5a" class="numbered-list" start="3" dir="auto"><li>Craft: Visual design, interaction design and prototyping, systems design</li></ol><ol type="1" id="37f0de58-cde1-4ee1-8baf-e0feeddf57df" class="numbered-list" start="4" dir="auto"><li>Impact: Business impact, leadership, design citizenship</li></ol><p id="48697917-d73e-4e11-afd4-8b19e4282ee1" class="" dir="auto">I started putting these into a similar visual format to the one Shana had proposed, and soon I was ready to bring a draft of the overall framework to <a href="https://www.figma.com/blog/design-critiques-at-figma/">a crit</a> with the rest of the design management team.</p><figure id="536469a6-04cc-4fd8-bc8b-287c7335edaa" class="image" data-notion-image="How%20the%20Figma%20design%20team%20level%20set%20on%20career%20leve/8bc21fcca73dce9b26f60422c9acd9459872a3fd-3200x2264.png" dir="ltr"><a href="How%20the%20Figma%20design%20team%20level%20set%20on%20career%20leve/8bc21fcca73dce9b26f60422c9acd9459872a3fd-3200x2264.png"><img style="width:700px" src="How%20the%20Figma%20design%20team%20level%20set%20on%20career%20leve/8bc21fcca73dce9b26f60422c9acd9459872a3fd-3200x2264.png"/></a></figure><p id="190fdca6-3779-444c-bf65-549fb35b2912" class="" dir="auto">The overall skill areas landed well with the other managers, and they offered some great feedback on places where skills could be consolidated. We also had really rigorous (and fun!) debates on certain skills: Did we want to incentivize hiring specifically, since we were a growing team? Were we sure “systems design” was widely understood and needed to be reflected explicitly in a levels document? Where did “communication” fall as a skill, since there were so many places it impacted work? How should we capture the old ladder’s sentiments around rewarding a focus on quality not only in one’s own work, but across all of Figma’s products?</p><p id="a0965ad0-ee9a-4a7b-a839-7547fb597e39" class="" dir="auto">As designers know, for big projects, one crit is never enough—so I made some heavy revisions and brought these drafts back to our managers a couple more times. Together we honed our framework, riffed on individual skill descriptions, and developed an onboarding section to help designers understand how to use the career levels. We solicited more feedback from outside of our team, which pushed us to go even deeper: Clarifying how we saw skills changing for senior designers, adding summaries for each level, reducing bias, and, yes, further defining &quot;craft&quot; were all important to get right before launching officially.</p><h2 id="7d03a2c8-de1b-4a17-b314-15ba235ddc35" class="" dir="auto"><a href="https://www.figma.com/blog/figma-design-team-career-levels/#more-drafts-and-sharing-more-broadly">More drafts—and sharing more broadly</a></h2><p id="9f983041-b0ec-4d66-bb9d-c0de58e1aa9b" class="" dir="auto">In terms of timing, we felt ready to roll out the new levels to the team more broadly in May 2022 (a full year after kicking off this work). We wanted to land it early in a performance cycle, so that our team didn’t feel like they were surprised with new information right before reviews. We also wanted the tool to encourage a more dynamic conversation between managers and reports. Noah Levin, our head of design, iterated on the <a href="https://www.figma.com/community/file/1220482745322443565/Figma-Product-Design-%26-Writing-Career-Levels">visual format for the file</a> and developed a <a href="https://www.figma.com/community/widget/1207836110040407856/Skills-Chart">FigJam widget</a> that would allow for easy (and delightful) self-assessments and performance reviews.</p><p id="b50f2dfa-ffe0-49ee-87c3-6c3d8ef585a5" class="" dir="auto">With the internal announcement, I reiterated <em>why</em> we’d taken on this project and <em>what</em> we hoped this work would contribute to career growth conversations for all designers at Figma. The biggest differences? Streamlining our previous ladder from seven nebulous to four clear-cut categories (Strategy, Craft, Collaboration, Impact), as well as improving clarity through better definitions, concrete examples, and visual infographics. We’ve gone through one performance cycle with these new levels since launching, and iterated on formats for giving feedback in FigJam using the widget. The goal is for every manager to have regular career conversations with their reports, and we’ve suggested (but not mandated) that the levels document be referenced in those meetings.</p><p id="c82aef36-fcec-4678-8baf-49435e96d28c" class="" dir="auto">Noah built a career levels widget</p><p id="66fbd003-19c5-4d41-8e61-21362fff0bef" class="" dir="auto">In my experience, many companies have broad or vague prompts for their feedback cycles, so it’s been particularly rewarding as a manager to tie performance feedback so closely to our stated expectations. The new format in FigJam also allows us to make these expectations much more visual and easy to understand at a glance. It feels nice to be able to leverage a more flexible open-ended canvas to include screenshots for context and, most interestingly, to “jam” together with my reports on ideas for growth with sticky notes and tables. We even ended up using this format for <a href="https://www.figma.com/community/file/1211826259718374762">performance reviews</a> and <a href="https://www.figma.com/community/file/1211829045906527598">calibration</a> across the design organization as a whole. FigJam allows all people managers a bird’s-eye view of every designer’s completed skills chart, which makes it easier to understand performance as a whole and guide conversation efficiently.</p><p id="d39cbd55-a708-4e5c-b8dc-46bb540823ee" class="" dir="auto">Career levels are always living documents, so we’re still soliciting feedback on ours, and will surely need to update it in the future as our team continues to grow. We know we need to think about how it intersects with <a href="https://www.figma.com/careers/">Figma’s values</a> more carefully, and have plans for adapting it into an artifact we can use for when assessing candidates for hiring decisions as well. We also plan to add manager career level descriptions here, for transparency and accountability to the whole team. This kind of work is never quite “done”—<a href="https://www.figma.com/blog/welcome-to-the-wip/">like any digital project</a>—but we’re so happy with the improvements we’ve made so far, and excited to share our work with the community and see how it’s further adapted.</p><p id="8a184bd8-3908-471a-9d8b-9aab466aa143" class="" dir="auto"><em>Check out our final </em><a href="https://www.figma.com/community/file/1220482745322443565/Figma-Product-Design-%26-Writing-Career-Levels"><em>Figma Product Design &amp; Writing Career Levels</em></a><em> (and </em><a href="https://www.figma.com/community/widget/1207836110040407856/Skills-Chart"><em>widget</em></a><em>), and let us know what you think!</em></p><h2 id="7390cecc-3e2c-4eaf-bc5c-1fd9e31bba3b" class="" dir="auto">Related Content</h2><p id="2b9eb7a5-24c5-4a72-9ff5-2cb4e065c0f0" class="" dir="auto"><a href="https://www.figma.com/blog/design-critiques-at-figma/">Noah Levin | September 4, 2019Design critiques at FigmaLearn 6 unique methods for design critique used by the Figma design team, along with some tips and best practices for running them effectively.</a></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

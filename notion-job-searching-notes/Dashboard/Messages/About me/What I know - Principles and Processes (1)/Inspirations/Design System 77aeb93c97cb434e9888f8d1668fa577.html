@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Design System</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="77aeb93c-97cb-434e-9888-f8d1668fa577" class="page sans"><header><h1 class="page-title" dir="auto">Design System</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="e88b7407-02b3-4aa3-b153-51ecaa403d5b" class="" dir="auto">Foundation</h1><p id="46704d8b-cc11-46e9-8ff6-00bfefa04d02" class="" dir="auto">For <code>inspiration</code> it&#x27;s good to look others Figma Files and mainly files as Playbooks from <a href="https://www.figma.com/community/file/832911648132248625"><code>Spotify</code></a> and <a href="https://www.figma.com/community/file/865712003986807756"><code>Gitlab</code></a>, where they share their mindset with the community.</p><h1 id="1799ebe2-e5b4-4a28-9331-0a08538e2088" class="" dir="auto">References</h1><h3 id="33a87e6a-80cb-4d7f-9b1d-89e5cd9edf5b" class="" dir="auto">Agnostic Design System</h3><figure id="2f7a5ad0-c9fd-4699-abf9-caeafd95394b" dir="ltr"><a href="https://bradfrost.com/blog/post/managing-technology-agnostic-design-systems/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Managing Technology-Agnostic Design Systems</div><div class="bookmark-description">Users don&#x27;t care that one UI is built by Team A and another is built by Team B. Users don&#x27;t care if for one project the team followed a scrum process, while another project followed a kanban process. Users don&#x27;t care if React is powering this feature while Angular is powering another.</div></div><div class="bookmark-href"><img src="http://bradfrost.com/favicon.ico" class="icon bookmark-icon"/>https://bradfrost.com/blog/post/managing-technology-agnostic-design-systems/</div></div><img src="http://bradfrost.com/wp-content/uploads/2017/04/tech-bubbles.png" class="bookmark-image"/></a></figure><figure id="50578a5b-4084-4ac9-a283-9b14becf9225" dir="ltr"><a href="https://medium.com/salesforce-ux/beyond-components-a-design-system-to-support-multiple-frameworks-cb1e4d511f66" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Beyond Components: A Design System to Support Multiple Frameworks</div><div class="bookmark-description">So how did we build a design system that meets all of these needs? Most modern design systems are made up of reusable programmatic components, assembled in one or more functional markup languages and built on specific front-end application frameworks. But what happens when a system must support multiple application frameworks?</div></div><div class="bookmark-href"><img src="https://cdn-static-1.medium.com/_/fp/icons/favicon-rebrand-medium.3Y6xpZ-0FSdWDnPM3hSBIA.ico" class="icon bookmark-icon"/>https://medium.com/salesforce-ux/beyond-components-a-design-system-to-support-multiple-frameworks-cb1e4d511f66</div></div><img src="https://miro.medium.com/max/1200/1*h2UKUpA0wTmz4DAJyWDNJg.jpeg" class="bookmark-image"/></a></figure><figure id="8e9c2f81-c52e-47f8-9003-12afaf4adddb" dir="ltr"><a href="https://hackernoon.com/design-systems-should-be-javascript-framework-agnostic-2a0c47129ec8" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Design Systems Should be JavaScript Framework Agnostic | Hacker Noon</div></div><div class="bookmark-href"><img src="https://hackernoon.com/favicon.ico" class="icon bookmark-icon"/>https://hackernoon.com/design-systems-should-be-javascript-framework-agnostic-2a0c47129ec8</div></div><img src="https://hackernoon.com/Devimg/story-image-default.png" class="bookmark-image"/></a></figure><figure id="61a35ce5-d2d6-4827-ae47-66fb2aa3d2ee" dir="ltr"><a href="https://uxplanet.org/how-to-create-a-design-system-for-white-label-apps-5350551ccf78" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">How to create a design system for white label apps</div><div class="bookmark-description">For the past two years, I have been working on a design system for Brightloom&#x27;s white label app business. Unlike most of design systems, it also needs to be highly rebrandable, scaleable, and accessible. A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build a variety of applications.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*yCwNxLbyLoSw_NMnqGop0Q.png" class="icon bookmark-icon"/>https://uxplanet.org/how-to-create-a-design-system-for-white-label-apps-5350551ccf78</div></div><img src="https://miro.medium.com/max/1200/1*gxq7TLuNY85n704AuE3mwg.png" class="bookmark-image"/></a></figure><h3 id="3bad47dd-ba31-41ac-ac51-0c5c9150e455" class="" dir="auto"><strong>Frameworks</strong></h3><figure id="ce0ae5b2-e0f2-47d7-8043-4f3e6bca305d" dir="ltr"><a href="https://stenciljs.com/docs/stencil-for-design-systems" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Stencil for Design Systems - Stencil</div><div class="bookmark-description">There&#x27;s a lot that goes into creating amazing UI components. Performance, accessibility, cross-platform capabilities, and user experience (not only of the UI component itself but how it fits into the entire design system) all must be considered. These aspects take real effort to do well.</div></div><div class="bookmark-href"><img src="https://stenciljs.com/assets/icon/favicon.ico" class="icon bookmark-icon"/>https://stenciljs.com/docs/stencil-for-design-systems</div></div><img src="https://stenciljs.com/assets/img/stenciljs-og.png" class="bookmark-image"/></a></figure><h3 id="e64b3708-c088-4fef-990f-b524b9eeaf3a" class="" dir="auto"><strong>Web Components</strong></h3><figure id="03061493-de89-4dad-a7eb-5b70816950db" dir="ltr"><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Web Components</div><div class="bookmark-description">As developers, we all know that reusing code as much as possible is a good idea. This has traditionally not been so easy for custom markup structures - think of the complex HTML (and associated style and script) you&#x27;ve sometimes had to write to render custom UI controls, and how using them multiple times can turn your page into a mess if you are not careful.</div></div><div class="bookmark-href"><img src="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png" class="icon bookmark-icon"/>https://developer.mozilla.org/en-US/docs/Web/Web_Components</div></div><img src="https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png" class="bookmark-image"/></a></figure><h3 id="d952c8e8-d854-40c0-b895-1d2b2015b62a" class="" dir="auto"><strong>Design Systems Inspiration</strong></h3><figure id="dd26de57-54e8-4cac-a164-d989bd09dc2e" dir="ltr"><a href="https://www.gov.uk/guidance/government-design-principles#design-with-data" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Government Design Principles</div><div class="bookmark-description">Service design starts with identifying user needs. If you don&#x27;t know what the user needs are, you won&#x27;t build the right thing. Do research, analyse data, talk to users. Don&#x27;t make assumptions. Have empathy for users, and remember that what they ask for isn&#x27;t always what they need.</div></div><div class="bookmark-href"><img src="https://www.gov.uk/assets/static/favicon-8d811b8c3badbc0b0e2f6e25d3660a96cc0cca7993e6f32e98785f205fc40907.ico" class="icon bookmark-icon"/>https://www.gov.uk/guidance/government-design-principles#design-with-data</div></div><img src="https://www.gov.uk/assets/static/opengraph-image-a1f7d89ffd0782738b1aeb0da37842d8bd0addbd724b8e58c3edbc7287cc11de.png" class="bookmark-image"/></a></figure><figure id="0a25acaf-f43d-49c3-85d6-49713f2bf894" dir="ltr"><a href="https://developer.microsoft.com/en-us/fluentui#/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Home - Fluent UI</div><div class="bookmark-description">The official front-end framework for building experiences that fit seamlessly into Microsoft 365.</div></div><div class="bookmark-href"><img src="https://developer.microsoft.com/favicon.ico" class="icon bookmark-icon"/>https://developer.microsoft.com/en-us/fluentui#/</div></div></a></figure><h3 id="ad627fc7-7a02-4c88-ad1a-317c8565e4a5" class="" dir="auto"><strong>Resources</strong></h3><figure id="7b6f7db0-de69-4e85-89b3-d2f80ff29886" dir="ltr"><a href="https://www.designsystemsforfigma.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Design Systems For Figma</div><div class="bookmark-description">A collection of Design Systems for Figma from all over the globe.</div></div><div class="bookmark-href"><img src="https://assets.website-files.com/5f08a6a4b22d4a7ca3b0b630/5f08b1ccb02511bcda01b7a2_favicon-32.png" class="icon bookmark-icon"/>https://www.designsystemsforfigma.com/</div></div><img src="https://assets.website-files.com/5f08a6a4b22d4a7ca3b0b630/5f18a5844db54c3e79853bca_OG-image-main.png" class="bookmark-image"/></a></figure><h3 id="7acf5355-6765-4889-86c9-c5d1b8641ea5" class="" dir="auto"><strong>Articles</strong></h3><figure id="123faaee-3f53-481f-8b3c-bb2d1cec73a2" dir="ltr"><a href="https://blog.bitsrc.io/7-tools-for-building-your-design-system-in-2020-452d9c9b3b8e" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">7 Tools for Building Your Design System in 2020</div><div class="bookmark-description">Legend has it that the first design system was introduced by NASA in 1976. Since then, design systems turned into a widely common practice used to standardize design and development of a visual language in multiple instances across different teams, projects and applications.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*ds6iXWSFwycgEjbhZiCB4A.png" class="icon bookmark-icon"/>https://blog.bitsrc.io/7-tools-for-building-your-design-system-in-2020-452d9c9b3b8e</div></div><img src="https://miro.medium.com/freeze/max/800/1*UPtMMr8C5HRNQHjMHlizSg.gif" class="bookmark-image"/></a></figure><h3 id="54a4c21e-1e33-43bb-8013-553d56e31416" class="" dir="auto"><strong>Books and Literature</strong></h3><figure id="4cc6bd47-1b58-4fd1-925c-56bb817b0756" dir="ltr"><a href="https://www.designbetter.co/design-systems-handbook/building-design-system" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Design Systems Handbook</div><div class="bookmark-description">Modern design systems are the result of many years of evolution in the way we write front-end code. When I started my career, most sites were built with single-use, inefficient, fragile, and inconsistent front-end codebases. Through hard-won experience and many years of collaboration and iteration, front-end developers have established more sophisticated practices for writing and organizing our code.</div></div><div class="bookmark-href"><img src="https://www.designbetter.co/static/img/favicon@2x.png" class="icon bookmark-icon"/>https://www.designbetter.co/design-systems-handbook/building-design-system</div></div><img src="https://s3.amazonaws.com/designco-web-assets/uploads/2017/11/figure1-v2-min.jpg" class="bookmark-image"/></a></figure><figure id="d6b0f009-f30d-4ab4-885c-9d42cba9cc71" dir="ltr"><a href="https://www.uxpin.com/create-design-system-guide" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Design Systems: Step-by-Step Guide to Creating Your Own</div><div class="bookmark-description">Design is more important than ever - and design systems have become a huge piece of what makes a company or product successful, especially in the hyper-competitive global software market. These companies have historically relied only on user experience as a key differentiator. This demand for better experiences puts immense pressure on designers across the globe.</div></div><div class="bookmark-href"><img src="https://www.uxpin.com/images/favicon.ico" class="icon bookmark-icon"/>https://www.uxpin.com/create-design-system-guide</div></div><img src="https://www.uxpin.com/images/homepage/ebooks/creating-a-design-system/og-image.jpg" class="bookmark-image"/></a></figure><figure id="230652d7-0e0e-4cc5-85ef-f237e3141617" dir="ltr"><a href="https://www.uxpin.com/studio/blog/youre-creating-design-system-read-6-books/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">If You&#x27;re Creating a Design System, Read These 6 Books</div><div class="bookmark-description">At UXPin, we&#x27;ve spent the past few weeks building a Design System Solution (try it first with the early access program): ...as well as building our own design system. Design systems are complicated beasts. They require a change in the way we think about design, the way we structure our teams and run our processes.</div></div><div class="bookmark-href"><img src="https://studio.uxpincdn.com/studio/wp-content/themes/uxpin-juggernaut/img/favicon.ico" class="icon bookmark-icon"/>https://www.uxpin.com/studio/blog/youre-creating-design-system-read-6-books/</div></div><img src="https://studio.uxpincdn.com/studio/wp-content/uploads/2017/05/Screen-Shot-2017-05-26-at-8.24.00-PM.png" class="bookmark-image"/></a></figure><figure id="ed6ef460-21c9-4f27-927d-ab7dfed86a1c" dir="ltr"><a href="https://xd.adobe.com/ideas/wp-content/uploads/2020/03/Invent_with_Idean_Hack_the_design_system_1st_edition.pdf" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">https://xd.adobe.com/ideas/wp-content/uploads/2020/03/Invent_with_Idean_Hack_the_design_system_1st_edition.pdf</div></div></a></figure><figure id="c9d1c628-23ad-4778-9e6f-d6169c33d8b0" dir="ltr"><a href="https://www.learnstorybook.com/design-systems-for-developers/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Design Systems for Developers</div><div class="bookmark-description">A guide that teaches professional developers how to transform component libraries into design systems and set up the production infrastructure used by leading frontend teams. Table of Contents React Follow along as we code a design system that&#x27;s inspired by Storybook&#x27;s own.</div></div><div class="bookmark-href"><img src="https://www.learnstorybook.com/icon-storybook.png" class="icon bookmark-icon"/>https://www.learnstorybook.com/design-systems-for-developers/</div></div><img src="https://learnstorybook.com/design-systems-for-developers/opengraph-cover.jpg" class="bookmark-image"/></a></figure><h3 id="66f513bf-2a2c-400d-ae7c-39d36b6c53d5" class="" dir="auto"><strong>Accessibility</strong></h3><figure id="5b709b40-0da0-473e-a60a-d90b313b2e06" dir="ltr"><a href="https://medium.com/eightshapes-llc/accessible-design-systems-dont-guarantee-accessible-products-3478e3a462ba" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">&quot;Accessible&quot; Design Systems Don&#x27;t Guarantee Accessible Products</div><div class="bookmark-description">In late 2016, I helped pitch a design system all the way up to executives that included the CEO, COO, CPO, Head of Design, and other peers. The pitch&#x27;s mood shifted when accessibility came up: &quot;Oh, our teams will make accessible products if they use the system? Sold!&quot;</div></div><div class="bookmark-href"><img src="https://cdn-static-1.medium.com/_/fp/icons/favicon-rebrand-medium.3Y6xpZ-0FSdWDnPM3hSBIA.ico" class="icon bookmark-icon"/>https://medium.com/eightshapes-llc/accessible-design-systems-dont-guarantee-accessible-products-3478e3a462ba</div></div><img src="https://miro.medium.com/max/1200/1*SgltNph5qroWshYAU3N0Cg.png" class="bookmark-image"/></a></figure><figure id="657c6c45-ab6c-414d-864b-6d54482926c5" dir="ltr"><a href="https://www.carbondesignsystem.com/guidelines/accessibility/overview/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Accessibility</div><div class="bookmark-description">Accessible design not only helps users with disabilities; it provides better user experiences for everyone. An accessible product should: Give all users the same quality of experience Adapt to users and situations Carbon components follow the IBM Accessibility Checklist which is based on WCAG AA, Section 508, and European standards.</div></div><div class="bookmark-href"><img src="https://www.carbondesignsystem.com/favicon-32x32.png?v=4f1475528ba6e374dbebcd6877034ef5" class="icon bookmark-icon"/>https://www.carbondesignsystem.com/guidelines/accessibility/overview/</div></div><img src="https://www.carbondesignsystem.com/static/ogimage-324e43fd3b74f4ece4582018a067eb27.png" class="bookmark-image"/></a></figure><figure id="66b4f27c-fc1e-4dc7-9f20-02cafac06a07" dir="ltr"><a href="https://design-system.service.gov.uk/accessibility/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Accessibility</div><div class="bookmark-description">The GOV.UK Design System website and the codebase it uses, GOV.UK Frontend, is maintained by a team at the Government Digital Service (GDS). This page explains how the team works to ensure the Design System and Frontend are accessible. The GOV.UK Design System team wants as many people as possible to be able to use this website.</div></div><div class="bookmark-href"><img src="https://design-system.service.gov.uk/assets/images/favicon.ico" class="icon bookmark-icon"/>https://design-system.service.gov.uk/accessibility/</div></div><img src="https://design-system.service.gov.uk/assets/images/govuk-opengraph-image.png" class="bookmark-image"/></a></figure><h3 id="85f3aa43-cd5c-489d-9f6b-b6779b2c9de7" class="" dir="auto"><strong>Naming</strong></h3><figure id="5481aed7-9e0d-4091-b6df-b633a8f3159e" dir="ltr"><a href="http://getbem.com/naming/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">BEM - Block Element Modifier</div><div class="bookmark-description">There are only two hard problems in Computer Science: cache invalidation and naming things - Phil Karlton Encapsulates a standalone entity that is meaningful on its own. While blocks can be nested and interact with each other, semantically they remain equal; there is no precedence or hierarchy.</div></div><div class="bookmark-href"><img src="http://getbem.com/assets/favicon.png" class="icon bookmark-icon"/>http://getbem.com/naming/</div></div><img src="http://getbem.com/assets/bem_black.png" class="bookmark-image"/></a></figure><h3 id="910fc671-b329-48c8-925f-10f2bd630b05" class="" dir="auto">Tools</h3><figure id="4676ee39-1a1c-4341-b003-16b5ae749b2e" dir="ltr"><a href="https://www.chromatic.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Automatically review, test, and document Storybook</div><div class="bookmark-description">We make tools for frontend developers that automate the Storybook workflow. Chromatic helps you gather UI feedback, test across browsers, and generate usage docs, all in one shared cloud workspace.</div></div><div class="bookmark-href"><img src="https://www.chromatic.com/static/favicon/favicon-default.png" class="icon bookmark-icon"/>https://www.chromatic.com/</div></div><img src="https://www.chromatic.com/static/open-graph/og-home.jpg" class="bookmark-image"/></a></figure><h3 id="a598d712-7dad-4ab5-b196-77f5309107c7" class="" dir="auto">QA</h3><figure id="89ffb3ef-5891-4df0-b5c8-6ca32a8b92a2" dir="ltr"><a href="https://blog.prototypr.io/unboxing-a-design-system-component-a-step-by-step-guide-to-quality-assurance-106df86b60d6" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Unboxing a Design System Component. A step by step guide to Quality Assurance</div><div class="bookmark-description">The first box is the biggest one. This step is about providing us with a sense of location for that component and a whole overview of the system. How the changes we want to apply to the part will impact the whole.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/fit/c/256/256/1*qyQKDMMD6-X_8biF_U-N-g.png" class="icon bookmark-icon"/>https://blog.prototypr.io/unboxing-a-design-system-component-a-step-by-step-guide-to-quality-assurance-106df86b60d6</div></div><img src="https://miro.medium.com/max/1200/1*sx3mrVmS3t7wnWbrvZDIQQ.png" class="bookmark-image"/></a></figure><p id="026787fa-cfd6-4b4d-8304-ce992892556a" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

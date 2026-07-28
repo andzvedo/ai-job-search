@@ -1,0 +1,778 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Professional Experience - Gigantic document and notes</title><meta name="data-notion-page-icon" content="⭐"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%AD%90%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3b6cda9a-1d4e-44cc-8827-24402a94ecef" class="page sans" data-notion-page-icon="⭐"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="⭐"></span></div><h1 class="page-title" dir="auto">Professional Experience - Gigantic document and notes</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="522d00d6-e55f-491c-b928-baed3a498177" class="" dir="auto">B2B cover letter</h1><p id="6a6a0be8-5d56-4b01-b2b4-971bb0edbf2b" class="" dir="auto">Hi there! I&#x27;m André, a Product Designer hailing from Araraquara, Brazil. My passion lies in crafting meaningful digital experiences through a holistic, human-centered design approach.</p><p id="68ae7ae1-baab-4ec0-bb9b-f48d73ed58cb" class="" dir="auto">My background in Graphic Design, coupled with a specialization in User-Centered Design, allows me to delve into the intricacies of product thinking, UX research, and service design. My work extends beyond the screen, aiming to understand and solve the core challenges users face in their interactions.</p><p id="0aa89ef2-cead-44e3-9dc7-d159c837ab7b" class="" dir="auto">Throughout my B2B career, the challenge of limited user access has shaped my user research approach. To bridge this gap, I&#x27;ve fostered strong relationships with Marketing, Sales, and Customer Success teams. Their invaluable insights into market trends and customer behavior have allowed me to conduct focused and insightful research, transforming limited access into a deeper understanding of user needs.</p><p id="8f792bcd-0156-4fcb-b394-5a778646b080" class="" dir="auto">Collaborating with these teams has refined my research methods, making them more detailed and focused. I combine direct user interaction, whenever feasible, with indirect data analysis from reports and team feedback. This comprehensive approach ensures my design choices closely align with user needs, even within the unique constraints of the B2B world.</p><p id="7a919248-2562-425a-9ecf-b10d9d8e050a" class="" dir="auto">In addition to user flows, wireframes, and high-quality interactive prototypes, I also believe in a more holistic approach based on service design principles. This means visualizing user journeys to find ways to create integrated and valuable experiences across different channels and touch-points.</p><p id="91695f38-7a7f-4853-91cf-cd6340c94095" class="" dir="auto">Thank you for your time and consideration. I&#x27;m happy to discuss how my skills and experience can contribute to Zuva team&#x27;s success.</p><p id="57949677-fd69-4f32-a442-cc87d8052790" class="" dir="auto">Best regards,<br/>André Azevedo</p><h1 id="a7f474c9-cef0-4c13-9217-e1a9d48a008d" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto">💎💠 Polish content</h1><h3 id="af829b43-5824-4a97-98d7-bd064f1ccdf0" class="" dir="auto">Version 1</h3><hr id="aa2bb1fc-472b-4916-a0dd-6a1e1013fdda" dir="auto"/><h1 id="7425ae8e-fc52-4cfa-8844-91c694c9ee69" class="" dir="auto">André Azevedo - Brazilian Product Designer</h1><h2 id="e4cbc10b-6425-40b3-9321-29bfe7a25db9" class="" dir="auto"><strong>About Me</strong></h2><p id="06238243-aac2-4f95-9679-11be2ed0b269" class="" dir="auto">Hello, I&#x27;m André, a Product Designer from Araraquara, Brazil. I specialize in creating meaningful digital experiences through a holistic, human-centered design approach. </p><p id="9d4ca0ce-09e0-4208-97e8-5438ea43513c" class="" dir="auto">My journey in design began with my passion for booth art and problem-solving, leading me to a career where I can blend creativity with functionality. </p><p id="6031be90-31d2-4e13-b889-a0d6da763c1a" class="" dir="auto">With a background in Graphic Design, and a specialization in User-Centered Design, I&#x27;ve dedicated myself to mastering the intricacies of product thinking, UX research, and service design. My work transcends screens, aiming to deeply understand and solve the real challenges users face in their interactions.</p><h2 id="ee91da10-69d7-4b8e-a3ed-b468e38abc6c" class="" dir="auto"><strong>Professional Highlights</strong></h2><h3 id="7c582278-5dd7-4cbc-ae1d-76ae6537e03c" class="" dir="auto">Cross-Functional Collaboration</h3><ul id="3ca96e0e-b87f-4352-917f-34806a782fcf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Proven ability to work seamlessly across disciplines, fostering collaboration between design, engineering, product, and customer success teams to ensure user-centric solutions that align with business goals.</li></ul><h3 id="2f62dbcf-80f6-4dca-af4d-3dd85552b02f" class="" dir="auto">Expertise in Diverse Domains</h3><ul id="3a076185-2377-4c1c-b20b-a3cc8a388ec8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Extensive experience across various sectors including Data, SaaS, IoT, fintech, edtech, and wellness, with a strong emphasis on B2B solutions.</li></ul><h3 id="e1951133-6cc1-4c1d-9291-00c3a8b86378" class="" dir="auto">Start-Up and International Experience</h3><ul id="3f2311d7-9056-485a-b9ca-cd7006710b8f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Dynamic exposure to startup environments, including Bitso, Novidá, and <a href="http://blackbird.ai/">Blackbird.ai</a>, enhancing my agility and adaptability in fast-paced settings. My international experience spans Brazil, Mexico, and the United States, offering a global perspective on design challenges.</li></ul><h3 id="1be77ee7-e7ac-4c3e-8275-6b398d4fc3ab" class="" dir="auto">Human-Centered Design &amp; Service Design</h3><ul id="1da8b63e-3ec3-4469-a66c-481e588a99e8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A comprehensive, evidence-based design process informed by deep user research, allowing me to make informed decisions and design with empathy and clarity.</li></ul><h2 id="bb3940ca-b1bb-4640-a69a-7cc2082b2912" class="" dir="auto"><strong>Work Experience</strong></h2><h3 id="4b28427c-2069-4626-9b51-1c3c4b61e036" class="" dir="auto">Bitso</h3><ul id="1f7bd5c3-a827-4cc1-8518-4e7fe2d6bfca" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Role</strong>: Staff Product Designer</li></ul><ul id="24f7f836-835e-47ce-8596-57fa1c281778" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Duration</strong>: 1.5 years</li></ul><ul id="9998e0ff-64cb-4343-abfd-c0e1ac606a9b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Achievements</strong>:<ul id="169c9de2-bfcb-4d58-9935-24a4e1ca6462" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Key player in designing Bitso for Business and Bitso Card, emphasizing secure and accessible financial solutions.</li></ul><ul id="958e0a3f-49d1-417c-a9ce-7f38daac516f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Enhanced trust and security in financial product design within the volatile crypto market.</li></ul></li></ul><h3 id="3f8ba9be-8416-4a07-a1a2-3ac9a18c0bea" class="" dir="auto">Novidá</h3><ul id="ef39d414-acb6-49cf-84ae-cb160a3e7556" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Role</strong>: Product Designer (Freelance)</li></ul><ul id="e6987f5f-06de-4706-b2c3-be36b81218f3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Duration</strong>: 2019</li></ul><ul id="1f083194-26d2-4ca7-b40f-01af5f269904" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Achievements</strong>:<ul id="9c961c05-1e33-42d9-99ae-965a359e2e61" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Redesigned the Novidá web application to improve managerial oversight of staff productivity and task management.</li></ul></li></ul><h3 id="84f2bddd-b91a-4f97-8ad7-44106daa6466" class="" dir="auto"><a href="http://blackbird.ai/">Blackbird.ai</a></h3><ul id="f7b8afa2-c228-4799-ab41-3e0aed9df37a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Role</strong>: Staff Product Designer</li></ul><ul id="67ec2153-59d4-4655-a77b-fb8d1f5924b6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Duration</strong>: Nov 2022 - Present</li></ul><ul id="84f863b3-ce26-490b-bd3d-cf1446592d75" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Achievements</strong>:<ul id="3dbd6610-ebca-4c15-a3de-a91a08112486" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Contributed to an AI-powered data analysis platform, focusing on user research, journey mapping, wireframing, and prototype design to mitigate corporate risks.</li></ul></li></ul><h2 id="7688b433-ce36-4453-b218-dce5218a5fef" class="" dir="auto"><strong>Design Philosophy and Leadership</strong></h2><ul id="a08fdb97-4b00-4385-be61-ae66d9fdc431" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Leadership at Bitso</strong>: Spearheaded the Product Design Guild, leading initiatives to define design disciplines, facilitating workshops, and promoting a collaborative culture among product designers.</li></ul><ul id="05076b2c-92bf-4ff5-9d22-ea7cf2a24b3a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Player-Coach Role</strong>: Progressed to a leadership position, managing a design team for Bitso Card and advocating for an inclusive, evidence-based design process.</li></ul><h2 id="967e5617-fdc3-455f-b08b-44db7674fe12" class="" dir="auto"><strong>Approach to Design</strong></h2><p id="89f545d2-cb2f-4298-a880-7d6aceec8b3e" class="" dir="auto">My design process is anchored in empathy, collaboration, and innovation. I&#x27;m committed to understanding user needs and business objectives, navigating complex challenges with a strategic, user-first approach. Whether it&#x27;s through detailed UX research, service design thinking, or crafting intuitive interfaces, my goal is always to deliver solutions that resonate on a human level.</p><h3 id="eed288ce-c01c-4087-919e-ce03d4be65a4" class="" dir="auto">Tools and Techniques</h3><ul id="d68fae67-6424-4749-882e-779549b2d977" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Proficient in utilizing a broad spectrum of design tools and methodologies, including but not limited to ethnographic research, service blueprints, user journey maps, wireframes, and high-fidelity prototypes.</li></ul><ul id="2731e864-9d8d-4877-ac8e-755bba5f0983" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experienced in leading design thinking and sprint sessions, facilitating co-creation, and prototyping workshops to drive innovation and alignment across teams.</li></ul><h2 id="eb630b16-31fc-4d22-833e-0418ab3be043" class="" dir="auto"><strong>Personal Journey &amp; Motivation</strong></h2><p id="1609dd49-b70a-4020-90c1-d6b316efa678" class="" dir="auto">From my early days as an introverted child finding solace in art, to co-founding a wellness business, and venturing into the realms of digital design, my path has been driven by a passion for creativity and making a tangible impact. The transition to specializing in user-centered design was a natural progression, fueled by my curiosity about people&#x27;s interactions with digital products and services. Today, I&#x27;m eager to continue leveraging my skills to help businesses navigate their digital transformation journeys, ensuring that user needs and experiences remain at the heart of every solution.</p><h2 id="87e29f49-80e2-43ee-b94d-dd654b7408c1" class="" dir="auto"><strong>Looking Forward</strong></h2><p id="575864e4-6c74-4f8a-bb71-27637d27c468" class="" dir="auto">I&#x27;m excited about the prospect of bringing my diverse skill set, empathetic design approach, and collaborative spirit to new challenges. My portfolio, showcasing my journey and accomplishments, is available at <a href="https://bit.ly/portfolioandreazevedo">https://bit.ly/portfolioandreazevedo</a>. I look forward to the opportunity to discuss how I can contribute to your team and help achieve our shared goals.</p><p id="35f6153e-3b30-44b5-9456-1d109a4240f0" class="" dir="auto">Warm regards,</p><p id="f54b7d4a-8656-49ff-8b03-a1ce860cf834" class="" dir="auto">André Azevedo</p><p id="f0584d83-90fa-4d16-93ce-f7dc09674a91" class="" dir="auto">
+</p><figure id="c2321fdc-1fd7-4785-9d48-2b2a37a838d6" class="link-to-page"><a href="Professional%20Experience%20-%20Gigantic%20document%20and%20no/B2B%20design%20experience%20and%20challenges%20c2321fdc1fd747859d482b2a37a838d6.html" data-notion-page-id="c2321fdc-1fd7-4785-9d48-2b2a37a838d6" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">B2B design experience and challenges</a></figure><h1 id="1abb9ecd-98c0-47fd-a87a-22b637546795" class="block-color-yellow_background" data-notion-highlight="yellow_background" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">🚸 🏗️ </mark><mark class="highlight-default" data-notion-highlight="default">Raw content</mark></h1><h1 id="b5a7f8a1-b979-4b8e-a0ab-d12cf4875a03" class="" dir="auto">Resume</h1><hr id="151f6a03-a9d1-475c-ae82-3ae00954bd38" dir="auto"/><p id="2feb63d8-97fd-48be-9b4f-cb8758341674" class="" dir="auto"><a href="https://docs.google.com/document/d/1nZ0nori99S9NXbzjd7DzGum-kqsU1iNWNVJLdYkr8H8/edit?usp=sharing">V 4 - Latest link</a></p><h1 id="2c5e6ccf-0b27-452f-b542-9a577f0b6487" class="" dir="auto"><strong>André Luiz de Azevedo</strong></h1><p id="60193e63-5ca8-4285-aafb-8c9411dc0306" class="" dir="auto">+55 16 9 9705 8077</p><p id="e9581453-b902-4035-ba47-08ea58cf455e" class="" dir="auto">Araraquara, São Paulo, Brazil</p><p id="6be7d197-80f3-4f0e-b909-f15e2ab39633" class="" dir="auto"><a href="mailto:andreazeved1@gmail.com">andreazeved1@gmail.com</a></p><p id="c26a9302-f0d6-4534-abac-dc6fa1d0db41" class="" dir="auto"><a href="http://www.linkedin.com/in/azevedodesign">www.linkedin.com/in/azevedodesign</a></p><p id="9302cb24-ab40-4317-a11f-c251c072ee6b" class="" dir="auto">Portfolio: <a href="http://www.bit.ly/portfolioandreazevedo">www.bit.ly/portfolioandreazevedo</a></p><h2 id="5f861f9a-cbcd-405e-a3d3-24583eaceb86" class="" dir="auto">Staff Product Designer | Data, AI/ML, and Fintech</h2><p id="f6299de9-13db-4caf-a11e-47634aa1fc5f" class="" dir="auto">With 12 years of experience in the design field, including formal training in Graphic Design, I am a Human-Centered Product Designer skilled in systemic thinking and collaboration. My expertise spans UX research, UX/UI design, and product design across fintech, retail, and artificial intelligence sectors in Brazil, Mexico, and the USA.</p><p id="346b7583-8cd5-4736-9ebc-fac3b03b2ea4" class="" dir="auto">I help teams translate complex business challenges into user-friendly, evidence-based designs that address real user needs.</p><h2 id="3f96fd9a-8147-4bfd-9267-f75986236cad" class="" dir="auto">Work Experience</h2><p id="d1ad2bb0-ba2e-4950-8975-53f149e167ce" class="" dir="auto"><a href="https://www.blackbird.ai/"><strong>Blackbird.ai</strong></a><strong>, USA (Remote) - Staff Product Designer </strong>(Nov 2022 - Present)</p><p id="eecdf547-56dd-4048-b5d9-0c6b3d67439f" class="" dir="auto">As part of a small and dynamic cross-functional team, I contributed to designing an AI-powered data analysis and visualization platform. This platform detects and mitigates potential threats, enhances corporate risk management, and reinforces trust, safety, and integrity within the enterprise&#x27;s information ecosystem. My key contributions include:</p><ul id="c76f1794-c6e5-42f0-8721-195602cca33b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborated on the design of a self-service Data Connector system, enabling seamless uploads from various partner APIs.</li></ul><ul id="e4a7ece5-00e7-4a22-982d-dd1e58b2a7dd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conducted user research, employing qualitative and quantitative methods, to gain actionable insights that informed design decisions and product strategies.</li></ul><ul id="57572bb7-2272-4a3a-89cb-18d72ba027fa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Developed detailed journey maps to help visualize and create systemic and scalable user flows.</li></ul><ul id="9eec1ff1-4d09-494b-a270-e62bed43998c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Designed wireframes and high-fidelity prototypes for rapid feedback collection.</li></ul><ul id="cff639f5-9007-4c51-b7f2-bff9f0d6b054" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborated closely with engineering and product teams to deliver solutions.</li></ul><ul id="566bc704-b53e-4ab4-836d-64f783e72669" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Utilized usage data and integrated user feedback for continuous product improvement.</li></ul><p id="7586ba40-a0f9-4827-b148-273ebb6f199c" class="" dir="auto"><a href="https://www.salesimpact.io/"><strong>Sales Impact Academy</strong></a><strong>, USA (Remote) - Staff Product Designer </strong>(Jul 2022 - Sep 2022)</p><ul id="e36157f4-6051-45c8-b704-b389a94c0c54" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Designed an e-learning platform for Go-To-Market live courses.</li></ul><p id="c7aa0d3d-6a21-421d-8ad1-a9ed3e701c2a" class="" dir="auto"><a href="https://bitso.com/"><strong>Bitso</strong></a><strong>, Mexico (Remote) - Staff Product Designer</strong> (April 2021 - July 2022)</p><ul id="a22420eb-d475-4296-8e51-2facb2873ff1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Engaged in designing an automated onboarding process for enterprise institutions</li></ul><ul id="a1a1c217-1ede-49ed-afef-cd3c53516f0d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Contributed to the design of Bitso Card, a user-friendly debit card experience for Mexicans;</li></ul><ul id="820df12b-6266-408b-9dde-c6d64c653342" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Led and evolved the Product Design Guild, a design team ceremony at Bitso, fostering collaborative exploration and innovative solutions for the Product Design discipline within a growing team of 16 product designers.</li></ul><p id="69eb3777-e1f8-4e54-afa4-67c311a02a63" class="" dir="auto"><strong>Emerald Works</strong><strong>, Scotland (Remote) - Senior Product Designer</strong> (Jul 2020 - April 2021)</p><ul id="76082d62-dcd5-40b9-a01f-41be6dde02b9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Designed a Content editor for a Learning Management System (LMS) from scratch for <a href="https://www.mindtools.com/">Mindtools</a>, a digital publishing company focused on business management content.</li></ul><p id="e3d39d0c-0344-495f-89d1-bafb1a26ac4e" class="" dir="auto"><strong>Arquivei</strong><strong>, Brazil - Senior Product Designer</strong>  (Nov 2019 - Jul  2020)</p><ul id="ee5ce906-049b-4b32-b612-952fd208614a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Designed the end-to-end onboarding experience for trial users of the SAAS.</li></ul><p id="ef0be226-abd5-448a-82f2-11bcdf844175" class="" dir="auto"><strong>Magalu/ Luizalabs</strong><strong>, Brazil - UX/UI Designer</strong> (Jan 2019 - Nov 2019)</p><ul id="28739ca0-0fa4-47e3-9045-3d1fa9dbd877" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Designed the MaaS Platform, including the MaaS Console and MaaS account, a developer tool to allow other e-commerce services to hire on-demand services from Magalu retail.</li></ul><p id="acf147f5-a540-4d41-a157-9e7dd6aa1486" class="" dir="auto"><strong>ONOVOLAB</strong><strong>, Brazil - </strong><strong>UX/ UI and Service Designer</strong> (March 2018 - Jan 2019)</p><ul id="1d9b529c-cd18-4345-90f7-709992b7843f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I was responsible for designing new mobile and web products for companies like Card Elo and Roche Pharmaceuticals using Service Design and UX Research methods.</li></ul><h2 id="371ab490-8d44-4600-951b-09a7a6d3da3c" class="" dir="auto">Education</h2><p id="8532daa9-7ae5-4ac4-a782-8439096b8377" class="" dir="auto"><strong>Specialist in User-Centred Design | Interaction and Service Design</strong></p><p id="8b8f5bcd-07f7-4376-be99-a94575e070a3" class="" dir="auto">Positivo University, São Paulo/SP  - Brazil  (Apr 2016 – Dec 2017)</p><p id="c7db92a7-fd61-4bb1-9358-1fdcf07b1477" class="" dir="auto"><strong>Bachelor of Graphic Design</strong></p><p id="9faabd8e-70eb-4c63-8d6f-b1c59edb9ae5" class="" dir="auto">Paulista State University “Júlio de Mesquita Filho” - UNESP, Bauru/SP  - Brazil</p><p id="a6d9f2b2-09d8-4fc5-ad58-03999485a6d7" class="" dir="auto">(Mar 2007 – July 2011)</p><h2 id="dbe12431-3487-4a57-8017-e6bbeb2a8767" class="" dir="auto">Language</h2><p id="44c01778-a92b-422a-aa1f-416e5e0a3748" class="" dir="auto"><strong>English</strong> | Advanced</p><p id="a6f23191-fd55-49a7-9303-da4146aa5aea" class="" dir="auto"><strong>Portuguese</strong> | Native</p><h1 id="7dfb89e9-48e2-4bca-babd-8dade0791a9c" class="" dir="auto"><strong>About me</strong></h1><p id="aa4503fe-b4a9-406f-b04e-3ac565dadd82" class="" dir="auto">Cross-functional team player<br/>Product Thinker</p><p id="7a072f5c-34b0-44a9-bdf4-5ef60002e923" class="" dir="auto">Experience with UX Research </p><p id="2bb27894-a879-4f14-b280-fe523b92227d" class="" dir="auto">Service design - Holistic view, beyond screens - Fit their IOT app</p><p id="2a13298d-adf5-4009-aa87-018703f536e6" class="" dir="auto">End-to-end evidence-based, user-centered design process</p><p id="3a791516-47d4-4e01-b1ab-2dbe3099d897" class="" dir="auto">Informed design decisions</p><p id="ff12ae07-121f-493d-a9b9-a817022103de" class="" dir="auto">
+</p><p id="ff364eb3-ea5e-4434-a8ca-c6ecac53ec5f" class="" dir="auto">Areas:</p><p id="22e8fb58-296b-4cdf-b1b6-8595ff649aef" class="" dir="auto">DATA</p><p id="07225641-3abb-4822-8646-c9985bb73819" class="" dir="auto">SaaS</p><p id="b2b40b3a-6813-4c97-a9c7-ed690a606538" class="" dir="auto">IOT - Service Design </p><h1 id="91368a44-9f71-40fa-9239-f70ef14aa8c2" class="" dir="auto">Work experience</h1><p id="2e0b2651-948b-48ff-9d00-bb8750d8becd" class="" dir="auto">Experience with all: web apps, mobile apps, industrial internet of things, machine learning, and analytics.</p><ul id="222e0ec6-e1c0-4212-b49b-0efb457c8aee" class="bulleted-list" dir="auto"><li style="list-style-type:disc">B2B experience</li></ul><p id="c7282f81-097e-4780-812a-80562b86c43f" class="" dir="auto">
+</p><p id="142456ed-885b-40cc-8407-3f74474586f5" class="" dir="auto"><strong>Show evidences in my portfolio</strong></p><ul id="dffd4640-a449-4787-af78-8cc6cb12a89f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Bitso (Mobile + Web)<p id="757a6d10-d30b-44e9-b7a4-d415d70baf04" class="" dir="auto">I&#x27;m a crypto enthusiast, and I have professional experience in web3 as a Product Designer since I worked at <a href="http://www.bitso.com/">Bitso</a> for 1,5 years. There I worked with <a href="https://landing.bitso.com/bitso-business/?_gl=1*1puha8r*_ga*NTcxNDQwNTM3LjE2NjM3OTI2NjE.*_ga_3SEYSRMJJL*MTY2NzU5MjI2My4xMC4xLjE2Njc1OTIyNzAuNTMuMC4w">Bitso for Business</a>, and <a href="https://landing.bitso.com/bitso-card-mx/">Bitso Card</a>.</p><p id="425d258f-aa7b-4457-9453-1ffbcd44bd39" class="" dir="auto">At Bitso, the largest crypto exchange in Latin America, I played a key role as a Staff Product Designer. I was instrumental in designing Bitso for Business and the Bitso Card, focusing on secure, user-friendly, and accessible financial products for a broad user base in Latin America. This role deepened my understanding of designing for security and trust in the fast-paced crypto market.</p></li></ul><ul id="ff6298dd-69f5-48ff-820c-ec86498c2a6c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">NOVIDA (SaaS for digital oversight on operational teams)<ul id="c265271a-02c6-4165-ba86-c5eb4b90b6cf" class="bulleted-list" dir="auto"><li style="list-style-type:circle">In 2019, I worked as a Product Designer freelancer for a Brazilian startup called Novidá (<a href="https://www.novida.com/">www.novida.com</a>), a startup which has a SaaS for digital oversight on operational teams<ul id="722a8ead-cc88-42c8-84cc-afebf23b2397" class="bulleted-list" dir="auto"><li style="list-style-type:square">aiming to help managers metrify the allocation of their operational team in daily routines, </li></ul></li></ul><ul id="a5138153-9614-4260-b733-8f16258bdd07" class="bulleted-list" dir="auto"><li style="list-style-type:circle">where I helped them redesign their web application. Their web application had some similarities with work management applications.<p id="35fcee31-a930-4cab-902e-5e92328255a9" class="" dir="auto">The redesign of the Novidá web application was focused on enabling managers to efficiently monitor their staff&#x27;s productivity by analyzing manually inputted tasks and those automatically executed on the platform.</p><p id="99f2693c-362c-44e6-a723-c56235275898" class="" dir="auto">By tracking the time of each employee&#x27;s activity and location, in combination with the tasks they manually inputted, managers could easily understand the productivity levels of their staff. This allowed them to make informed decisions regarding what had been completed, what was delayed, and what steps could be taken to improve productivity.</p><p id="2a9bb781-27bf-4e84-b7c9-c2fc2c650cfe" class="" dir="auto">A sample of the redesigned productivity area UI: <a href="https://freeimage.host/i/JG8Xpv1">https://freeimage.host/i/JG8Xpv1</a></p><p id="839d2f1f-4fb4-4877-91d0-f5c09f4c0972" class="" dir="auto">Also, in the following link is possible to check a detailed case study on the Novidá project:</p><p id="ad0dbf19-fc9b-4c2e-86b3-d108114b85c5" class="" dir="auto"><a href="https://app.notion.com/p/Novid-62ab5f8f53de4fd2858acefb5ebdd237?pvs=21">https://peopleand.notion.site/Novid-62ab5f8f53de4fd2858acefb5ebdd237</a></p></li></ul></li></ul><p id="0a6fcce0-5233-4ddf-8b97-db5c6c538686" class="" dir="auto">
+</p><ul id="a505d89d-1f6e-4c9e-9c48-16b027280029" class="bulleted-list" dir="auto"><li style="list-style-type:disc">BLACKBIRD (machine learning, and analytics.)<p id="29ca85bc-4de3-4b76-a332-b3540204f70a" class="" dir="auto"><a href="https://www.blackbird.ai/"><strong>Blackbird.ai</strong></a><strong>, USA (Remote) - Staff Product Designer </strong>(Nov 2022 - Present)</p><p id="45798229-0094-4d6a-b288-92181961e598" class="" dir="auto">As part of a dynamic team, I contributed to designing an AI-powered data analysis and visualization platform. This platform detects and mitigates potential threats, enhances corporate risk management, and reinforces trust, safety, and integrity within the enterprise&#x27;s information ecosystem. My key contributions include:</p><ul id="3e4e4dbf-2ae6-4b98-9096-38150c1eff57" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Conducting comprehensive user research to uncover actionable insights that directly influenced design decisions;</li></ul><ul id="9ff8ef27-20ec-4e79-b389-162d09b7d3cf" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Developing detailed journey maps to create systemic and scalable user flows, improving team alignment and collaboration early and often;</li></ul><ul id="593e15bd-08be-4191-8069-da105c864d8e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Designing wireframes and high-fidelity prototypes for rapid feedback collection and iterative design refinement;</li></ul><ul id="01076320-84dd-459c-b802-6f660c224b95" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Collaborating closely with engineering and product teams to deliver solutions that met and exceeded user expectations;</li></ul><ul id="b597a695-2e68-40cd-83c7-2e9e14dd00fb" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I also measured the impact with usage data and worked closely with the customer success team to absorb any user feedback to help prioritize successive iterations.</li></ul></li></ul><h1 id="556295f9-31b4-470d-885c-f7ea893bcf54" class="" dir="auto">Design process, team player, and leadership style</h1><p id="22bd52a4-5cb0-4ed7-a5c8-8c264493008c" class="" dir="auto">Have the opportunity to improve Processes and the product design discipline and build the Product Design team it&#x27;s a very exciting opportunity.</p><ul id="605883e5-fec5-4d96-a4bc-6e76a6e3927b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">At Bitso, I had the opportunity to led the Product Design Guild;<ul id="69e28680-15d4-434e-9d05-4b416684572b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">About the Product Design Guild work:<h3 id="5fe6ad28-a675-4a69-8f41-a18cb39c5b8e" class="" dir="auto"><a href="Leadership%20-%20Product%20Design%20Guild%20in%20Bitso%208690ca4e619a42fc8dff01b518b78e4e.html">Leadership - Product Design Guild in Bitso</a></h3><ul id="93a74ea6-b8bd-4f50-9023-3cb8713684ba" class="bulleted-list" dir="auto"><li style="list-style-type:square"><mark class="highlight-gray" data-notion-highlight="gray">Design leadership to </mark><mark class="highlight-gray" data-notion-highlight="gray"><strong>shape the team’s culture and process</strong></mark><p id="893f0256-f992-41de-b08d-16bbcf0f8f40" class="" dir="auto"><strong>Leadership</strong> is about influence and strategy</p></li></ul><p id="fd4a0648-8976-4b85-8388-e9e12d324044" class="" dir="auto">I led the Product Design Guild initiatives in Bitso. </p><p id="d42c5331-3dc5-47a0-8c65-59643571a876" class="" dir="auto">A guild is a side project where I had the challenge to define the discipline inside the company together with a group of 16 product designers. </p><p id="1a4330b3-5a99-4f0f-8142-4302cccf6269" class="" dir="auto">The first idea was to have a space to discuss the Product Design discipline, but we didn&#x27;t have any objectives or goals set. </p><p id="bfb3b50f-6843-447f-b203-de7a98f31b24" class="" dir="auto">So I thought in transform these meetings into a workshops session, to start exploring in a more collaborative way, what are the current situation for the PD perspectives and, based on that, what we should focus on. With the attempt to give a voice to everyone and the desire to create a safe space as well.</p><p id="1965e1fd-bc74-42e8-8324-8edb77aa0d98" class="" dir="auto">Everything was very organic and passing the time I was iterating the ideas based on the feedback/ suggestions of other Product designers.</p><p id="af23bccc-4a13-45d4-80fb-cf9343d44d38" class="" dir="auto">Currently, we divided the team into four small groups trying to work on some specifics topics that the product designers mapped and voted as the most complex pains they were facing at the moment and creating some experiments that could improve the current situation in any way.</p><p id="ba7bbf69-0925-44ee-9c90-4883f00e89aa" class="" dir="auto">And the desired outcome that we want to achieve by the end of the year is to have the learnings of this journey transformed into some basic guidelines of how the Product Designers could face these topics to avoid having the same pain again in the future.</p><ul id="c5f7b8ac-6757-4d20-a17b-5b168d44964f" class="bulleted-list" dir="auto"><li style="list-style-type:square"><strong>Tell me about your experiences with leading and managing.</strong></li></ul><p id="91243283-add9-4e0c-99b3-43250a43084a" class="" dir="auto">Currently I&#x27;m leading the product design guild in Bitso, which is a side project where I had the challenge to define the discipline inside the company together with a group of 16 product designers.</p><p id="eb73957d-ca58-44b2-855c-ada89ead37a4" class="" dir="auto">In this initiative I take a facilitator role to empower the other designers during co-creation workshops sessions, and manage async initiatives to continue the work living outside the sessions.</p><p id="e5e76884-59c3-42b9-b9b9-fc697c1d362c" class="" dir="auto">My biggest challenge was to keep everyone motivated and engaged with this extra initiative, which was very time-consuming for me but at the same time very rewarding, to play a proactive role and get in contact with everyone, create deep relationships, and manage their perspective and ideas individually towards the whole group goals.</p><ul id="73db2e73-d2bd-4f80-ad76-b4f39f1834d2" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">Add the result: Leadership get visibility on the internal issues</span><div class="indented"></div></li></ul></li></ul><p id="b46e7afb-0aea-46ff-ae65-e2f63df34bd2" class="" dir="auto">
+</p></li></ul><ul id="1ee90efe-6016-4964-9468-b50b0dae5e8c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">After that I was promoted to Staff Product Designer, and I had the opportunity to act like a Player-Coach, and besides my IC work, managed a small design team for Bitso Card, formed by another Product Designer, a Content Designer, and a UX Researcher.</li></ul><p id="a51722f5-5279-43a2-8203-f253da9228f3" class="" dir="auto">
+</p><p id="bf8dfd9f-bebb-499d-9bb1-ca2d48a35b00" class="" dir="auto">
+</p><p id="5212e682-1681-4e6c-bb56-23b3302daee5" class="" dir="auto">
+</p><hr id="51af6564-920e-4b1b-af14-ee165c7105fd" dir="auto"/><h1 id="3e2d3a09-2166-4654-aacd-fb6fffd96e72" class="" dir="auto">My experience related with the position to highlight</h1><p id="7a7674d7-7a0b-4d26-9f4e-d2b42debfffa" class="" dir="auto">Hello everyone! </p><p id="5777d70f-e8e1-4123-b198-185909c3e525" class="" dir="auto">My name is André Azevedo, and I&#x27;m a Brazilian Product Designer. Nice to e-meet you!</p><hr id="a917dee7-4437-4d1e-8a34-f094b7bfb771" dir="auto"/><p id="f0f77857-6018-4308-943b-3d76eaf33ef8" class="" dir="auto">I&#x27;d like to use this space too, not only share my portfolio but also to (hopefully) explain why I could collaborate to the business achieve goals and identify user needs.</p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="b099d192-68c0-42b6-8524-41f58fc29935" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%">Divide by main topics as titles, that help the views quickly understand if I would be a good fit for what they are looking for.</div></aside><h3 id="be0ba64d-1979-4962-9144-d45abf4f3f31" class="" dir="auto">Overall Professional and Design experience</h3><h3 id="d6a15cde-32ca-4c3c-a3b3-f5debc3e6fe2" class="" dir="auto">B2B experience</h3><ul id="06620ba4-5fa6-4a1d-9b86-72a99d805bef" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Most of my Product Design/ UX Design experience was working with <strong>B2B</strong> in different industries.<ul id="1cb4045e-7466-46f7-a911-6693b80808ff" class="bulleted-list" dir="auto"><li style="list-style-type:circle">International design experience with a strong focus on <strong>B2B</strong> in more than six industrial sectors.</li></ul></li></ul><h3 id="8bc3c4f4-540f-4b52-8144-cf928d162ba0" class="" dir="auto">Experience with diverse industry fields</h3><ul id="67c185f9-3cbc-42e5-a72e-2ea36aae1306" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I can help navigate through the most diverse Design challenges because<mark class="highlight-orange_background" data-notion-highlight="orange_background"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong> I&#x27;ve worked as designer in different industry sectors, such as artificial intelligence, fintech, edtech, and wellness </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></mark><mark class="highlight-orange_background" data-notion-highlight="orange_background">[add here the industries sectors i&#x27;ve worked]  </mark> <ul id="f66cc042-a1e0-42c3-a36a-0a22322970c3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">For the past 6 years, I have worked as a Designer in tech, collaborating with cross-functional teams in more than six industry sectors, including consultancy, retail, fintech, edtech, and artificial intelligence, from companies in Brazil, Mexico, and the United States. I am also experienced with the open-source design community.</li></ul><ul id="84b60f7e-a1c7-4b36-8dc5-728e64b7d2f7" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Experience in more than 6 industry sectors (Consultancy, Retail, Fintech, Edtech, and Artificial Intelligence), from big companies to early-stage startups.</li></ul></li></ul><h3 id="75cab3df-9280-47e7-900c-f6d268e69cfb" class="" dir="auto">Startup experience</h3><p id="1ba1e211-57f7-41de-ac78-c96d4ba9ab20" class="" dir="auto">I&#x27;ve worked with a few startups such as Blackbird (<a href="http://blackbird.ai/">blackbird.ai</a>), Bitso (<a href="http://bitso.com/">bitso.com</a>), SIA (<a href="http://salesimpact.io/">salesimpact.io</a>), and Arquivei (<a href="http://arquivei.com.br/">arquivei.com.br</a>)</p><p id="e3541750-76bf-4bcc-93b5-7c9f7e8c4f41" class="" dir="auto">I&#x27;ve also work as a freelancer with some very early stage startups, helping desiginig their digital products, such as Novidá (<a href="https://www.novida.com/">www.novida.com</a>). </p><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="96d187c9-8ef6-4e17-896c-2499c9ef724a" style="display:inline-block">Startup experience</h3></summary><div class="indented"><p id="80338a47-606b-4215-b17d-b3c9f8ef6ce9" class="" dir="auto">Besides working as a Product/ UI-UX Designer with a few startups such as Arquivei (arquivei.com.br), Bitso (bitso.com), and SIA (<a href="http://salesimpact.io/">salesimpact.io</a>),</p></div></details><h3 id="d38a0a76-37ee-40b8-86d9-f1b21f088fd2" class="" dir="auto">Human-centered Design - Making informed design decisions / Evidence-based</h3><ul id="de08b2eb-d054-4e8d-8bbe-a7d8923de76e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I have experience in designing products from scratch, collaborating with both technical and non-technical stakeholders through a human-centered, evidence-based design process. </li></ul><ul id="9a3a9cbf-a434-4110-bd62-0c1c813298bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Human-centered design is the core of my design process. </li></ul><ul id="f88093ca-85a3-49a4-93d1-0b517f0e73cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">My design decisions are informed by data from research studies, customer insights, or feedback.</li></ul><ul id="ef73265c-5350-431f-80dd-266fdbffcd03" class="bulleted-list" dir="auto"><li style="list-style-type:disc">To collect data I can plan, run, and manage generative and evaluative Research studies </li></ul><ul id="9d2a27f8-d5f2-4580-a5bd-4ebfd5f4711b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Such as user interviews, UX analysis, concept testing, or usability testing, </li></ul><ul id="f5b77e81-92fb-4941-9ec5-2d495e7ed01d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Real usage data analysis with tools like Hotjar, Mixpanel, or Amplitude.</li></ul><h3 id="0b29aed3-b99a-44fb-81a6-c814a46fc66c" class="" dir="auto">Holistic view to execute a Lean UX</h3><p id="7edd2cdc-e15c-42f2-941f-37e598ed6deb" class="" dir="auto">Having a High level view of a scenario to be able to not only spot good opportunities, but to have more information and know where and why to focus next.</p><ul id="cae66fbc-6de1-4188-a499-fc006e947bef" class="bulleted-list" dir="auto"><li style="list-style-type:disc">As UpKeep provides <strong>mobile-first SaaS solutions</strong>, Industrial IoT sensors, data analytics tools, advanced enterprise integrations, and top-notch professional services - <mark class="highlight-default" data-notion-highlight="default">I believe that my service design knowledge can be helpful in understand the costumer pain-points and needs, identifying opportunities </mark>that potentially can go beyond screens-specific<mark class="highlight-default" data-notion-highlight="default">,</mark><mark class="highlight-orange" data-notion-highlight="orange"> to translate the company vision into a cohesive end-to-end solutions.</mark></li></ul><h3 id="d002e070-f5e9-4ffa-9ae1-00bf625bc6f0" class="" dir="auto">Collaboration with cross-functional teams and non-tech stakeholders</h3><ul id="77043a82-ca5c-415a-8f8a-c8acaab538d4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaboration with cross-functional teams/peers, non-tech stakeholders<p id="c6589a12-6426-4d41-a75a-691ccae625c3" class="" dir="auto">Partnership and collaboration with all the other teams is key</p><ul id="de461c4a-82b2-4189-9488-c622a444aa24" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Customer Success + Sales + Marketing + Product + Engineering</li></ul></li></ul><h3 id="91ffbd2d-afb6-49ff-a524-711b76dd310b" class="" dir="auto">Design System</h3><ul id="32586806-2a79-4e96-a664-e8bb9fb32ca2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">And as I graduated as a Graphic Designer in 2012, working with Visual Design is something I have done for more than ten years. </li></ul><ul id="13d11bd7-6690-421e-af1f-22cd93462f85" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I also have been collaborating and maintaining Design Systems for the past years.</li></ul><h3 id="2c4ef9de-2e36-4589-95dd-0322bcbc3057" class="" dir="auto">Diversity</h3><p id="4fbb50bf-0ea3-427f-bdaf-e47fa5d2ad66" class="" dir="auto">I like the way the company works, its values, and how it handles diversity. It seems these are more than just words, they really mean it, especially since the company works remotely from all over the world. So, I decided to give it a shot and apply.</p><h3 id="db6396df-cd37-4987-8e84-60f1df43e045" class="" dir="auto">Closing</h3><p id="5750dc2e-8e77-4ea2-a3d1-859c329a7ed8" class="" dir="auto">You can access my <strong>portfolio </strong>in this link: <a href="https://bit.ly/portfolioandreazevedo">https://bit.ly/portfolioandreazevedo</a></p><p id="b7820edd-fe48-40a2-b3c2-c48f93d4dfaf" class="" dir="auto">I hope to hear more from you soon, and I am more than happy to jump on a call, provide any additional material, or answer any questions needed. </p><p id="7b013a77-5f50-4943-b026-d6425bcc84f5" class="" dir="auto">All the best,</p><p id="71c89e33-afee-4bbc-9bfd-0329898055b3" class="" dir="auto">André</p><p id="6c5afa47-6f82-4553-88c2-c4f7325c9c57" class="" dir="auto">
+</p><hr id="c3080755-27cf-48a3-8cf7-7dbb8df9bf67" dir="auto"/><p id="c6c3b1e1-1782-4225-97e3-d97c79e69606" class="" dir="auto">
+</p><h1 id="3d361738-9de8-4c76-aff3-c2c89a836252" class="" dir="auto">Additional information</h1><p id="80557af6-da3e-4f9c-9448-d8072beee4c9" class="" dir="auto"><strong>Passion for Design</strong>:</p><ul id="4f0386f9-b476-493c-a51c-1326c5da1188" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>What was interesting to you about this role specifically?</strong></li></ul><p id="4dff2a39-a971-4564-bd4a-47c9b26103be" class="" dir="auto">The holistic human centered design approach described, where the design work exceed the screens, are something that I liked and I truly believe, once we are designing for other people, we need to understand the world of these people, and most of the time the best way to do that is in a broad and diverse way, mapping the whole journey.</p><ul id="787a36b6-d952-45ef-9c31-312e7ebb3e82" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>What makes you an interesting fit for this role?</strong></li></ul><p id="cb4a2275-b61e-4f24-8960-fba451c9aa37" class="" dir="auto">Collaboration is an aspect that I really consider important in my work as Designer, and I always try to explore co-creation to avoid design in insolation, always that I can.</p><p id="b4170ffd-952e-4984-a00c-31eceaec1a79" class="" dir="auto">I believe in the power of connecting different people, and getting them involved in the design process, with proper guidance can bring very interesting results, and strong alignment, even when these people don&#x27;t have a technological background.</p><p id="d5bf4a5b-163f-4c40-8169-ab8720964698" class="" dir="auto">I&#x27;m a very resilient person who&#x27;s worried about others, and always tries to create a safe environment to make the work flow between people with different interests.</p><p id="33f3c205-12b1-4c09-a743-c56ec629f483" class="" dir="auto">For me, mastering these types of soft skills are very important as master the processes, methods, skills that a Designer should know to design products and services that people love. I believe that I can help Microsoft to design in a more collaborative way.</p><p id="307dd259-f341-407c-a0d1-4f632528b3a6" class="" dir="auto"><strong>Distill insights:</strong></p><ul id="1a285a05-8f22-491f-a988-e13196c99385" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>What&#x27;s one thing you&#x27;ve learned that you&#x27;d apply here / recommend we think about</strong></li></ul><p id="3a22f056-31f3-426b-a4f3-5596619ca3c6" class="" dir="auto">Always question everyone&#x27;s assumption, not to expose or put the other person in a stressed position, but to help them visualize the statement by another angle, to see by themselves that most of the time they are biases with their own truth, and not with something that is real for the audience perspective, which can be very damage if not proper suited, resulting in entire projects based on false truths.</p><p id="44e883cb-0527-4789-b3eb-021de593cff6" class="" dir="auto"><strong>Design methods:</strong></p><ul id="13e7af58-bb67-4507-9217-e32090e3059e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Give me a summary of a project you worked on that you loved because of the methods. What was it and why?</strong></li></ul><p id="b5fb77ec-8ba1-48ee-b0f8-031082cbbd14" class="" dir="auto">I like when I have the opportunity to do an end-to-end design process, start with strategy, research, ideation, design, launch, measuring and iterate.</p><p id="7eab5545-47a8-45a0-9f8d-dce5556e6437" class="" dir="auto">One example of that was in my current job in Bitso, where I help my squad designing a new proposal for the business onboarding we have, which I started doing research with some real user to understand their needs and pains, ideate with not technical stakeholders (from compliance and KYC ops/know you customer), design and launch the new version to the production, measuring using the real data to understand if the design proposal make sense for the users, where I already identify areas of improvement for the next release.</p><p id="818c7335-291d-4c69-85e4-65330f667a11" class="" dir="auto"><strong>Impact:</strong></p><ul id="77583430-e035-4f5f-9fe7-fc720282bd69" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Give me a summary of the impact you&#x27;ve had in your career that you feel proud of. What was it and why?</strong></li></ul><p id="a20d2a21-e0d6-489f-92f2-c83d6a218373" class="" dir="auto">Translating complex things into easy to use is one of my mantras as a designer, since when I worked as graphic designer with printing materials, but at that time I couldn&#x27;t see an impact on a large scale. Within the digital world I could give scale to this matter, and understand the impact our work has on people&#x27;s lives, and now more than ever I advocate for simplicity and design to solve people&#x27;s real needs and pains.</p><p id="70aa64c0-9775-474f-b7db-91173a383557" class="" dir="auto"><strong>Collab / fuzzy boundaries:</strong></p><ul id="8f7bd16a-a37b-49f0-a950-2a4f054642c0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Give me an example of a time you bridged connections to work that another researcher was doing? I&#x27;m especially interested in examples of times where that connection wasn&#x27;t necessarily naturally there, and you need to reach out and create alignment.</strong></li></ul><p id="82390011-9147-4476-b426-f035456b3a56" class="" dir="auto">When I joined Bitso I noticed that the work my squad was doing wasn&#x27;t based on research findings, but more on gut feelings and assumptions, which is something very dangerous to do.</p><p id="8820fafe-44bb-4a5a-bca4-a50041b24a72" class="" dir="auto">So, I take the ownership and lead an initiative to start implementing user research in my squad. I looked forward to get help to the very new team of UX Research, where one of the researchers of the team helped me to structure and plan the research, and provide me support to run and analyze the research results by myself.</p><p id="4087c259-f306-4d55-9e41-f2e77a57f25c" class="" dir="auto"><strong>Growth:</strong></p><ul id="f0ab082d-4cc8-4be8-ab4d-83d82b0e0236" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Tell me about a time where you failed.</strong></li></ul><p id="09177d24-31ab-4cb3-b9ea-497c5c37fdd3" class="" dir="auto">I remember a time when I worked in a company in a cross-functional squad where we were very focused on execution, development and user interface design, leaving little time [or not time at all] to perform user experience work, such as user tasks and flows.</p><p id="c33b3b3a-ff07-4181-a191-746e50d81c28" class="" dir="auto">This lack of UX work had an expensive cost at the end of a release cycle, where we develop a blog post feature without taking in consideration the &quot;Edit&quot; option, that could be mapped and easily solved using a task flow.</p><p id="dd072a45-44c3-49be-aa0a-a4e57a9766ad" class="" dir="auto">After this situation the lesson I learned was not to skip important design phases because of the time, instead adapt the deliverables wthe the time available, to cover all the needs in different stages and fidelities, creating artifacts even in a simple way, to avoid future problems.</p><p id="3afa22da-ebd1-441a-b637-4c5a1b7b6fce" class="" dir="auto"><strong>Leadership / Management:</strong></p><ul id="12437752-9a06-428c-93d5-01a53568b801" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>How do you think about excellence as a design leader?</strong></li></ul><p id="4b794e65-2bf7-4081-9a04-0eb2e172ab0c" class="" dir="auto">For me, leadership is about Influence, and an excellent design leader is the one who can influence people, teams, initiatives, and roadmaps with evidence that backed up the decisions made, explaining the reasons for what should be done or was done. At the same time, he or she should provide enough room for others to jump in and express what they feel about it and provide health feedback/comments to help move forward and improve.</p><ul id="f2adc6c6-fe3a-4ccc-a75f-ecd0448dc306" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>What makes a designer excellent?</strong></li></ul><p id="5c621e0c-c8ad-46af-b2a0-c732e565620e" class="" dir="auto">The best designers I know are the ones that are great listeners! I saw a strong correlation of hearing and understanding, with being a fantastic designer.</p><p id="7e851ba6-1788-414a-8c04-e8b46e84ae0f" class="" dir="auto">I believe that it is very hard to design something that you don&#x27;t understand or not make sense for you, so based on that most of the time I tried to have a beginner mindset, allowing me to be in a position of learning, before designing solutions.</p><ul id="f9abb47e-d709-4bff-b339-1b9a0e9321f8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Tell me about your experiences with leading and managing.</strong></li></ul><p id="a418620b-426a-4701-b2fc-885b754c0313" class="" dir="auto">Currently I&#x27;m leading the product design guild in Bitso, which is a side project where I had the challenge to define the discipline inside the company together with a group of 16 product designers.</p><p id="ac317f80-7605-4fd8-aa93-434e6186dffe" class="" dir="auto">In this initiative I take a facilitator role to empower the other designers during co-creation workshops sessions, and manage async initiatives to continue the work living outside the sessions.</p><p id="a568eca4-8f18-4f26-aae9-7268bf0c5980" class="" dir="auto">My biggest challenge was to keep everyone motivated and engaged with this extra initiative, which was very time-consuming for me but at the same time very rewarding, to play a proactive role and get in contact with everyone, create deep relationships, and manage their perspective and ideas individually towards the whole group goals.</p><ul id="8484bb88-d13d-4f75-a5b7-86b935bcad73" class="to-do-list" dir="auto"><li><input type="checkbox" class="checkbox checkbox-off" disabled=""/> <span class="to-do-children-unchecked">Add the result: Leadership get visibility on the internal issues</span><div class="indented"></div></li></ul><p id="0cfe33b2-d64b-41a2-8f5e-9504aa26a453" class="" dir="auto">
+</p><h1 id="c12c157e-1a74-484c-9a9a-0613d009fb16" class="" dir="auto">Professional Journey</h1><ul id="7a96f34c-36e4-406f-aeeb-1c18512838e9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">My name is André,<strong> </strong>I&#x27;m a Designer from Araraquara/ Brazil, glad to meet you!<ul id="bde97973-41ef-4d61-85fc-da2073bd93d6" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Brazil - Araraquara/São Paulo [Small city - Inland]</li></ul></li></ul><ul id="022be3a2-08e1-4a82-ba0b-ea6d98f7a0de" class="bulleted-list" dir="auto"><li style="list-style-type:disc">My personal and professional historic<aside class="callout" data-notion-callout="" data-notion-callout-icon="💡" style="white-space:pre-wrap;display:flex" id="a2339eec-2c43-4477-8377-44ffd7da1923" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%"><em>Please spend a little time telling us the </em><strong><em>story of why and how you became a designer</em></strong><em>.</em></div></aside><div data-notion-highlight="gray" dir="auto"><ul id="d601325d-e90c-4bf1-aff3-686f4c657579" class="block-color-gray bulleted-list" data-notion-highlight="gray"><li style="list-style-type:circle">I was an introverted kid that found a way to express myself through art.<ul id="b4d29117-3993-4fbb-9354-ad435dd04696" class="bulleted-list" dir="auto"><li style="list-style-type:square">Paintings and drawings.</li></ul></li></ul></div><ul id="4b7f388e-56fe-4be0-ae89-6728b9f54d05" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Went to Design college<ul id="e1688cc6-4ddc-4234-97f2-4cf522657a17" class="bulleted-list" dir="auto"><li style="list-style-type:square">Started my career in 2012 as a Graphic and Web Designer, focusing on websites, branding, package, and printing media.</li></ul><ul id="27c127c9-7508-4d94-8011-702b77953cff" class="bulleted-list" dir="auto"><li style="list-style-type:square"><del><mark class="highlight-gray" data-notion-highlight="gray">Where I have the first contact with Digital and UX Design [Rich internet applications] together with the computational science department in an internship at LTIA.</mark></del></li></ul></li></ul><ul id="3b966c27-c4ac-4cbf-8003-4ad0426bade4" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Co-funded a gym with my brother, called Treee Wellness, based in my hometown Araraquara.<ul id="483f4215-0a8c-4114-815b-01db38e8c025" class="bulleted-list" dir="auto"><li style="list-style-type:square">The Business topics enter my life when, together with my brother, I co-funded a gym called Treee Wellness, based in my hometown Araraquara.</li></ul><div data-notion-highlight="gray" dir="auto"><ul id="7a5330a6-6a3f-4e27-a9f4-b766baad531d" class="block-color-gray bulleted-list" data-notion-highlight="gray"><li style="list-style-type:square"><del>Communication Design, Social media, and Branding</del></li></ul></div><div data-notion-highlight="gray" dir="auto"><ul id="224db92e-f576-411c-8376-3cda2339f147" class="block-color-gray bulleted-list" data-notion-highlight="gray"><li style="list-style-type:square"><del>Customer experience → Pushed me to study more about UX and I started a specialization.</del></li></ul></div></li></ul><ul id="0850d3d9-e40b-4b44-b4b7-d3a1d54dc68a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">I did a specialization in<strong> </strong>User-Centered Design - <mark class="highlight-gray" data-notion-highlight="gray">Focusing on interaction Design and Service Design [It&#x27;s equivalent to an MBA]</mark><ul id="24c59406-4b49-4154-af6e-d4b27b2c6eaf" class="bulleted-list" dir="auto"><li style="list-style-type:square">In 2016 I had my first contact with Research and Service Design, where I fell in love with it</li></ul></li></ul><ul id="4a0d76f1-08cf-42db-abd7-c76995c14b61" class="bulleted-list" dir="auto"><li style="list-style-type:circle">In Brazil, I worked with Innovation, startups, and retail companies<ul id="6a137d5c-74f6-46de-8601-8b906a75bef0" class="bulleted-list" dir="auto"><li style="list-style-type:square">For companies like Onovolab, Magalu, Arquivei, and as a designer freelancer for early-stage startups.</li></ul></li></ul><ul id="a7a8c22a-ee61-4111-b9a2-fbdb61318a36" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Started my international career working remotely with Emerald works <ul id="2c82bfc4-6a14-462a-998d-476b21ecb201" class="bulleted-list" dir="auto"><li style="list-style-type:square">In 2020 I joined as a contractor Emerald works, a digital publishing company with headquarters based in Scotland.</li></ul></li></ul><ul id="f376d429-3458-43ac-afb3-089bb8f0efad" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Bitso<ul id="bcedf080-849e-4392-895b-839a64ab84d7" class="bulleted-list" dir="auto"><li style="list-style-type:square">Bitso is a remote-friendly exchange of cryptocurrency, with headquarters in Mexico, and operations in Brazil, Argentina, and Colombia.</li></ul></li></ul><ul id="e38b8b7e-190a-4699-a22a-3fb14bb533de" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Sales Impact Academy</li></ul><ul id="a1d04f44-4bc4-4048-8506-29357dd913ec" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Currently, I&#x27;m working at Blackbird.ai</li></ul></li></ul><h1 id="d0a4dff6-46b3-4f1d-80e2-05052e5ca48d" class="" dir="auto">Design process </h1><p id="242a7a90-2fd9-48be-9de2-e427d06c41d4" class="" dir="auto"><strong>Overview of my professional skills</strong></p><p id="7e790b44-a964-4b6a-83b8-4d62e1e68dc7" class="" dir="auto">I&#x27;m a very curious Designer from Brazil.</p><p id="b6b9fab8-7fad-49de-b4e2-7a56a8de1056" class="" dir="auto">My work today as a Digital Product Designer is based on the overlap of four main areas: Design Research, Service Design, Interaction Design, and Visual Design and my approach to solving problems follow the Human-Centric Design.</p><p id="f5be808c-d558-4916-b2b2-8de6d1219d31" class="" dir="auto">In all areas, I worked very hard to understand the people, their greatest anguish and difficulties during the day-to-day and how to translate the insights collected in a product/ service that makes sense to them and can also solve the company&#x27;s needs and problems.</p><p id="bffbe301-40c6-43d0-9403-adb61823006a" class="" dir="auto"><strong>ÁREAS</strong></p><p id="9b4d982f-38d0-474c-a18e-606a71ac00d4" class="" dir="auto"><strong>Design Research and Service Design: Understanding the challenge scenario</strong></p><p id="1a316b25-924d-40ed-a68d-468b5f5dd1f5" class="" dir="auto">Working to understand the scenario of the challenge in question, from the strategic point of view and the needs of the company, as well as the main stakeholders and mainly by customers.</p><p id="0595b2e8-bbfa-4868-83ac-71a85ed5fec4" class="" dir="auto">It is possible to map the front-stage and the back-stage of the service/product, make tangible the processes and procedures of the company, highlighting the opportunities and points of contacts existing with customers/consumers through the users &#x27; journey and Identifying the frictions, greater pains, and opportunities for innovation.</p><p id="792a276c-2f9b-4074-8613-ce1bfc1ffc50" class="" dir="auto"><em>Examples of deliverables of this phase:</em></p><p id="0bc21612-d7b5-4b05-b050-e27564b582dd" class="" dir="auto"><em>Ethnographic research, in-depth interviews, Service Blueprint, Personas, User Journey, Co-creation Workshop.</em></p><p id="c699345b-1d5d-4c10-927b-3426173b1144" class="" dir="auto"><strong>Interaction Design: Drawing product/service touch points</strong></p><p id="56843302-3929-421b-8d66-79baeae60c38" class="" dir="auto">After understanding the scenario it is possible to work on each touch point, drawing the structure of all the elements that compose the user experience and new ways of how this touch point will interact with the user, either through a service/ Digital product: Software, app or website, or through something physical, such as a totem, a printed catalog or a point of sale.</p><p id="f4cde373-217f-45a3-b439-f4a912ce6356" class="" dir="auto"><em>Examples of deliverables of this phase:</em></p><p id="9bb091d4-b0ca-4d5f-95d7-7f19421882d7" class="" dir="auto"><em>Information architecture, taxonomy, wireframes, task flow, usage scenarios, user interview, Low-fidelity interactive prototypes, and user testing.</em></p><p id="c6203e00-4ceb-4e32-8006-2e3f5660391c" class="" dir="auto"><strong>Visual Design: Consistency and &quot;Look and Feel &quot;</strong></p><p id="90c3cda9-e331-44d8-9e23-30a671e87bc4" class="" dir="auto">After thinking about the interaction design, comes the time of the Visual design layer and translate into how the branding and tone of voice existing in the brand of the company will extend over the service/product, to give life to all the learning and the structure created. Creating the graphical interface and all the elements that compose it, thinking of typography, colors, Layout, icons, images beyond all that is important to contribute to the construction of meaning and understanding to users, to communicate without losing consistency with the Brand. Adapting to the different types of media and devices that exist today, such as desktop, mobile phones and also printed media, if applicable.</p><p id="349260f3-d83b-4156-aecf-af3981b3f32b" class="" dir="auto"><em>Examples of deliverables of this phase:</em></p><p id="f53346b4-5812-415f-a682-8ba9c9f427f8" class="" dir="auto"><em>Graphical Interface and all the Visual part of the service/digital product or not, interactive high fidelity prototype, usability test</em></p><p id="1b417307-534e-48bf-89a1-cf4a2b7774ae" class="" dir="auto">In all areas I working very hard to understand the people, their greatest anguish and difficulties during the day-to-day and how to translate the insights collected in a product/ Service that make sense to them and can also solve the company&#x27;s needs and problems.</p><p id="0d64b7a7-84f1-42a5-b7f5-3e63e0468ab6" class="" dir="auto">I also act in facilitating <strong>Design Thinking and Design Sprint </strong>sessions, such as Co-creation and prototyping Workshops.</p><p id="ee659d73-f053-4dcd-b5cc-fabbfb4fa400" class="" dir="auto"><strong>DESIGN CHALLENGE</strong></p><p id="3b485833-57de-4f3c-9c5e-73741edd3b75" class="" dir="auto">I pass throughout a lot of challenges in my career as a Designer, like in 2018 when I Designed an MVP together with the Brazilian team of Roche Pharmaceuticals, to create a solution to help Hospitals Managers manage their costs in a better and more transparent way.</p><p id="3493ec05-a06a-409e-a4a0-3a21481f3c17" class="" dir="auto">This project was a great Design challenge for me, that involve, in a way, all Hospital areas and all Design phases, from Business needs to User Interface.</p><p id="9a9e96df-78fc-4e90-bf0d-b15ad168e3f5" class="" dir="auto">I used the Double Diamond Design process with the Human-Centered approach. I started understanding the Business Needs, then passing by Discovery what was the hospital manager&#x27;s pains and objectives related in this scenario, using Research techniques, then analyzing and define what was the opportunities to explore and, only after all this work, I started to think about User Experience and User Interface of the MVP.</p><h3 id="216dfb56-6802-4f04-b709-59078af5ccae" class="" dir="auto"> Environmental and sustainable concerns</h3><p id="fb842ecf-bb43-47a2-892e-1ac7a03f74e3" class="" dir="auto">Sinai&#x27;s mission, in addition to being aligned with my values, caught my attention because of the opportunity to work on something bigger them ourselves, which can indeed have a positive impact not only on people&#x27;s lives but also on the Environment which everyone&#x27;s depends on it, sounds extremely rewarding.</p><p id="881f814c-6f6b-4773-a7f0-261fd961a1b7" class="" dir="auto">And also helping companies to be more sustainable, which is a collaborative effort that involves many people from different areas, with different knowledge, is very attractive because it gives me, as a Product Designer, the possibility of participating in the construction of these bridges and translating the complexity.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

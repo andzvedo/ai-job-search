@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for André Luiz de Freitas Azevedo
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for André Luiz de Freitas Azevedo, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,85 +10,102 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
-- **Languages:** [YOUR_LANGUAGES]
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+- **Name:** André Luiz de Freitas Azevedo (short: André Azevedo)
+- **Location:** Araraquara, São Paulo, Brazil (remote-only; open to contractor / EOR / freelance for international USD roles)
+- **Languages:** Portuguese (Native), English (Advanced / Full Professional)
+- **CV language:** English (primary, for USD remote roles). Use Portuguese for Brazil-market remote roles.
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Senior Product Designer at Toptal (Sep 2025 – Present); Co-Founder, Product & Design at The Social EMU (Jan 2025 – Present). Previously Staff Product Designer at Blackbird.ai (Nov 2022 – Mar 2026).
+- **LinkedIn headline:** Staff Product Designer | Data, AI, Fintech
+- **Contact:** andreazeved1@gmail.com | +55 16 9 9705 8077 | https://www.linkedin.com/in/azevedodesign | https://www.andreazevedo.design
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **Specialization in User-Centered Design: Interaction Design and Service Design** (2016–2017) - Universidade Positivo, São Paulo/SP, Brazil
+  - Topics: user-centered design, interaction design, service-oriented experiences
+- **Bachelor of Graphic Design** (2007–2011) - UNESP – Universidade Estadual Paulista "Júlio de Mesquita Filho", Bauru/SP, Brazil
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Senior Product Designer** (Sep 2025 – Present) - **Toptal** (Remote)
+  - Senior Product Design engagements via the Toptal network
+- **Co-Founder, Product & Design** (Jan 2025 – Present) - **The Social EMU** (United States)
+  - Founding product and design for private events product; hands-on product/front (uses Clerk)
+- **Staff Product Designer** (Nov 2022 – Mar 2026) - **Blackbird.ai** (USA, Remote)
+  - AI-powered narrative/risk intelligence B2B SaaS; research, design system, Data Connector, Narrative Feed / Compass Vision
+  - Redesigned Analyze vs Network Graph mental model; −14% related support tickets (month 1), −39% (month 2)
+- **Staff Product Designer** (Jul 2022 – Sep 2022) - **Sales Impact Academy** (USA, Remote)
+  - E-learning platform; company-level service blueprint
+- **Staff Product Designer** (Apr 2022 – Jul 2022) / **Senior Product Designer** (Apr 2021 – Apr 2022) - **Bitso** (Mexico, Remote)
+  - Bitso Card MVP (Cryptoback discovery); B2B institutional onboarding (1,900+ institutions); Product Design Guild (~16 designers); player-coach
+- **Senior Product Designer** (Jul 2020 – Apr 2021) - **Mind Tools / Emerald Works** (Scotland, Remote)
+  - LMS content editor designed from scratch with UX Researcher and PM
+- **Senior Product Designer** (Nov 2019 – Jul 2020) - **Arquivei (Qive)** (Brazil)
+  - Trial onboarding redesign; +56% lead-to-trial conversion
+- **Senior UX/UI Designer** (Jan 2019 – Nov 2019) - **Magazine Luiza / Luizalabs** (Brazil)
+  - MaaS Console + Account (B2B services marketplace); initiative later halted by leadership
+- **UX/UI and Service Designer | UX Researcher** (Mar 2018 – Jan 2019) - **ONOVOLAB** (Brazil)
+  - Fintech and healthcare products (e.g. Card Elo, Roche contexts)
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** Product Design (Senior/Staff), UX Research (qual + quant), UX/UI, Design Systems (Figma), Service Design / journey maps / blueprints
+- **Secondary:** Visual/graphic design, design–engineering collaboration, AI prototyping workflows (Cursor, Figma Make, v0 and related tools when relevant)
+- **Domain:** Fintech/crypto, AI/data visualization & narrative intelligence, B2B SaaS, EdTech/LMS, retail tech
+- **Software:** Figma, Amplitude/Mixpanel/Hotjar (analytics-informed design), collaboration with Eng/Product/CS/Compliance
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- Designing and Delivering Great Customer Experience (Stewart / O'Connell)
+- User Experience Research for Product Design — Sperientia [studio + lab]®
+- Blockchain and Cryptocurrency Explained
+- Co-creative journey mapping workshops (Marc Stickdorn)
+- Design Emocional
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+- None listed.
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- None listed.
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- **Human-centered / evidence-based** - Decisions informed by research and usage data, not guesses
+- **Systems thinker** - Journeys, blueprints, systemic product problems
+- **Collaborative facilitator** - Cross-functional delivery; guild facilitation; player-coach
+- **Strengths:** Empathy, challenging assumptions with evidence, remote international collaboration, ambiguity → clarity
+- **Growth areas:** Formal org people-management (prefer influence over hierarchy); do not overclaim engineering IC depth
+- **Thrives in:** Clear paths, organized teams, complex B2B/AI/fintech problems; night owl; ADHD-aware (desorganization drains energy)
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Translating complex business/data/regulatory problems into usable product experiences
+- AI / data products, fintech, B2B platforms, design systems, research that changes strategy
+- Remote collaboration with strong product/engineering partners
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- **Primary:** Remote Product Designer roles that hire from Brazil and pay in **USD** (contractor, freelance, EOR, or international-friendly employers) — AI, fintech, B2B SaaS, data platforms, design systems
+- **Secondary:** Remote Product Designer roles in **Brazil** (CV and cover letter in Portuguese)
+- Example themes from past applications: AI platforms, fintech/crypto infra, fraud/compliance, edtech, healthtech, founding/early-stage design
 
 ### Deal-breakers
-<!-- Hard constraints on job search -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Roles that require relocation or mandatory on-site (remote-only search)
+- International roles that do not accept Brazil-based candidates (no contractor/EOR/visa path) or do not pay in USD (for primary track)
+- Pure brand/marketing design with no product ownership (weak fit, usually skip)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
 - `cover_letters/` - LaTeX cover letters (custom cover.cls template)
 - `.claude/skills/` - AI skill definitions for the application workflow
 - `.agents/skills/` - Job search CLI tools
+- `notion-job-searching-notes/` - Source archive of past applications, cover letters, and experience writeups (reference only; canonical profile lives in skill files)
 
 ## Workflow for New Job Applications
 1. User provides a job posting (URL or text)
 2. **Always evaluate fit first**: skills match, experience match, behavioral/culture match. Present this assessment to the user before proceeding.
-3. If good fit: create targeted CV (`cv/main_<company>_<role>.tex`) and cover letter (`cover_letters/cover_<company>_<role>.tex`)
-4. **Verify both documents** (see Verification Checklist below)
-5. Prepare interview talking points based on the role requirements and your strengths
+3. **Eligibility gate for international roles:** confirm the employer accepts Brazil-based talent (remote worldwide, LATAM, contractor, freelance, or EOR). If silent, flag as unverified before drafting.
+4. If good fit: create targeted CV (`cv/main_<company>_<role>.tex`) and cover letter (`cover_letters/cover_<company>_<role>.tex`)
+   - Primary track → English CV + English cover letter (or posting language)
+   - Brazil track → Portuguese CV + Portuguese cover letter
+5. **Verify both documents** (see Verification Checklist below)
+6. Prepare interview talking points based on the role requirements and your strengths
 
-**Important:** When mentioning agentic coding or AI tooling in CVs/cover letters, explicitly reference **Claude Code** by name.
+**Important:** When mentioning agentic coding or AI tooling in CVs/cover letters, reference only the tools the candidate actually uses, such as OpenCode, Codex, Cursor, Claude Code, or other tools documented in the candidate profile.
 
 ## Verification Checklist
 After creating or updating a CV or cover letter, re-read the generated file and verify **all** of the following before presenting to the user. Report the results as a pass/fail checklist.
@@ -117,7 +131,7 @@ After creating or updating a CV or cover letter, re-read the generated file and 
 ### Quality
 - [ ] No LaTeX syntax errors (balanced braces, correct commands)
 - [ ] No spelling or grammar errors
-- [ ] Agentic coding / AI tooling references mention **Claude Code** by name
+- [ ] Agentic coding / AI tooling references match the tools the candidate actually uses (not a fixed tool name)
 - [ ] Cover letter is addressed to the correct person (or "Dear Hiring Manager" if unknown)
 - [ ] Cover letter fits approximately one page
 - [ ] CV section headings (`\section{...}`) and the References boilerplate line match the CV's language, not left as the English template defaults (see `05-cv-templates.md`)

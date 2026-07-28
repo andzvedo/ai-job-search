@@ -108,3 +108,14 @@ The cover letter is **not a CV repetition**. It should be forward-looking:
 - Default to the language of the job posting
 - Cover letters in the posting's language should feel natural, not translated
 - Slightly warmer, more personal tone may be acceptable in some languages
+- **André dual track:** Primary applications (USD remote international) → English CV and letter. Brazil remote roles → Portuguese CV and letter. Cover letter language still follows the posting.
+
+## Patterns Observed in Past Applications
+*[Extracted from Notion cover letters 2020–2026 — structural observations only; do not paste outdated year counts or wrong company names]*
+
+1. **Modular career blocks:** Intro (Brazil-based PD, sectors, geographies) → Blackbird → SIA blueprint → Bitso (Business + Card + Guild) → research + graphic foundation + design systems → portfolio link. Prefer shortening to 1–2 most relevant blocks per role.
+2. **Founding / early-stage variant:** Emphasize Arquivei/Bitso/SIA/Blackbird startup contexts + service design beyond screens + research ownership + graphic → UI naturalness.
+3. **Product-obsessed / why-this-company (preferred for 2025+):** Open with specific product friction or mission fit, then 1–2 proof points with metrics (−39% tickets, +56% conversion, Cryptoback). Stronger than pure template.
+4. **International eligibility:** For roles that are not explicitly Brazil-friendly, briefly note contractor / EOR readiness (Remote.com and similar) when true — do not bury it.
+5. **Recurring close:** Portfolio `andreazevedo.design` + willingness to jump on a call. Warm, direct, no begging.
+6. **Hygiene:** Never leave wrong company names from reused drafts; never invent titles (e.g. fabricated Principal roles). Update “N years” from 2011 graduation / real tenure.

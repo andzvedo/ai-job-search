@@ -44,9 +44,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Product Design (Senior/Staff), UX/UI, UX Research (qual + quant), Design Systems (Figma), B2B SaaS, Fintech/crypto product design, AI/data visualization & narrative intelligence products, service blueprints / journey mapping, remote cross-functional collaboration
+**Moderate match areas:** Service Design at org level, EdTech/LMS content tools, mentorship/facilitation (Design Guild), founding / 0→1 product design, design–engineering collaboration (Front-End Design / Design Engineering as fluency)
+**Weak match areas:** Formal people management (Head/Director of Design), hands-on software engineering as primary craft, pure brand/marketing design without product ownership, academic research / publications track
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -58,9 +58,9 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Staff/Senior Product Designer in AI SaaS (Blackbird), fintech/crypto (Bitso), B2B SaaS onboarding and account platforms (Bitso institutional, Luizalabs), remote international product teams
+**Moderate:** EdTech / LMS (Mind Tools, Sales Impact Academy), healthcare product UX (ONOVOLAB), co-founder product & design (The Social EMU), Toptal senior engagements
+**Entry-level:** Engineering management, pure data science/ML engineering, sales-led roles without design ownership
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -75,10 +75,28 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
+- Fully remote, worldwide / LATAM / Brazil accepted: PASS (primary track if USD)
+- Remote Brazil-only roles: PASS on secondary track (Portuguese materials)
+- Contractor / freelance / EOR for US or EU employers: PASS if pay is USD (or agreed hard currency)
+- Requires relocation or mandatory on-site outside commute: FAIL (deal-breaker)
+- Silent on Brazil eligibility for international roles: FLAG — verify before drafting; silence is not permission
 - Frequent international travel: FLAG (discuss with user)
+
+## Calibration from Past Applications
+*[From Notion export — additive signal for scoring, does not replace the framework above]*
+
+**Confirmed strong-fit signals (reached interviews / challenges / deep conversations):**
+- AI product design and prototyping (Sierra Studio challenge, Turing, TransferAI, LCA)
+- Fintech / APIs / compliance-adjacent (Alpaca, Sardine, Bitso-shaped narratives)
+- Health / consumer focus products when personal fit is real (Brain.fm, Zoetis conversations)
+- Brazil Senior/Principal agency or product roles (Fullstack Labs)
+
+**Recurring friction / skip patterns:**
+- US employers that exclude Brazil or have no contractor/EOR path (e.g. historical Zapier note: Brazil not eligible)
+- Incomplete portfolio arcs (abandoning case studies mid-process)
+- Draft hygiene failures (wrong company names, inflated titles) — treat as process debt, not profile facts
+
+**Weight for motivation:** Prefer postings where André can tell a specific “why this product” story over generic Staff PD spray-and-pray.
 
 ### 5. Career Alignment & Motivation (0-100)
 Does this role advance career goals and contain tasks that energize?
@@ -91,19 +109,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Primary: Remote Product Designer roles (Senior/Staff) that accept Brazil-based candidates and pay in USD (contractor, freelance, EOR, or international-friendly employers)
+- Secondary: Remote Product Designer roles in Brazil (Portuguese CV/letter)
+- Domains of interest: AI/data products, fintech, complex B2B SaaS, design systems, early-stage/founding design when fit is strong
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+- Tasks that energize: complex systemic product problems, research that changes strategy, AI/data and fintech domains, design systems, cross-functional product ownership
+- Tasks that drain: pure production UI without discovery, chaotic priorities without clarity, siloed handoff design, mandatory office relocation
+- Non-task factors: remote-first culture, honesty/care, autonomy with clear outcomes
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security:** Prefer USD compensation for international work; Brazil remote as secondary track
+- **Flexibility:** Remote-only from Araraquara, SP; night-owl / ADHD-aware need for clear structure
+- **Professional development:** Staff/Senior IC craft, AI-native workflows, influence leadership (guilds/player-coach)
 
 ### 6. Salary Benchmark (Optional)
 

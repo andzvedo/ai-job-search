@@ -1,0 +1,773 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>1) Feature Demo evaluation</title><meta name="data-notion-page-icon" content="✅"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%9C%85%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="c5302f08-1c68-4646-a66a-11a86346fbaf" class="page sans" data-notion-page-icon="✅"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="✅"></span></div><h1 class="page-title" dir="auto">1) Feature Demo evaluation</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="bba24192-9985-4dd7-a26f-e43bcfc641bf" style="display:inline-block">Task breakdown</h1></summary><div class="indented"><h1 id="a92e12db-d345-4615-bcdf-d633b079faa8" class="" dir="auto">Source</h1><p id="a6c931fa-ab47-497b-84f4-f271db46fd46" class="" dir="auto">Your application to TrustLayer - Senior Product Designer </p><p id="c3f0ffa3-6fc4-441b-be64-8359eef24a71" class="" dir="auto">Email by john@trustlayer.io</p><h1 id="0ee04d39-ca4f-4fbb-a82f-2582c727a0d8" class="" dir="auto">About the company</h1><p id="1953e99e-ba65-4647-968f-3e77e618840a" class="" dir="auto">TrustLayer is a venture-backed <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">B2B SaaS </mark>company that reduces friction and builds trust between businesses. </p><p id="0403dd10-a2f5-43f5-9a47-152560f98423" class="" dir="auto">We allow users to automate the verification of insurance, licenses, and compliance docs of their business partners (i.e., vendors, subcontractors, suppliers, borrowers, tenants...).</p><h1 id="15b4bc2f-2317-4c07-8e7b-9b45323a9b9c" class="" dir="auto">Overview</h1><p id="f472c30e-a634-4302-a8ae-6111788b70f7" class="" dir="auto">For the next step in the interview process, we ask that you do a little <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">role-playing</mark>. </p><ul id="8fd9dca0-a314-4d8a-bf07-28ac9d014f8f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Make a <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">loom video (no more than 5 minutes)</mark> </li></ul><ul id="f308c27d-b730-4e25-9d6d-51310b7b84a1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Where you <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">demo</mark> some feature in one of your <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">favorite software programs </mark>(Gmail, Asana, anything). Heck, feel free to even talk about why we should bring back Windows 92 Clippy. :) </li></ul><h1 id="0a41f70e-69af-411e-8857-76b87629a3a7" class="" dir="auto">Outcome</h1><p id="cc1db6b2-3ffa-4085-9a5e-7081acac656e" class="" dir="auto">Help them understand: </p><ul id="2ceb75ac-6b4b-407e-877a-03be1f220d58" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How I present a feature, and </li></ul><ul id="425c8a92-1147-43c2-a486-3558abc8f48c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How I structure my thinking for that</li></ul><aside class="block-color-default callout" data-notion-callout="" data-notion-callout-icon="⚠️" data-notion-callout-background="default" style="white-space:pre-wrap;display:flex" id="48a60984-8b37-4b96-b895-67f9151542d0" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⚠️"></span></div><div style="width:100%">→ This Senior Product Designer role is going to be heavily client-facing. We&#x27;re looking for a great storyteller. <br/><br/>→ They&#x27;ll need to present new features, interact with clients, and work closely with our go-to-market team.</div></aside><h1 id="6affe7d0-f77d-4fc9-ad9e-1184f66ef8ab" class="" dir="auto">Requirements</h1><p id="ea34169b-de9d-45e8-bdfa-dcb61cc2d31e" class="" dir="auto">Please show:</p><ul id="e4c14d4b-0ea4-4e51-804e-05bac378c1cb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><mark class="highlight-yellow_background" data-notion-highlight="yellow_background">how to use</mark> this feature,</li></ul><ul id="886e4d2d-e7c3-4b4a-ae70-1229307f741c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">describe <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">why</mark> it adds <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">value</mark> and for <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">whom</mark>, and</li></ul><ul id="c6c0a4f7-c27f-4216-8f22-3a2234fe9a39" class="bulleted-list" dir="auto"><li style="list-style-type:disc">briefly discuss how do you envision we <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">roll it out to our clients</mark>. <ul id="173451fd-58c0-486a-9b47-2332df193ded" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Presume the <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">executives</mark> you are briefing have <mark class="highlight-yellow_background" data-notion-highlight="yellow_background">not seen this feature before.</mark></li></ul></li></ul><aside class="block-color-default callout" data-notion-callout="" data-notion-callout-icon="⚠️" data-notion-callout-background="default" style="white-space:pre-wrap;display:flex" id="9027ff72-e16e-4486-b4c7-7c49e4fbe762" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="⚠️"></span></div><div style="width:100%">→ No need to make <mark class="highlight-red_background" data-notion-highlight="red_background">slides</mark>, a big<mark class="highlight-red_background" data-notion-highlight="red_background"> GTM presentation</mark>, or <mark class="highlight-red_background" data-notion-highlight="red_background">other any materials</mark> for this step. </div></aside><h1 id="a0a11f9b-b536-47c4-8eff-1f3469db3c7c" class="" dir="auto">Deliverable</h1><ul id="f65ae473-fbfc-4c2b-a8a1-6a630f99f6c9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Reply the email with my video</li></ul><h1 id="5643b413-605b-4043-8e22-4ee16de51cb5" class="" dir="auto">Next steps</h1><ul id="d1e70542-cfbb-4cb4-9cfe-a721347abf16" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><mark class="highlight-default" data-notion-highlight="default">They will schedule an interview.</mark></li></ul><p id="a6cc1ea5-9311-4409-a5f6-49fb6393aeb7" class="" dir="auto">
+</p><h1 id="a6536273-b624-4b20-8fb2-b5321d9795ba" class="" dir="auto">Video</h1><h2 id="5c925a41-1434-4c1c-ad50-d6be2b3f76d2" class="" dir="auto">Audience type</h2><ul id="7980b3e8-de6f-48a2-8e54-aa246571a732" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Internal Go-to-market Executives<ul id="cec6e512-6113-4d8b-9e51-6f2ffdea1d6c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Sales </li></ul><ul id="962f5c5b-3ba8-4184-b5da-284bc0d2f84a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Customer Success, and </li></ul><ul id="f31d2c1e-6790-45e1-9b97-d1709ce1ef39" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Marketing</li></ul></li></ul><p id="0d123041-30ea-431a-a607-3bacaf543570" class="" dir="auto">The presentation is to equip the GMT executives:</p><ul id="b35f3794-614d-4094-98d2-c6d56690aea2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Became ready for sell the product</li></ul><ul id="eebeb768-4d5f-4748-aace-60a0e9500001" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Understand the potential opportunities that this new feature can bring</li></ul><p id="c4cad39e-346e-4533-a615-37bc7729c0f7" class="" dir="auto"><strong>Value</strong></p><p id="bc84fd0e-966b-4985-b84e-e829df4e4da8" class="" dir="auto">What is more important for them? What is the most valuable for them?</p><p id="bb8ed0fa-383f-43f9-9436-063a352a8e87" class="" dir="auto">
+</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="75db5657-da99-471e-a251-f6ea80b06010" style="display:inline-block">Presentation structure</h1></summary><div class="indented"><div id="f1c1efff-9031-42f7-8dd3-c9d770daefc4" class="column-list" data-notion-column-list="" dir="auto"><div id="3293bedd-f92b-493d-8702-b6c0b7b2b63f" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><ol type="1" id="2f680d5b-3d25-49a6-9ae0-51ba68fd8e33" class="numbered-list" start="1" dir="auto"><li>Greeting everyone</li></ol><ol type="1" id="eb2b2bb8-2db4-43a0-9ef5-a0537bc803a8" class="numbered-list" start="2" dir="auto"><li>Set expectations: Quickly explain what will be presented </li></ol><ol type="1" id="20baf411-80d0-478b-8f62-a6fc42d19fb0" class="numbered-list" start="3" dir="auto"><li>Set context from the users perspective and close with a clear “Problem statement”<ol type="a" id="cea6e4ad-1820-4360-ada0-d2b8920c7d0a" class="numbered-list" start="1" dir="auto"><li>Explain what is the problem, and user pain points, using a clear problem statement. </li></ol></li></ol><ol type="1" id="43fc48ac-d7dd-4e4d-9d5b-7138acf2b99a" class="numbered-list" start="4" dir="auto"><li>Present the Solution<ol type="a" id="9939866b-980f-46c4-bfc8-16c8c0d9885b" class="numbered-list" start="1" dir="auto"><li>Explain how we are Addressing the problem, </li></ol><ol type="a" id="c82db0af-72e9-4777-9438-0100ab06205c" class="numbered-list" start="2" dir="auto"><li>Step-by-Step Demonstration of the Notion Item Sidebar expanded<ol type="i" id="62f8d676-2077-4317-aefc-f982b25908bc" class="numbered-list" start="1" dir="auto"><li>How it works</li></ol><ol type="i" id="c6701d9e-9730-4067-bbe1-0e882f1add6a" class="numbered-list" start="2" dir="auto"><li>User Flow</li></ol><ol type="i" id="14f107c9-fcef-4bde-8c1e-c4763c034148" class="numbered-list" start="3" dir="auto"><li>Capabilities</li></ol></li></ol></li></ol><ol type="1" id="36e4a0f7-cf3d-4e2b-9161-29cb5b645166" class="numbered-list" start="5" dir="auto"><li>What are the Expected results for the Business as a whole<ol type="a" id="23115853-90ec-46e0-a72b-b243c1623174" class="numbered-list" start="1" dir="auto"><li>Explain what is expected Result and the potential Business impact.</li></ol></li></ol><ol type="1" id="d7b8c44d-5c17-4bdd-bed5-ec5b85bd6a74" class="numbered-list" start="6" dir="auto"><li>Rollout strategy for Clients<ol type="a" id="2d8ae116-3983-4fdf-ac4f-c3004bfe903d" class="numbered-list" start="1" dir="auto"><li>Explain how we are aiming to achieve this.<ol type="i" id="a516c85a-aa83-495d-8408-224b469cd617" class="numbered-list" start="1" dir="auto"><li>Pilot Phase</li></ol><ol type="i" id="854e5dba-0fc9-4d3c-bf43-f821c531a27b" class="numbered-list" start="2" dir="auto"><li>Feedback and Iteration</li></ol><ol type="i" id="559f534b-ab16-4565-9e3f-f90eaff7d9ba" class="numbered-list" start="3" dir="auto"><li>Full Deployment</li></ol></li></ol></li></ol><ol type="1" id="d2f0b248-0ae0-4191-bb11-337334f82d8d" class="numbered-list" start="6" dir="auto"><li>Closing<ol type="a" id="e501f3b5-d95d-42d6-b37f-9e0a1924224d" class="numbered-list" start="1" dir="auto"><li>Appreciate everyone</li></ol><ol type="a" id="85124189-6264-46b7-b950-4b3bb4f62674" class="numbered-list" start="2" dir="auto"><li>Any questions just reach me out by slack.</li></ol></li></ol></div><div id="7332bd75-a57b-4ee3-a256-622da2b846dc" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><ol type="1" id="52db10f7-7148-4549-880f-6ad80bf5bbca" class="numbered-list" start="1" dir="auto"><li>Hello everyone. Thanks for joining me today. </li></ol><ol type="1" id="02457856-7c86-463c-9085-368917192131" class="numbered-list" start="2" dir="auto"><li>I&#x27;m excited to share with you today a new Notion feature called Side peek.</li></ol><ol type="1" id="dd1d8040-d432-4a40-a4b1-5c3c558f4f8d" class="numbered-list" start="3" dir="auto"><li>[Context] Our data usage have shown that our users are going back and fourth from a Table view, to an Item Details page, very often, and after further investigation and talking with them, we discovered that [add Problem statement] <aside class="block-color-default callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="default" style="white-space:pre-wrap;display:flex" id="f4c5f0ac-01af-4a4e-9add-531fea465823" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%">Examples<details id="58223fb1-4eb2-4201-857d-ea70c0f3abf0" open="" class="toggle" dir="auto"><summary>Problem statement</summary><div class="indented"><p id="6c7d22a0-1227-4a5e-b8d4-c90cb46a35fc" class="" dir="auto">The structure is very good and organized, which is great for having a clear understanding of the solution requirements.</p><p id="73030c80-d3e9-48f4-8344-87fb781dff64" class="" dir="auto">Based on the information available, I missed more about the <strong>user&#x27;s perspective and the pain points this solution is trying to solve</strong>. I would say that adding a &quot;Problem statement” from the users&#x27; perspective (the salespeople) would be very relevant for the design work, so the participants of the challenge would have a bit more understanding about what salespeople&#x27;s pain points this solution is trying to solve. Could be something like this:</p><p id="0c4dfad3-6523-4b08-98ff-b9f8eefc1b62" class="" dir="auto">Problem statement</p><p id="cd856034-a7ec-430c-815f-c1ef0cfb7b2e" class="" dir="auto">Salespeople often use a lot of time updating spending data to avoid inaccuracies instead of focusing on their core tasks of building relationships and closing deals. This inefficiency is caused by the need to manage complex information, ensure transparency and accountability, and understand the broader market impacts of their updates interferes with informed decision-making and the formation of an overarching business strategy.</p></div></details><details id="68ab3d16-1cb9-4d1d-b57d-f9946f48d210" open="" class="toggle" dir="auto"><summary>Figma new feature release example</summary><div class="indented"><p id="447f8aa6-2f89-4fcf-8534-0c19bf4d889e" class="" dir="auto">I opened Figma and saw a modal message explaining their changes in the draft files.</p><figure id="caca3fb6-ab6c-484c-8617-c4b729179801" class="image" data-notion-image="1)%20Feature%20Demo%20evaluation/Untitled.png" dir="ltr"><a href="1)%20Feature%20Demo%20evaluation/Untitled.png"><img style="width:2200px" src="1)%20Feature%20Demo%20evaluation/Untitled.png"/></a></figure><p id="8b6639bb-ca52-4326-9039-0149df72734d" class="" dir="auto">I found their approach very interesting because they used a similar structure to the mindset I shared about the <em>problem statement</em>.</p><p id="28ed8dea-13dd-43a8-ae9a-f93beda2128c" class="" dir="auto">The message starts by<em> 1) explaining the problem from the user&#x27;s perspective </em>to help set up the problem context related to the drafts with everyone.</p><p id="450fdf5d-d622-4f29-bdd9-24d757ddb382" class="" dir="auto">And then it 2) shows how it was addressed.</p></div></details></div></aside></li></ol><ol type="1" id="7556cfca-e2b6-4584-b50f-f0d16e87c789" class="numbered-list" start="4" dir="auto"><li>[Explain the Side peek as a solution for the problem statement and its value for users] and to address the problem we came up with the option for users to open a database item without leaving its page …. <p id="8071d8c2-c53c-4733-a8f8-c471b9c435d7" class="" dir="auto">[Step-by-step demo] Let me present to you how it works….</p></li></ol><ol type="1" id="f4cd6b41-7578-42c6-b140-1774c9c0b737" class="numbered-list" start="5" dir="auto"><li>[Show the potential Business impact]</li></ol><ol type="1" id="9f6d62f0-9f75-4e5a-ada1-a186eaafe9b1" class="numbered-list" start="6" dir="auto"><li>Rollout Strategy for Clients<ol type="a" id="f2a30195-a28a-462e-bdf6-cd41b15f90c1" class="numbered-list" start="1" dir="auto"><li>Pilot Phase:<br/>&quot;Next, we’ll implement a pilot phase with a select group of clients. This phase will allow us to gather feedback and make any necessary adjustments before a wider rollout.&quot;</li></ol><ol type="a" id="deb9e12b-31bb-4efb-a4b4-64c56b6a750f" class="numbered-list" start="2" dir="auto"><li>Feedback and Iteration:<br/>&quot;During the pilot, we’ll collect feedback through surveys and track events of direct interactions with the feature. This feedback will be crucial for refining the feature and ensuring it meets our clients&#x27; needs.&quot;</li></ol><ol type="a" id="f151fa19-74ea-415d-a02b-9a5ac6e7570c" class="numbered-list" start="3" dir="auto"><li>Full Deployment:<br/>&quot;Finally, we’ll proceed with a full deployment, supported by comprehensive documentation and ongoing support to ensure a smooth transition and high adoption rates.&quot;</li></ol></li></ol><ol type="1" id="ff26cd40-4df1-494c-9423-87f43a156021" class="numbered-list" start="7" dir="auto"><li>Closing</li></ol><p id="a8032473-ee5b-479c-ab05-04bbe570c051" class="" dir="auto">
+</p></div></div><hr id="4bf564b0-5f6d-434f-a207-d05713c9672e" dir="auto"/><details id="f0ca278e-8ef0-4458-9c3b-6fe3d25679bd" open="" class="toggle" dir="auto"><summary>V1</summary><div class="indented"><div id="a9355899-c9a6-4b06-9d4c-ac7e2616b3e0" class="column-list" data-notion-column-list="" dir="auto"><div id="0e340d4c-b304-43f2-86e0-2eb73d4dc3cc" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><ol type="1" id="97095a1e-4812-4b1b-b6c2-5a46404bf108" class="numbered-list" start="1" dir="auto"><li>Greeting everyone</li></ol><ol type="1" id="124be050-8d70-43e3-b96c-695c8de16668" class="numbered-list" start="2" dir="auto"><li>Set expectations: Quickly explain what will be presented </li></ol><ol type="1" id="41e13843-12cd-45eb-a2e5-5a0c3d41ba87" class="numbered-list" start="3" dir="auto"><li>Set context: Problem statement, Solution, and Expected result.<ol type="a" id="d36ab244-6407-4571-8dbc-8f9115e03a21" class="numbered-list" start="1" dir="auto"><li>Explain what is the problem, and user pain points, using a clear problem statement. </li></ol><ol type="a" id="42c4bbeb-3182-4322-a844-5775c116818b" class="numbered-list" start="2" dir="auto"><li>Explain how we are Addressing the problem, </li></ol><ol type="a" id="f0b95e0d-6f8d-4f27-9826-1369bf4ddeeb" class="numbered-list" start="3" dir="auto"><li>Explain what is expected Result and the potential Business impact.</li></ol></li></ol><ol type="1" id="07c9c183-9d0a-4737-8878-a88043bd7f3f" class="numbered-list" start="4" dir="auto"><li>Step-by-Step Demonstration of the Notion Item Sidebar expanded<ol type="a" id="eb806e64-f25c-4e0f-90bc-4ba19da32e91" class="numbered-list" start="1" dir="auto"><li>How it works</li></ol><ol type="a" id="9225605c-ceee-4de5-bd09-dd5712d0a116" class="numbered-list" start="2" dir="auto"><li>User Flow</li></ol><ol type="a" id="4c8b8b6d-06bc-49e1-8439-8dfb29fda46d" class="numbered-list" start="3" dir="auto"><li>Capabilities</li></ol></li></ol><p id="e32e3ef2-25b3-480c-a984-13a039410472" class="" dir="auto">
+</p></div><div id="954b2157-08fb-463e-b0f2-23789016fc07" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><ol type="1" id="708cf58d-75e5-481d-96e8-cc65419a05c5" class="numbered-list" start="1" dir="auto"><li>Hello everyone. Thanks for joining me today. </li></ol><ol type="1" id="76c8f42a-cb5f-44c8-99a1-bed78619ccb5" class="numbered-list" start="2" dir="auto"><li>I&#x27;m here to present for you a brand new feature of the {Product name}: {Name of the Feature}</li></ol><ol type="1" id="2da7fa00-2676-4d56-8276-0a8e00166a92" class="numbered-list" start="3" dir="auto"><li>[Context] Our data usage have shown that our users are going back and fourth from a Table view, to an Item Details page, very often, and after further investigation and talking with them, we discovered that [add Problem statement] ….. [Explain the sidebar as a solution for the problem statement] and to address the problem …. [Show the expected result]</li></ol><aside class="block-color-default callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="default" style="white-space:pre-wrap;display:flex" id="b2ef79be-09da-40c6-86ba-c1a30352e3bc" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%">Examples<details id="f8fdd9ac-df5a-4fb4-98f2-669263abe9b4" open="" class="toggle" dir="auto"><summary>Problem statement for Fima</summary><div class="indented"><p id="343ef54a-9dda-4379-b9b3-572e4f9a7f0a" class="" dir="auto">The structure is very good and organized, which is great for having a clear understanding of the solution requirements.</p><p id="e5e6464c-a21e-404d-bbc1-2efacad84628" class="" dir="auto">Based on the information available, I missed more about the <strong>user&#x27;s perspective and the pain points this solution is trying to solve</strong>. I would say that adding a &quot;Problem statement” from the users&#x27; perspective (the salespeople) would be very relevant for the design work, so the participants of the challenge would have a bit more understanding about what salespeople&#x27;s pain points this solution is trying to solve. Could be something like this:</p><p id="4ef55f90-de59-4549-b12e-99fcf06df24f" class="" dir="auto">Problem statement</p><p id="899fdf77-b9eb-4307-b003-ffd72a0208a0" class="" dir="auto">Salespeople often use a lot of time updating spending data to avoid inaccuracies instead of focusing on their core tasks of building relationships and closing deals. This inefficiency is caused by the need to manage complex information, ensure transparency and accountability, and understand the broader market impacts of their updates interferes with informed decision-making and the formation of an overarching business strategy.</p></div></details><details id="7f8a312d-9d1f-4c01-bb30-3e968faf7736" open="" class="toggle" dir="auto"><summary>Figma new feature release example</summary><div class="indented"><p id="8edc72d6-9631-4823-a209-f2b1f7f95fc4" class="" dir="auto">I opened Figma and saw a modal message explaining their changes in the draft files.</p><figure id="1d95e15c-5209-46d6-88b2-f12b0d24ca69" class="image" data-notion-image="1)%20Feature%20Demo%20evaluation/Untitled.png" dir="ltr"><a href="1)%20Feature%20Demo%20evaluation/Untitled.png"><img style="width:2200px" src="1)%20Feature%20Demo%20evaluation/Untitled.png"/></a></figure><p id="027dc494-2c46-43bd-8f89-b28695df9054" class="" dir="auto">I found their approach very interesting because they used a similar structure to the mindset I shared about the <em>problem statement</em>.</p><p id="33dfbc94-f3dc-4781-9766-955e40c8fd45" class="" dir="auto">The message starts by<em> 1) explaining the problem from the user&#x27;s perspective </em></p><ul id="87fc0b9f-cddf-4164-b59c-1f864bc177b6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">to help set up the user problem related to the drafts with everyone).</li></ul><p id="1b0aeb5a-d17e-4cd1-befd-4b859db0bc6e" class="" dir="auto">And then it 2) shows how it was addressed.</p></div></details></div></aside></div></div></div></details></div></details><h1 id="a4244483-ceda-4bf3-a345-ef44e5a9a25e" class="" dir="auto">Script</h1><figure id="372ed495-c097-4c01-ad52-11be8f8e752b" class="link-to-page"><a href="1)%20Feature%20Demo%20evaluation/Script%20TrustLayer%20feature%20demo%20372ed495c0974c01ad5211be8f8e752b.html" data-notion-page-id="372ed495-c097-4c01-ad52-11be8f8e752b" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Script TrustLayer feature demo</a></figure><hr id="293aafe3-561c-493d-9ad0-3f01a28bb9d8" dir="auto"/><details id="4a5de14e-61b9-4b29-83f2-524f75eee887" open="" class="toggle" dir="auto"><summary>AI generated v1</summary><div class="indented"><h3 id="c45dd447-3dda-4030-a68e-21da43d3e210" class="" dir="auto">Script for Notion Item Sidebar Feature Demo</h3><hr id="35ac2cb0-e5c3-4660-8fba-faa4f22200cc" dir="auto"/><p id="c383e873-89f8-4c8f-b650-6c491c7968ab" class="" dir="auto"><strong>[Introduction]</strong></p><p id="17da5109-8f8d-47f6-8c92-c7b1ac8b9003" class="" dir="auto">&quot;Hello everyone, my name is André Azevedo, and I’m excited to demonstrate a new feature in we&#x27;ve working on at Notion. </p><p id="07164a60-9530-4939-857e-6979839db7c6" class="" dir="auto">Today, I&#x27;ll walk you through the Item Sidebar feature, highlighting its usability, value, and a proposed rollout strategy for TrustLayer’s clients.&quot;</p><hr id="e304d487-d228-49b1-952a-c537e30e435f" dir="auto"/><p id="37b4321b-14f9-4490-bf4c-dc2d31308b7b" class="" dir="auto"><strong>[Feature Overview]</strong></p><p id="fc3c62b9-c88c-406c-a528-58368500f0dd" class="" dir="auto">&quot;Let&#x27;s start with an overview of the Item Sidebar feature in Notion. The Item Sidebar is accessible when you’re working within a table and click on a specific page. It appears on the right-hand side and provides a detailed view of the selected item without losing the context of your main workspace.&quot;</p><hr id="efb2e007-6d16-4c9b-b66c-580cea638123" dir="auto"/><p id="b807a2cf-9a98-4081-be99-57103be10fa9" class="" dir="auto"><strong>[Step-by-Step Demonstration]</strong></p><ol type="1" id="4e142698-df76-465a-9b44-ba0c6a4fbfda" class="numbered-list" start="1" dir="auto"><li><strong>Accessing the Sidebar:</strong><br/>&quot;To access the sidebar, simply navigate to any table in Notion. Click on any row, and the sidebar will slide in from the right. This allows you to view and edit the contents of that specific page.&quot;</li></ol><ol type="1" id="531a97c6-8f83-4a06-9fd6-43871c40a9bd" class="numbered-list" start="2" dir="auto"><li><strong>Editing and Adding Information:</strong><br/>&quot;Within the sidebar, you can add text, create checklists, insert images, and even embed other Notion pages or external content. This feature ensures that you can manage detailed information efficiently.&quot;</li></ol><ol type="1" id="a1c6d2f1-01a3-471f-8060-d49ae2d5eee1" class="numbered-list" start="3" dir="auto"><li><strong>Maintaining Context:</strong><br/>&quot;One of the standout aspects of the sidebar is that it allows you to keep your main workspace in view while accessing detailed information. This multitasking capability is particularly useful for project management and research tasks.&quot;</li></ol><hr id="0788cbec-4d0a-4e0f-b4a2-d0b59a48d111" dir="auto"/><p id="b7e5f47b-2e47-4bbb-99fc-478c67ce966c" class="" dir="auto"><strong>[Value Proposition]</strong></p><ol type="1" id="42c74c75-0341-433e-9ba1-08d7d6ddb529" class="numbered-list" start="1" dir="auto"><li><strong>Enhanced Productivity:</strong><br/>&quot;The sidebar feature significantly enhances productivity by allowing users to access and edit detailed information without switching contexts. This seamless experience is particularly valuable for users managing complex projects with multiple data points.&quot;</li></ol><ol type="1" id="25fcb50b-5803-492d-8348-caf029ab5927" class="numbered-list" start="2" dir="auto"><li><strong>User-Friendly Interface:</strong><br/>&quot;Its intuitive design makes it easy for users of all technical levels to navigate and use. This lowers the learning curve and increases adoption rates across diverse teams.&quot;</li></ol><ol type="1" id="06271259-3359-4279-9621-341c0f6645a8" class="numbered-list" start="3" dir="auto"><li><strong>Collaboration:</strong><br/>&quot;For teams, the sidebar feature facilitates better collaboration. Team members can quickly reference and update information, ensuring that everyone is aligned and informed.&quot;</li></ol><hr id="4a61f539-7718-4e88-86ec-9a341f288a52" dir="auto"/><p id="41802985-a3e2-4ea1-adec-5372f884bdbd" class="" dir="auto"><strong>[Rollout Strategy for TrustLayer’s Clients]</strong></p><ol type="1" id="b0a00d0e-e1b0-4e97-8ef4-f20102dd064e" class="numbered-list" start="1" dir="auto"><li><strong>Initial Training:</strong><br/>&quot;We’ll start with an initial training session for key stakeholders to demonstrate the feature’s capabilities and benefits. This session will be recorded for future reference.&quot;</li></ol><ol type="1" id="f9975ea7-a4d4-4d4d-b04c-c364b8cb7739" class="numbered-list" start="2" dir="auto"><li><strong>Pilot Phase:</strong><br/>&quot;Next, we’ll implement a pilot phase with a select group of clients. This phase will allow us to gather feedback and make any necessary adjustments before a wider rollout.&quot;</li></ol><ol type="1" id="5c7e670b-36b5-4dba-8bb0-6004fe95f7ec" class="numbered-list" start="3" dir="auto"><li><strong>Feedback and Iteration:</strong><br/>&quot;During the pilot, we’ll collect feedback through surveys and direct interactions. This feedback will be crucial for refining the feature and ensuring it meets our clients&#x27; needs.&quot;</li></ol><ol type="1" id="6ab7cf97-12c0-4171-a473-27a2b5d3bd60" class="numbered-list" start="4" dir="auto"><li><strong>Full Deployment:</strong><br/>&quot;Finally, we’ll proceed with a full deployment, supported by comprehensive documentation and ongoing support to ensure a smooth transition and high adoption rates.&quot;</li></ol><hr id="78012ed6-838a-4335-9589-48d5b58bfbdc" dir="auto"/><p id="73c0a4ee-3ebc-477c-90bf-611834386547" class="" dir="auto"><strong>[Closing]</strong></p><p id="7a5c67dd-0663-414f-a803-eee39e6716de" class="" dir="auto">&quot;In conclusion, the Notion Item Sidebar feature is a powerful tool that enhances productivity, supports seamless multitasking, and fosters better collaboration. I’m confident that with a structured rollout plan, TrustLayer’s clients will find immense value in this feature.&quot;</p></div></details><p id="ac5d77b3-7379-4f0b-9bac-a38b14f3bff2" class="" dir="auto">
+</p><p id="d4285a94-2870-4163-bab7-35456cf6a20f" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

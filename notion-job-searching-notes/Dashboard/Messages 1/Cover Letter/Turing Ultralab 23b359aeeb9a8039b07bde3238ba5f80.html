@@ -1,0 +1,788 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Turing Ultralab</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="23b359ae-eb9a-8039-b07b-de3238ba5f80" class="page sans"><header><h1 class="page-title" dir="auto">Turing Ultralab</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><figure id="23b359ae-eb9a-800c-9dfb-f181433d08e5" class="link-to-page"><a href="Turing%20Ultralab/Cover%20letter%20Topics%2023b359aeeb9a800c9dfbf181433d08e5.html" data-notion-page-id="23b359ae-eb9a-800c-9dfb-f181433d08e5" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Cover letter: Topics</a></figure><figure id="23b359ae-eb9a-8014-beb4-fc265d4f9faa" class="link-to-page"><a href="Turing%20Ultralab/Cover%20letter%20Text%2023b359aeeb9a8014beb4fc265d4f9faa.html" data-notion-page-id="23b359ae-eb9a-8014-beb4-fc265d4f9faa" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Cover letter: Text</a></figure><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="23b359ae-eb9a-8039-95f5-dacef5ac46de" style="display:inline-block">Notes</h1></summary><div class="indented"><p id="23b359ae-eb9a-80ce-bbfc-e3c60008242e" class="" dir="auto">Hello <strong>Turing UltraLab</strong> team,</p><p id="23b359ae-eb9a-80fc-b3a1-ed7acdaf3577" class="" dir="auto">I’m <strong>André Azevedo</strong>, a Brazilian <strong>Staff Product Designer</strong> with <strong>12 years across AI/ML, fintech, ed-tech, and B2B SaaS</strong>, now pairing deep product-design craft with <strong>hands-on, AI-accelerated prototyping</strong>.</p><h3 id="23b359ae-eb9a-80fa-9d81-eb38f37d7b5b" class="" dir="auto"><strong>Why UltraLab?</strong></h3><p id="23b359ae-eb9a-80e5-92b9-d30f941563ed" class="" dir="auto">Turning frontier AI into testable product experiences—at speed—is exactly where I’ve been pushing my practice. I map complex workflows, then stand up interactive prototypes that feel real enough for user feedback and stakeholder conviction.</p><h3 id="23b359ae-eb9a-8025-bb0b-e64ec7eb9c9b" class="" dir="auto"><strong>My AI-first prototyping toolkit</strong></h3><p id="23b359ae-eb9a-80e9-9fba-e9f70e8eb82e" class="" dir="auto">I start ideation in Figma, super-charging it with Stitch, Magic Path and Figma Make to explore flows quickly. When a concept is ready for interaction, I move to Lovable, Builder.io, v0.dev and Bolt.new to turn static frames into high-fidelity coded prototypes.</p><p id="23b359ae-eb9a-801c-bb00-e7003ad6345f" class="" dir="auto">To polish and extend those prototypes into real web apps, I rely on AI-powered IDEs—Cursor, Windsurf, Amazon Kiro and the Gemini CLI—so refactors and feature spikes happen in minutes, not days. My core stack stays modern and developer-friendly: React/Next.js with Radix UI, shadcn/ui and Tailwind CSS on the front end, plus Node.js and Supabase/PostgreSQL for lightweight, data-capturing back ends.</p><p id="23b359ae-eb9a-80de-8b6b-dfa79548c9f5" class="" dir="auto">I also experiment with multimodal AI, piping GPT-4o and Gemini Vision models into quick pipelines—for instance, <em>Imaginotation</em>, a side project that auto-tags UI screenshots by parsing them on the fly.</p><p id="23b359ae-eb9a-80fc-847f-d40e8534d4a6" class="" dir="auto">Together, these tools let me convert Figma concepts into data-instrumented, code-backed prototypes within a single workday—ready for user testing, actionable analytics and seamless hand-off to engineering.</p><h3 id="23b359ae-eb9a-80de-ac0a-c41af322665e" class="" dir="auto"><strong>Recent Highlights</strong></h3><ul id="23b359ae-eb9a-8092-a01a-c3785d3eafed" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Blackbird.ai (Staff PD, 2022–present)</strong> – AI narrative-intelligence platform; led self-serve data-connector flow, cutting onboarding time ~60 %.</li></ul><ul id="23b359ae-eb9a-8032-a5a2-fbd0436c626a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Bitso (Staff PD, 2021–22)</strong> – Shipped <em>Bitso Card</em> (serving 6 M+ Mexican users) and B2B onboarding for 1.9 K institutions; founded &amp; led a 16-designer guild.</li></ul><ul id="23b359ae-eb9a-80e4-944f-cffd3e4baf89" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Sales Impact Academy (2022)</strong> – Co-designed live-learning platform; service blueprints aligned internal + learner touchpoints.</li></ul><ul id="23b359ae-eb9a-8031-8793-f79fc750f416" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Imaginotation (side project under development, 2025)</strong> – Webapp that uses LLMs + Vision to classify screenshots and surface intent, proving out AI-driven knowledge organization.</li></ul><h3 id="23b359ae-eb9a-80a0-add3-f7d00d859141" class="" dir="auto"><strong>What I bring to Turing</strong></h3><ul id="23b359ae-eb9a-8077-881d-c7b88de6d31a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Prototype-to-learn mindset</strong> – Validate ideas early, iterate fast, and ground decisions in evidence.</li></ul><ul id="23b359ae-eb9a-8025-9e3e-cc368e9982df" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Full-stack product thinking</strong> – Research (qual &amp; quant), systems design, and code-aware execution.</li></ul><ul id="23b359ae-eb9a-8041-b03e-d6204dfb1649" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Visual &amp; brand craft</strong> – Graphic Design background (2011) plus years stewarding design systems.</li></ul><ul id="23b359ae-eb9a-80fe-b38c-d9cb687bdafc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Global remote fluency</strong> – 6+ yrs across Brazil, Mexico, U.S. &amp; distributed teams.</li></ul><h3 id="23b359ae-eb9a-8097-b126-ca22a485ffd6" class="" dir="auto"><strong>Work Samples</strong></h3><ul id="23b359ae-eb9a-8079-bf07-edd5a1834275" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Design Portfolio:</strong> <a href="http://andreazevedo.design">andreazevedo.design</a> </li></ul><ul id="23b359ae-eb9a-8057-b267-dfea32e113c8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Code &amp; AI Experiments:</strong> <a href="https://github.com/andzvedo">https://github.com/andzvedo</a></li></ul><p id="23b359ae-eb9a-802a-aee7-c491d3617489" class="" dir="auto">
+</p><p id="23b359ae-eb9a-8026-a6b7-db66cd5564ef" class="" dir="auto">Thank you for considering my application. I’d love to discuss how this <strong>design + LLM/Vision-powered prototyping</strong> can help UltraLab turn bold AI concepts into convincing, user-tested realities—fast.</p><p id="23b359ae-eb9a-80b5-b099-f30caf6c4703" class="" dir="auto">Best regards,</p><p id="23b359ae-eb9a-8087-acbc-ce194eb39c19" class="" dir="auto"><strong>André Azevedo</strong></p><p id="23b359ae-eb9a-80a4-ba01-c5db1a561498" class="" dir="auto">andreazeved1@gmail.com | +55 16 99705 8077 | Araraquara-SP, Brazil</p><p id="23b359ae-eb9a-8012-9adb-e7e792036126" class="" dir="auto">LinkedIn: <a href="https://linkedin.com/in/azevedodesign">https://linkedin.com/in/azevedodesign</a></p><p id="23b359ae-eb9a-8062-9707-fdd8fc5729bc" class="" dir="auto">
+</p><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="23b359ae-eb9a-8031-842d-d60dce69a867" style="display:inline-block">Drafts</h1></summary><div class="indented"><h3 id="23b359ae-eb9a-809d-986d-cd403c1087ae" class="" dir="auto"><strong>Ultra-Concise Version (para formulários)</strong></h3><p id="23b359ae-eb9a-8000-83c2-c73d056aa025" class="" dir="auto">Hello Turing UltraLab,</p><p id="23b359ae-eb9a-8010-a123-efdadb4f5cea" class="" dir="auto">I’m <strong>André Azevedo</strong>, Brazilian Staff Product Designer (12 yrs). I ship <strong>AI-assisted prototypes</strong> with v0.dev, Bolt, Builder.io, Lovable, Figma Make, Cursor, Windsurf, Amazon Q and Gemini CLI—plus LLM + Vision workflows (GPT-4o/Gemini Vision; side project <em>Imaginotation</em>). Stack: React/Next.js, Tailwind, Radix UI, Supabase/Postgres.</p><p id="23b359ae-eb9a-8069-8aed-eddb0d34f8ae" class="" dir="auto">Recent: Blackbird.ai (-60 % onboarding time), Bitso Card (6 M+ users), Sales Impact Academy, Imaginotation (LLM+Vision).</p><p id="23b359ae-eb9a-80aa-8f1b-fdcd2fb50842" class="" dir="auto">Portfolio → bit.ly/portfolioandreazevedo | Code → github.com/andzvedo</p><p id="23b359ae-eb9a-80f5-a8ba-ebdc2c9b87b8" class="" dir="auto">Eager to help UltraLab validate AI product ideas at lightning speed.</p><p id="23b359ae-eb9a-806f-ac9a-f3245fb46405" class="" dir="auto">– André</p><h3 id="23b359ae-eb9a-80ef-871b-f145af75b698" class="" dir="auto">André Azevedo Cover letter</h3><p id="23b359ae-eb9a-8096-aeac-dc6acedd85d9" class="" dir="auto">Hello Turing</p><p id="23b359ae-eb9a-80ac-8593-d55f0ef782f5" class="" dir="auto">I’m <strong>André Azevedo</strong>, a Brazilian <strong>Staff Product Designer</strong> with <strong>12 years in UX, AI/ML, fintech, and ed-tech</strong>, now pairing deep product-design craft with <strong>hands-on, AI-assisted engineering</strong>.</p><p id="23b359ae-eb9a-8056-8bd6-fcab0840088c" class="" dir="auto">
+</p><p id="23b359ae-eb9a-806d-a5b1-d9160fc7f02b" class="" dir="auto">Over the last two years I’ve started my journey over learn how to code using AI for the web, that allowed me now to be able to <strong>ship coded micro-products and prototypes end-to-end.</strong></p><p id="23b359ae-eb9a-80bd-9113-cf1ae7cb1746" class="" dir="auto">
+</p><p id="23b359ae-eb9a-804b-adc3-fb8740278c5a" class="" dir="auto">Using tools such as <a href="http://Builder.io">Builder.io</a>, <strong>Lovable, bolt.new, V0, Figma Make, </strong></p><p id="23b359ae-eb9a-8057-b18f-ff69b3f97af0" class="" dir="auto">and AI-first IDEs <strong>Cursor,</strong> <strong>Windsurf </strong>and <strong>Amazon Kiro</strong></p><p id="23b359ae-eb9a-8056-8b04-d3dda45d713a" class="" dir="auto">Gemini CLI</p><p id="23b359ae-eb9a-806d-a8c4-d6ebd2ea428d" class="" dir="auto">MCPs, from Figma (Figma-dev-mode-mcp), Supabase, </p><p id="23b359ae-eb9a-80f1-9143-edb4508cbadb" class="" dir="auto">
+</p><p id="23b359ae-eb9a-80d9-931e-d41ac9299e56" class="" dir="auto">Tech stack</p><p id="23b359ae-eb9a-80fb-a4c5-d7867fb65e3c" class="" dir="auto">HTML, CSS, JS</p><p id="23b359ae-eb9a-80ba-9229-fad78fb7501d" class="" dir="auto">
+</p><p id="23b359ae-eb9a-8066-aa6a-e1c4501a4ad8" class="" dir="auto">Frameworks</p><p id="23b359ae-eb9a-808e-92a6-eaafd15a3219" class="" dir="auto">Radix-ui, shandcn ui, TailwindCSS, </p><p id="23b359ae-eb9a-80ed-bfd1-c370b9635178" class="" dir="auto">
+</p><p id="23b359ae-eb9a-80db-a002-de97aa65cf19" class="" dir="auto">Node.js, Supabase, PostgrSQL, </p><p id="23b359ae-eb9a-8019-a14c-c1c39e14c9ff" class="" dir="auto">
+</p><h3 id="23b359ae-eb9a-801d-b7bb-dd348102ba52" class="" dir="auto"><strong>My AI-first prototyping toolkit</strong></h3><ul id="23b359ae-eb9a-80c5-851d-df5186a9e5ac" class="bulleted-list" dir="auto"><li style="list-style-type:disc">For Ideation and Design, I‘m pairing Figma with tools like Stitch, Magic Path, and also Figma Make.</li></ul><p id="23b359ae-eb9a-80ac-a4df-cd915b5dbd30" class="" dir="auto">
+</p><ul id="23b359ae-eb9a-801b-b08b-f993365aab04" class="bulleted-list" dir="auto"><li style="list-style-type:disc">For coded prototypes,  I’m using Lovable, Builder.io, v0.dev, and Bolt.new</li></ul><p id="23b359ae-eb9a-8054-8e94-f4a000bd68d0" class="" dir="auto">
+</p><ul id="23b359ae-eb9a-80f6-bb52-ea49c81b0562" class="bulleted-list" dir="auto"><li style="list-style-type:disc">For build web apps I’m using <strong>Cursor, Windsurf, Amazon Kiro, and Gemini CLI</strong></li></ul><p id="23b359ae-eb9a-8005-8c74-dcbf8afa5054" class="" dir="auto">
+</p><p id="23b359ae-eb9a-802a-a2a4-cbc61738a842" class="" dir="auto">My tech stack is mostly React/Next.js, Radix UI &amp; shadcn/ui, Tailwind CSS, Node.js for front-end, and Supabase/PostgreSQL for lightweight data capture back-ends.</p><p id="23b359ae-eb9a-80d9-9db6-f50a0aa28e08" class="" dir="auto">
+</p><ul id="23b359ae-eb9a-8055-bd8c-ce06b67ead0e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>LLM &amp; Vision exploration:</strong> rapid flows with GPT-4o / Gemini + <strong>Vision models</strong> for screenshot parsing (e.g., <em>Imaginotation</em> side project that auto-tags UI screenshots)</li></ul><p id="23b359ae-eb9a-804e-ab50-ec5db56a9805" class="" dir="auto">
+</p><p id="23b359ae-eb9a-8023-81dc-ea80be0881b2" class="" dir="auto">These let me translate Figma into interactive, code-backed UI in hours, instrument prototypes for real usage data, and collaborate cleanly with engineers, or get ready for user feedback.</p><p id="23b359ae-eb9a-80ed-9cf0-f8a05f6c6a27" class="" dir="auto">
+</p><p id="23b359ae-eb9a-8047-9b11-ea6279d9c5ec" class="" dir="auto">
+</p><p id="23b359ae-eb9a-8027-b1c4-ddbab0a0a6ed" class="" dir="auto">These workflows let me:</p><ul id="23b359ae-eb9a-8087-810f-f8f04c15de12" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Empowered my design tool set with real code</li></ul><ul id="23b359ae-eb9a-8040-9ea3-e370d9d7ffbb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Translate Figma specs into production-ready React/Next.js components in hours, not sprints.</strong></li></ul><ul id="23b359ae-eb9a-80e8-8cc8-def7bdfceb3e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Instrument live prototypes</strong> to gather data that sharpens subsequent design iterations.</li></ul><ul id="23b359ae-eb9a-8054-9f13-d45c26a98c87" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Contribute pull-requests</strong> and speak the engineering team’s language, reducing hand-off friction.</li></ul><p id="23b359ae-eb9a-80f9-a835-ce5bcd3827f8" class="" dir="auto">
+</p><p id="23b359ae-eb9a-805b-994a-c70dc881696b" class="" dir="auto">Recent highlights</p><ul id="23b359ae-eb9a-8073-9f02-f636b251725d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Blackbird.ai (Staff PD, 2022-now)</strong> – Designing an AI-powered narrative-intelligence platform; built a self-service data-connector flow that cut onboarding time by 60 %.</li></ul><ul id="23b359ae-eb9a-8068-ac48-f219d2985426" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Bitso (Staff PD, 2021-22)</strong> – Shipped <em>Bitso Card for more then 6.3 millon of Mexican users,</em> and the B2B onboarding system for 1.9 k institutions; founded and led the internal Product Design Guild (16 designers).</li></ul><ul id="23b359ae-eb9a-8007-afe4-c6ba3154c1bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Sales Impact Academy (2022)</strong> – Colaborated with the design of the live-course platform, mapping service blueprints to align every touchpoint.</li></ul><p id="23b359ae-eb9a-802b-a67e-f7eeccc79c3e" class="" dir="auto">
+</p><p id="23b359ae-eb9a-8073-9dd1-d4ee0190dced" class="" dir="auto">What I bring to Turing</p><ul id="23b359ae-eb9a-800a-aac3-c06db736e090" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Full-stack product mindset</strong> – I uncover insights (qual + quant research), craft elegant systems, and now prototype in real code with AI copilots.</li></ul><ul id="23b359ae-eb9a-80c6-95de-f2b879bf8b4d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Speed with rigor</strong> – Evidence-based decisions, lean experiments, and accessibility-first design-system stewardship.</li></ul><ul id="23b359ae-eb9a-8003-a5b8-f0db68ea8764" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Global remote fluency</strong> – 6+ yrs on distributed teams across Brazil, Mexico, USA &amp; Europe.</li></ul><p id="23b359ae-eb9a-80ff-a1e3-dd938aca70d9" class="" dir="auto">
+</p><p id="23b359ae-eb9a-80ab-8ccb-e5ca1c7675e0" class="" dir="auto">Portfolio</p><p id="23b359ae-eb9a-801d-a2e9-dc55f9864084" class="" dir="auto">Design work: <strong><a href="http://bit.ly/portfolioandreazevedo">bit.ly/portfolioandreazevedo</a></strong><strong> </strong></p><p id="23b359ae-eb9a-802a-b666-f8f5fd8ee92d" class="" dir="auto">Code experiment samples: <strong><a href="https://github.com/andzvedo">https://github.com/andzvedo</a></strong></p><p id="23b359ae-eb9a-80b2-aa69-fe77ad00ee6e" class="" dir="auto">
+</p><p id="23b359ae-eb9a-80dd-a548-d10a74903949" class="" dir="auto">Thank you for considering my application. I’d love to discuss how this design-plus-engineering approach can create prototypes to validate ideas and hipoteshis quickly.</p><p id="23b359ae-eb9a-8003-8bcf-ff453c72ecec" class="" dir="auto">
+</p><p id="23b359ae-eb9a-809d-a95a-d2d0d6cdd744" class="" dir="auto">Best regards,</p><p id="23b359ae-eb9a-80f2-a1c9-cd0487e19a53" class="" dir="auto"><strong>André Azevedo</strong></p><p id="23b359ae-eb9a-8036-9c5e-e23021863f87" class="" dir="auto">andreazeved1@gmail.com  |  +55 16 99705 8077  |  Araraquara-SP, Brazil</p><p id="23b359ae-eb9a-80f3-aa70-ea19c1c18db7" class="" dir="auto">LinkedIn: linkedin.com/in/azevedodesign</p></div></details></div></details><p id="23b359ae-eb9a-8047-865e-f12b07bc0609" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

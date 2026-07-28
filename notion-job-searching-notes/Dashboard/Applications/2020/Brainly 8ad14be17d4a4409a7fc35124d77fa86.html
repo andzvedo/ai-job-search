@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Brainly</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="8ad14be1-7d4a-4409-a7fc-35124d77fa86" class="page sans"><header><h1 class="page-title" dir="auto">Brainly</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h3 id="a2e97a18-9d62-45d3-a479-083740987640" class="" dir="auto">Product Designer at Brainly</h3><figure id="d718823c-8829-4d23-abf9-956b2e244885" dir="ltr"><a href="https://boards.greenhouse.io/brainly/jobs/2439500" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Product Designer</div><div class="bookmark-description">LOCATION: Kraków, Poland or remotely SALARY: up to 13 000 PLN gross monthly for mid-level Designersup to 16 000 PLN gross monthly for senior-level Designers Do you have an explorer mindset and crave a collaborative organization, where your contributions will make a strong impact? Excellent!</div></div><div class="bookmark-href"><img src="https://boards.greenhouse.io/favicon.ico" class="icon bookmark-icon"/>https://boards.greenhouse.io/brainly/jobs/2439500</div></div><img src="https://recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/000/001/242/original/Brainly_logo_XL.jpg?1483017998" class="bookmark-image"/></a></figure><p id="98cfd364-230e-4e97-a638-3ae9b4819190" class="" dir="auto"><a href="https://boards.greenhouse.io/brainly/jobs/2439500#app"><strong>APPLY NOW</strong></a></p><p id="2775d323-ce5a-4ded-8074-34bca83f526b" class="" dir="auto">
+</p><p id="3d45443e-5539-4c14-a0b5-36c69468b668" class="" dir="auto">Kraków</p><p id="1a535d56-8c21-422c-a1cd-84feb9b67847" class="" dir="auto"><strong>NOTICE: ONLINE RECRUITMENT</strong></p><p id="6b64a55a-c0dd-4832-af7f-307433446cf2" class="" dir="auto"><strong>LOCATION</strong>: Kraków, Poland or remotely</p><p id="0af22d33-272c-4d8b-ad2c-0e435a39a2ac" class="block-color-red" data-notion-highlight="red" dir="auto"><strong>SALARY:</strong>up to 13 000 PLN gross monthly for mid-level Designersup to 16 000 PLN gross monthly for senior-level Designers</p><p id="48000bb8-9751-400a-bf85-6f89b6d64603" class="" dir="auto">Do you have an explorer mindset and crave a collaborative organization, where your contributions will make a strong impact? Excellent! We are looking for <strong>two skilled Product Designers</strong> to join our <strong>Tutoring</strong> and <strong>Brainly For Parents</strong> (part of Subscriptions) teams at Brainly. Both crews are working on our new, exciting products that have been just launched on the US market, so this is a perfect opportunity and great timing to join Brainly! During our talks, we will explain to you the difference between both teams and together we will decide which team makes a perfect match for you.</p><p id="bd32e02f-6305-4654-bfa3-8dc28bcd3138" class="" dir="auto">As a Product Designer both in the Tutoring and Brainly For Parents team, you will support the entire design process. You will help define future features and products as you spearhead a human-centered decision-making process and develop the most useful and usable product experiences for a global audience. You will be a User Experience expert in the product team, working with Interaction Designers on creating fantastic products for students all around the world. All of the features that we are releasing are under A/B/n tests, so you&#x27;re gonna see how your designs are working in practice.</p><p id="88c6ee8b-48aa-497d-a24e-c7890299be50" class="" dir="auto"><strong>WHAT IS THE CHALLENGE WAITING FOR YOU:</strong></p><ul id="935bab4c-6877-4c76-8959-96fd94749eae" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Owning design problems end to end, from initial concept through shipping and beyond</li></ul><ul id="b5d1c9c7-32cf-487a-8291-e8afeb7721b6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Working in the product team with substantial autonomy and strong impact on the product</li></ul><ul id="a952f293-9149-4cdb-818c-a48fc453ac43" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Being responsible for maximizing the value proposition of our product for users as well as cross-device and cross-platform experience personalization</li></ul><ul id="c93eb6d7-639d-488d-bf2c-9287e0ab6bc7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Creating new experiments with a very strong focus on the business’ needs</li></ul><ul id="ba0342a7-abf7-450b-bb17-b95c1dac5ab3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Identifying opportunities for new products</li></ul><ul id="498a8208-5810-4ed2-bd68-521035beadf2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Analyzing how a new product ties in with market needs and consumer preferences</li></ul><ul id="76c63c14-ff9a-4174-a19e-2f73a973eaa5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Setting design requirements based on briefs from internal teams and external partners</li></ul><ul id="af0f2dc0-5bbd-4a20-a6b7-18c595222022" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Researching materials and techniques</li></ul><ul id="e19dc41a-2601-459b-ba9f-ffbbcb47533e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Producing prototypes and test functionality</li></ul><ul id="fb671ef7-acc2-4535-9fb4-59e69c33a46e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Gather feedback from product users and improving the design of existing products</li></ul><p id="edaf73ce-9437-43a1-a0d7-b6c44c5250f7" class="" dir="auto"><strong>DO YOU WANT TO LEARN MORE ABOUT DESIGN TEAM AT BRAINLY?</strong></p><ul id="98eed5a4-38ed-4648-86d0-8f26a59b3828" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Check out our<a href="https://dribbble.com/brainly"> Dribbble</a> and<a href="https://medium.com/brainly-design"> Medium</a> resources to discover what we are up to recently</li></ul><ul id="5e2be939-f3c0-4d56-96bb-7fc031b1ccda" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Also feel free to look at our<a href="https://design.brainly.com/8adfd5f36/p/10bcb9-pencil-10"> Design System called &quot;Pencil&quot;</a>, that we are especially proud of!</li></ul><ul id="405ea54d-e8ba-4da1-9e90-920ca7a51e2d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Watch the below video to discover how our Design System Manager, Patrycja, explains the process of building a Design System at Brainly:</li></ul><p id="1183cbed-9823-4f29-95c1-160e634eb51f" class="" dir="auto"><strong>YOU ARE A GOOD FIT IF YOU HAVE:</strong></p><p id="224eebaa-78e1-471b-a4e6-1080ca2abfd9" class="" dir="auto"><strong>Experience</strong>:</p><ul id="07963116-d768-4ec7-a608-f859dd244223" class="bulleted-list" dir="auto"><li style="list-style-type:disc">3-5 years of professional experience as a Product Designer</li></ul><ul id="fec4581d-2e41-40ce-ba1b-75f7a958661e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Broad understanding of a large internet business to include familiarity with UX design, product development processes/cycles for web &amp; apps, A/B testing frameworks, etc.</li></ul><ul id="1812bd1e-abe2-46e2-a496-a559bf165bf9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A track record of shipping great design, and an understanding of what details matter at each stage of the release cycle</li></ul><ul id="afa9c9ce-40ce-407b-8085-4bc19bb03a59" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience in working for e-commerce, SaaS, or digital marketing agency (considered as a plus)</li></ul><ul id="4fc15ba1-e833-4c24-83b8-d01c37c9f1ca" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience in collaborating with Scrum Team (considered as a plus)</li></ul><ul id="797b5bd6-1d2f-43b9-9dfe-5a6b07af34b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Academic degree in the field of design (considered as a plus)</li></ul><p id="a8d13a8d-08ef-44fd-b4e5-b47a3f2e22da" class="" dir="auto"><strong>Attributes:</strong></p><ul id="0cf5936b-cce0-40cd-8d68-b9aa667e76a4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Great communication skills and fluency in English</li></ul><ul id="e36e4f3b-1feb-4b9f-ae27-d0f1b662a9b6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Team player attitude</li></ul><ul id="082c3d67-da63-48f6-8be9-c4bca649be81" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ability to explain ideas and designs clearly and concisely to successfully convince, motivate and inspire stakeholders at all levels of understanding – from design-unaware business people to highly-experienced designers</li></ul><ul id="abb13997-7a23-492d-966d-c5837afa049d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ability to solve complex design problems together with the team, but also take ownership of developed solutions</li></ul><ul id="a31c4f66-da89-4e5b-8a10-1c1747334fe0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Willingness to work on user experience design (user-tests, customer journey, personas)</li></ul><ul id="e1e18921-0e27-4229-bb12-7b54926fb171" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ability to share knowledge through workshops and presentations</li></ul><p id="a738f6be-8332-43e9-8c5b-3f6fa9012510" class="" dir="auto"><strong>Skills and systems:</strong></p><ul id="ba777e3e-102f-4148-8e54-bd48cb7f99a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Expert knowledge in product design frameworks and methodologies</li></ul><ul id="30b84d88-deb7-4741-b895-0c04a1d36adb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience in interface design tools (we use Sketch)</li></ul><ul id="a30b8ac5-4cc9-448c-b3d6-bcb05043d1a8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Comprehensive knowledge of design patterns (and when to break them)</li></ul><ul id="7275cd99-01fb-4ed2-9b3b-32ae1ca8c5fa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Knowledge of sales principles, qualitative and quantitative methods for user research, and A/B testing frameworks</li></ul><ul id="bf2820e2-8d30-44f3-ad8b-118c671cc130" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Strong visual design skills and passion for interaction design with a portfolio showing high quality, thoughtful UI and UX work</li></ul><ul id="9cf35489-4599-481b-972d-0814afbae21a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience in conversion rate optimization and designing interfaces for sales projects (considered as a plus)</li></ul><ul id="5c0f559e-6a77-4e60-99d0-eaa6c80f179a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Experience in Abstract and Design Systems (considered as a plus)</li></ul><ul id="e3902511-7549-4b1d-998a-57cb9d0b37a2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Understanding the principles of gamification (considered as a plus)</li></ul><p id="c76f2216-544b-45c6-bf82-b386b1bf7ec5" class="" dir="auto"><strong>BY JOINING BRAINLY, YOU WILL GET:</strong></p><ul id="e123a779-23b8-4999-9fce-a861220402e2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Flexible working hours and the possibility to work remotely</li></ul><ul id="3833f32a-816b-4fcf-bec3-4656327aa662" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Personal development budget 800$ per year + unlimited time off policy for participation in conferences and workshops and access to an online learning platform with courses from Udemy, Harvard Manage Mentor, and many others</li></ul><ul id="723b641a-386e-4c57-a3df-572d71261ee4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Fully paid private health care packages for you and your family (dental care included) provided by Luxmed</li></ul><ul id="a39cb4bd-feb5-4b2c-9a47-a00ab703edfa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Fully paid life insurance provided by Warta</li></ul><ul id="8bc944d1-5875-446d-8d57-1c346d690065" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Multisport Plus card</li></ul><ul id="bea6ec9e-0649-4b53-ad1e-a2776e918bf7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Access to the Mental Health Helpline - providing virtual support of external psychologists, psychotherapists, and coaches</li></ul><ul id="a964bbe6-e603-44ed-b1c2-638bb14ab106" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.askhenry.pl/">AskHenry services</a> - personal concierge services to help you to settle your everyday matters (like Ikea shopping or shoemaker visit)</li></ul><ul id="2397f1c6-74e7-4284-9379-adc984177b50" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Possibility to join one of our Employee Resource Groups and initiatives (Inclusion Council, Ladies at Brainly, Brainly Cares)</li></ul><ul id="0feb975a-a67c-4d2a-a75f-ee861c7ff7bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">If needed, additional budget for work remote work accessories</li></ul><p id="3c630436-f527-4c2e-b2a9-1e588c321c38" class="" dir="auto">WHAT IS BRAINLY?</p><p id="4f4ccf21-cc50-41f9-a8a7-4eedd975f2b2" class="" dir="auto">Brainly is the world&#x27;s largest peer-to-peer learning community for students, parents and teachers. At brainly.com, and its group of websites around the world, students connect to both receive and offer help with homework problems and questions. The unique opportunity for students to freely ask questions and gain the confidence that comes from helping others and inspires students to learn in a collaborative community that receives more than 350 million users each month.</p><p id="1140ad4f-4c2b-4751-9855-58712d139bfe" class="" dir="auto">Based in Kraków, Poland, with its US headquarters in New York City, Brainly is currently available in 35 countries. The total funding from current investors, including Naspers, General Catalyst Partners, Point Nine Capital, Runa Capital and Learn Capital equals $68.5M. More information about Brainly is available on <a href="http://www.brainly.com/">www.brainly.com</a>.</p><p id="689a07d0-b92c-4936-9bc1-714756f121dc" class="" dir="auto">By sending us your application, you agree that Brainly sp. z o.o. with its seats in Krakow, will process your data contained in the form below and in the documents you attach in to participate in recruitment. In connection with this, you have the right to withdraw your consents, the right to access to your data, the right to obtain their copy, rectify them, erase, limit their usage and also data portability right and object to their use by Brainly, as well as to lodge a complaint with the President of the UODO. If you have any questions regarding the use of information about you and exercising your rights related to this use, please contact our DPO - privacy@brainly.com. If you want get to know more about how Brainly uses and process your personal data [<a href="https://brainly.com/careers/data-protection.html">click here</a>].</p><p id="d74225b1-e9e0-4a13-9adc-423a754435f1" class="" dir="auto">https://brainly.co/</p><p id="b4918383-6b5a-4cf7-aa0f-0821c65a45de" class="" dir="auto"><strong><strong>Apply for this Job</strong></strong>* RequiredFirst Name *Last Name *Email *PhoneResume/CV *<a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Attach</a> <a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Dropbox</a> <a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Google Drive</a> <a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Paste</a>Cover Letter<a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Attach</a> <a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Dropbox</a> <a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Google Drive</a> <a href="https://boards.greenhouse.io/brainly/jobs/2439500#">Paste</a>Website/portfolio *What is most appealing for you in this position?  *What are your top 3 projects (please provide the links) you are the most proud of?  *I consent to the processing of my personal data contained in my CV and other application documents in order to use them in future recruitment processes by Brainly sp. z o.o. *-- Yes No</p><p id="04a370ba-4196-4453-891d-648c601d910c" class="" dir="auto">Powered by</p><figure id="08b147ee-4ffc-4d24-ad35-67bda7a54f1c" class="image" data-notion-image="https://boards.cdn.greenhouse.io/assets/greenhouse-in-app-logo-green-e052cd57a78e17c73aac02274af8a878a99cc9fd4b83a41744e6495236645677.svg" dir="ltr"><a href="https://boards.cdn.greenhouse.io/assets/greenhouse-in-app-logo-green-e052cd57a78e17c73aac02274af8a878a99cc9fd4b83a41744e6495236645677.svg"><img src="https://boards.cdn.greenhouse.io/assets/greenhouse-in-app-logo-green-e052cd57a78e17c73aac02274af8a878a99cc9fd4b83a41744e6495236645677.svg"/></a></figure><p id="f9379e07-1d79-4d15-8161-d46c8f0a4f9c" class="" dir="auto">Read our <a href="http://www.greenhouse.io/privacy-policy">Privacy Policy</a></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,775 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Work - MaaS Platform: Console and Account</title><meta name="data-notion-page-icon" content="🎨"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%8E%A8%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="c25ca36f-3613-48d6-843b-7f00312b182a" class="page sans" data-notion-page-icon="🎨"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🎨"></span></div><h1 class="page-title" dir="auto">Work - MaaS Platform: Console and Account</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="9b68778c-d806-414b-95d2-197974d4cce2" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Company:</mark> <mark class="highlight-purple" data-notion-highlight="purple"><a href="https://www.magazineluiza.com.br/">Magalu</a></mark><mark class="highlight-purple" data-notion-highlight="purple"> - Previously called Magazine Luiza</mark></p><p id="67bf6a2a-908a-49b6-8334-0be60db6ca7c" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Year:</mark> 2019</p><p id="f5082d5e-6c4c-4302-9461-005ba91dcf3d" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Areas of work: </mark>User Experience; User Interface; </p><p id="006aecf5-8251-4cec-85ba-0c1801cc6658" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Product: </mark>Web applications</p><p id="3c3ec0b6-0780-468c-b4e6-a4ad57262ddb" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Industry:</mark> Retail </p><p id="dd543608-e797-43db-8289-db707e0fded4" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Audience:</mark> B2B</p><h1 id="1682762f-aa98-4899-8b3d-0d120eeddb01" class="" dir="auto">Why this project?</h1><p id="8d05770a-c344-41b0-b184-63bc9932efdd" class="" dir="auto">I chose to show this project, not only because of its own complexity but because of the whole set of learnings that I had at the time, which change the way of how I approached my design process completely.</p><details id="6029dcd3-6084-4cf8-9a24-35363d17906f" open="" class="toggle" dir="auto"><summary>Backup</summary><div class="indented"><p id="ffe4d880-9c8e-4be4-bee2-877300085760" class="" dir="auto">This was a very challenging project because of the complexity of being a platform with technical aspects for APIs, and various different views as marketplace-like, where I had the opportunity to collaborate<strong> </strong>with a cross-functional team that was very technical.</p><p id="759fabce-695b-4675-91dd-2f829a1ae971" class="" dir="auto">I&#x27;m also proud of this project because it&#x27;s brought me a lot of learning and showed in practice for me that being a Designer in the digital environment is much more than mastering the craft of design.</p><div data-notion-highlight="gray" dir="auto"><ul id="113c0b31-d909-44bc-8d05-47309b812ed9" class="block-color-gray bulleted-list" data-notion-highlight="gray"><li style="list-style-type:disc">I learned a lot from this project because this project<mark class="highlight-red" data-notion-highlight="red"> was a complete failure</mark>, </li></ul></div><div data-notion-highlight="gray" dir="auto"><ul id="fa3e0a17-ead6-4b71-95ed-2264e85ab712" class="block-color-gray bulleted-list" data-notion-highlight="gray"><li style="list-style-type:disc">that affect the morale of an entire team, and in the end, we didn&#x27;t solve a real problem!</li></ul></div><div data-notion-highlight="gray" dir="auto"><ul id="2ab64dcb-5461-4ca0-ab43-89ceaf7059d3" class="block-color-gray bulleted-list" data-notion-highlight="gray"><li style="list-style-type:disc">I grew a lot as a Designer and my team skills</li></ul></div></div></details><h1 id="756e6d82-7c8b-448f-b48e-4e997d07843d" class="" dir="auto"><strong>About the company</strong></h1><p id="af8db39b-5d06-4d4f-9360-64a821a98020" class="" dir="auto">To make this project I worked at a company called Magazine Luiza, which is <a href="https://en.wikipedia.org/wiki/Magazine_Luiza">one of the biggest retailer companies in Brazil</a>. They have more them 1000 physical stores throughout the Brazil territory and a strong online presence with their <a href="https://www.magazineluiza.com.br/">e-commerce</a>.</p><h1 id="e0a7eb41-b98b-4849-87ee-9becfe817b91" class="" dir="auto">Business Goal</h1><p id="0237d166-7ac8-44a2-a07f-051a6fe2ae41" class="" dir="auto">One of the most important and ambitious goals for Magalu at the time was &quot;Help Brazilian companies to digitize themselves&quot;. Based on this goal, the business people and the management team from Magalu saw the opportunity to offer their own services to other retail stores. </p><h1 id="6c030cf7-fab0-4b9c-8789-e73b1f1197de" class="" dir="auto">Outcome</h1><p id="ddb36dad-5075-41c7-8587-f1f66f23e0e2" class="" dir="auto">The outcome of this project was to create a solution where it was possible for other e-commerces to contract retail physical services online, initially offered by Magalu, and at some point, in the future, they could have the possibility to offer their services on the platform as well.</p><details id="990d29a2-e691-4f23-a3ca-0d693f588e30" open="" class="toggle" dir="auto"><summary>Backup</summary><div class="indented"><p id="a3f5aa14-795d-4571-9874-2df42bacec60" class="" dir="auto">The outcome of this project was to create a solution where would be possible for other e-commerces to hire physical services online, initially offered by Magalu, and sometime in the future could have the possibility for e-commerces to offer their services as well.</p><p id="2f318144-58a2-43d6-a5d0-1346e61abbcf" class="" dir="auto">
+</p><p id="5ac432c6-9048-4dbc-8329-892edb90f313" class="" dir="auto">The outcome of this project was to create a solution that allows other retail stores to hire - or sell - physical services online, initially offered by Magalu, and manage users and their permissions, technical documentation and APIs integration, and payments in a seamless experience, something similar to what Firebase did for cloud services, but for retail services.</p><p id="7cc47dfe-5f51-4ced-b267-f8af1fad4ab4" class="" dir="auto">
+</p><p id="2d995799-a85e-4bb5-b403-c036691517a0" class="block-color-red" data-notion-highlight="red" dir="auto">that will allow Magazine Luiza and other retail stores to sell digital or physical services online (free services too) to small retailers integrated on their own e-commerce, paying based on the demand used, like Firebase and Google Cloud do it for cloud services.</p></div></details><h1 id="d7a60ced-4940-4dd5-9df9-8978126e8d40" class="" dir="auto"><strong>My role</strong></h1><p id="a2f9bf7c-6e30-443e-a554-45adc833902d" class="" dir="auto">As a UX/UI Designer, I was responsible to design from scratch the solution for it, working alongside a very technical team, composed of a Teach Lead, a QA engineer, four Front-end developers, and two Back-end developers, and a Product owner.</p><h1 id="5a504a7f-4766-403b-a42c-6f5997758aec" class="" dir="auto">Design Process </h1><figure id="bc4d7dd2-bb72-436f-a5e0-0ea6e9f3924c" class="link-to-page"><a href="Work%20-%20MaaS%20Platform%20Console%20and%20Account/Challenges%20bc4d7dd2bb72436fa5e00ea6e9f3924c.html" data-notion-page-id="bc4d7dd2-bb72-436f-a5e0-0ea6e9f3924c" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Challenges</a></figure><h1 id="446f05ac-4acd-49fa-935f-bec6c865d657" class="" dir="auto">The impact</h1><p id="05139896-29d1-40a6-bfae-83d138c56bec" class="" dir="auto">Impact on the Team</p><p id="ccbae84c-1238-4306-ab59-2125df2646dc" class="" dir="auto">The team morale was very low, because of the low clarity and understanding from the Product Owner and the Business stakeholders</p><p id="c643681a-d137-4cbd-b1a6-437a34cd887e" class="" dir="auto">I face this as an opportunity to use my work to be a north star to the engineering team, get them more involved with the project, and help them understand what needs to be build.</p><p id="6caf5237-0a11-4435-8f5e-16a404b2a69e" class="" dir="auto">Point of contact between Developers and the Product owner - Helped the team understand better their needs and objectives, what needs to be developed, and why to build it, as an alternative to the lack of technical and product leadership.</p><h1 id="ca4950b2-72e8-465c-aadc-4bace479c327" class="" dir="auto">Learnings</h1><p id="b5a04e78-156a-43d0-8e1c-73fe37521d91" class="block-color-gray" data-notion-highlight="gray" dir="auto">I recognize myself as a totally different Designer after being part of this project.</p><details id="b4e2a8fa-d7db-4912-b6a2-edbe65bdad4b" open="" class="toggle" dir="auto"><summary>Backup</summary><div class="indented"><p id="f7648f42-ec07-4f85-bc0a-caa3bb372761" class="" dir="auto">Explain the nature of the project and the Design maturity level of the company - </p><p id="9fe8d90a-5d7a-49f2-9568-0dd28bb17655" class="" dir="auto">Working base on assumptions -</p></div></details><p id="feb2cfdd-c6b4-465f-a3da-ae0f72b66f7b" class="" dir="auto">ABOUT THE SOLUTION</p><p id="b09ea326-e740-4a28-a9fc-5e1f03ff425e" class="" dir="auto">ABOUT THE TEAM/COLLABORATION</p><p id="9bccd3ea-4dda-454d-ac0c-94b152cf6ce0" class="" dir="auto">ABOUT MYSELF</p><h3 id="e08144a6-d62d-44c3-8d52-bd74a7c941da" class="" dir="auto">It&#x27;s important to express business requirements in different ways</h3><ul id="130d7349-2d83-490f-8eea-f8173e4b6795" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Understand the company strategy, goals, and expected outcomes to have a clear direction of the path we must walk through and not focus on some requirements.</strong><p id="6c0b08fc-3665-4bbf-9ad2-777e43d10aff" class="" dir="auto">The Business requirements come in different shapes and sizes, and these requirements (most of the time) are not focused on the user needs, but on the company perspective, and is my responsibility as a Designer to translate these requirements into something that generate impact for users and is possible to build in the desired time.</p></li></ul><p id="5079a743-62bf-4424-b4a8-144fcf078e40" class="" dir="auto">
+</p><ul id="930a0f8e-f2f5-4389-9834-eb9350f21eaf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Get real users involved in the design process and don&#x27;t miss to explore the Problem space</strong></li></ul><p id="ae8f343b-2f03-46f7-b1ac-bdfc60cad83a" class="" dir="auto">This project was focused on the Solution space, with just less work of research, and too much interface work.</p><p id="c12abec1-3d58-4174-9877-41353ec1d5a3" class="" dir="auto">
+</p><ul id="431a6552-1f27-4eb5-8ca2-084535ea03d8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Being a Design Leader in every place I&#x27;m, providing opportunities to the company and team about Design itself.</strong><p id="29053b6d-53df-4762-a763-be4d09b0c695" class="" dir="auto">I didn&#x27;t take the ownership and <mark class="highlight-red" data-notion-highlight="red">leadership</mark> as a Designer to show for the company and the team opportunities to explore the Problem space before jumping into the Solution space, with more knowledge and fewer assumptions, to have the opportunity to create a solution that really could bring value to people, and not just expend time and generating frustration of an entire team.</p></li></ul><p id="7e646f74-ac35-4ada-997f-fdd6917556fb" class="" dir="auto">
+</p><ul id="1bbbd494-c467-4b5a-9f32-81e8d0f68dca" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Understand the value of Agile</strong><mark class="highlight-red" data-notion-highlight="red"><strong>, and how could be costly when not </strong></mark><p id="9b2ca197-8e1e-4fab-8317-e44a12c1d692" class="" dir="auto">Working under a fake Agile, using the methods and the rituals, but designing and developing in a waterfall manner. </p><p id="6ddc2239-ad4a-4729-8bc5-1feffdfbe86c" class="" dir="auto">Fake agile environment</p><p id="8de6384e-da08-48bf-a37b-920159218cd9" class="" dir="auto">Lack of real agile environment</p><p id="29c50fa3-f5f1-4255-b6b2-d2be6175f698" class="" dir="auto">No CI/CD environment</p></li></ul><p id="69681056-bd8e-484f-96c2-2e946e107283" class="" dir="auto">
+</p><ul id="2ce7c2b1-c919-4900-ac8a-916c739a5c80" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Embrace failure as part of building knowledge!</strong><p id="53f6d5ea-4567-4b2d-8150-5205b77201bb" class="" dir="auto">Fail is part of the process, bringing knowledge to the people involved, but the failure needs to happen fast, using quick experiments, and validations with real users, without involving too much effort.</p></li></ul><p id="065c153c-2987-4eeb-8663-9dbe04ec84de" class="" dir="auto">
+</p><p id="0c4643ca-f6b3-4774-99d4-1209eb92dda9" class="" dir="auto">Because of the low design maturity of the company and the team, I was in, plus my lack of ownership and leadership,  in a work based on assumptions! </p><p id="4be7fc72-d655-4a70-9679-daf2772e12db" class="" dir="auto">No opportunity for research work, no exploration or validation, I didn&#x27;t convince the team to invest time in understanding the problem space, before start designing a solution with better knowledge.</p><p id="63e39d4e-0199-4f69-900a-fa160ab8f942" class="" dir="auto">The result of a weak product, without market fit, that wasn&#x27;t a hit</p><p id="b095523c-ae0f-4e19-a4f2-b5b825cacdfb" class="" dir="auto">
+</p><h3 id="3d725b24-881f-4bbd-ae1d-fc2bc34cf148" class="block-color-red" data-notion-highlight="red" dir="auto">Involve stakeholders and other areas in the design process</h3><div data-notion-highlight="red" dir="auto"><ul id="7bace347-82eb-457d-8b4a-6798ea4f82af" class="block-color-red bulleted-list" data-notion-highlight="red"><li style="list-style-type:disc"><strong>Learned the value of collaboration with others from the team, stakeholders, and other people that could help increase the knowledge around a topic.</strong><p id="78912541-85f0-4d13-9f00-3da83cc20cb1" class="" dir="auto">As an introverted person, I preferred to do my work alone in isolation, and this project made me move around and be involved with the engineers to get alignment together.</p></li></ul></div><h1 id="f99c3962-d571-44eb-b635-2483f9fd2547" class="block-color-pink" data-notion-highlight="pink" dir="auto">How I could be a good fit for Microsoft?</h1><p id="025850af-c01a-4842-a4cc-878573d67698" class="block-color-pink" data-notion-highlight="pink" dir="auto">I don&#x27;t consider myself a greater designer, but I consider myself a great learner, I&#x27;m flexible and I respect others.</p><p id="521b163d-4778-4cba-b3bb-1b4e2e380b94" class="block-color-pink" data-notion-highlight="pink" dir="auto">I&#x27;m a team player that knows how to connect with people, and I will not let anyone behind, felling not part of the whole.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

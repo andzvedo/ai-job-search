@@ -1,0 +1,774 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Andre&#x27;s Event Task Manager [NOT COMPLETED]</title><meta name="data-notion-page-icon" content="✅"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%E2%9C%85%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="e46e02a4-cac9-4ced-8ab3-3482a174287a" class="page sans" data-notion-page-icon="✅"><header><img class="page-cover-image" src="../Version%201/Toptal%20design%20challenge/Captura_de_Tela_2021-03-29_as_01.03.58.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon" data-emoji="✅"></span></div><h1 class="page-title" dir="auto">Andre&#x27;s Event Task Manager [NOT COMPLETED]</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="280ae5e1-2b09-4960-a1bd-99ee19d48cec" class="" dir="auto">Proposal</h1><p id="3b534e51-9638-4100-a638-7c45da1e7d0c" class="" dir="auto"><mark class="highlight-pink" data-notion-highlight="pink"><a href="https://www.figma.com/proto/F5Mq63zspGsB8rMr1KGDfp/Test-Project-Toptal?node-id=61%3A1400&amp;viewport=8043%2C-3806%2C0.6305556893348694&amp;scaling=scale-down&amp;page-id=61%3A1267">Click here to access the prototype</a></mark></p><figure id="99027547-21d9-4748-8f1d-a54b7ad5c8aa" class="image" data-notion-image="../Version%201/Toptal%20design%20challenge/Captura_de_Tela_2021-03-29_as_00.25.25.png" dir="ltr"><a href="../Version%201/Toptal%20design%20challenge/Captura_de_Tela_2021-03-29_as_00.25.25.png"><img style="width:709.9921875px" src="../Version%201/Toptal%20design%20challenge/Captura_de_Tela_2021-03-29_as_00.25.25.png"/></a></figure><h2 id="9335eef6-f8c8-48fc-87c7-3034325b285a" class="" dir="auto">Process</h2><h3 id="dea016f7-8292-4598-af69-7a1b38c7446f" class="" dir="auto">Following the Double Diamond</h3><p id="437bcc06-593a-4629-b41c-6ac4bfc7fdee" class="" dir="auto">Following the Double Diamond and Human-Centered Design approach, where one of the most important aspects is always involved people in the Design Process.</p><figure id="db30ee52-6658-4c03-a15f-45440c7a88a8" class="image" data-notion-image="../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png" dir="ltr"><a href="../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png"><img style="width:709.9921875px" src="../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png"/></a></figure><h1 id="01a6ea29-82c2-4335-8657-6a4d7cfa0ca4" class="" dir="auto">Phases</h1><ul id="fe688edf-843c-4e46-a691-384d4529f554" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Andre&#x27;s%20Event%20Task%20Manager%20%5BNOT%20COMPLETED%5D%20e46e02a4cac94ced8ab33482a174287a.html">Research [Problem Space</a>] - Discovery and Define</li></ul><ul id="f8cda390-14c6-47b8-9dd9-a148a45b2492" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="Andre&#x27;s%20Event%20Task%20Manager%20%5BNOT%20COMPLETED%5D%20e46e02a4cac94ced8ab33482a174287a.html">Design [Solution Space]</a> - Develop and Delivery</li></ul><h1 id="239482ac-28fe-4448-9fbb-40f9b5e8e64a" class="" dir="auto">Briefing</h1><h2 id="c9633e1a-7057-4971-b184-a1d9de9e6e60" class="" dir="auto">Event Task Manager</h2><p id="f1d45d3d-a48c-41d8-ab4d-0328326e466a" class="" dir="auto">Design a <mark class="highlight-pink" data-notion-highlight="pink">mobile app</mark> that allows event organizers to <mark class="highlight-pink" data-notion-highlight="pink">manage tasks that are coordinated between multiple teams</mark>, e.g., caterers, interior decorators, audio-video technicians, lighting engineers, etc. </p><h3 id="46fa8101-180e-46a2-94a8-3994f9f88ffe" class="" dir="auto">The app design should contain the following minimum functionality: </h3><p id="242cfe0b-4564-4d05-b80c-b092cd4a0906" class="" dir="auto">The ability to <mark class="highlight-pink" data-notion-highlight="pink">create</mark> and assign <mark class="highlight-pink" data-notion-highlight="pink">new tasks</mark>; </p><p id="a06ceee9-272b-4bf5-bbff-344b6bf6f41f" class="" dir="auto">Make <mark class="highlight-pink" data-notion-highlight="pink">requests to another team</mark>;</p><p id="3a083082-b5cf-43d0-8d3e-ad4dd1b74849" class="" dir="auto">Raise an <mark class="highlight-pink" data-notion-highlight="pink">alert if a problem </mark>occurs;</p><p id="2d782034-5bed-409d-8a34-57fc3e6b891c" class="" dir="auto">and keep <mark class="highlight-pink" data-notion-highlight="pink">track of the progress</mark> for all tasks assigned. </p><p id="a4686617-7ab5-4a18-b449-9eac01565b7d" class="" dir="auto">Create the app from the <mark class="highlight-pink" data-notion-highlight="pink">general coordinator’s point of view</mark>. </p><p id="565f032d-e05c-4ac1-812f-d215b3e6856d" class="" dir="auto">We encourage you to <mark class="highlight-pink" data-notion-highlight="pink">incorporate additional features</mark> that would elevate this concept to the next level.</p><h1 id="38212fcd-3609-4006-a677-c1a3e25dac18" class="" dir="auto">Research [Problem space]</h1><h2 id="861189c2-b114-4369-b672-5849f4171345" class="" dir="auto">Desk Research </h2><p id="4aeabdc0-d0ff-414f-889d-ed765e7e1aaa" class="" dir="auto">Collecting data from the internet to get knowledge around the scenario, and to understand what are the most common problems of the day-to-day work for an Event Coordenator. </p><details id="f8df8557-b592-4b78-b71a-211bb912d105" open="" class="toggle" dir="auto"><summary><strong>Common problems</strong></summary><div class="indented"><p id="acfb8d83-89fe-42c1-a017-d038fc533e38" class="" dir="auto"><a href="https://www.socialtables.com/blog/event-planning/biggest-event-planning-challenges/">https://www.socialtables.com/blog/event-planning/biggest-event-planning-challenges/</a></p><p id="5fb69292-d7a2-4059-9043-ec65bb5246b4" class="" dir="auto">1. <mark class="highlight-pink" data-notion-highlight="pink">Understaffing</mark> an event is a common event problem.</p><p id="4548189e-d6cc-4410-93f9-161a54d9ba74" class="" dir="auto">2. <mark class="highlight-pink" data-notion-highlight="pink">Overspending</mark> on the event is a big event challenge.</p><p id="84041cf2-646a-4758-85c2-ec1252324430" class="" dir="auto">3. Not prioritizing networking activities is an event challenge.</p><p id="ea2beb04-e645-4187-a9b7-74a8b164536b" class="" dir="auto">4. Forgetting to track schedule or budget changes it an avoidable event problem.</p><p id="e92247f0-7253-4adb-9f64-e3323777bfbc" class="" dir="auto">5. Not having a backup plan for bad <mark class="highlight-pink" data-notion-highlight="pink">weather</mark> is an event problem.<br/>6. Neglecting to leave wiggle room in your event timeline is a problem.</p><p id="c0448bf0-1eaa-43a2-9b98-c4bfb8697ba2" class="" dir="auto">7. Lack of real world work experience can be an event challenge.</p><p id="74070037-4043-40e4-940d-d7d896cf5a87" class="" dir="auto">8. Having <mark class="highlight-pink" data-notion-highlight="pink">more guests</mark> or attendees than you planned for is an event mistake.<br/>9. Not having a structured event management process can be a challenge.</p><p id="5f83901d-54ed-427c-8161-976031c4b98c" class="" dir="auto">10. Forgetting to create an attendee engagement plan for before, during, and after the event is a challenge.</p><p id="c50cadb8-3b46-4e88-882c-544d11f5e57a" class="" dir="auto">11. Leaving little to no time for event set up or take down is an event mistake.</p><p id="b8eebacb-9555-4d87-952a-ae2a0f328c6e" class="" dir="auto">12. Neglecting to research what other local events or laws might affect your gathering is a problem.<br/>13. Failing to capture valuable event data can be an event mishap.<br/>14. Over-programming your event schedule is a problem.</p><p id="3b7713c3-a331-4f0d-a501-24e60f90d395" class="" dir="auto">15. Not confirming your vendors can be an event mistake.</p></div></details><details id="a7c1be0d-69e2-4dd0-9ce2-7ad7147332f3" open="" class="toggle" dir="auto"><summary><strong>What to Do When Your Event’s Gone Wrong</strong></summary><div class="indented"><p id="070b472b-eff1-4b21-aeb6-3c03e4658a72" class="" dir="auto"><a href="https://www.gevme.com/en/what-to-do-when-your-events-gone-wrong/">https://www.gevme.com/en/what-to-do-when-your-events-gone-wrong/</a></p><ul id="48c7e4b3-6bf1-4c84-9349-fa3d91f1ca65" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Participant dropouts. </li></ul><ul id="e7a9821d-dfe3-4ed2-a59e-8e0f0cd7bd10" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Poorly organised entertainment. </li></ul><ul id="6a6060fa-4a01-4251-8806-1818b1aaabd2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Venue cancellation.</li></ul><ul id="d2b7f4b0-09b8-490f-8cae-142d77817f42" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Security risk. </li></ul><ul id="0efdddc3-e8ae-444a-a48e-e92707c7c427" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Technical issues.</li></ul><ul id="c039cda8-c462-4652-bfb9-e560be5fc79b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Unexpected weather.</li></ul><ul id="566a3735-736e-473b-8c53-d20b852988bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Unclear budget.</li></ul><ul id="44c4e2ce-5514-4fe3-ae75-ddf165954419" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Poor time management.</li></ul></div></details><details id="9643a31d-fb73-4d18-be11-b4a7a5afb975" open="" class="toggle" dir="auto"><summary><strong>Biggest Challenges Facing Event Industry In 2019</strong></summary><div class="indented"><p id="e22be27c-b9bc-4d6d-93eb-e4f6a218beb1" class="" dir="auto"><a href="https://blog.townscript.com/biggest-challenges-facing-event-industry-in-2019/">https://blog.townscript.com/biggest-challenges-facing-event-industry-in-2019/</a></p><p id="9dd6ddcf-2d5c-4c55-973d-f1883a243045" class="" dir="auto">1. Tight Budgets</p><p id="3107a991-f338-48de-96aa-5729cfced47a" class="" dir="auto">2. Strict Compliance and Laws</p><p id="8703da93-8079-4958-ab95-0342445b17f6" class="" dir="auto">3. Increased Focus on Audience Engagement</p><p id="2d5ad9f8-d915-4614-bcb8-4914fa7f01f7" class="" dir="auto">4. Securing Sponsorships &amp; Partnerships</p><p id="beea2e3d-8166-42ec-b1d6-99346c308cce" class="" dir="auto">5. Impact of Brexit</p><p id="730955f3-216e-4458-81a1-0c9e756d511c" class="" dir="auto">6. Focus on Safety &amp; Security</p></div></details><h1 id="a2c7dcff-bc0e-4084-8022-9fa1312de800" class="" dir="auto"><strong>Statement</strong></h1><blockquote id="fabe5369-5391-44cb-b461-f5bfdce720e7" class="" dir="auto">How to make the job of the Event Coordinator less stressful?</blockquote><p id="9f2314ec-ecb6-421c-90a3-5e0faea8b2a9" class="" dir="auto">Reference: <a href="https://www.cbsnews.com/news/10-most-and-least-stressful-jobs-in-america/">https://www.cbsnews.com/news/10-most-and-least-stressful-jobs-in-america/</a></p><h2 id="d8ba0749-d8a8-4f4a-bbc5-dd219934eaf5" class="" dir="auto">Problem to solve</h2><p id="74601007-6f1e-472e-bec9-74a08fdf32de" class="" dir="auto">The day-to-day life of an Event Coordinator is very stressful, and based in my research was posssible to notice that the event manager needs to deal with a lot of different things that are fairly easy to get outside of his/her control.</p><p id="4283836c-60c4-4ed2-b291-b0c78b0e36ab" class="" dir="auto">
+</p><p id="8a2cf867-6525-4a2e-ad8c-b3aa1f3b042d" class="" dir="auto">Based on that was generated the hypothese that the event coordinator needs to embrace the caos and have something to help deal with this.</p><p id="369abfb2-7246-4ccd-b7d8-e905d177b53b" class="" dir="auto">I ranked three main things what the coordinator needs to track in some manner.</p><ul id="aaa2e952-93ef-43c3-85f6-1cc326c81cbf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">People [Teams]</li></ul><ul id="4266d33a-cbd2-444d-8f98-63011f025707" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Time [Event]</li></ul><ul id="290ac583-ebdc-4eb0-a014-76bca78ceb76" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Tasks</li></ul><p id="39802880-2305-49e2-ab08-04c12ee5c109" class="" dir="auto">And the only thing of this three that is possible to control is the Tasks, so the Time and the People needs to be easy and simple to change if need.</p><h2 id="91c753e5-f956-48ab-a9c2-0a8b49589e9f" class="" dir="auto">User Story</h2><p id="95b41ac2-9da1-4c28-a685-220fecfd32b0" class="" dir="auto"><mark class="highlight-red" data-notion-highlight="red">To materialize the findings at the research phase was created a User Story</mark></p><p id="9138c818-2c35-4d3d-a9a1-9b8a3e330dac" class="" dir="auto">As a <strong>Event Coordinator</strong>,</p><p id="0b285a76-e80b-475d-9afa-482f4886a94b" class="" dir="auto">I want <strong>create new tasks and assignee to a staff member</strong> <strong>that will be responsible for it,</strong></p><p id="d5982ada-6d84-4f3d-9196-b2249d17a414" class="" dir="auto">So that <strong>I can manage the progress of the events in a more organize manner.</strong></p><h1 id="6271b38a-ca1c-4e73-9279-9100c771b84b" class="" dir="auto">Design [Solution space]</h1><h2 id="0bad98cf-1c12-4d8a-8670-5526f26161cb" class="" dir="auto">Ideation</h2><p id="8124a97f-7ee0-4f75-89ca-d37fe589aeb6" class="" dir="auto">To start the Design phase was done sketches to explore the ideas and hypotheses, and to help me visualize what possible could work, and what could not, to have a better idea in what makes sense invest more time and effort, what it&#x27;s seen to be not worthy and what has potential.</p><figure id="71d0d351-6f7f-46f2-a1ec-9adc3dc82e63" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D0%253A1">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D0%253A1</a></div></figure><h2 id="7738427a-036d-4664-b398-c46c6e010bb6" class="" dir="auto">User Requirements</h2><p id="4e4bdfc2-4fb3-458a-98f3-f50de16e567c" class="" dir="auto">With a better vision of the possibiliies, was the time to write down the User Requirements based on the needs from the Briefing, the knoledge of the common problems from the Desk research and the Ideation sketches as well.</p><p id="40912478-8d64-4cd3-b12e-7c13c08fa4ed" class="" dir="auto">
+</p><p id="3e47d53f-b25e-4d20-818f-1d0f9c8626ac" class="" dir="auto">
+</p><figure id="496085fc-cc31-438d-b95f-392c54652478" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D127%253A3621">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D127%253A3621</a></div></figure><h2 id="5922952e-065e-4f88-805a-658af880d183" class="" dir="auto">Components and Style Guide</h2><p id="66e5e4f6-3a91-44a3-afbe-faab5a62bbfa" class="" dir="auto">It was created a basic component structure and a style guide to help the prototype creation, to gain in speed and consistency.</p><figure id="c8e35822-7533-49e0-9bbd-2fdbbbe62c4e" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D34%253A1132">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D34%253A1132</a></div></figure><h2 id="881a59d1-b698-4c0e-9849-8ef43afb24b4" class="" dir="auto">Prototype</h2><p id="c1b6a555-3184-4a19-bf03-7a9d5fb7d71b" class="" dir="auto">All the App was designed with Accessibility<strong> </strong>in mind,<strong> </strong>using colors where the contrast is at least AA accessible. It&#x27;s possible to play with the prototype in this link: <mark class="highlight-pink" data-notion-highlight="pink"><a href="https://www.figma.com/proto/F5Mq63zspGsB8rMr1KGDfp/Test-Project?node-id=61%3A1267&amp;viewport=8043%2C-3806%2C0.6305556893348694&amp;scaling=scale-down&amp;page-id=61%3A1267">EvenTask Prototype</a></mark></p><p id="b2a8a223-6065-42c0-adae-d35baaf1c4db" class="" dir="auto">
+</p><p id="c5f9c9a3-52a0-464d-9e0f-bafc149f7011" class="" dir="auto"><strong>Scenarios of the Prototype</strong></p><ul id="d3ca3594-0bd9-41ae-b71e-e6a4c282d7ff" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Activities</strong><ul id="7166a52d-757a-4895-b794-6453177cbf64" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Catalogue</li></ul><ul id="ccadac9f-cec8-402b-81e7-48cedf0f113b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Filter Active</li></ul><ul id="50b4ce6b-6a29-4a4f-85bc-a2f4a6fabda2" class="bulleted-list" dir="auto"><li style="list-style-type:circle">New Task</li></ul></li></ul><ul id="ddc20226-af9f-4f76-b8b9-6e75222bdaab" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Task</strong><ul id="d5e7e586-14c6-497d-b74f-9530e186cf4c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Catalogue</li></ul><ul id="d0e2133c-272c-429d-81b6-9abaf4c16d0c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Visualize Task<ul id="ef4c2930-95d6-4944-a25f-0a773b863174" class="bulleted-list" dir="auto"><li style="list-style-type:square">Track a progress of tasks</li></ul></li></ul><ul id="d7ab1051-945f-41b2-a0df-5bf3b0668a5c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">New task</li></ul><ul id="f789e33d-bde9-4a31-a748-48bb1fc4ca80" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Edit Task</li></ul><ul id="7f5d70c3-5121-4d1f-8a5c-f9a4078cac1f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Flag a Task</li></ul></li></ul><ul id="dedecd6d-3a9f-48a2-95c3-fab99e1e5472" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Teams</strong><ul id="33ab4436-1cab-45a2-98f9-800d52e2a022" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Catalogue</li></ul><ul id="41c2e4fb-1fc5-4f6a-ad55-dab7e583d261" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Visualize Team</li></ul><ul id="2f29bd2f-3a81-40ae-abc4-e002d18eb264" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Make requests to a Team</li></ul></li></ul><ul id="03757d8f-0783-4878-9a98-9afe25ede270" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Events</strong><ul id="97995345-13ff-4645-9250-ddcd4f79ba97" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Catalogue</li></ul><ul id="23f8e2de-4a01-4502-a446-9e6130709a52" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Visualize Event</li></ul></li></ul><ul id="4b457a7b-38ec-4fb5-b9a6-445b577b10e8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Global Search</strong></li></ul><p id="e5f9f6c8-238b-4a0f-8938-e757d1768c5c" class="" dir="auto">
+</p><figure id="b892f8dd-7389-4611-8776-56bf9ff5b7bb" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D61%253A1267">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FF5Mq63zspGsB8rMr1KGDfp%2F%3Fnode-id%3D61%253A1267</a></div></figure><h2 id="dfc62835-8b59-48ba-a843-f235c34e1b18" class="" dir="auto">Video Explanation</h2><figure id="2ffff9bf-4793-4c25-bdc3-219952e9d5a9" dir="ltr"><a href="https://drive.google.com/drive/folders/1eMwFwIkmArhZAzzOAfKct3_0MgJIxp8N?usp=sharing" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Toptal - Google Drive</div></div><div class="bookmark-href"><img src="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png" class="icon bookmark-icon"/>https://drive.google.com/drive/folders/1eMwFwIkmArhZAzzOAfKct3_0MgJIxp8N?usp=sharing</div></div><img src="https://drive-thirdparty.googleusercontent.com/128/type/video/quicktime" class="bookmark-image"/></a></figure><h2 id="b0b57f9e-276b-4608-a5a4-6507d7969702" class="" dir="auto">Next Steps</h2><p id="fff8a9a3-51ea-4a04-adb3-e3bf55f2809a" class="" dir="auto">To validade if the this concept could help the event coordinators, as next steps, I&#x27;d like to conduct an usability test to understand if my ideas really could make the life for them easier.</p><p id="8437f6dd-2a8f-4536-a661-bb35fbc82afa" class="" dir="auto">
+</p><h3 id="cb630a3b-2ecb-4e1a-ad7b-f174ac2add96" class="" dir="auto">Thanks for reading</h3><p id="768a81c9-95bf-40f1-ad31-cedf40607c30" class="" dir="auto">
+</p><p id="a376f6f8-c1bf-43e9-8c22-b89bf866aeb5" class="" dir="auto">Kind regards,</p><h3 id="182cf972-6a18-47f2-95f9-7c5f172f2094" class="" dir="auto">André Azevedo</h3></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

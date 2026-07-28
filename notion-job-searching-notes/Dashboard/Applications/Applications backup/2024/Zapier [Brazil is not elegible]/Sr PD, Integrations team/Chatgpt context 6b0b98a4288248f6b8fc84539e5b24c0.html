@@ -1,0 +1,783 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Chatgpt context</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="6b0b98a4-2882-48f6-b8fc-84539e5b24c0" class="page sans"><header><h1 class="page-title" dir="auto">Chatgpt context</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="710d56b3-7a0a-43f1-bb33-b93f1c476954" class="" dir="auto">I&#x27;m applying for a Senior Product Design position for the Integration platform at Zapier, and you will help me to polish the best possible answer based on my previous design experiences that I shared with you.</p><p id="cc1807e2-2e1d-45b9-84a3-0e167e7b0232" class="" dir="auto">
+</p><p id="7fbc81e4-5731-4ac3-80e1-59e457ecaa93" class="" dir="auto">To start, I&#x27;ll share the job description and the questions they are asking for candidates to the Senior product designer for integration platform position.</p><p id="98bde149-bec7-4fcd-b818-81addc498674" class="" dir="auto">
+</p><p id="6772a00b-eebd-48b8-9086-b5b16e543d7f" class="" dir="auto">This is the job description:</p><h1 id="86008e91-e2a8-4fa3-8330-ff0584bf7892" class="" dir="auto"><strong>Sr. Product Designer, Integration Platform</strong></h1><p id="41d357e1-e7e9-4732-a9b2-123d39a86924" class="" dir="auto"><strong>Job Posted: 1/24/24</strong></p><p id="43a0a0dd-5234-4127-a834-2702c795d0ca" class="" dir="auto"><strong>Location:</strong> <strong>Americas, MST to PST</strong></p><p id="5a3fa8bf-06ac-4283-bcb9-9c44588ba43d" class="" dir="auto">Hi there!</p><p id="e8b7bff2-ddb5-40c7-8cbc-514b0fe2b031" class="" dir="auto">Zapier’s mission is to make automation work for everyone, make everyone more productive at work, and help teams supercharge their business processes. That’s only possible when there’s top-notch integrations for the apps that our customers use every day. We’re looking for a <strong>Senior Product Designer </strong>to join our <strong>Integration Platform</strong> team to drive the rapid development, iteration, and learning we need to build an ecosystem that scales to meet any customer demand.</p><p id="ab962526-4b51-4ab9-8b5c-6c351abf70fd" class="" dir="auto">You’ll join a cross-functional group dedicated to expanding the breadth and depth of Zapier’s integrations. You’ll work directly with customers and partners to provide experiences that maximize the power of Zapier’s growing ecosystem, and allow us to offer the most complete set of integrations on the internet.</p><p id="dd5ae93a-dddf-40ab-82e0-a15fe9f87b08" class="" dir="auto">If you’re interested in advancing your career at a fast-growing, profitable, impact-driven company, then read on!</p><p id="4acf5633-0b20-494d-a559-3649134a12e8" class="" dir="auto">We know applying for and taking on a new job at any company requires a leap of faith. We want you to feel comfortable and excited to apply at Zapier. To help share a bit more about life at Zapier, here are a few resources in addition to the job description that can give you an inside look at what life is like at Zapier. Hopefully, you&#x27;ll take the leap of faith and apply.</p><ul id="281c89f2-b1f0-4b43-9446-d00cc6de44e8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/our-commitment-to-applicants/">Our Commitment to Applicants</a></li></ul><ul id="7d806b22-d78f-4028-a1e3-75fb65a18bf5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/culture-and-values-at-zapier/">Culture and Values at Zapier</a></li></ul><p id="701b0975-d1bd-49bd-b20b-80295f53ce6b" class="" dir="auto">
+</p><ul id="e0d3734d-a68a-4433-a430-1159abae1fb8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/learn/remote-work/">Zapier Guide to Remote Work</a></li></ul><ul id="f6c9d21e-d816-4463-b23b-a3fde2109c68" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/zapier-code-of-conduct/">Zapier Code of Conduct</a></li></ul><ul id="e6a46569-91b6-488a-9b23-0b5fb0d05fac" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://zapier.com/jobs/working-on-diversity-and-inclusivity/">Diversity and Inclusivity at Zapier</a></li></ul><p id="ea3a6772-c382-483d-88cc-a057cf83579f" class="" dir="auto"><em>Zapier is proud to be an equal opportunity workplace dedicated to pursuing and hiring a diverse workforce.</em></p><p id="f8bb19a4-c22d-4c6b-824b-4c3cad85e70a" class="" dir="auto">Even though our job description may seem like we&#x27;re looking for a specific candidate, the role inevitably ends up tailored to the person who applies and joins. Regardless of how well you feel you fit our description, we encourage you to apply if you meet these criteria:</p><h2 id="868daaed-36b5-4630-a713-b247fcee90c2" class="" dir="auto"><strong></strong></h2><h2 id="71d41d62-ff61-465d-be27-1c1a8b6987f4" class="" dir="auto"><strong>About You</strong></h2><ul id="a4cfd320-28fc-4c39-b6be-acef52790253" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>You’re a skilled designer and are continually growing. </strong>You have 5-8 years experience designing digital products in a fast paced environment. You have a strong understanding of the product development and design thinking process, from discovery and shaping to detailed product design work. You are ever looking to grow your skills and impact as a designer. Excellent visual design skills and ability to contribute to our design system.</li></ul><ul id="1b44f3e6-bdd4-4ec5-a586-346d731e90b3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>You optimize for speed of learning.</strong> You constantly search for signal from users. You understand how to synthesize insights and translate them into actionable plans. You communicate what you learn with your team and work with teammates to iterate on solutions.</li></ul><ul id="7dd0b307-6115-4dd1-85d4-1c376d19866c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>You thrive when presented with the unknown.</strong> The bigger the problem, the bigger your resolve. You stay focused on optimizing outcomes regardless of the many paths that could lead to it. You embrace letting go of ideas and exploring new options.</li></ul><ul id="8b0a1e71-0f79-4184-bfa7-b1c89d05fe43" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>You seek out input early and often. </strong>One of Zapier’s values is Growth Through Feedback and this applies to our design work too! You are comfortable setting your ego aside and getting other eyes on your work. You plan and facilitate collaborative sessions with other designers and cross-functional partners to build alignment.</li></ul><ul id="9f72acb7-3b09-44c2-abb1-f1e0c202e689" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>You have experience bridging user goals and business value. </strong>You consider yourself a product designer and can point to work that you’ve done that helped scale the business and created user value. You understand that design is a balance of the two.</li></ul><ul id="4f0e94b6-6b62-4be9-8444-ff2ebe333abc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>You are self-directed and process driven. </strong>We believe in systems and processes that help us scale our impact beyond our individual contributions. You effectively manage your own workload, create plans with cross-functional teammates and escalate project risks.</li></ul><ul id="4c033529-691b-42be-95ff-b2383f3f7a2d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>You’re a natural storyteller and great communicator.</strong> Zapier is 100% remote so impactful communication – visual, written and presentation – are crucial to communicating design work and collaborating with your team mates.</li></ul><h2 id="c67a67dc-4923-4ae9-ad83-813b98e0db5a" class="" dir="auto"><strong></strong></h2><h2 id="d90e1138-5e2f-4757-a023-359781ef8a47" class="" dir="auto"><strong>Things You’ll Do</strong></h2><ul id="a13e8871-fdd1-4b6d-b098-3ae4898f966a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Lead the creation of delightful user-centered experiences leveraging a solid design thinking process.</li></ul><ul id="7a690175-818f-4771-b121-c28ccc38aa1d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Champion UX best practices to ensure we are making informed design decisions together.</li></ul><ul id="1987858e-7d5c-40b3-869a-bbac5ae43594" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Work with your team to craft design solutions that solve user problems and impact business objectives.</li></ul><ul id="d368551f-f293-43cc-b737-d589f123ee43" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Lead design discussions and present alternative solutions based on your understanding of user and business needs.</li></ul><ul id="06a29491-4f78-4de9-8c3c-00f3447e3ea9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Continually learn about our users and our business to suggest new areas where we can run experiments.</li></ul><ul id="43558f02-aeb5-4ee9-90df-9fe503408646" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborate with designers, PMs, and engineers. Continuously share work at all stages early and often.</li></ul><ul id="7a22d1ff-a335-4478-b450-398b7262f90e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Deliver complete high-quality designs for delivery.</li></ul><ul id="70d21e03-2542-421d-8028-22cdd13c017c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Use and improve established design patterns and help to create new ones when needed.</li></ul><h2 id="2fd27263-9fd0-4eae-a4e8-0c838c5479d8" class="" dir="auto"><strong></strong></h2><h2 id="af9f57ef-4a39-46d2-a325-d89eff4e403c" class="" dir="auto"><strong>Zapier Compensation Guiding Principles</strong></h2><p id="f56b2b5f-7aa2-4a3b-8160-8c3199e0c343" class="" dir="auto">We believe all Zapiens should be rewarded competitively and equitably, using practices that are simple and transparent. This philosophy ensures we’re able to find, grow, and retain exceptional people from a broad range of backgrounds. Here’s how we define our compensation principles:</p><ul id="f345ff53-2ba1-41e4-89a5-0eaa1a73ac62" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Competitive: Zapier pays well among the technology sector.</li></ul><ul id="0a955207-fc78-44c9-9cbf-f40d4df1efcc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Equitable: Consistent pay practices; competency-based pay.</li></ul><ul id="452367cc-d4f5-4847-bd69-74c4061d82c1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Simple: Pay is well understood, and pay practices are built for scale.</li></ul><ul id="861386cf-e162-4439-b5c5-40bf97bf51f2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Transparent: Zapiens know how pay works, including how their pay is determined.</li></ul><p id="79276705-0edc-4ccc-b91b-da422386860a" class="" dir="auto"><strong>The pay ranges for this role are:</strong></p><p id="b427ee81-e0d9-4b3f-b7ad-ce38c1c81650" class="" dir="auto">United States: $152,200 / $190,200 / $228,200 USD</p><p id="02839e29-f253-49c9-a983-8bf8d303654c" class="" dir="auto">Canada: $152,200 / $190,200 / $228,200<strong> </strong>CAD</p><p id="e3a3db42-d313-4bfc-8173-f7db7400fea7" class="" dir="auto">A Candidate&#x27;s compensation package is finalized once the interview process is concluded and accounts for experience, competencies (job knowledge, skills and abilities) and internal equity. We use a competency-based approach to base pay, which means we set pay for all Zapier employees based on their competency and skills demonstrated in their role. In alignment with that philosophy, the upper half of a pay range is typically reserved for individuals who have consistently demonstrated a high level of job knowledge and skills for their current role and level while at Zapier.</p><p id="c07a5614-4911-42bc-8168-9af26491cae9" class="" dir="auto">For more information on Zapier’s Total Rewards please click<a href="https://zapier.com/l/jobs/total-rewards"> here</a>.</p><h3 id="b9d37b71-f59a-4da3-929d-5ee6c57771d4" class="" dir="auto"><strong></strong></h3><h2 id="14690ec5-112d-4bc5-a16b-a9b9c6c98a21" class="" dir="auto"><strong>How to Apply</strong></h2><p id="7f76920a-6f0a-49f8-9266-0f910a64c989" class="" dir="auto">At Zapier, we believe that diverse perspectives and experiences make us better, which is why we have a non-standard application process designed to promote inclusion and equity. We&#x27;re looking for the best fit for each of our roles, regardless of the type of education or companies in your background, so we encourage you to apply even if your skills and experiences don’t exactly match the job description. All we ask is that you answer a few in-depth questions in our application that would typically be asked at the start of an interview process. This helps speed things up by letting us get to know you and your skillset a bit better right out of the gate. Please be sure to answer each question; the resume and CV fields are optional.</p><p id="e5281f9e-73a6-4d08-a49a-b6e0e8979901" class="" dir="auto">After you apply, you are going to hear back from us—even if we don’t see an immediate fit with our team. In fact, throughout the process, we strive to never go more than seven days without letting you know the status of your application. We know we’ll make mistakes from time to time, so if you ever have questions about where you stand or about the process, just ask your recruiter!</p><p id="67758136-23c6-4de1-b854-9b414379c4e2" class="" dir="auto">Zapier is an equal-opportunity employer and we&#x27;re excited to work with talented and empathetic people of all identities. Zapier does not discriminate based on someone&#x27;s identity in any aspect of hiring or employment as required by law and in line with our commitment to Diversity, Inclusion, Belonging and Equity. Our<a href="https://zapier.com/jobs/zapier-code-of-conduct/"> code of conduct</a> provides a beacon for the kind of company we strive to be, and we celebrate our differences because those differences are what allow us to make a product that serves a global user base. Zapier will consider all qualified applicants, including those with criminal histories, consistent with applicable laws.</p><p id="e0014e14-dd58-4985-8b13-db5bb0f632e9" class="" dir="auto">Zapier is committed to inclusion. As part of this commitment, Zapier welcomes applications from individuals with disabilities and will work to provide reasonable accommodations. If reasonable accommodations are needed to participate in the job application or interview process, please contact <a href="mailto:jobs@zapier.com">jobs@zapier.com</a>.</p><p id="9c4ce2f4-1e4b-40f4-8f66-c0dcc3e3d4a5" class="" dir="auto"><strong>Application Deadline:</strong> The anticipated application window is 30 days from the date job is posted, unless the number of applicants requires it to close sooner or later, or if the position is filled.</p><p id="257c6f50-8535-461d-99b4-f2f5b4103c64" class="" dir="auto"><em>Even though we’re an all-remote company, we still need to be thoughtful about where we have Zapiens working. Check out</em><a href="https://docs.google.com/document/d/1VzesvLsgVG2RDRPtGvBF8CbcB9ZA-Hsddg0P2ildBb8/edit"><em> </em></a><a href="https://docs.google.com/document/d/1VzesvLsgVG2RDRPtGvBF8CbcB9ZA-Hsddg0P2ildBb8/edit">this resource</a><em> for a list of countries where we currently cannot have Zapiens permanently working.</em></p><p id="75ed1050-f3f3-4e3e-916b-53b4c4553723" class="" dir="auto">#LI-Remote</p><p id="bd94f893-7da3-4a8c-8769-d741582409aa" class="" dir="auto">
+</p><hr id="b53e13c4-486b-4fa3-aa29-0464b1b45c4e" dir="auto"/><p id="06605cc7-bafa-49e9-95d9-4ed30882bb67" class="" dir="auto">
+</p><p id="b0186a5a-86a0-46e2-b35e-7b75361e4626" class="" dir="auto">These are the three questions they are asking the candidates to apply, which they will evaluate the answer to see if the candidate is, or not, a fit for the position:<br/></p><ol type="1" id="7ee0a9d4-4c7e-41a3-b505-c442c59c450e" class="numbered-list" start="1" dir="auto"><li>Describe a project where you had to develop a mid-to-long term vision for a complex tool, emphasizing your approach to balancing intuitive design with technical functionality? How did you partner with the engineering team to deliver iteratively?</li></ol><ol type="1" id="27dc7fe0-2ada-40bd-840b-15ca6b802d40" class="numbered-list" start="2" dir="auto"><li>Considering the evolving landscape of AI and its applications in design, how do you stay informed about the latest trends and integrate emerging technologies into your design work? Can you share an example where staying updated on technology trends influenced a design decision you made?</li></ol><ol type="1" id="a4d53103-1184-4d7b-97e6-024f9a7d817e" class="numbered-list" start="3" dir="auto"><li>Describe a project where you had to rely on your design instincts to meet user needs, rather than extensive research? How did you balance your instincts with user data, and what was the outcome?</li></ol><p id="4e2f92b6-8ebe-4271-a24e-0246a77be65e" class="" dir="auto">
+</p><hr id="02d2cbb1-b0e2-48cc-92af-1106c5660e54" dir="auto"/><p id="be28edbc-5e12-4a29-baa1-426a2b9582ca" class="" dir="auto">
+</p><p id="153690c6-89f1-429b-a946-a3033166796f" class="" dir="auto">Now, follow the breakdown of each question in detail:</p><p id="51cbf67f-33e6-414b-9b30-cee1adffcf80" class="" dir="auto">
+</p><ol type="1" id="0d2daa8a-92e1-4ccc-a72f-a21a5764dc46" class="numbered-list" start="1" dir="auto"><li>Describe a project where you had to develop a mid-to-long term vision for a complex tool, emphasizing your approach to balancing intuitive design with technical functionality? How did you partner with the engineering team to deliver iteratively?</li></ol><p id="b85d4f8a-2152-43c0-9acb-23960465fd56" class="" dir="auto">
+</p><p id="f9040232-9924-4b05-a581-79635803459d" class="" dir="auto">This job application question is multifaceted and aims to assess your skills and experiences in several key areas. Let&#x27;s break it down to understand what the employer is looking for:</p><ol type="1" id="3129d690-2f49-40fa-91f4-578ea187cb67" class="numbered-list" start="1" dir="auto"><li><strong>Project Description</strong>: You&#x27;re being asked to select a project from your past experience where you were involved in setting a mid-to-long term vision for a complex tool. This implies the employer is interested in your ability to plan, strategize, and think ahead, specifically for projects that have a significant scope and complexity.</li></ol><ol type="1" id="2f15b881-ef65-4e5f-9c39-d6cc14f0ba1c" class="numbered-list" start="2" dir="auto"><li><strong>Balancing Intuitive Design with Technical Functionality</strong>:<ul id="e3f93aa1-7110-4a72-a509-028a6bb37645" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Intuitive Design</strong>: This refers to how user-friendly and easy to use the tool or product is. The employer wants to know how you ensured the product&#x27;s design met the users&#x27; needs, was accessible, and easy to navigate.</li></ul><ul id="72c968bf-c9c0-4505-a333-0db619b90591" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Technical Functionality</strong>: This pertains to the technical capabilities and features of the tool. It&#x27;s about how robust, efficient, and scalable the tool is from a technical perspective.</li></ul><ul id="d718e492-6a1e-45c2-bd34-3c367d751415" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The balance between these two aspects is crucial. The employer wants to see your ability to understand and integrate user experience (UX) principles with the technical requirements of a project.</li></ul></li></ol><ol type="1" id="a1f88eb1-53d5-43fa-8363-ed70696d64db" class="numbered-list" start="3" dir="auto"><li><strong>Partnership with the Engineering Team</strong>:<ul id="bdcc1e35-0a4e-4116-bf39-5cc58934c6c5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">This part of the question is about teamwork and collaboration. The employer is looking to understand how you worked with the engineering or development team to bring the project to life.</li></ul><ul id="5be2e6ed-0f2d-489e-8dad-42954b3e6f39" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Iterative Delivery</strong>: Specifically, they&#x27;re interested in how you delivered the project iteratively. This refers to an approach where the project is built in small, manageable sections (iterations), allowing for frequent reassessment and adjustments as needed. This method is often used in agile development to improve the end product continuously.</li></ul></li></ol><p id="973016ad-c51d-4984-bf40-b0de9cd3ef1e" class="" dir="auto"><strong>How to Answer</strong>:</p><ul id="54274800-a59e-4d49-92db-46b4d3fa8c53" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Select a Relevant Project</strong>: Choose a project that best showcases your ability to handle the responsibilities mentioned. It should demonstrate your strategic planning skills, your knack for balancing design with functionality, and your capacity to work collaboratively with technical teams.</li></ul><ul id="30c2594e-c402-429e-837d-2f83379f8d97" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Describe the Project and Your Role</strong>: Briefly explain the project, its goals, and your specific role in developing the mid-to-long term vision for the tool.</li></ul><ul id="3420a6f5-8784-4e97-aeb0-abf8f499503e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Explain Your Approach to Balancing Design and Functionality</strong>: Discuss how you addressed user needs while ensuring the tool was technically robust. Include any methods, tools, or frameworks you used to understand user requirements and how you translated these into technical specifications.</li></ul><ul id="2746da36-2aec-4c67-9d99-f5a34cf543f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Detail Your Collaboration with the Engineering Team</strong>: Describe how you worked with the engineering team, emphasizing your communication and project management skills. Explain the iterative process, how decisions were made, and adjustments handled to ensure the project&#x27;s success.</li></ul><ul id="143dc22c-cc25-4abd-83ae-0fdbd0742df8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Results and Learnings</strong>: Conclude by highlighting the outcomes of the project. Discuss any successes, challenges, and what you learned from the experience.</li></ul><p id="8abb8d1f-7319-4460-98f6-f6c74c291dba" class="" dir="auto">This response will give the employer insight into your strategic thinking, design sensibility, technical understanding, and ability to collaborate effectively with cross-functional teams.</p><p id="92d232af-9dc7-483a-8c30-ec47ba6a1c80" class="" dir="auto">
+</p><ol type="1" id="bd2dd143-a082-448e-8076-c10ea6933ca7" class="numbered-list" start="2" dir="auto"><li>Considering the evolving landscape of AI and its applications in design, how do you stay informed about the latest trends and integrate emerging technologies into your design work? Can you share an example where staying updated on technology trends influenced a design decision you made?</li></ol><p id="ad320fcf-e47d-43b7-a500-39d6cffff7fe" class="" dir="auto">
+</p><p id="c5f25e41-74bd-4951-957d-1516e02d7d2d" class="" dir="auto">This question is designed to evaluate your awareness and adaptability to the rapid advancements in AI and how it impacts the field of design. The employer is looking to understand your commitment to continuous learning, your ability to leverage new technologies in your work, and how this proactive approach has tangibly influenced your design decisions. Let&#x27;s break it down:</p><ol type="1" id="e25abbe8-f291-44b3-b165-77dce0579694" class="numbered-list" start="1" dir="auto"><li><strong>Staying Informed About the Latest Trends</strong>:<ul id="e8954334-2d57-4d21-9c77-0fb252a3332c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The question first assesses how you keep yourself updated with the evolving AI landscape. This could include your methods for learning, such as following industry news, participating in forums, attending workshops or conferences, engaging with professional networks, or undertaking specific courses.</li></ul><ul id="bae8375d-7fe4-4138-ba75-7ac1cb6de2ab" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The employer wants to see that you have a structured approach to continuous learning and staying abreast of technological advancements.</li></ul></li></ol><ol type="1" id="6de4f1c7-0a45-4922-8260-d9621f530d7f" class="numbered-list" start="2" dir="auto"><li><strong>Integrating Emerging Technologies into Design Work</strong>:<ul id="4e77eacd-5bc7-4ee4-89fb-de4e01f07de6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">This part focuses on the application of your knowledge. It&#x27;s one thing to know about the latest trends, but another to effectively incorporate them into your design projects.</li></ul><ul id="461d42f6-0c5d-4a0c-bfe7-895b469233f8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The employer is interested in your ability to evaluate new technologies critically and decide how they can enhance your design work, improve user experience, or provide innovative solutions.</li></ul></li></ol><ol type="1" id="5fafcb43-42fb-48d7-8dbc-12ab6759aa69" class="numbered-list" start="3" dir="auto"><li><strong>Example of Technology-Influenced Design Decision</strong>:<ul id="3f838a52-765f-4816-aa16-b3e635687788" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Here, you are asked to provide a concrete example that illustrates how staying updated with technology trends has influenced a specific design decision.</li></ul><ul id="7b4c6c3a-23b2-44db-8d18-9cac09c61348" class="bulleted-list" dir="auto"><li style="list-style-type:disc">This example should highlight your ability to translate your knowledge of emerging technologies into actionable design improvements or innovations. It&#x27;s an opportunity to demonstrate your problem-solving skills, creativity, and impact on project outcomes.</li></ul></li></ol><p id="4b85e27c-fe4d-4d11-9fa7-a84069f0ac37" class="" dir="auto"><strong>How to Answer</strong>:</p><ul id="7f232480-d4f6-44ca-9312-b7c0b11051cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Explain Your Learning Approach</strong>: Start by describing how you stay informed about AI and technology trends relevant to design. Mention specific resources or activities you engage in to keep your knowledge up-to-date.</li></ul><ul id="a01d97d5-7584-4761-bbf4-094d0f3e6921" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Discuss How You Integrate Technology into Design</strong>: Talk about your process for evaluating and integrating new technologies into your work. You could mention any frameworks, principles, or criteria you use to assess the potential impact of emerging technologies on your projects.</li></ul><ul id="3761f2f1-53e1-4934-9c01-e5fb2035b3de" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Share a Specific Example</strong>: Choose an example where your knowledge of the latest trends in AI or technology significantly influenced a design decision. Describe the project context, the specific technology or trend you leveraged, how you applied it to your design work, and the outcome of this decision. Be sure to highlight any challenges you overcame and the benefits that resulted from integrating this technology.</li></ul><ul id="db5e8cd5-317e-4125-8479-799e81e414cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Reflect on the Impact</strong>: Conclude by reflecting on the impact of staying technologically informed on your design approach and outcomes. Emphasize how this practice has made you a more effective designer and how it benefits the teams and projects you work with.</li></ul><p id="6dad07e6-852d-4be2-9891-eda3a1218653" class="" dir="auto">Answering in this structured way will show the employer that you&#x27;re not only proactive in keeping up with technology but also skilled at applying this knowledge in a way that enhances your design projects and drives innovation.</p><p id="1d034e05-354f-450a-83ed-5a00ca4c4b60" class="" dir="auto">
+</p><p id="a0c69f01-a8d1-4186-8e6f-a8dcc0e7f66c" class="" dir="auto">3. Describe a project where you had to rely on your design instincts to meet user needs, rather than extensive research? How did you balance your instincts with user data, and what was the outcome?</p><p id="e08cb2b7-6c70-4bea-a179-32368908a2e9" class="" dir="auto">
+</p><p id="ebd2ab2c-ad1a-4669-bbce-d7e54f3f70a7" class="" dir="auto">This question seeks to understand your ability to navigate situations where extensive research might not be available or feasible, and instead, you have to depend on your intuition or design instincts to meet user needs. It&#x27;s also probing into how you balance these instincts with any available data to make informed design decisions. Let&#x27;s break it down:</p><ol type="1" id="cb03ab54-c2a1-49f7-a5d0-335fc7d47af9" class="numbered-list" start="1" dir="auto"><li><strong>Relying on Design Instincts</strong>:<ul id="b8647663-4d08-47c7-a19f-c5abb25d0712" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The focus here is on a scenario where you had limited access to user research or data but still had to proceed with the design process. This could be due to tight deadlines, budget constraints, or the innovative nature of the project.</li></ul><ul id="a241396f-2e14-45da-a7da-ff228d3f8a1e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The employer wants to know how you use your experience, knowledge of design principles, and understanding of the user to guide your design choices in such situations.</li></ul></li></ol><ol type="1" id="13bada2e-16b9-49d5-a865-ed0af9f4cade" class="numbered-list" start="2" dir="auto"><li><strong>Balancing Instincts with User Data</strong>:<ul id="2fc76300-7b82-4b25-b515-3fe2bac7e0d7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Even in situations where research is limited, there might still be some user data or feedback available, or perhaps you could gather minimal insights through quick methods. The question is interested in how you use whatever data you have to inform your instinct-driven decisions.</li></ul><ul id="fb45bd63-7172-4062-a8c7-0afe5dcbaa63" class="bulleted-list" dir="auto"><li style="list-style-type:disc">This part of the question assesses your ability to integrate intuition with evidence, however limited, to ensure that design decisions are not solely based on personal bias but are grounded in user needs and behaviors.</li></ul></li></ol><ol type="1" id="d290fc05-c094-4684-b4cc-74fc4df84144" class="numbered-list" start="3" dir="auto"><li><strong>Outcome</strong>:<ul id="d1e656a8-0bf8-43b0-afb0-1e3636def7ec" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The employer is looking for the result of relying on your design instincts balanced with available data. This includes the impact on the project, the feedback from users or stakeholders, and what you learned from the experience.</li></ul></li></ol><p id="f641e61e-130d-458d-98ff-ef16af7f94e0" class="" dir="auto"><strong>How to Answer</strong>:</p><ul id="2ac8636d-0306-41b0-9389-f5f190e3a156" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Select a Relevant Project</strong>: Choose a project that exemplifies a situation where you had to lean heavily on your design instincts due to limited access to comprehensive user research or data.</li></ul><ul id="2eae2f7f-46a3-4b20-8530-9b2bbb5d7566" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Explain the Context and Your Instinctive Approach</strong>: Describe the project, why extensive research wasn&#x27;t feasible, and how you approached the design process using your instincts. Highlight how you utilized your experience, understanding of design principles, and empathy for users.</li></ul><ul id="f320ee57-20d1-48cb-8873-5400777d2542" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Discuss How You Used Available Data</strong>: Explain how you incorporated any available data or feedback into your decision-making process. This might include using previous project insights, quick user surveys, A/B testing of design elements, or informal feedback from potential users.</li></ul><ul id="5e57f0c8-662c-43a2-8100-4226a23961f4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Describe the Outcome</strong>: Share the results of the project, focusing on how well the design met user needs, any feedback received, and the overall impact of your design decisions. Reflect on what you learned from relying on your instincts and how it has influenced your approach to design in data-constrained environments.</li></ul><p id="eff6ab74-cd64-43d2-bdb1-4b742517fe00" class="" dir="auto">Answering this question effectively will demonstrate your ability to navigate uncertainty, use your design expertise to fill in gaps when data is scarce, and make informed decisions that align with user needs and project goals.</p><p id="e5288811-eff2-450c-8048-4316fb6079cf" class="" dir="auto">
+</p><hr id="4a5a43cc-2824-48c4-9a5d-3b034bd2dd52" dir="auto"/><p id="38ccb916-51f1-4883-ab66-75868e0446d4" class="" dir="auto">
+</p><p id="1de5923d-74c3-4393-b6a4-5549ea1dad84" class="" dir="auto">In the following messages I&#x27;ll send to you my answer for each question, based on my previous experiences.</p><p id="29111959-d0b3-4c66-9ba4-46c7ff80c85a" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

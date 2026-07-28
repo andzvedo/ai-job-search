@@ -1,18 +1,13 @@
-%% Example CV - [YOUR_NAME]
-%% Comprehensive overview of all competencies, experience, and achievements.
+%% Example CV - André Luiz de Freitas Azevedo
+%% Comprehensive overview of competencies and experience.
 %% Use as a master reference when tailoring role-specific CVs.
-%%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
-%% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
+%% Primary language: English (USD remote track). For Brazil roles, translate headings + body to Portuguese.
 
 \documentclass[11pt,a4paper,sans]{moderncv}
 \moderncvstyle{banking}
 \moderncvcolor{blue}
 
-% Force both first and last name AND section headings to render in moderncv
-% blue (color1). Default banking on lualatex+MiKTeX leaves these black, which
-% looks inconsistent with the rest of the blue accent scheme.
 \renewcommand*{\firstnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
 \renewcommand*{\lastnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
 \renewcommand*{\sectionstyle}[1]{{\sectionfont\color{color1}#1}}
@@ -24,141 +19,133 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={André Luiz de Freitas Azevedo - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
+\usepackage{needspace}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{André Luiz de Freitas}{Azevedo}
+\address{Araraquara, São Paulo, Brazil}{}{}
+\phone[mobile]{+55 16 9 9705 8077}
+\email{andreazeved1@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/azevedodesign}{LinkedIn}, \href{https://www.andreazevedo.design}{Portfolio}}
 
 \begin{document}
 
 \makecvtitle
 
-% ============================================================
-%     PROFILE STATEMENT
-% ============================================================
-
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
-
-% ============================================================
-%     CORE COMPETENCIES
-% ============================================================
+\small{Staff / Senior Product Designer with 12+ years in design and formal training in Graphic Design and User-Centered Design. Experienced in UX research, UX/UI, service design, and Figma design systems across AI/data platforms, fintech, and B2B SaaS in the USA, Mexico, and Brazil. I partner with Engineering and Product to turn complex business and data problems into evidence-based product experiences.}
 
 \section{Core Competencies}
 \vspace{1pt}
 \begin{itemize}
-
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
-
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
-
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
-
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
-
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
-
+\item \textbf{Product Design}: End-to-end Senior/Staff ownership for B2B SaaS, fintech, and AI/data products
+\item \textbf{UX Research}: Qualitative and quantitative studies, concept testing, analytics-informed iteration
+\item \textbf{Design Systems}: Figma libraries, accessibility, design--engineering collaboration
+\item \textbf{Service Design}: Journey maps, service blueprints, systemic product framing
+\item \textbf{Domains}: Fintech/crypto, AI narrative intelligence, B2B onboarding, EdTech/LMS
 \end{itemize}
-
-% ============================================================
-%     PROFESSIONAL EXPERIENCE
-% ============================================================
 
 \section{Professional Experience}
 \vspace{3pt}
 \begin{itemize}
 
-% --- Most Recent Role ---
-\item{\cventry{[YYYY--Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\needspace{5\baselineskip}
+\item{\cventry{Sep 2025--Present}{Senior Product Designer}{Toptal}{Remote}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item Senior Product Design engagements through the Toptal talent network
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Previous Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\needspace{5\baselineskip}
+\item{\cventry{Jan 2025--Present}{Co-Founder, Product \& Design}{The Social EMU}{United States}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
+    \item Founding product and design ownership for a private-events product
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\needspace{5\baselineskip}
+\item{\cventry{Nov 2022--Mar 2026}{Staff Product Designer}{Blackbird.ai}{USA (Remote)}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
+    \item Designed AI-powered narrative intelligence experiences (data visualization, retrieval/summarization flows) for enterprise trust and risk use cases
+    \item Redesigned Analyze vs Network Graph mental models; reduced related support tickets by 14\% (month 1) and 39\% (month 2)
+    \item Collaborated on a self-service Data Connector and maintained the Figma design system with Eng and Product
+\end{itemize}}}
+
+\vspace{3pt}
+
+\needspace{5\baselineskip}
+\item{\cventry{Jul 2022--Sep 2022}{Staff Product Designer}{Sales Impact Academy}{USA (Remote)}{}{\vspace{1pt}
+\begin{itemize}
+    \item Designed an e-learning platform for go-to-market live courses; created a company-level service blueprint across internal and user touchpoints
+\end{itemize}}}
+
+\vspace{3pt}
+
+\needspace{5\baselineskip}
+\item{\cventry{Apr 2021--Jul 2022}{Senior then Staff Product Designer}{Bitso}{Mexico (Remote)}{}{\vspace{1pt}
+\begin{itemize}
+    \item Led discovery for Bitso Card MVP; research invalidated points rewards and drove the Cryptoback pivot for crypto-to-fiat spend
+    \item Contributed to B2B institutional onboarding (KYC/KYB) for 1{,}900+ customers; facilitated Product Design Guild for $\sim$16 designers
+\end{itemize}}}
+
+\vspace{3pt}
+
+\needspace{5\baselineskip}
+\item{\cventry{Jul 2020--Apr 2021}{Senior Product Designer}{Mind Tools}{Scotland (Remote)}{}{\vspace{1pt}
+\begin{itemize}
+    \item Led design of a new LMS content editor from scratch with a UX Researcher and Product Manager
+\end{itemize}}}
+
+\vspace{3pt}
+
+\needspace{5\baselineskip}
+\item{\cventry{Nov 2019--Jul 2020}{Senior Product Designer}{Arquivei (Qive)}{Brazil}{}{\vspace{1pt}
+\begin{itemize}
+    \item Redesigned SaaS B2B trial onboarding; +56\% lead-to-trial conversion
+\end{itemize}}}
+
+\vspace{3pt}
+
+\needspace{5\baselineskip}
+\item{\cventry{Jan 2019--Nov 2019}{Senior UX/UI Designer}{Magazine Luiza / Luizalabs}{Brazil}{}{\vspace{1pt}
+\begin{itemize}
+    \item Led end-to-end design for MaaS Console and Account (B2B on-demand services platform for retailers)
+\end{itemize}}}
+
+\vspace{3pt}
+
+\needspace{5\baselineskip}
+\item{\cventry{Mar 2018--Jan 2019}{UX/UI \& Service Designer}{ONOVOLAB}{Brazil}{}{\vspace{1pt}
+\begin{itemize}
+    \item Applied service design and UX research to fintech and healthcare web/mobile products
 \end{itemize}}}
 
 \end{itemize}
-
-% ============================================================
-%     EDUCATION
-% ============================================================
 
 \section{Education}
 \vspace{1pt}
 \begin{itemize}
-
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
+\item{\cventry{2016--2017}{Specialization, User-Centered Design}{Universidade Positivo}{São Paulo, Brazil}{}{\vspace{1pt}
+Interaction Design and Service Design
 }}
-
 \vspace{3pt}
-
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
+\item{\cventry{2007--2011}{Bachelor of Graphic Design}{UNESP}{Bauru, Brazil}{}{\vspace{1pt}
+Formal visual design foundation applied to product UI
 }}
-
 \end{itemize}
-
-% ============================================================
-%     LANGUAGES
-% ============================================================
 
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
+\item Portuguese (Native), English (Advanced / Full Professional)
 \end{itemize}
-
-% ============================================================
-%     PUBLICATIONS (optional)
-% ============================================================
-
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
-\end{itemize}
-
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
-
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
-\end{itemize}
-
-% ============================================================
-%     REFERENCES
-% ============================================================
 
 \section{References}
 \vspace{1pt}

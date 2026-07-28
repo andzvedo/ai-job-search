@@ -1,0 +1,768 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>User Interview Example Questions | Usability &amp; Web Accessibility</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="f70d15ef-428d-4189-a6f9-ea2a0f7c9a51" class="page sans"><header><h1 class="page-title" dir="auto">User Interview Example Questions | Usability &amp; Web Accessibility</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="e2e41362-a7f1-46dd-ad9b-015f202244fa" class="block-color-gray" data-notion-highlight="gray" dir="auto"><a href="https://usability.yale.edu/understanding-your-user/user-interviews/user-interview-example-questions">https://usability.yale.edu/understanding-your-user/user-interviews/user-interview-example-questions</a></p><p id="a80f3c62-09eb-4923-bae6-2beabaef5090" class="" dir="auto">
+</p><p id="f6b0cd53-7116-46c0-9bdf-9c24d7f6fbeb" class="" dir="auto">The following are sample questions for a user interview. Please note that your questions need to be tailored to each individual project.</p><h2 id="4beb79fc-d5b9-4cca-b1b1-1b1d3d659892" class="" dir="auto">Questions for Getting to know the user:</h2><ul id="fd978b9f-94d1-4201-99d2-cfd2a777ce0b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Please tell me about yourself and your relationship to Yale.<ul id="7eeb74ad-c0a9-4398-9599-398ab2821123" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If they are student ask — major, year, school?</li></ul><ul id="d9c5f56a-f79f-40db-9536-420ff8751797" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If they are employee ask — what type of employment, and for how long?</li></ul></li></ul><ul id="81806589-9250-4216-b9c9-4369b86bc398" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Please tell me about your relation to the [project topic]?</li></ul><ul id="a2a44cc8-31da-4786-b4f0-7a3c50ab014f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Describe your typical day at [role environment]?</li></ul><ul id="0d6b7c10-4db3-4c71-8604-50e910fd10a6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">When you are on a computer and the internet, are there any challenges you face accessing information?</li></ul><h2 id="b59c4aa6-4a74-4492-a152-16736d69ff3c" class="" dir="auto">Questions for gathering user behavior:</h2><ul id="3d1b01dd-ad2b-452c-82fd-ca864de79b12" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the most important tasks you or other people need to perform in using [project website or application]?</li></ul><ul id="94a24430-6e34-4f23-a546-441b75bc5746" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How would you describe your past and current experience with [project topic, website or application]?</li></ul><ul id="11146a31-5206-402f-bf3c-8e432187d1bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How often do you use or see yourself using [project website or application]?</li></ul><ul id="46937fad-5897-402a-a667-3ce9540aac06" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How do you normally get to [project website or application]?<ul id="596e5aea-16cd-489f-83fd-a8377ccad3ce" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If answer is direct URL ask – Do you use a bookmark for this?</li></ul><ul id="c7ee97ee-09cb-4df5-a5c3-9f42d89eb613" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If answer is web searching ask – What terms do you typical search for?</li></ul><ul id="23a016fe-af63-4292-ac81-16703bd0fbcd" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If answer is a link on another site ask – What sites?</li></ul><ul id="f3f95190-4469-40a2-bf2b-643da7bc8818" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If answer is a bookmarked link ask – Do you remember how you first obtained the URL?</li></ul></li></ul><ul id="193afb1d-d584-4bb6-b59e-2ad87c89ff3e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What devices do you typically use when visiting [project website or application]?</li></ul><ul id="c6f6f5d9-c8c7-4d5f-a91b-9f5e7b45bb0a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Do you or did you in the past use other websites and resources for the same purpose as [project website or application]?</li></ul><ul id="a38fba63-4af1-4620-b5c0-b4ac5dd43530" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Is there anything you or your users often look for on [project website or application] that is missing or hard to find?</li></ul><ul id="5bc6b362-2902-4f9c-b7c9-c15e297fa4c4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Is there any way [project website or application] isn&#x27;t supporting your needs currently?</li></ul><ul id="f1b26335-6af4-40cf-b958-001f2e75eb62" class="bulleted-list" dir="auto"><li style="list-style-type:disc">If you had a question regarding [project topic] do you know who to contact?<ul id="609ea2b0-9320-450f-bf20-cb441315d920" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If yes – how do you know?</li></ul><ul id="22571f6c-d719-4130-a4fb-0f332d32908c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If no – how would you go about contacting someone?</li></ul></li></ul><h2 id="86a13f04-4059-443b-b47c-ad08ed5cbe2d" class="" dir="auto">Questions for gathering opinion:</h2><ul id="1eb3bf73-9d5d-4958-a4e7-04e33c85fa00" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What do you see as the primary function of the [project topic]?</li></ul><ul id="a6b74243-81e7-40f9-be79-bbc4d618bd51" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What do you see as the primary function of the [project website or application]?</li></ul><ul id="641e3b15-debf-4f73-92f2-f3a25bf57e83" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What do you like about the current [project website or application]?</li></ul><ul id="c9191b70-5a2f-4431-9e14-4b222fa69721" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What don’t you like about the current [project website or application]?</li></ul><h2 id="1d9eda08-7ad5-46a5-99b1-7c0636835c65" class="" dir="auto">Questions for gathering user awareness:</h2><ul id="956aca73-c93f-4652-b1d6-e8d298ecf58d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Are you aware that [project topic, website or application] offers [particular feature]?</li></ul><h2 id="1079a3bf-8b52-45c7-9cd3-a367a63a724c" class="" dir="auto">Questions about the project goal:</h2><ul id="d139520e-4ebb-4b40-9012-f09e8225dba2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What is your main goal when visiting the [project website or application]?<ul id="31c8889c-6c04-44ff-9c9a-42e4b4ef8cfc" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Ask follow up question - Do you have any secondary goals?</li></ul></li></ul><ul id="5f248bf4-2e8c-4264-8e02-ec8be5db898d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What would prevent you from achieving [project goal]?</li></ul><ul id="7f16a51f-8cd8-4049-b652-e34a7a0ac7d2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What improvements could be made to make [project goal] easier or better?</li></ul><h2 id="cb2dde8d-0f56-4739-b636-d7ff5fc55c08" class="" dir="auto">Questions for projects that provide information:</h2><ul id="711cea62-3e2f-4198-886e-8fee8d7945a9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How do you use the information on the [project website or application]?</li></ul><ul id="c600705c-18a6-451d-839f-27031536a568" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Would you ever need to share these metrics with others?<ul id="7f7395f5-bdea-4454-b1ad-59e390da1ebe" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If yes – who, what format and method of sharing?</li></ul></li></ul><ul id="3e7c16de-1a34-4398-808f-88e0e5c7e3b7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Would you ever need to export [information or asset in project]?<ul id="552b9737-53b8-4ea5-ba56-4efe8eb953ed" class="bulleted-list" dir="auto"><li style="list-style-type:circle">If yes – when, why and in what format?</li></ul></li></ul><h2 id="eea2c6ce-408e-49da-b65a-9930a46a88a6" class="" dir="auto">Questions for a project that has a process:</h2><p id="aa491087-8f3d-43ed-b69c-0dcfa6b4e525" class="" dir="auto"><em>(ex: purchasing, submitting a request or creating assets)</em></p><ul id="a8ed6867-d503-4b55-9c55-985aa6c195fd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How long do you expect the [process in the project] to take?</li></ul><ul id="37e6e279-b17e-4fb4-8261-4143c6686d2a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Do you remember the communication or any follow up after you performed the [process in the project]?</li></ul><ul id="3dca5757-0f70-44f3-8b67-d33d36d99455" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Under what circumstances would you want to receive an alert in [process in the project]?</li></ul><h2 id="821881a5-e193-40f7-be75-d6eeb6f71527" class="" dir="auto">Questions for closing out the interview:</h2><ul id="81981c28-5236-4a31-a6c5-ec3ab603887b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What haven’t we asked you today that you think would be valuable for us to know?</li></ul><ul id="6fee11a7-707b-47c5-b446-6f6c2a0aa0ee" class="bulleted-list" dir="auto"><li style="list-style-type:disc">May I contact you if we have any other questions or for possible further research for this project?</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

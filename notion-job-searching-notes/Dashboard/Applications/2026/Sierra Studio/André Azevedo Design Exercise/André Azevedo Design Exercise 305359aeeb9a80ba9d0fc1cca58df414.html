@@ -1,0 +1,773 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>André Azevedo Design Exercise</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="305359ae-eb9a-80ba-9d0f-c1cca58df414" class="page sans"><header><h1 class="page-title" dir="auto">André Azevedo Design Exercise</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="305359ae-eb9a-80fa-ae1b-e3eff87a4395" class="" dir="auto">Research Study about Qualitative LLM Evaluation</h1><h2 id="305359ae-eb9a-80d5-8525-cfb7b5aca231" class="" dir="auto">Goal</h2><p id="305359ae-eb9a-80c8-b6eb-d07454f235b7" class="" dir="auto">Understand how AI engineers compare LLMs in real product contexts, emphasizing qualitative evaluation to uncover key pain points, best practices, and potential opportunities. Since the product is meant for AI engineers working with LLMs in complex, real-world scenarios, understanding how they currently evaluate models, where they struggle, and how qualitative judgment fits into their workflow helps ensure that the UX addresses actual needs and fits existing mental models and practices.</p><h2 id="305359ae-eb9a-80a1-8fb6-e34807cad650" class="" dir="auto">Research Method</h2><p id="305359ae-eb9a-8025-8625-c5c184c0ae64" class="" dir="auto">A secondary (desk) research was conducted to base design decisions on evidence rather than assumptions. This involved reviewing articles and model comparison reports, scanning social media discussions where AI engineers share workflows and pain points (e.g., Reddit and Twitter), and analyzing how evaluation appears in product documentation. Insights were synthesized by grouping them into themes, trade-offs, and professional language around LLM quality and reliability, that informed my design decisions.</p><p id="305359ae-eb9a-8057-ad0f-e6e804b5caf7" class="" dir="auto"><strong>Main research sources</strong></p><p id="305359ae-eb9a-80d0-8e20-f30207abc696" class="" dir="auto"><em><a href="https://galileo.ai/blog/qualitative-vs-quantitative-evaluation-llm">Qualitative vs Quantitative LLM Evaluation</a></em></p><p id="305359ae-eb9a-806f-8ae1-df859dc2ff0d" class="" dir="auto"><em><a href="https://www.leewayhertz.com/comparison-of-llms/">Comparison of LLMs: A detailed analysis</a></em></p><h2 id="305359ae-eb9a-8099-8f41-feabe469ac5c" class="" dir="auto">Key research questions</h2><ul id="305359ae-eb9a-807b-aac0-d7eafd87e2bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How do AI engineers work with LLMs in their day-to-day product and development workflows?</li></ul><ul id="305359ae-eb9a-8097-b2d6-f0e42d8ddfa1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What factors influence how they explore, choose, and trust different models?</li></ul><ul id="305359ae-eb9a-80b1-b6a2-c5b47756388d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What challenges and constraints shape their evaluation and decision-making processes?</li></ul><ul id="305359ae-eb9a-80cf-a96e-cc35f319044c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What tools, practices, and artifacts currently support how they test and iterate with LLMs?</li></ul><h2 id="305359ae-eb9a-80ef-8f8b-cdfe5ccffbd1" class="" dir="auto">Key findings</h2><p id="305359ae-eb9a-80b0-90ba-d8c7041f5d32" class="" dir="auto"><strong>Fairness matters</strong>: </p><p id="305359ae-eb9a-8081-8988-f7e693310ce2" class="" dir="auto">Comparisons need consistent inputs and shared setup to be trusted.</p><p id="305359ae-eb9a-800b-9c37-f9084628ac16" class="" dir="auto"><strong>LLM choice is recurring</strong>: </p><p id="305359ae-eb9a-808b-a7bd-d78cc6714c26" class="" dir="auto">Teams re-evaluate as prompts, models, and constraints change. </p><p id="305359ae-eb9a-8088-944a-ea483860241a" class="" dir="auto"><strong>AI Engineers must ship + defend</strong>: </p><p id="305359ae-eb9a-80e6-a987-fe835bfc4689" class="" dir="auto">Decisions need a rationale that can be shared with stakeholders.</p><p id="305359ae-eb9a-805b-ae3c-d926c50db704" class="" dir="auto"><strong>Workflow is fragmented</strong>: </p><p id="305359ae-eb9a-80da-99a0-f06c863a5e65" class="" dir="auto">Early tests are ad-hoc; evidence ends up scattered across chats, notes, and screenshots.</p><p id="305359ae-eb9a-80ae-835a-c0c17ea1b467" class="" dir="auto"><strong>Qualitative is central</strong>: </p><p id="305359ae-eb9a-80ef-8add-d3a66bb9d236" class="" dir="auto">Important product dimensions (helpfulness, tone, safety, clarity, verbosity, follow-up) don’t collapse into a single score.</p><p id="305359ae-eb9a-807d-9ffa-f79db41fd472" class="" dir="auto"><strong>Qualitative judgment is indispensable: </strong></p><p id="305359ae-eb9a-8063-889f-d0b06de4437d" class="" dir="auto">Trustworthy LLM evaluation depends on human-in-the-loop, descriptive assessment of coherence, relevance, appropriateness, and potential bias, dimensions that do not reduce to a single metric.</p><p id="305359ae-eb9a-8013-a018-c078461875a2" class="" dir="auto"><strong>Context matters:</strong></p><p id="305359ae-eb9a-80d4-9e09-df69714d3f0e" class="" dir="auto">Model performance and perceived quality shift with prompt framing, domain context, and user intent, so evaluation must be situational rather than generic</p><h1 id="305359ae-eb9a-8008-b6d4-f69b90cb7701" class="" dir="auto">Design principles</h1><p id="305359ae-eb9a-80c6-af6d-c656e2eede2e" class="" dir="auto"><strong>Fairness by design</strong></p><p id="305359ae-eb9a-8022-b77c-f01b22c012a3" class="" dir="auto">Comparisons must minimize bias. The product enforces shared setup, same prompts, and optional blind mode so differences reflect model behavior, not configuration artifacts.</p><p id="305359ae-eb9a-8086-8660-e1ad11a22087" class="" dir="auto"><strong>Evidence over scores</strong></p><p id="305359ae-eb9a-80cf-a41f-e633c525f7c9" class="" dir="auto">Single numbers rarely capture LLM quality. The design prioritizes notes, per-turn evidence, and qualitative rationale over aggregate scores.</p><p id="305359ae-eb9a-8060-be56-cdaf3e5bb19d" class="" dir="auto"><strong>Human-in-the-loop evaluation</strong></p><p id="305359ae-eb9a-808b-98a3-c50c23ecc8a9" class="" dir="auto">Automated signals can scale evaluation, but human judgment is necessary for coherence, relevance, and appropriateness. The UX supports quick human feedback at the moment of impression.</p><p id="305359ae-eb9a-8093-b0ef-c59642994102" class="" dir="auto"><strong>Context-first evaluation</strong></p><p id="305359ae-eb9a-8028-8572-c94c2bfbf2fe" class="" dir="auto">LLM quality is situational. Prompts, domain, and constraints are treated as first-class elements so results are interpreted within context, not as generic leaderboards.</p><h2 id="305359ae-eb9a-8028-a01a-c5ff9933d9de" class="" dir="auto">Key trade-offs considered</h2><p id="305359ae-eb9a-80fe-bb71-c946152ce8f8" class="" dir="auto"><strong>Speed vs. rigor</strong></p><p id="305359ae-eb9a-80a4-807e-e2869144c518" class="" dir="auto">Fast evaluations risk superficial judgments; rigorous ones demand more effort. The solution balances this with lightweight feedback (like/dislike) plus optional notes.</p><p id="305359ae-eb9a-8080-9361-e8c3ea10e7c0" class="" dir="auto"><strong>Simplicity vs. expressiveness</strong></p><p id="305359ae-eb9a-80cc-a4e7-d90756631830" class="" dir="auto">Too many criteria increase cognitive load. The design starts simple and allows deeper commentary only when needed.</p><p id="305359ae-eb9a-8042-9b69-d8e733185a68" class="" dir="auto"><strong>Structure vs. flexibility</strong></p><p id="305359ae-eb9a-80ee-83fc-f2856cdb628d" class="" dir="auto">Highly structured rubrics improve consistency but can feel restrictive. The product uses “rubric-lite” signals and free-text notes to preserve evaluator nuance.</p><p id="305359ae-eb9a-8018-a17e-d865e21c93cd" class="" dir="auto"><strong>Neutrality vs. transparency</strong></p><p id="305359ae-eb9a-8065-9a4b-d2289ccd009e" class="" dir="auto">Blind mode reduces bias, but users may still want to know which model is which. The system allows controlled reveal after evaluation.</p><h2 id="305359ae-eb9a-80e9-8917-e8a9e19374b4" class="" dir="auto">How insights informed design</h2><ul id="305359ae-eb9a-8000-aa68-cedd8da4b549" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Fragmented workflows → consolidated chat + evaluation in one place</li></ul><ul id="305359ae-eb9a-8067-a536-e590d593fe36" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Need for defensible decisions → decision trail and exportable summaries</li></ul><ul id="305359ae-eb9a-8078-bf0a-fc181cb601b2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Qualitative centrality → notes and per-turn judgments</li></ul><ul id="305359ae-eb9a-8054-8d18-ca97a7b1a75e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Fairness concerns → shared config and blind mode</li></ul><ul id="305359ae-eb9a-801f-ac74-f1de90a2fc9b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Recurring re-evaluation → repeatable runs and new sessions</li></ul><h1 id="305359ae-eb9a-8053-aa5b-f0b951884250" class="" dir="auto">Proposed solution</h1><div id="305359ae-eb9a-8057-bf35-c2d3f4c1c94c" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-80ec-ac2f-cdb8e4d23c69" style="width:43.75%" class="column" data-notion-column-ratio="0.4375" dir="auto"><p id="305359ae-eb9a-8074-8386-c8cd38922306" class="" dir="auto"><strong>Links</strong></p><p id="305359ae-eb9a-80b0-9500-c35cfcaa3839" class="" dir="auto"><a href="https://www.figma.com/proto/PJOSlFH8meaeDD3ZWe4Hil/Design-Challenge?page-id=0%3A1&amp;node-id=334-19884&amp;viewport=483%2C349%2C0.11&amp;t=uFyDpWIoFQp3gSxW-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=334%3A19884">Interactive Prototype</a></p><p id="305359ae-eb9a-80e0-b066-d3c810cc5653" class="" dir="auto"><a href="https://www.figma.com/design/PJOSlFH8meaeDD3ZWe4Hil/Design-Challenge?node-id=177-5807&amp;t=4X921a4gMPk2OsMl-11">Design file in Figma</a></p><p id="305359ae-eb9a-803f-9022-c3037a873767" class="" dir="auto">
+</p></div><div id="305359ae-eb9a-80a1-826f-efd69105ee8a" style="width:56.25%" class="column" data-notion-column-ratio="0.5625" dir="auto"><figure id="305359ae-eb9a-80e3-9fec-d0cbbdc302ce" dir="ltr"><div class="source">https://www.figma.com/proto/PJOSlFH8meaeDD3ZWe4Hil/Design-Challenge?page-id=0%3A1&amp;node-id=334-19884&amp;viewport=483%2C349%2C0.11&amp;t=uFyDpWIoFQp3gSxW-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=334%3A19884</div></figure></div></div><h1 id="305359ae-eb9a-8066-a5f6-eba25b5f8592" class="" dir="auto">User Flow</h1><p id="305359ae-eb9a-80c6-8d54-d50ec3d42969" class="" dir="auto">This <strong>user-flow </strong>illustrates the happy path of the solution: <strong>entering the product, configuring a comparison, choosing models, chatting and evaluating responses, and finally viewing consolidated results.</strong></p><div id="305359ae-eb9a-80da-b970-f6f3e8f1b847" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-8002-bac9-f16095a956b8" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h3 id="305359ae-eb9a-8093-b692-e26cf550c61c" class="" dir="auto"><strong>Home / Get Started</strong></h3><ul id="305359ae-eb9a-8074-ac84-ff193e86e580" class="bulleted-list" dir="auto"><li style="list-style-type:disc">User understands the product and starts a new comparison via a CTA.</li></ul><p id="305359ae-eb9a-8037-aa1d-e7652b68e938" class="" dir="auto">
+</p></div><div id="305359ae-eb9a-8006-9736-dd093ea8af66" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="305359ae-eb9a-802a-b1a8-da19c3d1d7e9" class="image" data-notion-image="Andr%C3%A9%20Azevedo%20Design%20Exercise/Home.png" dir="ltr"><a href="Andr%C3%A9%20Azevedo%20Design%20Exercise/Home.png"><img style="width:240px" src="Andr%C3%A9%20Azevedo%20Design%20Exercise/Home.png"/></a></figure></div></div><div id="305359ae-eb9a-8014-9192-eaa513dda15f" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-80c5-bd5d-e8b7e87f00e6" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h3 id="305359ae-eb9a-806c-b658-da38be9f00c8" class="" dir="auto"><strong>New Compare</strong></h3><ul id="305359ae-eb9a-80d1-9ebf-f35f547abb2f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Selects models to compare</li></ul></div><div id="305359ae-eb9a-809c-9671-d3f00dd8d750" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="305359ae-eb9a-8047-94bf-c3a59f0c7273" class="image" data-notion-image="Andr%C3%A9%20Azevedo%20Design%20Exercise/Select_Models-1.png" dir="ltr"><a href="Andr%C3%A9%20Azevedo%20Design%20Exercise/Select_Models-1.png"><img style="width:240px" src="Andr%C3%A9%20Azevedo%20Design%20Exercise/Select_Models-1.png"/></a></figure></div></div><div id="305359ae-eb9a-808f-a07f-f63a4e2750c2" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-80ab-9f8a-c9d18627398e" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h3 id="305359ae-eb9a-80b3-8719-d48e8ae0b993" class="" dir="auto"><strong>Select Models</strong></h3><p id="305359ae-eb9a-80f0-8aa1-cd16755e5883" class="" dir="auto">
+</p></div><div id="305359ae-eb9a-8083-a1a1-f0ffd22d1ba6" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="305359ae-eb9a-8040-998a-c7b065dad57c" class="image" data-notion-image="Andr%C3%A9%20Azevedo%20Design%20Exercise/Select_Models.png" dir="ltr"><a href="Andr%C3%A9%20Azevedo%20Design%20Exercise/Select_Models.png"><img style="width:240px" src="Andr%C3%A9%20Azevedo%20Design%20Exercise/Select_Models.png"/></a></figure></div></div><div id="305359ae-eb9a-80b8-86ee-ddd43315e280" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-80ac-bac6-e4e35398c3de" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h3 id="305359ae-eb9a-80ad-8057-fb2d398449f5" class="" dir="auto"><strong>Settings</strong></h3><ul id="305359ae-eb9a-80cc-98a7-c39872f6e639" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Enter System instructions, Temperature, Max Tokens, and adjusts other settings…</li></ul></div><div id="305359ae-eb9a-802c-a541-e23563575cc0" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="305359ae-eb9a-80f6-9ced-d0a2c6e5f958" class="image" data-notion-image="Andr%C3%A9%20Azevedo%20Design%20Exercise/Settings.png" dir="ltr"><a href="Andr%C3%A9%20Azevedo%20Design%20Exercise/Settings.png"><img style="width:240px" src="Andr%C3%A9%20Azevedo%20Design%20Exercise/Settings.png"/></a></figure></div></div><div id="305359ae-eb9a-805f-81c1-cdc9dd311d2d" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-80a1-942c-e3e0a6b7518b" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h3 id="305359ae-eb9a-80b6-8ae9-ed1e196d619e" class="" dir="auto"><strong>Chat and Evaluate</strong></h3><ul id="305359ae-eb9a-80f4-8cae-e85b394aea96" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sends prompts.</li></ul><ul id="305359ae-eb9a-8046-8284-dae689211edc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Receives responses from A and B.</li></ul><ul id="305359ae-eb9a-80b0-badb-e557e5db4c0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Rates each answer (Rating + Notes).</li></ul><ul id="305359ae-eb9a-807e-a0ce-c49f79a64ab8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Records evidence per turn.</li></ul></div><div id="305359ae-eb9a-8046-9dee-d1bdb815ac85" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="305359ae-eb9a-8042-a86f-e157ebe1eadd" class="image" data-notion-image="Andr%C3%A9%20Azevedo%20Design%20Exercise/Chat-1.png" dir="ltr"><a href="Andr%C3%A9%20Azevedo%20Design%20Exercise/Chat-1.png"><img style="width:240px" src="Andr%C3%A9%20Azevedo%20Design%20Exercise/Chat-1.png"/></a></figure></div></div><p id="305359ae-eb9a-80d7-9eee-c140520b4eb4" class="" dir="auto">
+</p><div id="305359ae-eb9a-807c-99d1-edb2cd480e72" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-80a8-bccd-cc5059c74fc2" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h3 id="305359ae-eb9a-8086-bb0e-f8e9accec742" class="" dir="auto"><strong>First turn completed / Starting a new turn</strong></h3><ul id="305359ae-eb9a-8031-b503-e339d53ec37a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">User sees how history and evaluations accumulate.</li></ul><ul id="305359ae-eb9a-808d-abf7-e6cabe967f32" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Can keep chatting or Finish, to go to Results.</li></ul></div><div id="305359ae-eb9a-80ed-a3ea-c4739cc09ca5" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="305359ae-eb9a-8077-955b-ee0cc6a4156d" class="image" data-notion-image="Andr%C3%A9%20Azevedo%20Design%20Exercise/Chat.png" dir="ltr"><a href="Andr%C3%A9%20Azevedo%20Design%20Exercise/Chat.png"><img style="width:240px" src="Andr%C3%A9%20Azevedo%20Design%20Exercise/Chat.png"/></a></figure></div></div><div id="305359ae-eb9a-80e1-aa8d-dd95cc883cb1" class="column-list" data-notion-column-list="" dir="auto"><div id="305359ae-eb9a-8034-8289-c6ecf23ce90f" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><h3 id="305359ae-eb9a-80ee-8af3-ccb5a77de5c4" class="" dir="auto"><strong>Results</strong></h3><ul id="305359ae-eb9a-8005-9001-ff4d0ecd3914" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sees qualitative winner (A vs B) with confidence.</li></ul><ul id="305359ae-eb9a-804c-b841-f9f6aaaf452a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Reads executive summary and metric breakdown.</li></ul><ul id="305359ae-eb9a-8021-b60f-fea9ac1c877f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Accesses key evidence (per turn).</li></ul><ul id="305359ae-eb9a-80c9-af47-c0acc41c2c87" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Exports report / JSON.</li></ul><ul id="305359ae-eb9a-8026-8087-c782dd1766cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Starts a new run to repeat in another domain</li></ul><p id="305359ae-eb9a-8006-ae6e-fb8d8c37e0cd" class="" dir="auto">
+</p></div><div id="305359ae-eb9a-8087-b832-eba2d900a7cb" style="width:50%" class="column" data-notion-column-ratio="0.5" dir="auto"><figure id="305359ae-eb9a-809c-bca1-d156e53352ac" class="image" data-notion-image="Andr%C3%A9%20Azevedo%20Design%20Exercise/Results.png" dir="ltr"><a href="Andr%C3%A9%20Azevedo%20Design%20Exercise/Results.png"><img style="width:240px" src="Andr%C3%A9%20Azevedo%20Design%20Exercise/Results.png"/></a></figure></div></div><h1 id="305359ae-eb9a-8098-a440-f1a47426d361" class="" dir="auto">What I would validate next</h1><ul id="305359ae-eb9a-80f6-b00f-fe88010ebe55" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Do different evaluators reach similar conclusions using this interface?</li></ul><ul id="305359ae-eb9a-80ab-8265-d573e42ae9f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Is the flow efficient enough for real workflows?</li></ul><ul id="305359ae-eb9a-80a0-9a3f-f49ebff8d772" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Do written notes actually help users defend decisions later?</li></ul><ul id="305359ae-eb9a-8045-a788-cd5599d891f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Do users feel more confident in model choice compared to their current tools?</li></ul><ul id="305359ae-eb9a-80ab-bcc6-d9629f676f77" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Would AI engineers integrate this into their iteration cycle or treat it as a one-off tool?</li></ul><h2 id="305359ae-eb9a-8066-92d1-d44f73fbe426" class="" dir="auto">Thank you</h2><p id="305359ae-eb9a-801e-ab3f-e83187bb1432" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,791 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Discovery</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="303359ae-eb9a-80d7-8dd7-c48de3998d5f" class="page sans"><header><h1 class="page-title" dir="auto">Discovery</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><details id="303359ae-eb9a-8069-bf89-ed81ca76a85c" open="" class="toggle" dir="auto"><summary>Notes</summary><div class="indented"><h2 id="300359ae-eb9a-8063-9612-cf7e62c9e895" class="" dir="auto">Research objectives</h2><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-80a5-a3ba-e79fc35f84db" style="display:inline-block"><strong>Business and Market Scenario: Qualitative LLM evaluations</strong></h3></summary><div class="indented"><p id="300359ae-eb9a-8059-b0d6-fb55109c8610" class="" dir="auto">Learn more about the current overall scenario of LLMs evaluation, with more focus on <strong> Qualitative LLM evaluations.</strong> </p><ul id="300359ae-eb9a-80e5-acf4-c14561f3e5bc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the main players?</li></ul><ul id="300359ae-eb9a-8080-b6a8-ea5df9938e26" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Best practices?</li></ul><ul id="300359ae-eb9a-80fb-a966-f2f113c3caa4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Main issues?</li></ul><ul id="300359ae-eb9a-8057-823c-e72efeb72802" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What are the biz opportunities ?</li></ul></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-80f1-b054-d64b8a391322" style="display:inline-block"><strong>Audience: Ai Engineers</strong></h3></summary><div class="indented"><ul id="300359ae-eb9a-8043-9d7b-ccd391d6276c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Current evaluation workflow</li></ul><ul id="300359ae-eb9a-8041-a84e-e3dc1593d50e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Main pain points?</li></ul></div></details><h2 id="300359ae-eb9a-80da-b095-f62083deceee" class="" dir="auto">Desk Research</h2><ul id="300359ae-eb9a-809c-a203-f4de6383233c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Qualitative evaluations (&quot;Vibes&quot;)</li></ul><h2 id="303359ae-eb9a-80c6-b654-f350fde3a873" class="" dir="auto">Sources</h2><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-8025-ad12-e7cfc1216cc8" style="display:inline-block">AI Research</h3></summary><div class="indented"><details id="300359ae-eb9a-80ab-b35b-f276163ca65c" open="" class="toggle" dir="auto"><summary><a href="https://grok.com/c/820162c7-ab77-4877-8190-47e0f3eebf19?rid=130f8142-24ea-426e-ade6-9e2e12704c58">Grok</a></summary><div class="indented"><ul id="303359ae-eb9a-80e4-8c87-fb03c7a81391" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Gap para mobile: A maioria é web/desktop. Não há apps mobile nativos dedicados a chat simultâneo com múltiplos LLMs — oportunidade para o seu design!</li></ul><details id="303359ae-eb9a-8078-9523-e443b09e1fa5" open="" class="toggle" dir="auto"><summary>Full research</summary><div class="indented"><p id="303359ae-eb9a-80bb-b056-fedb074151ec" class="" dir="auto">Aqui vai uma <strong>desk research</strong> estruturada e baseada em fontes recentes (até 2026) sobre o cenário de comparação de LLMs. Foquei em ferramentas existentes, benchmarks, práticas de AI engineers e insights relevantes para o seu desafio de design de um app mobile que permite chat simultâneo e avaliação qualitativa (&quot;vibes&quot;).</p><h3 id="303359ae-eb9a-809f-b190-c59b99a1b86f" class="" dir="auto">1. Ferramentas existentes para comparação side-by-side de LLMs</h3><p id="303359ae-eb9a-807f-894b-c8a454421265" class="" dir="auto">Várias plataformas permitem comparar modelos de forma interativa, especialmente via chat simultâneo — o que alinha diretamente com o briefing (conversação para formar opinião qualitativa).</p><ul id="303359ae-eb9a-8086-a33b-fb1501ebb72c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>LMSYS Chatbot Arena (</strong><strong><a href="http://lmarena.ai/">lmarena.ai</a></strong><strong> ou similar)</strong>: Plataforma mais popular para avaliação crowdsourced. Usuários chatam side-by-side com dois modelos anônimos, votam no melhor e geram leaderboard Elo (como ranking de xadrez). Suporta seleção de modelos, prompts customizados e comparação multimodal. É focada em &quot;vibes&quot; humanas, não só métricas.</li></ul><ul id="303359ae-eb9a-8022-a560-c927f5d19eae" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Artificial Analysis</strong>: Comparação detalhada de &gt;100 modelos (OpenAI, Google, Anthropic, etc.) em métricas como qualidade, velocidade, preço e contexto. Mais quantitativa, com leaderboards, mas sem chat interativo side-by-side.</li></ul><ul id="303359ae-eb9a-8043-9b97-f140006fdf20" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Outras ferramentas</strong>:<ul id="303359ae-eb9a-80f1-9361-c5cfdf3bfa9f" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="http://llm-stats.com/">llm-stats.com</a> e <a href="http://whatllm.org/">WhatLLM.org</a> → Comparações diárias de preço, performance e speed.</li></ul><ul id="303359ae-eb9a-8060-af19-ca30a60b8771" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Modelbench e Wordware → Testes paralelos gratuitos.</li></ul><ul id="303359ae-eb9a-80a4-8b48-fafe610100ca" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Google LLM Comparator → Ferramenta interna para avaliação visual side-by-side.</li></ul></li></ul><p id="303359ae-eb9a-80ae-b6e8-d1c8d7badc8d" class="" dir="auto"><strong>Gap para mobile</strong>: A maioria é web/desktop. Não há apps mobile nativos dedicados a chat simultâneo com múltiplos LLMs — oportunidade para o seu design!</p><h3 id="303359ae-eb9a-8061-956e-fee3dad68b0a" class="" dir="auto">2. Benchmarks e leaderboards de LLMs</h3><p id="303359ae-eb9a-803c-8c11-e09030ec12d8" class="" dir="auto">Benchmarks são majoritariamente quantitativos, mas o briefing prioriza avaliação qualitativa via conversa.</p><ul id="303359ae-eb9a-8090-b9b7-d5156e29ff26" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Principais leaderboards (2026)</strong>:<ul id="303359ae-eb9a-8012-84b1-e8dcdc535ed9" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Hugging Face Open LLM Leaderboard: Focado em modelos open-source, com métricas como MMLU (conhecimento geral), GSM8K (matemática) e HumanEval (coding). Encerrou ou reformulou devido a contaminação de datasets.</li></ul><ul id="303359ae-eb9a-8086-b9cf-fce7af5fed06" class="bulleted-list" dir="auto"><li style="list-style-type:circle">LMSYS Arena: Líder em avaliação humana (crowdsourced).</li></ul><ul id="303359ae-eb9a-80b9-bc0b-d4a03731b224" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Artificial Analysis, <a href="http://llm-stats.com/">llm-stats.com</a>, LiveBench e SEAL (Scale AI): Incluem testes de reasoning, coding, agentic tasks e domínios específicos (ex.: GPQA Diamond, SWE-Bench).</li></ul></li></ul><ul id="303359ae-eb9a-8089-bcfe-c0af3b0a0d2a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Limitações</strong>: Muitos benchmarks sofrem com contaminação (modelos treinados nos dados de teste). Avaliações humanas (como Arena) são mais confiáveis para &quot;vibes&quot; em domínios reais.</li></ul><h3 id="303359ae-eb9a-808b-841c-dbfeb19d52c1" class="" dir="auto">3. Audiência: Como AI engineers testam e comparam LLMs</h3><p id="303359ae-eb9a-8055-87fe-dd21a8ea1565" class="" dir="auto">AI engineers priorizam testes práticos em domínios específicos (ex.: culinária italiana no seu use case).</p><ul id="303359ae-eb9a-8063-9892-c9f73c00a232" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Práticas comuns</strong>:<ul id="303359ae-eb9a-802e-b942-ff46830b085b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Chat side-by-side com mesmos prompts para comparar respostas qualitativas (coerência, criatividade, precisão no domínio).</li></ul><ul id="303359ae-eb9a-8088-a946-e8f403dd5ef2" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Ajustam system prompt, temperature, top-p, etc., para ver impacto.</li></ul><ul id="303359ae-eb9a-804c-a47b-fa5d784dc7da" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Usam datasets customizados ou prompts domain-specific (ex.: perguntas sobre culinária para testar GPT vs. Gemini).</li></ul><ul id="303359ae-eb9a-8042-aaef-fa2b9a2c4c9e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Combinam avaliação quantitativa (benchmarks) com qualitativa (human eval ou LLM-as-judge).</li></ul></li></ul><ul id="303359ae-eb9a-809e-b62c-e29801b2c2b1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Best practices para domínios específicos</strong>:<ul id="303359ae-eb9a-801b-aabf-e0aea7bd0f4f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Envolver experts do domínio na criação de prompts/testes.</li></ul><ul id="303359ae-eb9a-80e5-ba30-e3d38deae6ea" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Iterative testing: começar simples, refinar prompts.</li></ul><ul id="303359ae-eb9a-80f9-9b90-fd0a5552d493" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Focar em qualidade de dados &gt; quantidade.</li></ul><ul id="303359ae-eb9a-80f6-9718-ddf6c3268ad1" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Avaliar segurança, hallucination e alignment.</li></ul></li></ul><p id="303359ae-eb9a-802a-b923-f11789d70cc0" class="" dir="auto">Engineers valorizam ferramentas que permitam experimentação rápida sem setup complexo (APIs, playgrounds).</p><h3 id="303359ae-eb9a-8028-8394-ebc2fa35c765" class="" dir="auto">4. Insights e recomendações para o seu design</h3><ul id="303359ae-eb9a-805d-9630-d43f1da142a4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Inspirações fortes</strong>: Interface do LMSYS Arena (side-by-side com seleção de modelos e chat simultâneo). Adicione configuração de temperature/system prompt — feature muito desejada por engineers.</li></ul><ul id="303359ae-eb9a-8038-9b4e-d1df909e4b72" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Features extras que fariam sentido</strong>:<ul id="303359ae-eb9a-8047-b6fa-d4a04c7c0634" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Rating/voting próprio (ex.: estrelas ou thumbs up/down por resposta).</li></ul><ul id="303359ae-eb9a-808a-a229-c672603d9ad3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Salvar/exportar conversas para análise posterior.</li></ul><ul id="303359ae-eb9a-8050-8362-c0dc9c2f23ea" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Modo &quot;domain focus&quot; → sugestões de prompts por categoria (culinária, coding, medicina).</li></ul><ul id="303359ae-eb9a-80cf-b6ed-c38506caa6c8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Histórico de comparações.</li></ul><ul id="303359ae-eb9a-80e0-a6c3-cae590bcb221" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Integração com métricas básicas (ex.: tempo de resposta, tokens usados).</li></ul></li></ul><ul id="303359ae-eb9a-809f-97a0-eb61b9db41ed" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Para mobile</strong>: Layout em split-screen (ou abas rápidas), swipe para trocar modelos, teclado otimizado para prompts longos. Pense em usabilidade one-handed.</li></ul><ul id="303359ae-eb9a-8031-bcb2-fe157ee6a7ab" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Diferencial de criatividade</strong>: Foco exclusivo em avaliação qualitativa + domínios customizados diferencia de leaderboards quantitativos.</li></ul><p id="303359ae-eb9a-80b0-b3ca-c3262eeea639" class="" dir="auto">Essa research mostra que o mercado tem ferramentas web fortes, mas falta um app mobile intuitivo para comparação conversacional. Seu produto pode preencher essa lacuna, priorizando UX fluida para engineers que testam &quot;no dia a dia&quot;.</p><p id="303359ae-eb9a-80f7-8516-e4bbb19bf98c" class="" dir="auto">Se quiser aprofundar em alguma ferramenta (ex.: mais detalhes do LMSYS) ou ideias de wireframes baseadas nisso, me avise! Boa sorte no desafio.</p></div></details></div></details><ul id="300359ae-eb9a-803e-8003-daf860050972" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><a href="https://www.perplexity.ai/search/estou-participando-de-um-desaf-pAgEgP6jRLO6AHeUdfjXcw">Perplexity</a></li></ul></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-80a7-8618-d87c38da251a" style="display:inline-block"><strong><a href="https://galileo.ai/blog/qualitative-vs-quantitative-evaluation-llm">Qualitative vs Quantitative LLM Evals</a></strong></h3></summary><div class="indented"><blockquote id="300359ae-eb9a-80e6-b058-cd090dee9d25" class="" dir="auto">Qualitative LLM evals approaches focus on assessing the subjective attributes and nuanced behaviors of language models through descriptive analysis rather than numerical metrics.<p id="300359ae-eb9a-80ba-b395-da28ee694e0b" class="" dir="auto">These methods examine aspects like coherence, relevance, and appropriateness that are difficult to capture with purely mathematical measures.</p><p id="300359ae-eb9a-8089-8b82-e0ce1099dbd5" class="" dir="auto">Some common qualitative evaluation approaches include:</p><ul id="300359ae-eb9a-8047-bdc2-fe0e282fe7c5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Human evaluation</strong>: Human evaluators analyze generated text to identify biases, stereotypes, and inaccuracies, providing insights that automated metrics might miss.</li></ul></blockquote></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="300359ae-eb9a-8043-8a78-fe256c976cd5" style="display:inline-block"><a href="https://www.leewayhertz.com/comparison-of-llms/">Comparison of Large Language Models (LLMs): A detailed analysis</a></h3></summary><div class="indented"><ul id="300359ae-eb9a-8057-8956-f8040a7c019b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>How to choose the right large language model for your use case?</strong><ul id="300359ae-eb9a-8031-9e6f-d966dc916b12" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>1. Define your use case and requirements</strong></li></ul><ul id="300359ae-eb9a-8000-8d1c-ca67e3fcb4a5" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>2. Understand LLM pre-training objectives</strong></li></ul><ul id="300359ae-eb9a-80c9-b12d-ff27f96cfc03" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>3. Evaluate model performance and benchmarks</strong></li></ul><ul id="300359ae-eb9a-8071-b5b0-c4ba0948656f" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>4. Consider model size and computational requirements</strong></li></ul><ul id="300359ae-eb9a-8043-af36-faa137b28de7" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>5. Explore fine-tuning and deployment options</strong></li></ul><ul id="300359ae-eb9a-8078-8df8-cead792149fb" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>6. Stay up-to-date with the latest developments</strong></li></ul></li></ul><p id="300359ae-eb9a-8089-91b2-f0bde5761c01" class="" dir="auto">
+</p></div></details><details open="" class="" dir="auto"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><h3 id="303359ae-eb9a-80b7-a07c-e4b0347501ee" style="display:inline-block">Reddit comment</h3></summary><div class="indented"><figure id="300359ae-eb9a-8045-8d5e-e378d7612d32" class="image" data-notion-image="Discovery/Captura_de_Tela_2026-02-07_as_14.51.14.png" dir="ltr"><a href="Discovery/Captura_de_Tela_2026-02-07_as_14.51.14.png"><img style="width:709.9921875px" src="Discovery/Captura_de_Tela_2026-02-07_as_14.51.14.png"/></a></figure></div></details><p id="303359ae-eb9a-806e-ab98-e76ae3cfbf76" class="" dir="auto">
+</p></div></details><h1 id="303359ae-eb9a-8028-b4e8-fe1b83e71180" class="" dir="auto">Research Study about Qualitative LLM Evaluation</h1><h2 id="303359ae-eb9a-80ba-8991-cbd415dea9bb" class="" dir="auto">Goal</h2><p id="303359ae-eb9a-8048-8d13-ecdbb5771fbd" class="" dir="auto">Understand how AI engineers compare LLMs in real product contexts, emphasizing qualitative evaluation to uncover key pain points, best practices, and potential opportunities. Since the product is meant for AI engineers working with LLMs in complex, real-world scenarios, understanding how they currently evaluate models, where they struggle, and how qualitative judgment fits into their workflow helps ensure that the UX addresses actual needs and fits existing mental models and practices.</p><h2 id="303359ae-eb9a-8052-9a17-d0c60c16b5a8" class="" dir="auto">Research Method</h2><p id="305359ae-eb9a-80c3-b1f2-db1d61422427" class="" dir="auto">A secondary (desk) research was conducted to base design decisions on evidence rather than assumptions. This involved reviewing articles and model comparison reports, scanning social media discussions where AI engineers share workflows and pain points (e.g., Reddit and Twitter), and analyzing how evaluation appears in product documentation. Insights were synthesized by grouping them into themes, trade-offs, and professional language around LLM quality and reliability, that informed my design decisions.</p><p id="305359ae-eb9a-80da-b5c3-ed071471c1f7" class="" dir="auto">
+</p><h3 id="303359ae-eb9a-80a7-bd62-fcdaf3dbe176" class="" dir="auto">Main research sources</h3><p id="303359ae-eb9a-8023-8e42-e7bf6203468f" class="" dir="auto"><em><a href="https://galileo.ai/blog/qualitative-vs-quantitative-evaluation-llm">Qualitative vs Quantitative LLM Evaluation</a></em></p><p id="303359ae-eb9a-8032-8a7a-e6c34f5aca23" class="" dir="auto"><em><a href="https://www.leewayhertz.com/comparison-of-llms/">Comparison of LLMs: A detailed analysis</a></em></p><h2 id="303359ae-eb9a-8059-aac6-d343fb181b59" class="" dir="auto">Key research questions</h2><ul id="303359ae-eb9a-80ae-bef6-d3b6a0d1dd2c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How do AI engineers work with LLMs in their day-to-day product and development workflows?</li></ul><ul id="303359ae-eb9a-80a6-8554-ffbd23344956" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What factors influence how they explore, choose, and trust different models?</li></ul><ul id="303359ae-eb9a-80c8-bd35-e9c136262bf7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What challenges and constraints shape their evaluation and decision-making processes?</li></ul><ul id="303359ae-eb9a-809e-9aa8-d5dd6578815a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">What tools, practices, and artifacts currently support how they test and iterate with LLMs?</li></ul><h2 id="303359ae-eb9a-8095-a077-c971e3f0cafe" class="" dir="auto">Key findings</h2><ol type="1" id="303359ae-eb9a-80d9-8552-c5fc69324543" class="numbered-list" start="1" dir="auto"><li><strong>Fairness matters</strong>: <ul id="303359ae-eb9a-8057-b0b8-db6e40bc4e08" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Comparisons need consistent inputs and shared setup to be trusted.</li></ul></li></ol><ol type="1" id="303359ae-eb9a-808a-a551-da59b30fc7ed" class="numbered-list" start="2" dir="auto"><li><strong>LLM choice is recurring</strong>: <ul id="303359ae-eb9a-8081-b7a8-caf432b9bf52" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Teams re-evaluate as prompts, models, and constraints change. </li></ul></li></ol><ol type="1" id="303359ae-eb9a-8040-a4da-ef3f20ea90d3" class="numbered-list" start="3" dir="auto"><li><strong>AI Engineers must ship + defend</strong>: <ul id="303359ae-eb9a-807f-86f1-dc90aed8949c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Decisions need a rationale that can be shared with stakeholders.</li></ul></li></ol><ol type="1" id="303359ae-eb9a-8083-bee8-fb8af85e8a61" class="numbered-list" start="4" dir="auto"><li><strong>Workflow is fragmented</strong>: <ul id="303359ae-eb9a-80c9-a690-c9f24147b1a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Early tests are ad-hoc; evidence ends up scattered across chats, notes, and screenshots.</li></ul></li></ol><ol type="1" id="303359ae-eb9a-8041-96f3-cfabbe7cef13" class="numbered-list" start="5" dir="auto"><li><strong>Qualitative is central</strong>: <ul id="303359ae-eb9a-8004-9891-e89997d82db8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Important product dimensions (helpfulness, tone, safety, clarity, verbosity, follow-up) don’t collapse into a single score.</li></ul></li></ol><ol type="1" id="303359ae-eb9a-80dd-9acc-f76ecd606ebe" class="numbered-list" start="6" dir="auto"><li><strong>Qualitative judgment is indispensable: </strong><ul id="303359ae-eb9a-8055-a21e-c60e414e84f9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Trustworthy LLM evaluation depends on human-in-the-loop, descriptive assessment of coherence, relevance, appropriateness, and potential bias, dimensions that do not reduce to a single metric.</li></ul></li></ol><ol type="1" id="303359ae-eb9a-80bb-91e7-ccae70045ca0" class="numbered-list" start="7" dir="auto"><li><strong>Context matters:</strong><ul id="303359ae-eb9a-8017-b782-f11f63478af3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Model performance and perceived quality shift with prompt framing, domain context, and user intent, so evaluation must be situational rather than generic</li></ul></li></ol><p id="304359ae-eb9a-804d-ab16-f76d0596cb29" class="" dir="auto">
+</p><hr id="304359ae-eb9a-80ec-af2f-d3e6a34a9ce5" dir="auto"/><p id="305359ae-eb9a-8040-a896-fa3d0e5f3e06" class="" dir="auto">
+</p><h2 id="305359ae-eb9a-804b-b137-f1819a7cfe6f" class="" dir="auto">Findings from social platforms on quantitative LLM evaluation</h2><p id="305359ae-eb9a-80bb-b12f-fa2c147b063c" class="" dir="auto"><strong>1. Automated evaluation using LLMs (“LLM-as-a-judge”) has pros and cons</strong></p><ul id="305359ae-eb9a-804a-9dca-db9497d688a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Many contributors note that it’s common to use one LLM to evaluate another — but this approach is <strong>tricky because the evaluator can be biased and its errors compound with the evaluated model</strong>, so human evaluation on a subset is still needed. (<a href="https://www.reddit.com/r/MachineLearning/comments/1h11lbt/d_how_valid_is_the_evaluation_using_llms/?utm_source=chatgpt.com">Reddit</a>)</li></ul><ul id="305359ae-eb9a-8096-85c7-ed213173ed69" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Comments emphasize that treating an LLM as a judge might be <em>scientifically questionable</em> if the ground truth isn’t accurate, because “error compounded by error” makes results unreliable. (<a href="https://www.reddit.com/r/MachineLearning/comments/1h11lbt/d_how_valid_is_the_evaluation_using_llms/?utm_source=chatgpt.com">Reddit</a>)</li></ul><p id="305359ae-eb9a-80e0-9c16-df25e1e71deb" class="" dir="auto"><strong>2. Limitations and biases of LLM evaluators</strong></p><ul id="305359ae-eb9a-8065-8d9b-c1ded576a532" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Discussions point out that LLM evaluators can <strong>over-reward surface features (like grammar) and under-penalize deeper issues (factual/logical errors)</strong>, especially in math, coding, or retrieval tasks — so they’re better for judging fluency or style than semantic correctness. (<a href="https://www.reddit.com/r/LanguageTechnology/comments/1nkcv6w/how_reliable_are_llms_as_evaluators/?utm_source=chatgpt.com">Reddit</a>)</li></ul><ul id="305359ae-eb9a-8029-b22c-f8fa789e0e71" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Other posts note that LLM evaluators may <strong>have blind spots tied to their own training data</strong> and cannot reliably assess knowledge they themselves lack (e.g., current events). (<a href="https://www.reddit.com/r/MachineLearning/comments/1e05n05/d_what_is_a_good_balance_of_human_feedback_vs/?utm_source=chatgpt.com">Reddit</a>)</li></ul><ul id="305359ae-eb9a-8044-b8dd-e0053e5607ac" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The Wikipedia page on <em>LLM-as-a-Judge</em> summarizes systematic biases found in research (e.g., position bias, verbosity bias, self-enhancement bias) that affect automated evaluation. (<a href="https://en.wikipedia.org/wiki/LLM-as-a-Judge?utm_source=chatgpt.com">Wikipedia</a>)</li></ul><p id="305359ae-eb9a-8058-b4f1-ddbb5fec79ef" class="" dir="auto"><strong>3. Practical challenges in evaluation workflows</strong></p><ul id="305359ae-eb9a-80f1-a341-c40448764cb3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Contributors highlight that evaluation infrastructure is often informal (spreadsheets + human intuition) and that <strong>structured frameworks &amp; benchmarks are still needed</strong> for reliable results at scale. (<a href="https://www.reddit.com/r/LLMDevs/comments/1khinx6/why_are_we_still_using_unoptimized_llm_evaluation/?utm_source=chatgpt.com">Reddit</a>)</li></ul><ul id="305359ae-eb9a-8003-8e5b-cd46439a967a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Others emphasize calibrating automated judgments against human evaluations and improving prompts and scoring logic to keep LLM-based evaluation aligned with real quality criteria. (<a href="https://www.reddit.com/r/LangChain/comments/1d8euoz/learnings_from_doing_evaluations_for_llm_powered/?utm_source=chatgpt.com">Reddit</a>)</li></ul><p id="305359ae-eb9a-802e-92e7-cb88bd9417c0" class="" dir="auto"><strong>4. Benchmark vs. error analysis perspectives</strong></p><ul id="305359ae-eb9a-80aa-855f-e700b7d98f43" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Some developers contrast “framework-driven” automated metrics (like DeepEval or LLM-as-judge) with approaches focused more on <strong>error analysis and failure modes</strong>, with the latter driving <em>what</em> should be measured before automating it. (<a href="https://www.reddit.com/r/LLMDevs/comments/1qh7oxg/confused_about_llm_evaluation_approaches/?utm_source=chatgpt.com">Reddit</a>)</li></ul><p id="305359ae-eb9a-80ec-96d5-d5e7a07c0600" class="" dir="auto"><strong>5. Combining human &amp; automated evaluation is common practice</strong></p><ul id="305359ae-eb9a-8034-a770-e4ecec4d8852" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Across multiple threads, contributors argue that <strong>LLM evaluators alone aren’t enough</strong>, and combining them with <strong>human review</strong> gives better alignment for nuanced judgments (usefulness, relevance, safety). (<a href="https://www.reddit.com/r/MachineLearning/comments/1e05n05/d_what_is_a_good_balance_of_human_feedback_vs/?utm_source=chatgpt.com">Reddit</a>)</li></ul><p id="305359ae-eb9a-804f-bfae-d5d78724dd44" class="" dir="auto">
+</p><p id="305359ae-eb9a-8027-a03c-c574d872c71d" class="" dir="auto">
+</p><p id="305359ae-eb9a-8032-821f-d38595d56508" class="" dir="auto">
+</p><h1 id="304359ae-eb9a-8086-8073-eb7c12332651" class="block-color-red" data-notion-highlight="red" dir="auto">CONtINUAR DAQUI</h1><h2 id="303359ae-eb9a-8070-8568-ef96107c5fad" class="" dir="auto">Design opportunities</h2><ul id="303359ae-eb9a-806c-91b8-c96581ca91f1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Fair comparison controls</strong>: shared config, visible parameters, repeatable runs.</li></ul><ul id="303359ae-eb9a-801e-9435-dcceae5602ef" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Embedded decision layer</strong>: quick judgment + optional notes right after each output (capture before memory decays).</li></ul><ul id="303359ae-eb9a-8027-a7c6-f5f5241a8464" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Synthesis/export</strong>: a short, defensible summary (“why A over B”) with Markdown/JSON export.</li></ul><p id="303359ae-eb9a-807a-ab73-ed9fa8b99487" class="" dir="auto">Context-first evaluation: scenario + prompt + constraints as first-class, not generic leaderboards.</p><p id="303359ae-eb9a-805e-b754-f3bbbe7883e4" class="" dir="auto">Repeatable sessions: saved runs, versioning, and side-by-side history for recurring re-evaluation.</p><p id="303359ae-eb9a-8065-87cb-e37553d147c1" class="" dir="auto">Fair comparison controls: shared setup, visible parameters, and consistent inputs across models.</p><p id="303359ae-eb9a-8049-a811-eeaa0638877f" class="" dir="auto">Embedded human judgment: quick decisions right after each output, before memory decays.</p><p id="303359ae-eb9a-802e-9a5f-d54c909b1eb6" class="" dir="auto">Rubric-lite feedback: lightweight tags (tone, clarity, safety, usefulness) + optional notes.</p><p id="303359ae-eb9a-801f-8499-d9488a70aef0" class="" dir="auto">Decision trail: defensible “why A over B” with a clear rationale path.</p><p id="303359ae-eb9a-802d-a2b4-ea6efa422e94" class="" dir="auto">Synthesis/export: concise narrative summaries with Markdown/JSON export for sharing and audits.</p><h1 id="303359ae-eb9a-80b9-9b5e-c4cf4b53168b" class="" dir="auto">Jobs to be done</h1><ol type="1" id="303359ae-eb9a-808b-9cca-d20483f06196" class="numbered-list" start="1" dir="auto"><li><strong>When</strong> I am comparing LLMs for a real use case, <strong>I want</strong> to run fair, controlled comparisons with the same prompts and parameters, <strong>so I can</strong> trust that differences come from the models, not the setup.</li></ol><ol type="1" id="303359ae-eb9a-80d9-8d4d-ff6aca03361a" class="numbered-list" start="2" dir="auto"><li><strong>When</strong> I evaluate outputs, <strong>I want</strong> to record quick judgments and short notes immediately, <strong>so I can</strong> capture my real impressions before memory fades.</li></ol><ol type="1" id="303359ae-eb9a-808b-9095-e4d00946bb74" class="numbered-list" start="3" dir="auto"><li><strong>When</strong> I need to justify a model choice, <strong>I want</strong> a clear decision trail with rationale and evidence, <strong>so I can</strong> defend my recommendation to stakeholders.</li></ol><ol type="1" id="303359ae-eb9a-8059-b422-d1d55fc3fe16" class="numbered-list" start="4" dir="auto"><li><strong>When</strong> my prompts, constraints, or candidate models change, <strong>I want</strong> to rerun and version evaluations, <strong>so I can</strong> track how performance evolves over time.</li></ol><ol type="1" id="303359ae-eb9a-80a9-9507-cba3194d7776" class="numbered-list" start="5" dir="auto"><li><strong>When</strong> I assess quality, <strong>I want</strong> lightweight qualitative rubrics (e.g., tone, clarity, safety, usefulness), <strong>so I can</strong> evaluate nuanced aspects that scores alone miss.</li></ol><ol type="1" id="303359ae-eb9a-808b-b801-e5beeb159640" class="numbered-list" start="6" dir="auto"><li><strong>When</strong> I share results, <strong>I want</strong> concise, defensible summaries and exportable reports, <strong>so I can</strong> communicate insights and decisions efficiently.</li></ol><ol type="1" id="303359ae-eb9a-80bc-b7d1-ffece717533d" class="numbered-list" start="7" dir="auto"><li><strong>When</strong> I evaluate models for a specific domain, <strong>I want</strong> the scenario, prompt, and constraints to be explicit, <strong>so I can</strong> ensure the evaluation reflects real context.</li></ol><ol type="1" id="303359ae-eb9a-8087-bbdb-cb808799083f" class="numbered-list" start="8" dir="auto"><li><strong>When</strong> I balance qualitative and quantitative signals, <strong>I want</strong> both views in one workflow, <strong>so I can</strong> avoid blind spots and make better-informed decisions.</li></ol><p id="303359ae-eb9a-80bd-96b6-da633c0bf1ae" class="" dir="auto">
+</p><h2 id="303359ae-eb9a-80fb-8cea-c65630945fc3" class="" dir="auto">Design opportunities (derived)</h2><ul id="303359ae-eb9a-802b-9d3d-d47505c70bb7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Embedded decision layer</strong>: capture judgment immediately after each output (before memory decays).</li></ul><ul id="303359ae-eb9a-8005-be6b-ebf0e577d1a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Fair comparison controls</strong>: shared config + visible setup + repeatable runs.</li></ul><ul id="303359ae-eb9a-80cd-9ed8-f2dbb67b9d79" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Synthesis/export</strong>: a short, defensible narrative summary (“why A over B”) with Markdown/JSON export.</li></ul><p id="305359ae-eb9a-8006-94ca-df36d21bb1c0" class="" dir="auto">
+</p><p id="305359ae-eb9a-807a-8f2f-c2af3417c63b" class="" dir="auto">
+</p><p id="305359ae-eb9a-8037-ba22-dee733d17158" class="" dir="auto">
+</p><p id="305359ae-eb9a-801d-9bbc-ddff47f23ca4" class="" dir="auto">
+</p><h2 id="305359ae-eb9a-80f5-936a-e952aabb7ec3" class="" dir="auto"></h2><p id="305359ae-eb9a-80ba-83ee-cf63c5d3570e" class="" dir="auto">
+</p><p id="305359ae-eb9a-80af-aab1-d4e02cd5c342" class="" dir="auto">
+</p><p id="305359ae-eb9a-8041-8df3-e3a188f1c909" class="" dir="auto">
+</p><p id="305359ae-eb9a-8038-9bb5-dee4c7b078ce" class="" dir="auto">
+</p><h2 id="305359ae-eb9a-80a1-a2ce-cb4fa69b4f6f" class="" dir="auto">Quick synthesis for quantitative LLM evaluation (based on social chatter + research)</h2><ul id="305359ae-eb9a-80dd-ab4f-ef1a385787cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Automated evaluation scales</strong> but does not replace human judgment; bias and model-specific blind spots require checks. (<a href="https://www.reddit.com/r/MachineLearning/comments/1h11lbt/d_how_valid_is_the_evaluation_using_llms/?utm_source=chatgpt.com">Reddit</a>)</li></ul><ul id="305359ae-eb9a-80b9-bbd5-fb71ddd39d5b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Surface features vs semantics</strong>: LLM evaluators tend to emphasize fluency and may miss deeper errors without calibration. (<a href="https://www.reddit.com/r/LanguageTechnology/comments/1nkcv6w/how_reliable_are_llms_as_evaluators/?utm_source=chatgpt.com">Reddit</a>)</li></ul><ul id="305359ae-eb9a-803a-884c-d7a29da8fcb8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Frameworks and benchmarks still matter</strong>: Even in informal evaluation, users point to structured metrics + benchmarks to assess performance consistently. (<a href="https://www.reddit.com/r/LLMDevs/comments/1khinx6/why_are_we_still_using_unoptimized_llm_evaluation/?utm_source=chatgpt.com">Reddit</a>)</li></ul><ul id="305359ae-eb9a-80aa-8505-d9d086e67726" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Calibration with humans</strong> is seen as a best practice to reduce drift and align scores to real quality criteria. (<a href="https://www.reddit.com/r/LangChain/comments/1d8euoz/learnings_from_doing_evaluations_for_llm_powered/?utm_source=chatgpt.com">Reddit</a>)</li></ul><hr id="305359ae-eb9a-805b-a0ba-ee7d30ea745a" dir="auto"/><p id="305359ae-eb9a-803c-874f-d51fd4415baf" class="" dir="auto">If you want, I can <strong>organize these into tweet-style bullet points</strong> with direct excerpts you could use in a deck or overview.</p><p id="305359ae-eb9a-80c5-9719-c8287b30ebb4" class="" dir="auto">
+</p><p id="305359ae-eb9a-803e-ae00-e4654e021cc5" class="" dir="auto">
+</p><p id="305359ae-eb9a-803f-b598-ee92403fc1e7" class="" dir="auto">
+</p><p id="305359ae-eb9a-80e9-baa8-cc3e3004d31d" class="" dir="auto">
+</p><hr id="305359ae-eb9a-80bb-be79-ffbb743b7346" dir="auto"/><hr id="305359ae-eb9a-809d-bf37-f694a4ebabfe" dir="auto"/><hr id="305359ae-eb9a-80fc-8e86-f57ec7088089" dir="auto"/><p id="305359ae-eb9a-8083-bcbd-d68df208a3af" class="" dir="auto">
+</p><p id="305359ae-eb9a-80a7-8471-d86f641c8edf" class="" dir="auto">
+</p><p id="305359ae-eb9a-8084-b9f9-fa8db1e26c34" class="" dir="auto">
+</p><h2 id="305359ae-eb9a-80c1-b836-d65bf1f4a425" class="" dir="auto"><strong>Design – LLM Compare</strong></h2><p id="305359ae-eb9a-8079-b3f7-e4218c7183d2" class="" dir="auto">The <code>LLM Compare</code> area in the <code>Design Challenge</code> file is a <strong>full user-flow strip</strong> that illustrates the typical lifecycle of a mobile LLM-comparison app: entering the product, configuring a comparison, choosing models, chatting and evaluating responses, and finally viewing consolidated results.</p><p id="305359ae-eb9a-807c-857b-d3692020f4d7" class="" dir="auto">The main states are laid out horizontally within the section:</p><ul id="305359ae-eb9a-80ab-8220-f8f46b50094d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Home / Get Started</strong> (<code>Home</code>)</li></ul><ul id="305359ae-eb9a-80bd-8e44-fcd8b68e2036" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>New Compare / Select Models</strong> (<code>Select Models</code> in multiple states)</li></ul><ul id="305359ae-eb9a-8087-8ed8-d7ea9e7d5b49" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Settings</strong> (configuration screens with variations)</li></ul><ul id="305359ae-eb9a-80cb-b77d-c85bd49be2f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Chat and Evaluate</strong> (several <code>Chat</code> screens)</li></ul><ul id="305359ae-eb9a-80c4-ac4b-c3ec526e3df8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>First turn completed / Starting a new turn</strong> (<code>Chat</code> screens with different states)</li></ul><ul id="305359ae-eb9a-8011-be1c-d08f041d84ae" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Results</strong> (<code>Results</code> screens and supporting containers)</li></ul><p id="305359ae-eb9a-8053-9916-e87fcb14b4ad" class="" dir="auto">Each screen card is a 390×~844/1850 <code>FRAME</code>, dark-themed, with rounded corners and shared components from the <code>Components/UI</code> page.</p><hr id="305359ae-eb9a-805b-adff-e0a6387ec3ca" dir="auto"/><h2 id="305359ae-eb9a-8016-8c46-f9c1493d7c0d" class="" dir="auto"><strong>Section structure – global view</strong></h2><ul id="305359ae-eb9a-8064-9976-cf1351647fc7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Section:</strong> <code>LLM Compare</code> (<code>SECTION 177:5807</code>)<ul id="305359ae-eb9a-8039-87d7-c6408eed4332" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>Flow titles (TEXT):</strong><ul id="305359ae-eb9a-8034-af82-dc2e7ee5ddd6" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Get Started</code> – flow introduction.</li></ul><ul id="305359ae-eb9a-8059-bf61-f9e964d7d39d" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>New Compare</code> – starting a new comparison configuration.</li></ul><ul id="305359ae-eb9a-8094-ad38-c512062352ac" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Select Models</code> – explains the model-selection step.</li></ul><ul id="305359ae-eb9a-8059-9e92-cb05d123b276" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Settings</code> – advanced configuration adjustments.</li></ul><ul id="305359ae-eb9a-809c-8271-c60c1cd1358b" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Chat and Evaluate</code> – describes the chat/evaluation phase.</li></ul><ul id="305359ae-eb9a-80fb-89d3-db8f2d4c6fa3" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>First turn completed</code> – state after the first interaction.</li></ul><ul id="305359ae-eb9a-8045-8370-c2766300b847" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Starting a new turn</code> – highlights the loop of new turns.</li></ul><ul id="305359ae-eb9a-806a-a092-e551bdc784e2" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Results</code> – introduces the consolidated summary.</li></ul></li></ul><ul id="305359ae-eb9a-80c3-a7a2-da5f4860b58c" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><strong>Screen cards (</strong><code><strong>FRAME</strong></code><strong>, width 390):</strong><ul id="305359ae-eb9a-8057-a9a3-f8482f886ff8" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Home</code></li></ul><ul id="305359ae-eb9a-8045-8fdc-c062a0f17144" class="bulleted-list" dir="auto"><li style="list-style-type:square">Multiple instances of <code>Select Models</code></li></ul><ul id="305359ae-eb9a-8017-bcad-eca219d1ef7e" class="bulleted-list" dir="auto"><li style="list-style-type:square">Multiple instances of <code>Settings</code></li></ul><ul id="305359ae-eb9a-8082-b29a-d359d87557c0" class="bulleted-list" dir="auto"><li style="list-style-type:square">Multiple instances of <code>Chat</code> (chat/eval/turn subflows)</li></ul><ul id="305359ae-eb9a-8050-84b4-dcf1bed38bd7" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>Results</code> (two main variants)</li></ul><ul id="305359ae-eb9a-80ea-8306-f4252fcc4baa" class="bulleted-list" dir="auto"><li style="list-style-type:square">Supporting containers (<code>Container</code>, <code>Comparison Details</code>)</li></ul></li></ul></li></ul><hr id="305359ae-eb9a-80d2-b526-e5b2bf52100e" dir="auto"/><h2 id="305359ae-eb9a-80d7-89e9-cb653a24add1" class="" dir="auto"><strong>Base components (UI library)</strong></h2><p id="305359ae-eb9a-8045-a92f-f2b6c4470d84" class="" dir="auto">On the <code>Components</code> → <code>UI</code> page you’ll find the reusable blocks used across almost all screens:</p><ul id="305359ae-eb9a-80af-a813-cdf6fa35653f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Structure and navigation</strong><ul id="305359ae-eb9a-80b6-b47f-f0c812c2840e" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Top-nav</code> (<code>COMPONENT 188:7088</code>): dark header 390×103, with:<ul id="305359ae-eb9a-809c-95af-facaef419224" class="bulleted-list" dir="auto"><li style="list-style-type:square"><code>StatusBar</code> 390×59 (iOS-like, optional / no visible fill).</li></ul><ul id="305359ae-eb9a-80c9-9473-c7f20a0aec64" class="bulleted-list" dir="auto"><li style="list-style-type:square">Title and actions area (back, close, etc.).</li></ul></li></ul><ul id="305359ae-eb9a-8032-8bf9-c537d48f0dc8" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Header</code> (<code>COMPONENT 93:5225</code>): internal header 388×40, slightly lighter background for sections.</li></ul><ul id="305359ae-eb9a-80e2-ae82-dd34cf3b742d" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>StatusBar</code> (<code>COMPONENT 261:88719</code>): status bar tied to <code>Top-nav</code>.</li></ul></li></ul><ul id="305359ae-eb9a-80e3-bf33-c0a2f6c875ac" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Input and chat</strong><ul id="305359ae-eb9a-8000-b113-d142338d58f3" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Input</code> (<code>COMPONENT_SET 168:44802</code>): input field variations (default, focused, entered, saved).</li></ul><ul id="305359ae-eb9a-8080-9afb-d19cc054334f" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Chat input</code> (<code>COMPONENT_SET 168:44841</code>): dedicated chat input (with keyboard, placeholder, etc.).</li></ul><ul id="305359ae-eb9a-80af-84d3-eefdefe5a5d0" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Keyboard</code> (<code>COMPONENT 91:4223</code>): virtual iOS-like keyboard.</li></ul></li></ul><ul id="305359ae-eb9a-8089-9baa-d2c626de7fb1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Content and evaluation</strong><ul id="305359ae-eb9a-8060-aca1-c52aff0e88ef" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Prompt</code> (<code>COMPONENT_SET 202:42907</code>): block that displays the user prompt.</li></ul><ul id="305359ae-eb9a-80d8-86d9-c2a8dee9c19d" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Outputs&gt;</code> (<code>COMPONENT_SET 202:42937</code>): container holding model outputs (A/B).</li></ul><ul id="305359ae-eb9a-80c6-a1ca-e0b143794e0c" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Response</code> (<code>COMPONENT_SET 204:44701</code>): individual model response.</li></ul><ul id="305359ae-eb9a-80e3-ac17-fe9ace3e6a28" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Rate</code> (<code>COMPONENT 93:5227</code>): rating bar (👍/👎, stars, etc.).</li></ul><ul id="305359ae-eb9a-8038-880f-fcf0d0028240" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Turns</code> (<code>COMPONENT 202:42722</code>): list of turns (Prompt, Output A, Eval A, Output B, Eval B).</li></ul><ul id="305359ae-eb9a-8014-831d-c5a27cad2589" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Output Views</code> (<code>COMPONENT_SET 212:47004</code>): output viewing modes (stacked, side‑by‑side, swipe).</li></ul><ul id="305359ae-eb9a-8083-abf1-e89e2aa76c1b" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Note</code> (<code>COMPONENT_SET 162:8221</code>): analysis note block.</li></ul><ul id="305359ae-eb9a-802d-a843-e7ed1e5a2371" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Comparison Details</code> (<code>COMPONENT_SET 451:8185</code>): comparison summary card (collapsed/expanded).</li></ul><ul id="305359ae-eb9a-8065-b515-e86324182327" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Chat confirmation</code> (<code>COMPONENT 389:15880</code>): chat confirmation modal/overlay.</li></ul></li></ul><ul id="305359ae-eb9a-80b2-90a7-e565090bcc31" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Actions / controls</strong><ul id="305359ae-eb9a-8058-92ca-db7bdc232983" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Icon button</code> (<code>COMPONENT_SET 93:3587</code>): icon buttons (e.g., send, back, close).</li></ul><ul id="305359ae-eb9a-8004-b7c6-f706da850f13" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Icons</code> (<code>COMPONENT_SET 93:3594</code> + <code>Icons/message</code>): core interface icons.</li></ul><ul id="305359ae-eb9a-80d5-92de-ce028722663e" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Action button</code> (<code>COMPONENT 389:12737</code>): large CTAs (e.g., “Send Message”, “Start new compare”).</li></ul><ul id="305359ae-eb9a-8080-9080-f132ef293db3" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Switch</code> (<code>COMPONENT_SET 349:32655</code>): on/off toggles for settings.</li></ul><ul id="305359ae-eb9a-807f-8a21-f2a190c44072" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Row</code> (<code>COMPONENT 349:32662</code>): settings row with label + control.</li></ul></li></ul><p id="305359ae-eb9a-804f-8932-d991d3700bd0" class="" dir="auto">These components ensure consistent layout, color, typography and interaction across all screens.</p><hr id="305359ae-eb9a-80cf-a8b9-f0f4c9450606" dir="auto"/><h2 id="305359ae-eb9a-80ce-9cf0-fd7224da2d9f" class="" dir="auto"><strong>Main screens and states</strong></h2><h3 id="305359ae-eb9a-800b-8a96-d3500d768d9c" class="" dir="auto"><strong>1. Home – </strong><code><strong>Home</strong></code><strong> (</strong><code><strong>FRAME 334:19884</strong></code><strong>)</strong></h3><p id="305359ae-eb9a-80d9-9b22-c1e08cc30b63" class="" dir="auto"><strong>Role:</strong> entry screen to the product, helping the user understand the app and start a comparison.</p><ul id="305359ae-eb9a-803c-9912-fb435b67b224" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Expected components:</strong><ul id="305359ae-eb9a-8082-a91b-fd5617066c09" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Top-nav</code> with a title (e.g., “LLMCompare” or “Home”).</li></ul><ul id="305359ae-eb9a-808e-afa2-cc9eb0207cc4" class="bulleted-list" dir="auto"><li style="list-style-type:circle">A hero block (<code>Hero</code> from the library) explaining product value.</li></ul><ul id="305359ae-eb9a-8021-9afe-c125d4efb0a8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">An <code>Action button</code> to start (<code>New Compare</code>).</li></ul><ul id="305359ae-eb9a-8084-a386-ffa35e775387" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Optional list/summary of recent comparisons (<code>Row</code> + <code>Switch</code>).</li></ul></li></ul><p id="305359ae-eb9a-80d0-8ad3-c46c3027fe49" class="" dir="auto"><strong>Key interactions:</strong></p><ul id="305359ae-eb9a-8025-a63a-cb49fd66cebd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Tap the <strong>primary button</strong> → navigates to <strong>New Compare / Select Models</strong>.</li></ul><ul id="305359ae-eb9a-80fc-8ab4-e7bc34f750e5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">There may be a shortcut to <strong>Settings</strong> via an icon in <code>Top-nav</code>.</li></ul><hr id="305359ae-eb9a-800f-95b0-d742fecbe301" dir="auto"/><h3 id="305359ae-eb9a-809d-8cc8-cfcbb7b4705d" class="" dir="auto"><strong>2. New Compare and Select Models</strong></h3><h3 id="305359ae-eb9a-80c1-8035-e1aa8ca0d021" class="" dir="auto"><strong>Flow titles</strong></h3><ul id="305359ae-eb9a-803a-ae02-d62db6b86dd5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>New Compare</code> (<code>TEXT 199:31736</code>): introduces the idea of starting a new experiment.</li></ul><ul id="305359ae-eb9a-806e-bdbe-fa4620e50b92" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Select Models</code> (<code>TEXT 198:31724</code>): explains the model A/B selection step.</li></ul><h3 id="305359ae-eb9a-80e4-85ef-e39fa65f5068" class="" dir="auto"><code><strong>Select Models</strong></code><strong> screens</strong></h3><p id="305359ae-eb9a-80a4-b50b-c04399079cc4" class="" dir="auto">There are multiple <code>Select Models</code> frames in slightly different states:</p><ul id="305359ae-eb9a-806d-a73b-cd20e57c245b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Select Models</code> (<code>FRAME 334:18515</code>)</li></ul><ul id="305359ae-eb9a-80c2-940c-c04936dc548b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Select Models</code> (<code>FRAME 373:13728</code>)</li></ul><ul id="305359ae-eb9a-80b5-8621-c463eb5a4e79" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Select Models</code> (<code>FRAME 334:14272</code>)</li></ul><ul id="305359ae-eb9a-80b6-a5b0-f305faf4541f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Select Models</code> (<code>FRAME 349:31073</code>)</li></ul><p id="305359ae-eb9a-8000-9258-f3c04f78f195" class="" dir="auto"><strong>Role:</strong> allow the user to pick two (or more) models to compare, plus presets or base configurations.</p><p id="305359ae-eb9a-8072-8ce5-f81f91378183" class="" dir="auto"><strong>Typical elements:</strong></p><ul id="305359ae-eb9a-80e4-8289-ef938c73e3bc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Top-nav</code> titled “Select Models”.</li></ul><ul id="305359ae-eb9a-8039-995a-e745befb310a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Input</code> fields (<code>Components/Input</code>) to choose:<ul id="305359ae-eb9a-80a2-b11d-dc9ed9581793" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Model A (dropdown or autocomplete).</li></ul><ul id="305359ae-eb9a-809c-a1b2-c43d35026d06" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Model B.</li></ul><ul id="305359ae-eb9a-8020-b85f-ed14ff9b1d4a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Optionally temperature, max tokens, etc.</li></ul></li></ul><ul id="305359ae-eb9a-8033-ba76-f8e50dea6c82" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A list of <code>Row</code> items to:<ul id="305359ae-eb9a-80af-8510-f47aa7cf6ec3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Select a “comparison template”.</li></ul><ul id="305359ae-eb9a-80e8-9f86-da9adbe2b9cf" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Toggle options via <code>Switch</code> (e.g., “blind comparison”, “log evidence”, etc.).</li></ul></li></ul><ul id="305359ae-eb9a-8053-adb1-e3364498e2d8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A trailing <code>Action button</code> (“Continue”, “Go to Settings”, or similar).</li></ul><p id="305359ae-eb9a-80b1-8f7a-d90550fbe08f" class="" dir="auto"><strong>Interactions:</strong></p><ul id="305359ae-eb9a-80b2-93bf-c5ba5015d66b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Changing values in <code>Input</code> and <code>Row</code> updates the comparison configuration.</li></ul><ul id="305359ae-eb9a-8029-a7e1-c85a037a8c1f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Tapping the primary CTA → navigates to <strong>Settings</strong> or directly to <strong>Chat and Evaluate</strong>, depending on screen variant.</li></ul><hr id="305359ae-eb9a-80ff-9e50-e3148569a41c" dir="auto"/><h3 id="305359ae-eb9a-80b1-8004-e4691e807880" class="" dir="auto"><strong>3. Settings</strong></h3><h3 id="305359ae-eb9a-80c1-a093-eed73554ac52" class="" dir="auto"><strong>Flow title</strong></h3><ul id="305359ae-eb9a-80e2-a91b-d79518514304" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Settings</code> (<code>TEXT 177:5808</code>): groups fine‑tuning screens for the comparison.</li></ul><h3 id="305359ae-eb9a-8089-a7ae-d806ac14f313" class="" dir="auto"><code><strong>Settings</strong></code><strong> screens</strong></h3><ul id="305359ae-eb9a-80c1-950c-d347030f4f2e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Settings</code> (<code>FRAME 349:31316</code>)</li></ul><ul id="305359ae-eb9a-806b-a8e3-e8d3ce162968" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Settings</code> (<code>FRAME 349:31316</code>, duplicated version)</li></ul><ul id="305359ae-eb9a-80cc-85e9-ff10bd6374a9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Settings</code> (<code>FRAME 389:13232</code>)</li></ul><p id="305359ae-eb9a-8043-b824-c0a0c871714a" class="" dir="auto"><strong>Role:</strong> configure more advanced comparison parameters, such as:</p><ul id="305359ae-eb9a-80c0-b6db-dd1ece109e59" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Number of turns.</li></ul><ul id="305359ae-eb9a-80e7-85b3-cb98c5fe0c79" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Evaluation criteria (tone, correctness, helpfulness, safety, etc.).</li></ul><ul id="305359ae-eb9a-802c-af06-d36c1ea61384" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Results format (stacked vs side‑by‑side vs swipe).</li></ul><ul id="305359ae-eb9a-8041-9b97-ce7398e4bb82" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Export options (report, JSON).</li></ul><p id="305359ae-eb9a-8078-9a08-e360df20414b" class="" dir="auto"><strong>Common components:</strong></p><ul id="305359ae-eb9a-808e-81af-f70e204879a7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Top-nav</code> titled “Settings”.</li></ul><ul id="305359ae-eb9a-8024-a0c7-c97da78ad1f0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Several <code>Row</code> + <code>Switch</code> toggles, e.g.:<ul id="305359ae-eb9a-801b-98c2-e2f6441bfcf6" class="bulleted-list" dir="auto"><li style="list-style-type:circle">“Show metric breakdown”</li></ul><ul id="305359ae-eb9a-80cb-bf4e-cb465eccdeea" class="bulleted-list" dir="auto"><li style="list-style-type:circle">“Blind model names”</li></ul><ul id="305359ae-eb9a-80cf-8b88-ea18ee0e4369" class="bulleted-list" dir="auto"><li style="list-style-type:circle">“Record notes”</li></ul></li></ul><ul id="305359ae-eb9a-80bf-9496-c43435072f01" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Additional <code>Input</code> fields (e.g., confidence thresholds).</li></ul><ul id="305359ae-eb9a-8019-aabe-dad2d652bfa4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Action button</code> CTA to confirm → “Start chat” / “Start comparison”.</li></ul><p id="305359ae-eb9a-808d-8274-d0f180d2d05c" class="" dir="auto"><strong>Interactions:</strong></p><ul id="305359ae-eb9a-808d-b458-ce36efa5dc58" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Toggling switches and adjusting values changes how the chat/eval flow and results will behave.</li></ul><ul id="305359ae-eb9a-80f0-9c12-f7119d3ddae3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Confirm CTA → takes the user to <strong>Chat and Evaluate</strong> (first chat screen).</li></ul><hr id="305359ae-eb9a-8033-863a-cad816135c31" dir="auto"/><h3 id="305359ae-eb9a-8099-b65d-d1c9cbb817cf" class="" dir="auto"><strong>4. Chat and Evaluate – chat flow</strong></h3><h3 id="305359ae-eb9a-80fa-8147-c0276565de5f" class="" dir="auto"><strong>Flow titles</strong></h3><ul id="305359ae-eb9a-8064-858c-fe8a8f3c39f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat and Evaluate</code> (<code>TEXT 381:12708</code> + <code>410:7138</code>).</li></ul><h3 id="305359ae-eb9a-8057-83a9-f121ee974620" class="" dir="auto"><code><strong>Chat</strong></code><strong> screens (initial states)</strong></h3><p id="305359ae-eb9a-8071-b9f5-de386f6eb648" class="" dir="auto">Examples:</p><ul id="305359ae-eb9a-80a3-92e5-df7b139fca4c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat</code> (<code>FRAME 212:45327</code>)</li></ul><ul id="305359ae-eb9a-8051-90c4-c25e65be5911" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat</code> (<code>FRAME 389:15368</code>)</li></ul><ul id="305359ae-eb9a-8052-8bfa-ef692c95c7a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat</code> (<code>FRAME 212:45339</code>)</li></ul><ul id="305359ae-eb9a-8025-bcd8-cce3bde5b87a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat</code> (<code>FRAME 412:7996</code>)</li></ul><ul id="305359ae-eb9a-802e-bd9f-d78ebcd8dde7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat</code> (<code>FRAME 201:33705</code>)</li></ul><p id="305359ae-eb9a-8048-9311-e95b84065560" class="" dir="auto"><strong>Role:</strong> allow the user to:</p><ul id="305359ae-eb9a-8037-a77f-db83e1b2cf7a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Send prompts.</li></ul><ul id="305359ae-eb9a-80f8-af97-f1a082896512" class="bulleted-list" dir="auto"><li style="list-style-type:disc">View outputs from models A and B.</li></ul><ul id="305359ae-eb9a-8070-b874-e7f1ed5c07d5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Evaluate outputs (👍/👎, notes, comments).</li></ul><ul id="305359ae-eb9a-80e0-98d7-d6766f354514" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Record evidence and notes for each turn.</li></ul><p id="305359ae-eb9a-80fa-ad3f-c6d609d5a447" class="" dir="auto"><strong>Structural pattern:</strong></p><ul id="305359ae-eb9a-80bb-8245-c9850c2258ae" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Top-nav</code> with:<ul id="305359ae-eb9a-805d-aba2-eb5b5a9d584b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">View name (e.g., “Chat”).</li></ul><ul id="305359ae-eb9a-808e-a493-cbbe2586aa94" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Actions like “End &amp; Summary”, “Re-run last turn”, “Copy outputs” (described in the <code>menu (minimal)</code> text block).</li></ul></li></ul><ul id="305359ae-eb9a-808e-aab1-fc87b999cccc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat</code> body including:<ul id="305359ae-eb9a-807d-8b37-f42785fc2fe2" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Prompt</code> (user text).</li></ul><ul id="305359ae-eb9a-8063-bbb9-e5cc75cb314d" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Outputs&gt;</code> containing multiple <code>Response</code> + <code>Rate</code> (one set per model).</li></ul><ul id="305359ae-eb9a-8002-9ede-c2a303d9be8f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Optional <code>Note</code> components for qualitative comments.</li></ul></li></ul><ul id="305359ae-eb9a-80e9-a0c1-e91dc54508d9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Footer:<ul id="305359ae-eb9a-80de-b978-c3bac1e7bfbb" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Chat input</code> (input field).</li></ul><ul id="305359ae-eb9a-8000-be9c-c02f88647d6d" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Keyboard</code> (sometimes visible, sometimes hidden).</li></ul></li></ul><p id="305359ae-eb9a-8056-85cf-f3303c87f735" class="" dir="auto"><strong>Typical interactions:</strong></p><ul id="305359ae-eb9a-8005-89c7-eadc21e73f2a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Send message:</strong><ul id="305359ae-eb9a-80e0-b885-f0e77c111678" class="bulleted-list" dir="auto"><li style="list-style-type:circle">User types into <code>Chat input</code> → taps button (<code>Icon button</code>/<code>Action button</code>) → new turn is created.</li></ul></li></ul><ul id="305359ae-eb9a-800c-8116-e314549a8336" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Evaluate outputs:</strong><ul id="305359ae-eb9a-80ee-8b40-d9bae2570684" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Tap <code>Rate</code> controls (buttons like “Good / Bad”, etc.).</li></ul><ul id="305359ae-eb9a-800c-9d64-f5ec37180288" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Open <code>Note</code> to document why A or B is better (e.g., higher correctness).</li></ul></li></ul><ul id="305359ae-eb9a-8032-98f4-ead592850b3b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Top-level actions:</strong><ul id="305359ae-eb9a-80e1-b7f8-d978f3226bde" class="bulleted-list" dir="auto"><li style="list-style-type:circle">“End &amp; Summary” → navigates to <strong>Results</strong> screen.</li></ul><ul id="305359ae-eb9a-8015-ad36-ebb5afabbf6b" class="bulleted-list" dir="auto"><li style="list-style-type:circle">“Re-run last turn” → conceptually re-runs the last prompt through the LLMs.</li></ul><ul id="305359ae-eb9a-80d1-8aca-c966c6f0dce4" class="bulleted-list" dir="auto"><li style="list-style-type:circle">“Copy outputs” → convenience action to copy model responses.</li></ul></li></ul><hr id="305359ae-eb9a-800e-b1e0-d1c24323eccc" dir="auto"/><h3 id="305359ae-eb9a-802e-9146-ffd1d842c2f0" class="" dir="auto"><strong>5. First turn completed / Starting a new turn</strong></h3><h3 id="305359ae-eb9a-8037-ae94-c2609b2c4358" class="" dir="auto"><strong>Flow titles</strong></h3><ul id="305359ae-eb9a-803e-8b87-c8de206de28e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>First turn completed</code> (<code>TEXT 410:7139</code>)</li></ul><ul id="305359ae-eb9a-8049-a248-f6d22ac464ff" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Starting a new turn</code> (<code>TEXT 412:9644</code>)</li></ul><h3 id="305359ae-eb9a-805a-b571-f5d5b0b83afe" class="" dir="auto"><strong>Associated </strong><code><strong>Chat</strong></code><strong> screens</strong></h3><ul id="305359ae-eb9a-805a-8552-ca1db4f96abc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Chat</code> (<code>FRAME 234:65798</code>, <code>234:69131</code>, <code>279:99027</code>, <code>279:99406</code>, <code>234:69963</code>, <code>234:70392</code>, <code>247:83301</code>, <code>279:96101</code>, <code>389:16226</code>, etc.) – these represent variations after one or more turns.</li></ul><p id="305359ae-eb9a-8087-bc90-ebc291198ecf" class="" dir="auto"><strong>Role:</strong> illustrate post‑turn chat states, showing:</p><ul id="305359ae-eb9a-80f1-a82f-efe50def1c40" class="bulleted-list" dir="auto"><li style="list-style-type:disc">History across multiple turns.</li></ul><ul id="305359ae-eb9a-807b-9bad-cbe5d263f05e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How ratings and notes accumulate over time.</li></ul><ul id="305359ae-eb9a-8050-bed4-c7de1232c737" class="bulleted-list" dir="auto"><li style="list-style-type:disc">How the layout behaves with long content (scroll).</li></ul><p id="305359ae-eb9a-80a6-b3e5-e420a5ea6363" class="" dir="auto"><strong>Additional elements:</strong></p><ul id="305359ae-eb9a-800c-85a2-d700d62cebee" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Older messages with already‑rated outputs.</li></ul><ul id="305359ae-eb9a-8079-896f-f44cfaddf648" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Partial summaries or hints prompting the user to open <strong>Results</strong>.</li></ul><ul id="305359ae-eb9a-80df-831d-e5dc26b52c7a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">States where <code>Turns</code> is hidden/collapsed vs. expanded.</li></ul><p id="305359ae-eb9a-8022-94b4-e64fd1d64b91" class="" dir="auto"><strong>Interactions:</strong></p><ul id="305359ae-eb9a-80d3-a5d7-f58cd2868172" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Long scrolling in the conversation feed.</li></ul><ul id="305359ae-eb9a-803e-88c1-ed2cde88c66c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">New prompts sent via the same <code>Chat input</code>.</li></ul><ul id="305359ae-eb9a-80cb-ba72-d677c8721829" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ability to go back to <strong>Settings</strong> or end the session via <code>Top-nav</code> actions.</li></ul><hr id="305359ae-eb9a-80dd-a5e2-e29f7f18bc54" dir="auto"/><h3 id="305359ae-eb9a-80d7-8307-dde33a756448" class="" dir="auto"><strong>6. Results – results view</strong></h3><h3 id="305359ae-eb9a-809d-8472-d41e0482e25a" class="" dir="auto"><strong>Flow title</strong></h3><ul id="305359ae-eb9a-8028-92cf-d310556c5589" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Results</code> (<code>TEXT 381:12710</code>)</li></ul><h3 id="305359ae-eb9a-80b4-b51c-ccb25c509d5c" class="" dir="auto"><strong>Main screens</strong></h3><ul id="305359ae-eb9a-8089-b20f-c624a0799731" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Results</code> (<code>FRAME 412:9645</code>)</li></ul><ul id="305359ae-eb9a-803b-8cd9-ec974dd8bedb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Results</code> (<code>FRAME 458:8001</code>)</li></ul><ul id="305359ae-eb9a-80d4-8798-ca6096fd0758" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Additional <code>Comparison Details</code> container (<code>FRAME 462:35709</code>)</li></ul><ul id="305359ae-eb9a-808e-92c6-f88da78581e7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Supporting containers (<code>FRAME 412:16618</code>, <code>412:16656</code>, <code>412:16681</code>)</li></ul><p id="305359ae-eb9a-80dc-9b13-c08f52b664c3" class="" dir="auto"><strong>Role:</strong> consolidate the entire comparison process into:</p><ul id="305359ae-eb9a-80e0-b160-d605d34f0252" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A <strong>qualitative winner</strong> (Model A vs Model B).</li></ul><ul id="305359ae-eb9a-80a0-b2c8-ed2dd60d6d06" class="bulleted-list" dir="auto"><li style="list-style-type:disc">An <strong>executive summary</strong>.</li></ul><ul id="305359ae-eb9a-80e4-bbf4-fc1337f20de3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">A <strong>per‑category breakdown</strong> (tone, correctness, helpfulness, safety, etc.).</li></ul><ul id="305359ae-eb9a-8031-a91d-e3b0bd2dacac" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Evidence per turn</strong> and <strong>notes per model</strong>.</li></ul><ul id="305359ae-eb9a-8017-9319-d317f7b99694" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Final export and restart actions.</li></ul><p id="305359ae-eb9a-8081-8a0f-ef526bf4e4a2" class="" dir="auto"><strong>Typical layout (for </strong><code><strong>Results</strong></code><strong> frames):</strong></p><ul id="305359ae-eb9a-8060-bb0e-eed6e40181fd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Standard <code>Top-nav</code> (with actions such as “Export”, “Start new run”, “Reveal models”).</li></ul><ul id="305359ae-eb9a-806f-b298-ed104b14b6a5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Comparison Details</code>:<ul id="305359ae-eb9a-80b4-b329-f6ff4a08028d" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><code>Collapsed</code> state (compact summary).</li></ul><ul id="305359ae-eb9a-8052-b20b-cfdd4aa1a26f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">In other frames in the file, a full version with:<ul id="305359ae-eb9a-80d4-a3b5-e657f8e686b8" class="bulleted-list" dir="auto"><li style="list-style-type:square">Overall winner.</li></ul><ul id="305359ae-eb9a-801f-a669-dd15f9d905fd" class="bulleted-list" dir="auto"><li style="list-style-type:square">Confidence.</li></ul><ul id="305359ae-eb9a-8089-9b65-e212bb45369f" class="bulleted-list" dir="auto"><li style="list-style-type:square">Executive summary.</li></ul><ul id="305359ae-eb9a-8049-b1dd-fc86556bf603" class="bulleted-list" dir="auto"><li style="list-style-type:square">Category breakdown (A vs B bars).</li></ul><ul id="305359ae-eb9a-80be-8e55-f499e29d4cc0" class="bulleted-list" dir="auto"><li style="list-style-type:square">Key evidence (bullet list by prompt).</li></ul><ul id="305359ae-eb9a-80d4-8257-dda43639bf99" class="bulleted-list" dir="auto"><li style="list-style-type:square">Per‑model notes.</li></ul></li></ul></li></ul><ul id="305359ae-eb9a-80b2-b3f3-d4f24df9a619" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Summary containers (<code>Container</code> frames) to:<ul id="305359ae-eb9a-80b9-b3e1-d39c1af77aaa" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Display evidence cards.</li></ul><ul id="305359ae-eb9a-8080-9952-f3ba31e901c0" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Show lists of relevant turns.</li></ul></li></ul><ul id="305359ae-eb9a-80b3-aea2-ccafada6bd32" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><code>Turns</code> area (sometimes hidden) to recall the history that supports the decision.</li></ul><ul id="305359ae-eb9a-80ca-aa65-d0a73cc86f34" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Bottom <code>Action button</code>:<ul id="305359ae-eb9a-8011-9fb0-ecf4f2f5e955" class="bulleted-list" dir="auto"><li style="list-style-type:circle">E.g., “Start new comparison”, “Reveal models (if blind)”.</li></ul></li></ul><p id="305359ae-eb9a-80b4-be97-cccdf9da8127" class="" dir="auto"><strong>Interactions:</strong></p><ul id="305359ae-eb9a-80ac-9a8c-eb4b7e47dc45" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Expand/collapse <code>Comparison Details</code>.</li></ul><ul id="305359ae-eb9a-8028-83f7-f44f7388a6c8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Tap evidence items (“Key evidence”) to open detailed views (in other related frames).</li></ul><ul id="305359ae-eb9a-803e-8317-dc0ad18b1dab" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Trigger export actions:<ul id="305359ae-eb9a-80d5-a34d-e088a6afa358" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Export as Markdown report.</li></ul><ul id="305359ae-eb9a-8027-ab3a-c8eccd1526dc" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Export structured JSON.</li></ul></li></ul><ul id="305359ae-eb9a-80af-a318-f2d6aacac2c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Start a new run → goes back to <strong>New Compare</strong> or <strong>Home</strong>.</li></ul><hr id="305359ae-eb9a-8033-a981-d45df67c4971" dir="auto"/><h2 id="305359ae-eb9a-80a1-b2fb-d9c70212adc4" class="" dir="auto"><strong>User flow (high level)</strong></h2><ol type="1" id="305359ae-eb9a-800b-995f-d0cb833301db" class="numbered-list" start="1" dir="auto"><li><strong>Home (</strong><code><strong>Home</strong></code><strong>)</strong><ul id="305359ae-eb9a-80d0-9f3e-f770b29596da" class="bulleted-list" dir="auto"><li style="list-style-type:disc">User understands the product and starts a new comparison via a CTA.</li></ul></li></ol><ol type="1" id="305359ae-eb9a-80f0-8a7b-f8bd279f2d01" class="numbered-list" start="2" dir="auto"><li><strong>Initial configuration (</strong><code><strong>New Compare</strong></code><strong> / </strong><code><strong>Select Models</strong></code><strong>)</strong><ul id="305359ae-eb9a-80bc-bd5f-c1b42f6f93a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Selects models A and B.</li></ul></li></ol><ol type="1" id="305359ae-eb9a-802d-b2bf-ce8a014e8b93" class="numbered-list" start="3" dir="auto"><li><strong>Advanced settings (</strong><code><strong>Settings</strong></code><strong>)</strong><ul id="305359ae-eb9a-8006-98f8-fb04bad6825c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Adjusts the comparison options.</li></ul></li></ol><ol type="1" id="305359ae-eb9a-8022-b431-ea130b7611ea" class="numbered-list" start="4" dir="auto"><li><strong>Chat + evaluation (</strong><code><strong>Chat and Evaluate</strong></code><strong>)</strong><ul id="305359ae-eb9a-8064-bc1c-fd33ca627347" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sends prompts.</li></ul><ul id="305359ae-eb9a-8043-9128-c92a5bd27123" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Receives responses from A and B.</li></ul><ul id="305359ae-eb9a-80b2-b5ed-f1e595db6ce0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Rates each answer (Rating + Notes).</li></ul><ul id="305359ae-eb9a-8089-a79d-d1da52ba1314" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Records evidence per turn.</li></ul></li></ol><ol type="1" id="305359ae-eb9a-8013-a219-cbe004540529" class="numbered-list" start="5" dir="auto"><li><strong>Post‑turn state (</strong><code><strong>First turn completed</strong></code><strong> / </strong><code><strong>Starting a new turn</strong></code><strong>)</strong><ul id="305359ae-eb9a-80d8-afa6-dd71378fa336" class="bulleted-list" dir="auto"><li style="list-style-type:disc">User sees how history and evaluations accumulate.</li></ul><ul id="305359ae-eb9a-80cf-98fa-d39fd55ee835" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Can keep chatting or go to results.</li></ul></li></ol><ol type="1" id="305359ae-eb9a-80ec-af7a-c804bcf7ff30" class="numbered-list" start="6" dir="auto"><li><strong>Results (</strong><code><strong>Results</strong></code><strong>)</strong><ul id="305359ae-eb9a-8077-84d8-d26c1f3cbe9c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Sees qualitative winner (A vs B) with confidence.</li></ul><ul id="305359ae-eb9a-8074-92c3-e25563268c69" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Reads executive summary and metric breakdown.</li></ul><ul id="305359ae-eb9a-80d7-bca4-f3cbbbc95135" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Accesses key evidence (per turn).</li></ul><ul id="305359ae-eb9a-80c7-b8e2-c61636166794" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Exports report / JSON.</li></ul><ul id="305359ae-eb9a-8039-a0b1-fa045dcf89bf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Starts a new run to repeat in another domain.</li></ul></li></ol><hr id="305359ae-eb9a-80f4-92f6-cd40adb77b20" dir="auto"/><h2 id="305359ae-eb9a-8071-bd05-e1e758cec803" class="" dir="auto"><strong>Common interactions and patterns</strong></h2><ul id="305359ae-eb9a-802d-b69b-e457b709cdd8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Top-nav on every screen:</strong><ul id="305359ae-eb9a-8084-a245-d6ac5b1d0f2d" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Maintains navigation consistency.</li></ul><ul id="305359ae-eb9a-808e-a8f5-dfa043df707a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Hosts primary actions (back, end, export).</li></ul></li></ul><ul id="305359ae-eb9a-8060-b555-ef669cfa1303" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Input &amp; Chat input:</strong><ul id="305359ae-eb9a-8047-81da-cc7883c1de99" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Same visual pattern across multiple screens.</li></ul><ul id="305359ae-eb9a-800d-8592-cc400fca6b06" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Integrates with <code>Keyboard</code> to simulate real mobile behavior.</li></ul></li></ul><ul id="305359ae-eb9a-80eb-bb9e-e7f03313e03e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Strong componentization:</strong><ul id="305359ae-eb9a-8058-bf1f-c415d66d1a08" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Components like <code>Prompt</code>, <code>Response</code>, <code>Outputs&gt;</code>, <code>Turns</code>, <code>Note</code>, <code>Comparison Details</code>, <code>Action button</code>, etc.</li></ul><ul id="305359ae-eb9a-8055-897b-d0b33df2d4a2" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Makes it easy to adjust global visual/UX behavior.</li></ul></li></ul><ul id="305359ae-eb9a-809c-851f-fc14e3531d8e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Visual feedback:</strong><ul id="305359ae-eb9a-8009-abdd-e3717138e7e0" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Cards with borders and subtle gray variations to separate types of information.</li></ul><ul id="305359ae-eb9a-80be-a480-e4aab7a24e76" class="bulleted-list" dir="auto"><li style="list-style-type:circle">All‑caps labels (PROMPT, MODEL A, MODEL B) to reinforce structural clarity.</li></ul></li></ul><hr id="305359ae-eb9a-8030-aaec-dbc7e587fbc6" dir="auto"/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

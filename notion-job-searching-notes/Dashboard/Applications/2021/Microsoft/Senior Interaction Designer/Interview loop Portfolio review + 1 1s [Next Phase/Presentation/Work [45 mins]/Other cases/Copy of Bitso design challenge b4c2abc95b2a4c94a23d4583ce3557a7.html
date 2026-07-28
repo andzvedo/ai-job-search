@@ -1,0 +1,781 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Copy of Bitso design challenge</title><meta name="data-notion-page-icon" content="🔮"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%94%AE%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="b4c2abc9-5b2a-4c94-a23d-4583ce3557a7" class="page sans" data-notion-page-icon="🔮"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🔮"></span></div><h1 class="page-title" dir="auto">Copy of Bitso design challenge</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="3efc63d6-c274-4004-b36e-8d73266c5da6" class="" dir="auto"><strong>Statement</strong></h1><blockquote id="3fab709b-913e-453a-8c74-ff4aab6fbf0e" class="" dir="auto">How to transform the way people interact with each other using video conferences?</blockquote><h1 id="5e498349-4426-496a-813d-7e86464b8ecb" class="" dir="auto">Proposal</h1><p id="897d5162-3b00-4da2-bb9f-8699ce36c65b" class="" dir="auto"><mark class="highlight-purple" data-notion-highlight="purple"><a href="https://www.figma.com/proto/ao7I8QyZxG7p3Yx4CtFxK5/Proposal?node-id=87%3A0&amp;viewport=86%2C274%2C0.05407954007387161&amp;scaling=min-zoom">Click here to access the prototype</a></mark></p><figure id="e4dc0dd2-3f12-4436-a120-8c19f33a0b6a" class="image" data-notion-image="../../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Join.png" dir="ltr"><a href="../../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Join.png"><img style="width:1440px" src="../../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Join.png"/></a></figure><h1 id="b25b4318-64a4-4687-a7cb-49ec0c621020" class="" dir="auto">Process</h1><h3 id="f38aee32-bd0c-4f3c-8010-456344dce3bd" class="" dir="auto">Following the Double Diamond</h3><p id="c7c88406-be8a-4756-8757-27c5318dea8c" class="" dir="auto">Following the Double Diamond and Human-Centered Design approach, where one of the most important aspects is always involved people in the Design Process.</p><figure id="d63e3d2b-08ef-43cd-b0e3-8692ae86e933" class="image" data-notion-image="../../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png" dir="ltr"><a href="../../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png"><img style="width:795px" src="../../../../../../Bitso/Design%20Challenge/Video%20chat%20webapp%20design%20exercise/Double_Diamond_Model_FINAL.png"/></a></figure><h1 id="abcef613-2bdc-444b-a648-a8a49cedf369" class="" dir="auto">Phases</h1><ul id="8e7ad384-e2c6-40ba-a0c6-4407c7b884b8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Problem Space [Discovery and Define] &gt; Research Phase</li></ul><ul id="e6cc4733-6845-48a2-b251-ac1f2eb4106b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Solution Space [Develop and Delivery] &gt; Design Phase</li></ul><h3 id="9157e4fa-1058-4276-a195-c192f7057ce7" class="" dir="auto">Principles</h3><ul id="b2e66ddb-f3fe-4726-a47b-8e120371739e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Put people at the center using the Human-Centered Design approach</li></ul><ul id="c594a9e1-0333-4b40-bc79-f9cdfc225222" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Collaborative and Iterative</li></ul><ul id="b1c3c9dd-9a08-4976-9d94-b02958fe3c2d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Holistic, User-friendly, Accessible, and Inclusive as possible.</li></ul><h1 id="4cb73776-4990-49b8-b148-4b268046d51c" class="" dir="auto">Scope</h1><figure id="27acf8da-f812-4361-a411-7adf9a1736b7" class="link-to-page"><a href="../../../../../../Bitso/Design%20Challenge/Challenge%20Video%20Conference%2027acf8daf8124361a4117adf9a1736b7.html" data-notion-page-id="27acf8da-f812-4361-a411-7adf9a1736b7" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6"><span class="icon" data-emoji="🎯"></span>Challenge: Video Conference</a></figure><h1 id="b2e4a0e2-5e89-4c9e-aa27-c1806c93f84a" class="" dir="auto">Research [Problem space]</h1><h2 id="f3b96d0b-77af-4ccb-8660-91397723a876" class="" dir="auto">Desk Research </h2><p id="585cdb4b-73ad-46a6-b3d4-16647e1310bf" class="" dir="auto">Collecting data from the internet to get knowledge around the scenario, and how people are feeling about it. </p><p id="b41a2f86-18d6-44ea-9ec8-5d2e124004b0" class="" dir="auto">
+</p><blockquote id="b0d2f3ca-f607-4aa7-959c-af7734f9a346" class="" dir="auto">The Zoom Fatigue</blockquote><h3 id="96635bcd-621f-4c0e-bf89-d05a92e033b7" class="" dir="auto">Reference Material</h3><p id="9e650723-23c9-4886-a2ef-e5f38bc9947d" class="" dir="auto"><a href="https://hbr.org/2020/04/how-to-combat-zoom-fatigue">How to Combat Zoom Fatigue</a></p><p id="1279bb0f-5436-4a71-9513-583a7dafb2f5" class="" dir="auto"><a href="https://www.bbc.com/worklife/article/20200421-why-zoom-video-chats-are-so-exhausting">BBC - The reason Zoom calls drain your energy</a></p><p id="0f9388b1-a61d-4bff-b4f3-1a06525c2d25" class="" dir="auto"><a href="https://news.stanford.edu/2021/02/23/four-causes-zoom-fatigue-solutions/">Stanford researchers identify four causes for ‘Zoom fatigue’ and their simple fixes</a></p><h3 id="1c18f57f-fdff-47d5-b1b6-1b68acd20c47" class="" dir="auto">Common problems</h3><ul id="d2ed194f-ef8b-4c98-b7c0-e5f2cc568daa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">More focus<ul id="0caa0379-4c3f-460d-96af-63b8fb43a365" class="bulleted-list" dir="auto"><li style="list-style-type:circle">We miss out on a lot of non-verbal communication</li></ul><ul id="ae0db162-2eca-4a3a-b842-0072aeb34baa" class="bulleted-list" dir="auto"><li style="list-style-type:circle">It&#x27;s needed more focus in order to absorb the information shared.</li></ul><ul id="b61d8db1-13e3-4fdf-955c-4d85986aa3f3" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Is very easy to lose attention, checking messages in slack or e-mail for example.</li></ul></li></ul><ul id="316de5c1-9772-459c-89d2-68f992e163ff" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Psychological effects<ul id="e8e46a9c-f846-44af-94c5-1e5a4793d67c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Looking at our own faces is stressful</li></ul><ul id="c520965e-499b-4e7a-a9e9-90e5b5dc36e6" class="bulleted-list" dir="auto"><li style="list-style-type:circle">We feel anxious about our remote workspace</li></ul><ul id="471fc6eb-4000-4394-aa0b-a8a76f4035df" class="bulleted-list" dir="auto"><li style="list-style-type:circle">External interruptions like family, pets, and background noise.</li></ul><ul id="bd7bb635-cebc-49d8-a2af-5b8f417543ea" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Awkward silence makes you anxious about the technology</li></ul></li></ul><ul id="e0f915ae-5c9d-4dad-8799-48ff46637a20" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Structural Problems<ul id="adae145d-aada-4b54-9ab7-cf16f6ccee73" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Computer problems</li></ul><ul id="bf75ee44-8664-4c1c-b0a3-e6e34a94d64e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Bad internet connection</li></ul><ul id="b4b8cfd4-cd2a-42a9-a82f-fa78b346071f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">Power outage</li></ul></li></ul><h3 id="87b17556-54a2-490f-837b-5d71b1326aac" class="" dir="auto">W<strong>hat experts are saying about people</strong></h3><ul id="127ff539-942a-4c3c-99f4-4c4dac3b45d8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">&quot;We are experiencing the same disruption of the familiar context during the pandemic.”</li></ul><ul id="76d2cd79-8ca1-4979-9b55-f73c463c5dea" class="bulleted-list" dir="auto"><li style="list-style-type:disc">&quot;Imagine if you go to a bar, and in the same bar you talk with your professors, meet your parents or date someone, isn’t it weird? That’s what we’re doing now – Gianpiero Petriglieri&quot;</li></ul><ul id="8176b1b1-c09e-4945-b520-f63ead2ab754" class="bulleted-list" dir="auto"><li style="list-style-type:disc">&quot;We are confined in our own space, in the context of a very anxiety-provoking crisis, and our only space for interaction is a computer window.”</li></ul><ul id="4bab71f5-6b1a-4d1d-b180-dc0aeeceaad7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">“In general, for most setups, if it’s a one-on-one conversation when you’re with coworkers or even strangers on video, you’re seeing their face at a size which simulates a personal space that you normally experience when you’re with somebody intimately,” say Bailenson.</li></ul><ul id="5471f997-1c56-409a-8cf3-f9cd6b9f16b5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Avoid multitasking.</li></ul><ul id="f9ebdb29-c1cd-4d25-a0d1-6ec7869ce391" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Limiting video calls to those that are necessary</li></ul><ul id="41cf03b9-4fee-4ec1-90ef-80db3307ae77" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Turning on the camera should be optional </li></ul><ul id="2ff1df64-37dc-4f88-a8b5-4b5e70b7b8d1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Having your screen off to the side.</li></ul><ul id="662fcbec-1143-4b70-8366-0c8eaf963e68" class="bulleted-list" dir="auto"><li style="list-style-type:disc">During long stretches of meetings, give yourself an “audio only” break.</li></ul><ul id="36433d1b-1478-44ed-93b7-a7348f756ba3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Users should use the “hide self-view” button</li></ul><ul id="4d5595c9-ef75-44b7-b3a6-8b37163929da" class="bulleted-list" dir="auto"><li style="list-style-type:disc">it’s worth considering if video chats are really the most efficient option.</li></ul><ul id="6a7b2cce-b95c-40b8-96fa-4dac1bdb7ad4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Shared files with clear notes can be a better option that avoids information overload</li></ul><ul id="20820411-2342-4904-9058-6cddb4fce212" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Build-in breaks</li></ul><ul id="8b437841-5afc-488d-b78e-8db912218d95" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Reduce onscreen stimuli</li></ul><h2 id="589b7779-d59f-4049-9788-661aad2279c6" class="" dir="auto">Competitive Analysis</h2><p id="51f1f21b-8949-45e1-aa7a-e36959792009" class="" dir="auto">Analyze and Map out two of the most common Video Conference softwares today - Zoom and Google Meet - to understand how they are presenting their solutions.</p><p id="0b952e7c-9fa4-48fa-878a-5722c3b2be15" class="" dir="auto">
+</p><figure id="e5b26687-0186-4335-a554-5ecc429c5844" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D0%253A1">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D0%253A1</a></div></figure><p id="b90a98a1-b42f-402d-8890-5942b51ec87c" class="" dir="auto">
+</p><div id="664cde43-87bb-4fcc-bdb5-603d39736a95" class="collection-content" dir="ltr"><h4 class="collection-title">Comparison matrix: Zoom X Google Meet</h4><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:20.950965824665676%"/><col style="width:39.37592867756315%"/><col style="width:39.673105497771175%"/></colgroup><thead><tr><th><span class="icon property-icon"><img src="https://app.notion.com/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Features</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Zoom</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Google Meet</th></tr></thead><tbody><tr id="71526b86-6c59-4444-b0af-6cfca42597d3"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Home%2071526b866c594444b0af6cfca42597d3.html" data-notion-page-id="71526b86-6c59-4444-b0af-6cfca42597d3" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Home</a></td><td class="cell-S=FI">- Join meeting or star a new one<br/>- Chat<br/>- Meeting calendar<br/>- Contacts</td><td class="cell-GkMS">Join meeting or star a new one</td></tr><tr id="575c2cb0-f4c8-4328-b438-3c72cf40de75"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Settings%20575c2cb0f4c84328b4383c72cf40de75.html" data-notion-page-id="575c2cb0-f4c8-4328-b438-3c72cf40de75" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Settings</a></td><td class="cell-S=FI">Zoom has a lot of settings options, and it&#x27;s possible to change the settings for basically everything on the system.</td><td class="cell-GkMS">Google Meet has just a few options to seetup the audio and video basically. </td></tr><tr id="d4f910df-4d4b-49f3-9543-f778c177eacf"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Camera%20d4f910df4d4b49f39543f778c177eacf.html" data-notion-page-id="d4f910df-4d4b-49f3-9543-f778c177eacf" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Camera</a></td><td class="cell-S=FI">- Keyboard shortcut turn on/off [When it&#x27;s off show Photo or First name letter]<br/>- Apply Filters<br/>- Change background<br/>- Video settings</td><td class="cell-GkMS">- Keyboard shortcut turn on/off [When it&#x27;s off show Photo or First name letter]<br/>- Apply Filters<br/>- Change background<br/>- Video settings</td></tr><tr id="2ebc55fe-1bb3-4072-af75-b7851c0e6677"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Microphone%202ebc55fe1bb34072af75b7851c0e6677.html" data-notion-page-id="2ebc55fe-1bb3-4072-af75-b7851c0e6677" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Microphone</a></td><td class="cell-S=FI">- Keyboard shortcut turn on/off with a easy way to temporarily turn on<br/>- Use the microphone icon as a visual clue when emitting audio<br/>- Audio settings</td><td class="cell-GkMS">- Keyboard shortcut turn on/off<br/>- Use an icon as a visual clue when emitting audio, and when camera is off shows a visual effect arround the photo<br/>- Audio settings</td></tr><tr id="5df02222-3eb6-4f26-985c-99cf1af599fe"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Participants%205df022223eb64f26985c99cf1af599fe.html" data-notion-page-id="5df02222-3eb6-4f26-985c-99cf1af599fe" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Participants</a></td><td class="cell-S=FI">- Up to 1000 participants<br/>- Possibility to control participants audio/video<br/>- Join a meeting downloading the app or using the web browser</td><td class="cell-GkMS">- Up to 250 participants<br/>- Join a meeting using the web browser</td></tr><tr id="549ce8f5-705b-40eb-b703-0a4eb0706e68"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Chat%20549ce8f5705b40ebb7030a4eb0706e68.html" data-notion-page-id="549ce8f5-705b-40eb-b703-0a4eb0706e68" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Chat</a></td><td class="cell-S=FI">Send messages/files using the chat</td><td class="cell-GkMS">Send messages using the chat</td></tr><tr id="f2f87c60-ce18-42ce-aee6-d30244867636"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Share%20Screen%20f2f87c60ce1842ceaee6d30244867636.html" data-notion-page-id="f2f87c60-ce18-42ce-aee6-d30244867636" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Share Screen</a></td><td class="cell-S=FI"></td><td class="cell-GkMS"></td></tr><tr id="095a0e95-45f7-463c-a862-4b572257878a"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Reactions%20095a0e9545f7463ca8624b572257878a.html" data-notion-page-id="095a0e95-45f7-463c-a862-4b572257878a" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Reactions</a></td><td class="cell-S=FI">Possibility to interact using reactions/emojis</td><td class="cell-GkMS">Doesn&#x27;t have</td></tr><tr id="8935e1fc-8400-41e6-b126-f72abd8480ee"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Subtitles%208935e1fc840041e6b126f72abd8480ee.html" data-notion-page-id="8935e1fc-8400-41e6-b126-f72abd8480ee" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Subtitles</a></td><td class="cell-S=FI">Doesn&#x27;t have</td><td class="cell-GkMS">Subtitles generated automatically</td></tr><tr id="40af0b7b-3504-4d57-9b8b-487a23dabe47"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/Other%20Options%2040af0b7b35044d579b8b487a23dabe47.html" data-notion-page-id="40af0b7b-3504-4d57-9b8b-487a23dabe47" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">Other Options</a></td><td class="cell-S=FI">Zoom has a lot of options to personalize the video conference experience. In my opinion what differentiates it from Google Meet are the security options, and the features to divide the participants in small groups.</td><td class="cell-GkMS">Google meets has just a few other options, like open a Jam board or change the background. Much less options then Zoom has.</td></tr><tr id="e8eff6db-86b4-4b8c-ace4-4aa9074ad91a"><td class="cell-title"><a href="Copy%20of%20Bitso%20design%20challenge/Comparison%20matrix%20Zoom%20X%20Google%20Meet/End%20call%20e8eff6db86b44b8cace44aa9074ad91a.html" data-notion-page-id="e8eff6db-86b4-4b8c-ace4-4aa9074ad91a" data-notion-space-id="7a86cf93-c70e-4601-ac5b-01bc367f2bd6">End call</a></td><td class="cell-S=FI">Show a confirmation message to end a call</td><td class="cell-GkMS">End the call immediately withou any confirmation </td></tr></tbody></table></div><br/><br/></div><h2 id="52ab21d3-dd7f-4526-941e-154bc6d7b052" class="" dir="auto">Main findings</h2><ul id="2ef4ff7b-560a-4d4e-b5ea-d2b90961fbcf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">People are using video conference solutions to get close to people, and not only used to work purposes.</li></ul><ul id="f112805b-75a2-4aeb-86b5-48119390447d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">People are tired of too many video calls.</li></ul><ul id="63f1f93b-06c2-47d6-b64b-7972ca719877" class="bulleted-list" dir="auto"><li style="list-style-type:disc">All the different social interactions are happening at the same place - A computer window.</li></ul><ul id="cdaf5e32-5421-4466-8789-c25809b69049" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The biggest focus on the face of participants causes stress and anxiety.</li></ul><ul id="024f7f49-70c0-45a8-9018-b8914850fda2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The proximity caused by the size of the faces on the screen is uncomfortable.</li></ul><ul id="a8586788-6773-44a7-b533-b1a3fdd725af" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Having controls of the camera, audio, and layout of other participants it&#x27;s very important.</li></ul><h2 id="9aaeae68-1839-4b62-b893-d78b1ff94a89" class="" dir="auto">Product Management</h2><p id="4117938a-b3e2-48a6-85aa-05be47ceb755" class="" dir="auto">Based on all the learnings from the Research, it&#x27;s time to take some action and start breaking them down into small (possible) solutions, transforming the abstract findings into something more tangible, allowing a share of understanding.  </p><h2 id="e9456f73-982e-4f76-999d-e6de293022f9" class="" dir="auto">Hypotheses</h2><ul id="61adfb15-6506-4fd7-848e-9077f7f4aac9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Focus less on the communication based on the people&#x27;s faces and audio, and provide better ways for people to communicate, to explore other types of interactions like the chat.</li></ul><ul id="c40937bf-7d3d-42f2-b904-8755732e49d0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Give more options for people to control and personalize the call, at your own pace and needs.</li></ul><h2 id="d0454a6a-e9f0-4570-8694-d6595bcd94ad" class="" dir="auto">User Profiles</h2><p id="83517231-39e2-4343-bda0-58592021a303" class="" dir="auto">It was mapped two user profiles for the scenarios of this problem, the Host and the Participants: <div class="indented"><h3 id="549197b7-a734-4e45-9863-51f77b3fc64d" class="" dir="auto">Host</h3><p id="5b0b9e8a-07e7-465c-a16a-ed5f6d9bb93b" class="" dir="auto">The host is the user that creates a meeting and invites participants to join.</p><h3 id="d47e6c9a-7746-4088-8b16-3c7df53886ac" class="" dir="auto">Participant</h3><p id="15c41f61-2320-441d-a2a3-65bf9ae6a427" class="" dir="auto">The participant is the user that accepts an invitation to participate at a meeting that a Host creates.</p></div></p><h2 id="74218be4-eece-4125-80ce-90ac162c3a69" class="" dir="auto">Pain Points and Users Stories</h2><p id="c816c8b5-76db-4aad-80c9-c2c9f4f23603" class="" dir="auto">Besides the basic needs for Video Conference software, was explored the needs based on the pain points from findings collected with the research, and translated into User Stories.</p><p id="49561e68-be9f-4e74-a6ad-8e36dc0d490c" class="" dir="auto">
+</p><ul id="34d0dc97-d866-425c-81a7-51500957b7d5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Pain Point: </strong>Control my Camera behavior in a meeting.<p id="887562f1-7de0-462e-8b91-6ef0e5d1befd" class="" dir="auto">As a <strong>Participant in a meeting</strong>,</p><p id="6d102a04-4edb-4537-b3ae-6d17178c89d4" class="" dir="auto">I want <strong>to have control of when I will see, or not, myself at the camera.</strong></p><p id="d38f8081-f8c5-4880-884b-4811f501212f" class="" dir="auto">So that <strong>I can understand that my camera is on without the need to see myself all the time.</strong></p><p id="0528728f-4dc9-481b-a247-c0e57465d07d" class="" dir="auto">
+</p></li></ul><ul id="41b2aa41-bc49-4b3d-bf27-41eead928414" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Pain Point: </strong>Control my Audio behavior in a meeting.<p id="f03ec2a9-70c6-42fa-9767-365df8831bd3" class="" dir="auto">As a <strong>Participant in a meeting</strong>,</p><p id="c2b7f462-3ec7-4986-be61-419dced1b046" class="" dir="auto">I want <strong>to have control when the others could hear me.</strong></p><p id="733b550e-22de-44ec-8a22-73cd45f964e2" class="" dir="auto">So that <strong>I can interact in a fast way with others.</strong></p></li></ul><p id="40febf61-30b6-4843-b934-9eafde89142b" class="" dir="auto">
+</p><ul id="aa1738f9-a3fa-476a-b203-8a7bafa78427" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Pain Point: </strong>Stay away from the embarrassment caused by cameras off, silence, or any other technical issues that could happen in a meeting.<p id="b3371f57-7409-4f9f-934b-2e8cd743bf41" class="" dir="auto">As a <strong>Host of a meeting</strong>,</p><p id="81a4afe5-41d6-4717-b781-f610c6b3b71c" class="" dir="auto">I want <strong>to understand that the other participants are following me (or my screen), and are hearing when I&#x27;m talking</strong>,</p><p id="52b6eddb-8d50-49af-b9dd-644c48ca0765" class="" dir="auto">So that <strong>I can feel that I&#x27;m not talking by myself</strong>.</p></li></ul><h1 id="8137e619-7aed-451f-9bdc-49f7abc37c20" class="" dir="auto">Design [Solution space]</h1><h2 id="d0629b4d-c5a0-469f-8c36-6d161d5d345c" class="" dir="auto">Ideation</h2><p id="2674465d-c265-4d58-80ee-b7e9f6c87fe6" class="" dir="auto">To start the Design phase was done sketches to explore the ideas and hypotheses, and to help me visualize what possible could work, and what could not, to have a better idea in what makes sense invest more time and effort, what it&#x27;s seen to be not worthy and what has potential.</p><ul id="b6b4b0ea-8449-4942-bfa9-05733a0fbb4c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">It was decided to explore other types of interactions and communication besides Audio and Video, like messages and emojis/reactions. </li></ul><ul id="19f7654c-d2f8-4cc4-9449-01186950a95a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">The Chat could be an interesting way to help the participants express ideas to others. </li></ul><ul id="38d53c40-b9dd-4127-9fae-d424946157f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Provide keyboard shortcuts to help the user modify and customize the call in a fast way.</li></ul><ul id="dad0322d-1a04-48cc-8b9a-103794b691cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Another idea was to explore the layout of the room in a way the user could change the screen sizes just by pushing around the areas, to get a smaller video screen or even a bigger one.</li></ul><p id="d8138dcd-ab15-443f-a7ef-006b3dc9bbb8" class="" dir="auto">
+</p><details id="792ef53a-2940-4bfe-a026-eec06c38b401" open="" class="toggle" dir="auto"><summary>Image</summary><div class="indented"><figure id="9697d02b-4cc0-428d-8ac9-2104e3e5bbe0" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D53%253A0">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D53%253A0</a></div></figure></div></details><h2 id="70c12272-d335-4d45-b383-d515e4dbc0f2" class="" dir="auto">User Flows and Wireflows</h2><p id="057acee7-2c55-44b3-9b25-0356fcdb5f61" class="" dir="auto">User Flows was a step ahead of the User Stories, to materialize the needs into possible solutions for the Video app. Was mapped out 4 main scenarios, where 2 are for Hosts and the others 2 are for Participants. </p><p id="9cbef351-6b83-4e78-8296-3f235c2bbe83" class="" dir="auto">
+</p><p id="68ce8a7b-2a4c-47dd-aca6-1364b7aabb7b" class="" dir="auto">With these scenarios was possible to break down the interactions into actionable steps, and visualize what could be the main task for the user to do in each step.</p><p id="73ba3fa4-b653-4a08-9946-31850d1aa933" class="" dir="auto">
+</p><details id="fbd46054-35db-4e01-bff7-12dd4bc2fe26" open="" class="toggle" dir="auto"><summary>Image</summary><div class="indented"><figure id="b26dba8e-07e0-4158-a575-773e0a5ebcc7" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D170%253A14316">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D170%253A14316</a></div></figure></div></details><details id="8f31d7d0-b5e7-4394-91b8-e7b1c88c128b" open="" class="toggle" dir="auto"><summary><strong>Creating a meeting room</strong></summary><div class="indented"><p id="2f4922e6-5334-4b2a-8990-464426f8c8df" class="" dir="auto"><strong>Host</strong></p><p id="71ef7c22-b058-484b-90dd-febf7bbb6d92" class="" dir="auto">
+</p><p id="131ac61e-60b1-4064-81be-4739642d64e4" class="" dir="auto">Create a new meeting</p><p id="771f2b1d-06c3-4fac-959e-d35271ec99ea" class="" dir="auto">&gt;</p><p id="7c1dc0dd-93d4-487a-9323-7356d49e180d" class="" dir="auto">Set up the room layout, choosing the one that suits better the meeting purpose. </p><p id="da6fe06a-74b3-41f7-bee4-a25d0cc14fbe" class="" dir="auto">[Workshop/ 1:1/Just audio/Party]</p><p id="606e4165-5d4a-4e5c-ad45-f22c8d1ea64c" class="" dir="auto">&gt;</p><p id="33380cc3-40bf-434f-9ae7-a7b5cad0e37e" class="" dir="auto">Invite participants </p><p id="6a0dcc17-8f2c-427f-92d1-320f9bfacd49" class="" dir="auto">&gt;</p><p id="e4fd29b7-02ba-438e-9afa-99908aa0bdc9" class="" dir="auto">Star the meeting</p></div></details><details id="c2f6406a-19af-48ce-aaaf-a8b4a16a7e65" open="" class="toggle" dir="auto"><summary><strong>Start a meeting</strong></summary><div class="indented"><p id="d757eefd-e2f3-4239-b830-1c9e0d0852c1" class="" dir="auto"><strong>Host</strong></p><p id="991b4f24-5b2e-44d5-ba75-c94f5e5f6f33" class="" dir="auto">
+</p><p id="abc2069c-d23b-4fb6-898b-a400080f38b3" class="" dir="auto">Start a meeting from schedule or just create a new one</p><p id="449d71e9-795a-499e-b602-9337482c35b3" class="" dir="auto">&gt;</p><p id="67aacd09-de92-4942-a224-fc1193ae7022" class="" dir="auto">Enter at the room</p><p id="19915077-c07e-477c-94ce-4caafe7fa52a" class="" dir="auto">&gt;</p><p id="60418b50-4e52-45e3-9c4a-eda1e75c8ea3" class="" dir="auto">Visualize the room layout and change what needed</p><p id="ee1db549-72fe-41d8-876b-070225086385" class="" dir="auto">&gt;</p><p id="eede751d-b40f-4b25-ba1a-5e90952d6c10" class="" dir="auto">Change your setup</p><p id="bbd1e612-1f9d-41f1-9edc-1c0af5d7b0f3" class="" dir="auto">&gt;</p><p id="62902c14-f7ca-4aa9-9b69-130ceef7a112" class="" dir="auto">Onboarding participants</p></div></details><details id="232f06b9-0205-4444-8fd8-0ef5170c8f2e" open="" class="toggle" dir="auto"><summary><strong>Join a meeting</strong></summary><div class="indented"><p id="1ba3b633-4997-4d32-b6b7-a18d5d95e7ef" class="" dir="auto"><strong>Participant</strong></p><p id="f3ebaec1-5c56-4f16-b53a-dbcd0bb2f71c" class="" dir="auto">
+</p><p id="0e865c11-cb05-4e23-883d-8d77f09c3f35" class="" dir="auto">Access a link for a meeting</p><p id="7d81d64c-6671-4ae9-ac95-0dc9847bd5fc" class="" dir="auto">&gt;</p><p id="60c707e0-b436-43d6-924d-ef5992227724" class="" dir="auto">Configure your setup before join the room</p><p id="390d312b-d486-4d6a-bf7d-c552806ee365" class="" dir="auto">&gt;</p><p id="7c7760d6-2bfd-4c1a-a2ff-958348f673f1" class="" dir="auto">Change the room layout the way you want after joining</p><p id="5d7972ae-2cd2-4823-bb73-4e40d917851a" class="" dir="auto">&gt;</p><p id="9423da1e-efba-4eff-bbd1-631af28d1b67" class="" dir="auto">Leave the call</p></div></details><details id="8acae34c-7d1d-4e31-beec-2d12c42ca4bc" open="" class="toggle" dir="auto"><summary><strong>Interact in a meeting</strong></summary><div class="indented"><p id="8729c533-ee4a-4da0-b6ea-24c0e744a965" class="" dir="auto"><strong>Participant</strong></p><p id="3574d977-b9f6-4125-850e-de5f9b2b0066" class="" dir="auto">
+</p><p id="21f0a186-5bb9-46ff-9060-1cadf267990f" class="" dir="auto">Turn off your camera and audio [Inside a meeting room]</p><p id="595827bd-5285-4fc2-8299-b90edac1ba66" class="" dir="auto">&gt;</p><p id="b9901105-b7f5-4162-9474-13aac4da8664" class="" dir="auto">Type a message to express your thoughts</p><p id="3c4c7446-0c42-4751-a499-a0bd6ced6eaa" class="" dir="auto">&gt;</p><p id="dc91ba34-97df-4c7a-a3ca-353f2a9aec6c" class="" dir="auto">Use emojis to react to a very interesting comment from the speaker</p></div></details><h2 id="49968e9f-ba6f-4c50-bf9a-e14ab4122093" class="" dir="auto">Prototype</h2><p id="f70cbec3-5b9f-4b30-b504-a11fcdbd5e23" class="" dir="auto">It was created the prototype just for the Participant user profile [because of the restricted time], which was thought about the visuals and the interactions for a possible solution of how to transform the way people interact with each other using video conference.</p><p id="5eadcfc2-f029-4cfa-b346-b49ea2295a22" class="" dir="auto">
+</p><p id="fda42194-3a7d-426e-96c9-a1499a7ea386" class="" dir="auto"><strong>Scenarios of the Prototype [Create in Figma the scenarios]</strong></p><ul id="39f9b2d0-1b83-4193-8d28-c67be7abe63e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Join a meeting</li></ul><ul id="bf18b99f-65fc-45f1-9ae7-ab796aa6669c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Customize the Room</li></ul><ul id="ce5ea3ec-5925-4f72-a1e4-9e15d88e115e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Using shortcuts to turn on/off camera/ mic, and interact using reactions</li></ul><ul id="fa6da54a-25b6-4cfc-bced-b39b16615c87" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Using the Chat</li></ul><ul id="1733dade-9666-409d-8168-22f0503a8a74" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Leave a call</li></ul><details id="4de392e7-bf2b-41d3-ab2f-d20b8a255aa3" open="" class="toggle" dir="auto"><summary>Image</summary><div class="indented"><figure id="e80e1091-3911-40a8-aae5-fd466892aeb2" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D87%253A0">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D87%253A0</a></div></figure></div></details><h2 id="892292df-a7f5-4b02-a0e4-d7ff3386dfc5" class="" dir="auto">UI components structure</h2><p id="3dc4df34-5684-452c-a6ac-fb96e7617d76" class="" dir="auto">It was created a basic component structure and a style guide to help the prototype creation, to gain in speed and consistency.</p><details id="e5ddef72-b296-45b5-baa8-2748bf380ea1" open="" class="toggle" dir="auto"><summary>Image</summary><div class="indented"><figure id="f1e566bd-be16-45a8-aad3-ebfee232b4bf" dir="ltr"><div class="source"><a href="https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D170%253A14368">https://www.figma.com/embed?embed_host=notion&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fao7I8QyZxG7p3Yx4CtFxK5%2F%3Fnode-id%3D170%253A14368</a></div></figure></div></details><h2 id="5e74857a-2b97-48d9-9acc-7261fbf674a4" class="" dir="auto">Next steps</h2><p id="0393dc70-4497-4d13-a491-911ff4244ed9" class="" dir="auto">Test the proposal running a usability test with real people, with the attempt to validate [or invalidate] the initial hypothesis, and understand how could be improved.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

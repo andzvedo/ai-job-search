@@ -1,0 +1,172 @@
+# OpenCode Setup Guide
+
+This document explains how to use the AI Job Search framework with [OpenCode](https://opencode.ai).
+
+## 1. Prerequisites
+
+- **Python 3.10+** — for the salary lookup tool
+- **Bun** — for job search CLI tools. Install via `curl -fsSL https://bun.sh/install | bash`
+- **LaTeX distribution** with `lualatex` and `xelatex`:
+  - macOS (recommended): `brew install basictex` (minimal, ~100MB) or `brew install --cask mactex` (full, ~4GB)
+  - After installing BasicTeX, install the extra packages: `sudo tlmgr update --self && sudo tlmgr install moderncv fontawesome5 fontspec lato raleway needspace`
+  - Linux: `apt install texlive-full` or equivalent
+- **pdftotext** (optional, for ATS verification):
+  - macOS: `brew install poppler`
+  - Linux: `apt install poppler-utils`
+- **OpenCode** — `brew install anomalyco/tap/opencode` or `npm install -g opencode-ai`
+
+## 2. Installation
+
+```bash
+# Clone the repository
+gh repo fork MadsLorentzen/ai-job-search --clone
+cd ai-job-search
+
+# Install scraper dependencies
+for tool in jobbank-search jobdanmark-search jobindex-search jobnet-search linkedin-search freehire-search; do
+  (cd .agents/skills/$tool/cli && bun install)
+done
+```
+
+## 3. Starting OpenCode
+
+```bash
+# Navigate to the project root and start OpenCode
+cd ai-job-search
+opencode
+```
+
+OpenCode will auto-discover the commands defined in `.opencode/commands/`. Type `/` to see available commands.
+
+## 4. First-Time Setup
+
+Run the setup command:
+
+```
+/setup
+```
+
+This will walk you through building your professional profile. You can choose:
+
+- **Path A — Documents folder:** Drop your CV/LinkedIn/diplomas/references in `documents/` first, then run `/setup`.
+- **Path B — CV import:** Paste a CV directly.
+- **Path C — Interview mode:** Answer structured questions.
+
+All profile data lives in `.claude/skills/job-application-assistant/` and `CLAUDE.md`.
+
+## 5. Searching for Jobs
+
+```
+/scrape
+```
+
+This searches installed job portals using CLI tools in `.agents/skills/`. Results are deduplicated and presented with a quick fit assessment.
+
+Use focus areas: `/scrape data science` or `/scrape broad` for all categories.
+
+For many results, use `/rank` to batch-score into a shortlist.
+
+## 6. Applying to a Job
+
+```
+/apply https://example.com/job-posting
+```
+
+Or paste a job description directly:
+
+```
+/apply [paste job description here]
+```
+
+The workflow runs:
+
+1. **Evaluate fit** against your profile
+2. **Draft** tailored CV and cover letter
+3. **Review** with a subagent (the reviewer agent in `.opencode/agents/reviewer.md`)
+4. **Revise** based on feedback
+5. **Compile** PDFs with LaTeX
+6. **Verify** with `pdftotext` (ATS check)
+
+## 7. Subagents
+
+OpenCode uses subagents for:
+
+| Subagent | Used by | File |
+|----------|---------|------|
+| `reviewer` | `/apply` Step 3 | `.opencode/agents/reviewer.md` |
+| `scoring-agent` | `/rank` Step 2 | `.opencode/agents/scoring-agent.md` |
+| `general` (built-in) | Ad-hoc parallel work | — |
+
+When a command says "use the Agent tool to spawn a general-purpose agent", OpenCode translates this to the **Task tool** with `subagent_type: "general"`.
+
+## 8. Changing the Model
+
+Edit `opencode.json`:
+
+```json
+{
+  "model": "anthropic/claude-sonnet-4-5"
+}
+```
+
+Or use environment variables:
+
+```bash
+export OPENCODE_MODEL=anthropic/claude-sonnet-4-5
+```
+
+Run `opencode models` to see available models.
+
+## 9. Troubleshooting
+
+### Commands not showing up
+Ensure `.opencode/commands/` symlinks are valid:
+```bash
+ls -la .opencode/commands/
+```
+If broken, recreate them:
+```bash
+for file in .claude/commands/*.md; do
+  ln -sf "../../$file" ".opencode/commands/$(basename "$file")"
+done
+```
+
+### LaTeX compilation fails
+Make sure `lualatex` and `xelatex` are installed:
+```bash
+which lualatex xelatex
+```
+On macOS with BasicTeX, install needed packages:
+```bash
+sudo tlmgr update --self
+sudo tlmgr install moderncv fontawesome5 fontspec lato raleway needspace
+```
+
+### pdftotext not found
+Install poppler:
+```bash
+brew install poppler
+```
+If unavailable, the ATS check degrades gracefully to visual keyword review.
+
+### Bun not found
+Install from https://bun.sh:
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+### Scrapers return no results
+Run a health check to diagnose:
+```
+/scrape health
+```
+If a scraper CLI is broken, disable it in its `SKILL.md` frontmatter (`enabled: false`).
+
+## 10. Claude Code Dependencies
+
+This project was originally built for Claude Code. The following still reference Claude Code conventions:
+
+- **Command files** (`.claude/commands/*.md`) — these use Claude Code tool names in their instructions. The model maps them to OpenCode equivalents (see `AGENTS.md` for the mapping table).
+- **Skill files** (`.claude/skills/*/SKILL.md`) — these define `allowed-tools` in Claude Code format, which OpenCode ignores in favor of `opencode.json` permissions.
+- **HTML report footer** says "Generated by Claude Code" — cosmetic only, runs in a browser.
+- **Settings** (`.claude/settings.json`) — not used by OpenCode. Permissions are in `opencode.json`.
