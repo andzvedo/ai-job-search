@@ -69,3 +69,11 @@ Commands in `.opencode/commands/` are symlinks to `.claude/commands/`. OpenCode 
 
 - `notion-job-searching-notes/` is a Notion export archive of past applications, cover letters, and experience writeups (reference only; canonical profile lives in CLAUDE.md and `.claude/skills/job-application-assistant/`)
 - Source onboarding documents (CV PT/EN, LinkedIn PDF) live under `documents/`
+
+## Cursor Cloud specific instructions
+
+This repo has no dev server. Cloud Agents get Poppler, Bun, and TinyTeX from the environment install (nothing to start on boot). `lualatex`, `xelatex`, and `tlmgr` resolve from `/usr/local/bin` (TinyTeX tree: `~/.TinyTeX`; the installer also links engines into `~/bin`). Bun is `/usr/local/bin/bun`.
+
+- CV: `cd cv && lualatex -interaction=nonstopmode -halt-on-error main_example.tex` (2 pages). Cover letter: `cd cover_letters && xelatex -interaction=nonstopmode -halt-on-error cover_example.tex` (1 page). Then `python3 tools/verify_pdf.py` on both PDFs.
+- Python: `python3 tools/lint_skills.py`, `python3 tools/security_guards.py`, and `python3 -m unittest discover -s tests -t . -v`.
+- Each portal CLI under `.agents/skills/*/cli` uses `bun install`, `bun run typecheck`, and `bun test`. Do not send live LinkedIn requests from automation. A public smoke search is `bun run .agents/skills/freehire-search/cli/src/cli.ts search -q "product designer" --remote remote --limit 5 --format table`.
