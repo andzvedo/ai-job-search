@@ -94,6 +94,9 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - `.claude/skills/` - AI skill definitions for the application workflow
 - `.agents/skills/` - Job search CLI tools
 - `notion-job-searching-notes/` - Source archive of past applications, cover letters, and experience writeups (reference only; canonical profile lives in skill files)
+- `docs/hiring-manager-integration.md` - How this repo pairs with Grok Bot Hiring Manager / Essays Notion / Job Search / Gmail
+- `job_search_tracker.example.csv` - Seed for local `job_search_tracker.csv` (`/outcome`, `/html-report`)
+- `salary_data.example.json` - Seed for gitignored `salary_data.json` (HM salary research)
 
 ## Workflow for New Job Applications
 1. User provides a job posting (URL or text)

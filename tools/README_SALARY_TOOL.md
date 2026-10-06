@@ -63,6 +63,15 @@ The tool expects `salary_data.json` with this structure:
 
 Create the file by hand with data from any source: union statistics, Glassdoor, salary surveys, networking, or personal research.
 
+**André / HM research dumps:** copy the committed seed, then edit:
+
+```bash
+cp salary_data.example.json salary_data.json
+python3 salary_lookup.py --validate
+```
+
+See `docs/salary-research-2026-10.md` for Blacksmith / Bolder / Stellar bands and decided pretensões.
+
 ### Option B: Convert from Excel
 
 If you have salary data in an Excel file:
