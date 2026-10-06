@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "source": "HM / agent salary research dumps 2026-10-06 + André decided pretensões",
+    "index_baseline": 0,
+    "index_label": "USD (ask or band midpoint)",
+    "baseline_description": "Absolute USD figures from researched comps or André-decided pretensão. Hourly values are contractor rates; annual values are full-time / annualized contractor asks. Not verified employer offers."
+  },
+  "companies": [
+    {
+      "company": "Blacksmith Agency",
+      "city": "Remote LatAm",
+      "categories": {
+        "ask_hourly_usd": { "index": 35 },
+        "band_low_hourly_usd": { "index": 30 },
+        "band_high_hourly_usd": { "index": 40 },
+        "band_low_annual_usd": { "index": 60000 },
+        "band_high_annual_usd": { "index": 75000 }
+      }
+    },
+    {
+      "company": "Bolder Apps",
+      "city": "Remote LatAm",
+      "categories": {
+        "band_low_hourly_usd": { "index": 40 },
+        "band_mid_hourly_usd": { "index": 50 },
+        "band_high_hourly_usd": { "index": 60 }
+      }
+    },
+    {
+      "company": "Stellar Tech",
+      "city": "Remote",
+      "categories": {
+        "band_low_annual_usd": { "index": 48000 },
+        "band_high_annual_usd": { "index": 84000 },
+        "sweet_spot_low_annual_usd": { "index": 55000 },
+        "sweet_spot_high_annual_usd": { "index": 70000 }
+      }
+    },
+    {
+      "company": "SmartyMe",
+      "city": "Remote",
+      "categories": {
+        "band_low_annual_usd": { "index": 48000 },
+        "band_high_annual_usd": { "index": 84000 }
+      }
+    },
+    {
+      "company": "doola",
+      "city": "Remote",
+      "categories": {
+        "decided_ask_low_annual_usd": { "index": 50000 },
+        "decided_ask_high_annual_usd": { "index": 65000 }
+      }
+    },
+    {
+      "company": "Infinity Labrynth",
+      "city": "Remote",
+      "categories": {
+        "decided_ask_low_annual_usd": { "index": 60000 },
+        "decided_ask_high_annual_usd": { "index": 80000 }
+      }
+    },
+    {
+      "company": "Mavila Consulting",
+      "city": "Remote",
+      "categories": {
+        "decided_ask_hourly_usd": { "index": 75 }
+      }
+    },
+    {
+      "company": "YO AI Labs",
+      "city": "Remote",
+      "categories": {
+        "decided_ask_hourly_usd": { "index": 110 }
+      }
+    },
+    {
+      "company": "micro1",
+      "city": "Remote",
+      "categories": {
+        "decided_ask_hourly_usd": { "index": 110 }
+      }
+    },
+    {
+      "company": "Donorbox",
+      "city": "Remote",
+      "categories": {
+        "decided_ask_annual_usd": { "index": 75000 }
+      }
+    }
+  ]
+}
